@@ -1,5 +1,7 @@
 # HypnosisStudioAlenApp
 
+#### **Check out Server Side Application: [hsalen-api](https://github.com/danilojezernik/hsalen-api) (Python, Flask, PyMongo).**
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
 ## Development server

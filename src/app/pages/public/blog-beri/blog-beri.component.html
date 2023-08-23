@@ -1,0 +1,6 @@
+<div *ngIf="blog">
+  <h2>{{ blog.naslov }}</h2>
+  <p>{{ blog.podnaslov }}</p>
+  <p [innerHTML]="blog.vsebina"></p>
+</div>
+<app-go-back></app-go-back>
