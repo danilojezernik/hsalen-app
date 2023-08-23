@@ -1,0 +1,9 @@
+<h3>BLOG</h3>
+
+<!-- PRIKAZ BLOGA -->
+<div *ngFor="let blogi of blog; let i = index">
+  <span>{{i + 1}}. </span>
+  <span>{{blogi.naslov}} | </span>
+  <span><b>{{blogi.tag}} </b></span>
+  <button [routerLink]="['/blog', blogi._id['$oid']]">Beri dalje</button>
+</div>

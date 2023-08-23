@@ -1,0 +1,8 @@
+<h3>DODAJ BLOG</h3>
+
+<form (ngSubmit)="dodajBlog()">
+  Naslov:<input name="naslov" [(ngModel)]="newBlog.naslov"><br>
+  Tag:<input name="naslov" [(ngModel)]="newBlog.tag"><br>
+  <button>Dodaj</button>
+</form>
+<app-go-back></app-go-back>
