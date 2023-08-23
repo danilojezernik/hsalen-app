@@ -1,0 +1,18 @@
+<div *ngIf="blog">
+  <h2>Edit Blog Post</h2>
+  <form (submit)="editBlog()">
+    <label for="naslov">Title:</label>
+    <input [(ngModel)]="blog.naslov" id="naslov" name="naslov" required type="text">
+
+    <label for="tag">Tag:</label>
+    <input type="text" id="tag" name="tag" [(ngModel)]="blog.tag" required>
+
+    <label for="tag">Tag:</label>
+    <input type="text" id="podnaslov" name="tag" [(ngModel)]="blog.podnaslov" required>
+
+    <label for="vsebina">Content:</label>
+    <textarea id="vsebina" name="vsebina" [(ngModel)]="blog.vsebina" required></textarea>
+
+    <button type="submit">Save Changes</button>
+  </form>
+</div>

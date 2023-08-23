@@ -5,6 +5,7 @@ import {Subject} from "rxjs";
 import {takeUntil} from 'rxjs/operators';
 import {trace} from "../../../utils/trace";
 import {Location} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-blog-pregled',
@@ -19,7 +20,8 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
 
   constructor(
     private blogService: BlogService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {
   }
 
@@ -37,6 +39,12 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
     this.blogService.deleteBlogById(id).subscribe(() => {
       window.location.reload()
     })
+  }
+
+  @trace()
+  editBlog(blog: Blog): void {
+    const blogId = blog._id["$oid"];
+    this.router.navigate(['/blog/edit', blogId]); // Navigate to the edit page
   }
 
   @trace()

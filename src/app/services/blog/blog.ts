@@ -1,6 +1,6 @@
 export interface Blog {
 
-  _id: string,
+  _id: { $oid: string },
   tag?: string,
   naslov: string,
   podnaslov: string,

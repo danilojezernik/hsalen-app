@@ -7,6 +7,7 @@ import {LoginComponent} from "./pages/public/login/login.component";
 import {AdminComponent} from "./pages/private/admin/admin.component";
 import {BlogPregledComponent} from "./pages/private/blog-pregled/blog-pregled.component";
 import {BlogBeriComponent} from "./pages/public/blog-beri/blog-beri.component";
+import {BlogUrediComponent} from "./pages/private/blog-uredi/blog-uredi.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,9 @@ const routes: Routes = [
   },
   {
     path: 'blog/:id', component: BlogBeriComponent
+  },
+  {
+    path: 'blog/edit/:id', component: BlogUrediComponent
   },
   {
     path: 'blog-pregled', component: BlogPregledComponent

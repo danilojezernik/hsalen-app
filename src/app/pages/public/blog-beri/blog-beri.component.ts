@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Blog} from '../../../services/blog/blog';
 import {BlogService} from '../../../services/blog/blog.service';
+import {trace} from "../../../utils/trace";
 
 @Component({
   selector: 'app-blog-beri',
@@ -17,25 +18,21 @@ export class BlogBeriComponent implements OnInit {
   ) {
   }
 
+  @trace()
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-        const blogId = params.get('id');
-        if (blogId) {
-          this.getBlogDetails(blogId);
-        }
-      },
-      error => {
-        console.error('Error fetching blog details:', error);
-      });
+      const blogId = params.get('id');
+      if (blogId) {
+        this.readBlogById(blogId);
+      }
+    });
   }
 
-  getBlogDetails(blogId: string): void {
+  @trace()
+  readBlogById(blogId: string): void {
     this.blogService.getBlogById(blogId).subscribe(
       (blog: Blog) => {
         this.blog = blog;
-      },
-      error => {
-        console.error('Error fetching blog details:', error);
       }
     );
   }
