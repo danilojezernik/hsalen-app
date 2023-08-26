@@ -8,6 +8,7 @@ import {AdminComponent} from "./pages/private/admin/admin.component";
 import {BlogPregledComponent} from "./pages/private/blog-pregled/blog-pregled.component";
 import {BlogBeriComponent} from "./pages/public/blog-beri/blog-beri.component";
 import {BlogUrediComponent} from "./pages/private/blog-uredi/blog-uredi.component";
+import {HipnoterapijaComponent} from "./pages/public/hipnoterapija/hipnoterapija.component";
 
 
 const routes: Routes = [
@@ -34,6 +35,9 @@ const routes: Routes = [
   },
   {
     path: 'admin', component: AdminComponent
+  },
+  {
+    path: 'hipnoterapija', component: HipnoterapijaComponent
   }
 ];
 

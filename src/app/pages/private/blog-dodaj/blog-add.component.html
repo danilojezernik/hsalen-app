@@ -1,8 +1,32 @@
-<h3>DODAJ BLOG</h3>
-
-<form (ngSubmit)="dodajBlog()">
-  Naslov:<input name="naslov" [(ngModel)]="newBlog.naslov"><br>
-  Tag:<input name="naslov" [(ngModel)]="newBlog.tag"><br>
-  <button>Dodaj</button>
+<h2>DODAJ BLOG</h2>
+<form (submit)="dodajBlog()" class="example-form">
+  <table class="example-full-width">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Naslov</mat-label>
+          <input [(ngModel)]="newBlog.naslov" name="naslov" matInput>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Podnaslov</mat-label>
+          <input [(ngModel)]="newBlog.podnaslov" name="podnaslov" matInput>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Kategorija</mat-label>
+          <input [(ngModel)]="newBlog.tag" name="tag" matInput>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <mat-form-field class="example-full-width">
+    <mat-label>Vsebina</mat-label>
+    <textarea [(ngModel)]="newBlog.vsebina" name="vsebina" matInput style="height: 300px"></textarea>
+  </mat-form-field>
+  <button type="submit">Dodaj blog</button>
 </form>
+
 <app-go-back></app-go-back>

@@ -1,2 +1,13 @@
 <p>login works!</p>
 <a routerLink="/admin">ADMIN</a>
+<div>
+  <form (submit)="goToAdmin()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" [(ngModel)]="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="password" required>
+
+    <button type="submit">Login</button>
+  </form>
+</div>

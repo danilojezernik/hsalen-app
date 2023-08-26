@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FrontPageService } from './front-page.service';
+import { PublicGetDataService } from './public-get-data.service';
 
-describe('FrontPageService', () => {
-  let service: FrontPageService;
+describe('PublicGetDataService', () => {
+  let service: PublicGetDataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FrontPageService);
+    service = TestBed.inject(PublicGetDataService);
   });
 
   it('should be created', () => {

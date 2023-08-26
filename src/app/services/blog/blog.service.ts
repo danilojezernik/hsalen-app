@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
-import {Blog} from "./blog";
+import {Blog} from "../../data/blog/blog";
 import {environment} from "../../../environments/environment";
 import {trace} from "../../utils/trace";
 import {Router} from "@angular/router";
-import {NewBlog} from "./newBlog";
+import {NewBlog} from "../../data/blog/newBlog";
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +48,7 @@ export class BlogService {
         return throwError('Pri dodajanju bloga je šlo nekaj narobe. Prosim poskusite kasneje.');
       })
     ).subscribe(() => {
-      this.router.navigate(['/blog']);
+      this.router.navigate(['/blog-pregled']);
     })
   }
 
@@ -61,7 +61,6 @@ export class BlogService {
       })
     );
   }
-
 
   @trace()
   deleteBlogById(ide: any): Observable<any> {

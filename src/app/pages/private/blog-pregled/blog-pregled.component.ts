@@ -1,10 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BlogService} from "../../../services/blog/blog.service";
-import {Blog} from "../../../services/blog/blog";
+import {Blog} from "../../../data/blog/blog";
 import {Subject} from "rxjs";
 import {takeUntil} from 'rxjs/operators';
 import {trace} from "../../../utils/trace";
-import {Location} from "@angular/common";
 import {Router} from "@angular/router";
 
 @Component({
@@ -20,8 +19,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
 
   constructor(
     private blogService: BlogService,
-    private location: Location,
-    private router: Router
+    private router: Router,
   ) {
   }
 
@@ -44,7 +42,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
   @trace()
   editBlog(blog: Blog): void {
     const blogId = blog._id["$oid"];
-    this.router.navigate(['/blog/edit', blogId]); // Navigate to the edit page
+    this.router.navigate(['/blog/edit', blogId]);
   }
 
   @trace()

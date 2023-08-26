@@ -18,18 +18,21 @@ import {AdminComponent} from './pages/private/admin/admin.component';
 import {BlogBeriComponent} from './pages/public/blog-beri/blog-beri.component';
 import {GoBackComponent} from "./components/go-back/go-back.component";
 import {BlogUrediComponent} from './pages/private/blog-uredi/blog-uredi.component';
+import {HipnoterapijaComponent} from './pages/public/hipnoterapija/hipnoterapija.component';
+import {HeaderComponent} from "./header/header.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogComponent,
-    IndexComponent,
     BlogAddComponent,
     BlogPregledComponent,
     LoginComponent,
     AdminComponent,
     BlogBeriComponent,
-    BlogUrediComponent
+    BlogUrediComponent,
+    IndexComponent,
+    HipnoterapijaComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,9 @@ import {BlogUrediComponent} from './pages/private/blog-uredi/blog-uredi.componen
     MatIconModule,
     FormsModule,
     MatButtonModule,
-    GoBackComponent
+    GoBackComponent,
+    HeaderComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

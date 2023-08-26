@@ -1,1 +1,8 @@
-<h3>DOMOV</h3>
+<!-- PRIKAZ INDEX -->
+<div *ngFor="let indexi of index">
+  <h1 [innerHTML]="indexi['naslov']"></h1>
+  <p [innerHTML]="indexi['podnaslov']"></p>
+  <p [innerHTML]="indexi['pomoc_hipnoterapija']"></p>
+  <p [innerHTML]="indexi['pomoc_medijstvo']"></p>
+  <p [innerHTML]="indexi['pomoc_jasnovidnsot']"></p>
+</div>

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Blog} from '../../../services/blog/blog';
+import {Blog} from '../../../data/blog/blog';
 import {BlogService} from '../../../services/blog/blog.service';
 import {trace} from "../../../utils/trace";
 

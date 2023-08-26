@@ -1,18 +1,34 @@
 <div *ngIf="blog">
-  <h2>Edit Blog Post</h2>
-  <form (submit)="editBlog()">
-    <label for="naslov">Title:</label>
-    <input [(ngModel)]="blog.naslov" id="naslov" name="naslov" required type="text">
-
-    <label for="tag">Tag:</label>
-    <input type="text" id="tag" name="tag" [(ngModel)]="blog.tag" required>
-
-    <label for="tag">Tag:</label>
-    <input type="text" id="podnaslov" name="tag" [(ngModel)]="blog.podnaslov" required>
-
-    <label for="vsebina">Content:</label>
-    <textarea id="vsebina" name="vsebina" [(ngModel)]="blog.vsebina" required></textarea>
-
+  <h2>Uredi blog</h2>
+  <form (submit)="editBlog()" class="example-form">
+    <table class="example-full-width">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Naslov</mat-label>
+            <input [(ngModel)]="blog.naslov" name="naslov" matInput>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Podnaslov</mat-label>
+            <input [(ngModel)]="blog.podnaslov" name="podnaslov" matInput>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Kategorija</mat-label>
+            <input [(ngModel)]="blog.tag" name="tag" matInput>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <mat-form-field class="example-full-width">
+      <mat-label>Vsebina</mat-label>
+      <textarea [(ngModel)]="blog.vsebina" name="vsebina" matInput
+                style="height: 300px"></textarea>
+    </mat-form-field>
     <button type="submit">Save Changes</button>
   </form>
 </div>
+<app-go-back></app-go-back>
