@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface DeleteAllErrorsApiErrorDeleteAllDelete$Params {
+export interface GetApiMediji$Params {
 }
 
-export function deleteAllErrorsApiErrorDeleteAllDelete(http: HttpClient, rootUrl: string, params?: DeleteAllErrorsApiErrorDeleteAllDelete$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, deleteAllErrorsApiErrorDeleteAllDelete.PATH, 'delete');
+export function getApiMediji(http: HttpClient, rootUrl: string, params?: GetApiMediji$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, getApiMediji.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function deleteAllErrorsApiErrorDeleteAllDelete(http: HttpClient, rootUrl
   );
 }
 
-deleteAllErrorsApiErrorDeleteAllDelete.PATH = '/api/error/delete_all';
+getApiMediji.PATH = '/api/mediji';

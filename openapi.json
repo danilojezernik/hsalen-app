@@ -40,7 +40,7 @@
   "paths": {
     "/api/blog": {
       "get": {
-        "operationId": "get_blog_api_blog_get",
+        "operationId": "GET_api_blog",
         "responses": {
           "422": {
             "content": {
@@ -58,7 +58,7 @@
         }
       },
       "post": {
-        "operationId": "post_blog_api_blog_post",
+        "operationId": "POST_api_blog",
         "responses": {
           "422": {
             "content": {
@@ -78,7 +78,7 @@
     },
     "/api/blog/delete/{_id}": {
       "delete": {
-        "operationId": "delete_blog_api_blog_delete___id__delete",
+        "operationId": "DELETE_api_blog_delete_id",
         "responses": {
           "422": {
             "content": {
@@ -98,7 +98,7 @@
     },
     "/api/blog/edit/{_id}": {
       "post": {
-        "operationId": "edit_blog_api_blog_edit___id__post",
+        "operationId": "POST_api_blog_edit_id",
         "responses": {
           "422": {
             "content": {
@@ -118,7 +118,7 @@
     },
     "/api/blog/{_id}": {
       "get": {
-        "operationId": "get_blog_id_api_blog___id__get",
+        "operationId": "GET_api_blog_id",
         "responses": {
           "422": {
             "content": {
@@ -136,7 +136,7 @@
         }
       },
       "post": {
-        "operationId": "post_blog_id_api_blog___id__post",
+        "operationId": "POST_api_blog_id",
         "responses": {
           "422": {
             "content": {
@@ -156,7 +156,7 @@
     },
     "/api/error": {
       "get": {
-        "operationId": "get_error_api_error_get",
+        "operationId": "GET_api_error",
         "responses": {
           "422": {
             "content": {
@@ -174,7 +174,7 @@
         }
       },
       "post": {
-        "operationId": "post_error_api_error_post",
+        "operationId": "POST_api_error",
         "responses": {
           "422": {
             "content": {
@@ -194,7 +194,7 @@
     },
     "/api/error/delete/{_id}": {
       "delete": {
-        "operationId": "delete_error_by_id_api_error_delete___id__delete",
+        "operationId": "DELETE_api_error_delete_id",
         "responses": {
           "422": {
             "content": {
@@ -214,7 +214,7 @@
     },
     "/api/error/delete_all": {
       "delete": {
-        "operationId": "delete_all_errors_api_error_delete_all_delete",
+        "operationId": "DELETE_api_error_delete_all",
         "responses": {
           "422": {
             "content": {
@@ -234,7 +234,7 @@
     },
     "/api/error/{_id}": {
       "get": {
-        "operationId": "get_error_id_api_error___id__get",
+        "operationId": "GET_api_error_id",
         "responses": {
           "422": {
             "content": {
@@ -252,7 +252,7 @@
         }
       },
       "post": {
-        "operationId": "post_error_id_api_error___id__post",
+        "operationId": "POST_api_error_id",
         "responses": {
           "422": {
             "content": {
@@ -272,7 +272,7 @@
     },
     "/api/hipnoterapija": {
       "get": {
-        "operationId": "get_hipnoterapija_api_hipnoterapija_get",
+        "operationId": "GET_api_hipnoterapija",
         "responses": {
           "422": {
             "content": {
@@ -292,7 +292,7 @@
     },
     "/api/index": {
       "get": {
-        "operationId": "get_index_api_index_get",
+        "operationId": "GET_api_index",
         "responses": {
           "422": {
             "content": {
@@ -312,7 +312,7 @@
     },
     "/api/index/knjiga": {
       "get": {
-        "operationId": "get_knjiga_api_index_knjiga_get",
+        "operationId": "GET_api_index_knjiga",
         "responses": {
           "422": {
             "content": {
@@ -332,7 +332,7 @@
     },
     "/api/jasnovidnost": {
       "get": {
-        "operationId": "get_jasnovidnost_api_jasnovidnost_get",
+        "operationId": "GET_api_jasnovidnost",
         "responses": {
           "422": {
             "content": {
@@ -352,7 +352,7 @@
     },
     "/api/mediji": {
       "get": {
-        "operationId": "get_mediji_api_mediji_get",
+        "operationId": "GET_api_mediji",
         "responses": {
           "422": {
             "content": {
@@ -372,7 +372,7 @@
     },
     "/api/medijstvo": {
       "get": {
-        "operationId": "get_medijstvo_api_medijstvo_get",
+        "operationId": "GET_api_medijstvo",
         "responses": {
           "422": {
             "content": {
@@ -392,7 +392,7 @@
     },
     "/api/omeni": {
       "get": {
-        "operationId": "get_omeni_api_omeni_get",
+        "operationId": "GET_api_omeni",
         "responses": {
           "422": {
             "content": {
@@ -412,7 +412,7 @@
     },
     "/api/regresija": {
       "get": {
-        "operationId": "get_regresija_api_regresija_get",
+        "operationId": "GET_api_regresija",
         "responses": {
           "422": {
             "content": {
@@ -432,7 +432,7 @@
     },
     "/api/samohipnoza": {
       "get": {
-        "operationId": "get_samohipnoza_api_samohipnoza_get",
+        "operationId": "GET_api_samohipnoza",
         "responses": {
           "422": {
             "content": {

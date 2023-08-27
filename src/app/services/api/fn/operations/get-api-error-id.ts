@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface DeleteBlogApiBlogDeleteIdDelete$Params {
+export interface GetApiErrorId$Params {
 }
 
-export function deleteBlogApiBlogDeleteIdDelete(http: HttpClient, rootUrl: string, params?: DeleteBlogApiBlogDeleteIdDelete$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, deleteBlogApiBlogDeleteIdDelete.PATH, 'delete');
+export function getApiErrorId(http: HttpClient, rootUrl: string, params?: GetApiErrorId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, getApiErrorId.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function deleteBlogApiBlogDeleteIdDelete(http: HttpClient, rootUrl: strin
   );
 }
 
-deleteBlogApiBlogDeleteIdDelete.PATH = '/api/blog/delete/{_id}';
+getApiErrorId.PATH = '/api/error/{_id}';

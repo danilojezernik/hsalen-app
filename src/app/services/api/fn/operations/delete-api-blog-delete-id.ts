@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetKnjigaApiIndexKnjigaGet$Params {
+export interface DeleteApiBlogDeleteId$Params {
 }
 
-export function getKnjigaApiIndexKnjigaGet(http: HttpClient, rootUrl: string, params?: GetKnjigaApiIndexKnjigaGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, getKnjigaApiIndexKnjigaGet.PATH, 'get');
+export function deleteApiBlogDeleteId(http: HttpClient, rootUrl: string, params?: DeleteApiBlogDeleteId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, deleteApiBlogDeleteId.PATH, 'delete');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function getKnjigaApiIndexKnjigaGet(http: HttpClient, rootUrl: string, pa
   );
 }
 
-getKnjigaApiIndexKnjigaGet.PATH = '/api/index/knjiga';
+deleteApiBlogDeleteId.PATH = '/api/blog/delete/{_id}';

@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetJasnovidnostApiJasnovidnostGet$Params {
+export interface GetApiSamohipnoza$Params {
 }
 
-export function getJasnovidnostApiJasnovidnostGet(http: HttpClient, rootUrl: string, params?: GetJasnovidnostApiJasnovidnostGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, getJasnovidnostApiJasnovidnostGet.PATH, 'get');
+export function getApiSamohipnoza(http: HttpClient, rootUrl: string, params?: GetApiSamohipnoza$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, getApiSamohipnoza.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function getJasnovidnostApiJasnovidnostGet(http: HttpClient, rootUrl: str
   );
 }
 
-getJasnovidnostApiJasnovidnostGet.PATH = '/api/jasnovidnost';
+getApiSamohipnoza.PATH = '/api/samohipnoza';

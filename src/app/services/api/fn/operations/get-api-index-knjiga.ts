@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetIndexApiIndexGet$Params {
+export interface GetApiIndexKnjiga$Params {
 }
 
-export function getIndexApiIndexGet(http: HttpClient, rootUrl: string, params?: GetIndexApiIndexGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, getIndexApiIndexGet.PATH, 'get');
+export function getApiIndexKnjiga(http: HttpClient, rootUrl: string, params?: GetApiIndexKnjiga$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, getApiIndexKnjiga.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function getIndexApiIndexGet(http: HttpClient, rootUrl: string, params?: 
   );
 }
 
-getIndexApiIndexGet.PATH = '/api/index';
+getApiIndexKnjiga.PATH = '/api/index/knjiga';

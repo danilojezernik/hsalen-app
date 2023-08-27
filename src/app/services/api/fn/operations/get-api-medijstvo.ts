@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface PostBlogIdApiBlogIdPost$Params {
+export interface GetApiMedijstvo$Params {
 }
 
-export function postBlogIdApiBlogIdPost(http: HttpClient, rootUrl: string, params?: PostBlogIdApiBlogIdPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, postBlogIdApiBlogIdPost.PATH, 'post');
+export function getApiMedijstvo(http: HttpClient, rootUrl: string, params?: GetApiMedijstvo$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, getApiMedijstvo.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function postBlogIdApiBlogIdPost(http: HttpClient, rootUrl: string, param
   );
 }
 
-postBlogIdApiBlogIdPost.PATH = '/api/blog/{_id}';
+getApiMedijstvo.PATH = '/api/medijstvo';

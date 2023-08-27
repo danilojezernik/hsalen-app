@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetRegresijaApiRegresijaGet$Params {
+export interface DeleteApiErrorDeleteId$Params {
 }
 
-export function getRegresijaApiRegresijaGet(http: HttpClient, rootUrl: string, params?: GetRegresijaApiRegresijaGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, getRegresijaApiRegresijaGet.PATH, 'get');
+export function deleteApiErrorDeleteId(http: HttpClient, rootUrl: string, params?: DeleteApiErrorDeleteId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, deleteApiErrorDeleteId.PATH, 'delete');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function getRegresijaApiRegresijaGet(http: HttpClient, rootUrl: string, p
   );
 }
 
-getRegresijaApiRegresijaGet.PATH = '/api/regresija';
+deleteApiErrorDeleteId.PATH = '/api/error/delete/{_id}';

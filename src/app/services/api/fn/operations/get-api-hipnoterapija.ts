@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetHipnoterapijaApiHipnoterapijaGet$Params {
+export interface GetApiHipnoterapija$Params {
 }
 
-export function getHipnoterapijaApiHipnoterapijaGet(http: HttpClient, rootUrl: string, params?: GetHipnoterapijaApiHipnoterapijaGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, getHipnoterapijaApiHipnoterapijaGet.PATH, 'get');
+export function getApiHipnoterapija(http: HttpClient, rootUrl: string, params?: GetApiHipnoterapija$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, getApiHipnoterapija.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function getHipnoterapijaApiHipnoterapijaGet(http: HttpClient, rootUrl: s
   );
 }
 
-getHipnoterapijaApiHipnoterapijaGet.PATH = '/api/hipnoterapija';
+getApiHipnoterapija.PATH = '/api/hipnoterapija';

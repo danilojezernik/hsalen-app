@@ -9,48 +9,48 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { deleteAllErrorsApiErrorDeleteAllDelete } from '../fn/operations/delete-all-errors-api-error-delete-all-delete';
-import { DeleteAllErrorsApiErrorDeleteAllDelete$Params } from '../fn/operations/delete-all-errors-api-error-delete-all-delete';
-import { deleteBlogApiBlogDeleteIdDelete } from '../fn/operations/delete-blog-api-blog-delete-id-delete';
-import { DeleteBlogApiBlogDeleteIdDelete$Params } from '../fn/operations/delete-blog-api-blog-delete-id-delete';
-import { deleteErrorByIdApiErrorDeleteIdDelete } from '../fn/operations/delete-error-by-id-api-error-delete-id-delete';
-import { DeleteErrorByIdApiErrorDeleteIdDelete$Params } from '../fn/operations/delete-error-by-id-api-error-delete-id-delete';
-import { editBlogApiBlogEditIdPost } from '../fn/operations/edit-blog-api-blog-edit-id-post';
-import { EditBlogApiBlogEditIdPost$Params } from '../fn/operations/edit-blog-api-blog-edit-id-post';
-import { getBlogApiBlogGet } from '../fn/operations/get-blog-api-blog-get';
-import { GetBlogApiBlogGet$Params } from '../fn/operations/get-blog-api-blog-get';
-import { getBlogIdApiBlogIdGet } from '../fn/operations/get-blog-id-api-blog-id-get';
-import { GetBlogIdApiBlogIdGet$Params } from '../fn/operations/get-blog-id-api-blog-id-get';
-import { getErrorApiErrorGet } from '../fn/operations/get-error-api-error-get';
-import { GetErrorApiErrorGet$Params } from '../fn/operations/get-error-api-error-get';
-import { getErrorIdApiErrorIdGet } from '../fn/operations/get-error-id-api-error-id-get';
-import { GetErrorIdApiErrorIdGet$Params } from '../fn/operations/get-error-id-api-error-id-get';
-import { getHipnoterapijaApiHipnoterapijaGet } from '../fn/operations/get-hipnoterapija-api-hipnoterapija-get';
-import { GetHipnoterapijaApiHipnoterapijaGet$Params } from '../fn/operations/get-hipnoterapija-api-hipnoterapija-get';
-import { getIndexApiIndexGet } from '../fn/operations/get-index-api-index-get';
-import { GetIndexApiIndexGet$Params } from '../fn/operations/get-index-api-index-get';
-import { getJasnovidnostApiJasnovidnostGet } from '../fn/operations/get-jasnovidnost-api-jasnovidnost-get';
-import { GetJasnovidnostApiJasnovidnostGet$Params } from '../fn/operations/get-jasnovidnost-api-jasnovidnost-get';
-import { getKnjigaApiIndexKnjigaGet } from '../fn/operations/get-knjiga-api-index-knjiga-get';
-import { GetKnjigaApiIndexKnjigaGet$Params } from '../fn/operations/get-knjiga-api-index-knjiga-get';
-import { getMedijiApiMedijiGet } from '../fn/operations/get-mediji-api-mediji-get';
-import { GetMedijiApiMedijiGet$Params } from '../fn/operations/get-mediji-api-mediji-get';
-import { getMedijstvoApiMedijstvoGet } from '../fn/operations/get-medijstvo-api-medijstvo-get';
-import { GetMedijstvoApiMedijstvoGet$Params } from '../fn/operations/get-medijstvo-api-medijstvo-get';
-import { getOmeniApiOmeniGet } from '../fn/operations/get-omeni-api-omeni-get';
-import { GetOmeniApiOmeniGet$Params } from '../fn/operations/get-omeni-api-omeni-get';
-import { getRegresijaApiRegresijaGet } from '../fn/operations/get-regresija-api-regresija-get';
-import { GetRegresijaApiRegresijaGet$Params } from '../fn/operations/get-regresija-api-regresija-get';
-import { getSamohipnozaApiSamohipnozaGet } from '../fn/operations/get-samohipnoza-api-samohipnoza-get';
-import { GetSamohipnozaApiSamohipnozaGet$Params } from '../fn/operations/get-samohipnoza-api-samohipnoza-get';
-import { postBlogApiBlogPost } from '../fn/operations/post-blog-api-blog-post';
-import { PostBlogApiBlogPost$Params } from '../fn/operations/post-blog-api-blog-post';
-import { postBlogIdApiBlogIdPost } from '../fn/operations/post-blog-id-api-blog-id-post';
-import { PostBlogIdApiBlogIdPost$Params } from '../fn/operations/post-blog-id-api-blog-id-post';
-import { postErrorApiErrorPost } from '../fn/operations/post-error-api-error-post';
-import { PostErrorApiErrorPost$Params } from '../fn/operations/post-error-api-error-post';
-import { postErrorIdApiErrorIdPost } from '../fn/operations/post-error-id-api-error-id-post';
-import { PostErrorIdApiErrorIdPost$Params } from '../fn/operations/post-error-id-api-error-id-post';
+import { deleteApiBlogDeleteId } from '../fn/operations/delete-api-blog-delete-id';
+import { DeleteApiBlogDeleteId$Params } from '../fn/operations/delete-api-blog-delete-id';
+import { deleteApiErrorDeleteAll } from '../fn/operations/delete-api-error-delete-all';
+import { DeleteApiErrorDeleteAll$Params } from '../fn/operations/delete-api-error-delete-all';
+import { deleteApiErrorDeleteId } from '../fn/operations/delete-api-error-delete-id';
+import { DeleteApiErrorDeleteId$Params } from '../fn/operations/delete-api-error-delete-id';
+import { getApiBlog } from '../fn/operations/get-api-blog';
+import { GetApiBlog$Params } from '../fn/operations/get-api-blog';
+import { getApiBlogId } from '../fn/operations/get-api-blog-id';
+import { GetApiBlogId$Params } from '../fn/operations/get-api-blog-id';
+import { getApiError } from '../fn/operations/get-api-error';
+import { GetApiError$Params } from '../fn/operations/get-api-error';
+import { getApiErrorId } from '../fn/operations/get-api-error-id';
+import { GetApiErrorId$Params } from '../fn/operations/get-api-error-id';
+import { getApiHipnoterapija } from '../fn/operations/get-api-hipnoterapija';
+import { GetApiHipnoterapija$Params } from '../fn/operations/get-api-hipnoterapija';
+import { getApiIndex } from '../fn/operations/get-api-index';
+import { GetApiIndex$Params } from '../fn/operations/get-api-index';
+import { getApiIndexKnjiga } from '../fn/operations/get-api-index-knjiga';
+import { GetApiIndexKnjiga$Params } from '../fn/operations/get-api-index-knjiga';
+import { getApiJasnovidnost } from '../fn/operations/get-api-jasnovidnost';
+import { GetApiJasnovidnost$Params } from '../fn/operations/get-api-jasnovidnost';
+import { getApiMediji } from '../fn/operations/get-api-mediji';
+import { GetApiMediji$Params } from '../fn/operations/get-api-mediji';
+import { getApiMedijstvo } from '../fn/operations/get-api-medijstvo';
+import { GetApiMedijstvo$Params } from '../fn/operations/get-api-medijstvo';
+import { getApiOmeni } from '../fn/operations/get-api-omeni';
+import { GetApiOmeni$Params } from '../fn/operations/get-api-omeni';
+import { getApiRegresija } from '../fn/operations/get-api-regresija';
+import { GetApiRegresija$Params } from '../fn/operations/get-api-regresija';
+import { getApiSamohipnoza } from '../fn/operations/get-api-samohipnoza';
+import { GetApiSamohipnoza$Params } from '../fn/operations/get-api-samohipnoza';
+import { postApiBlog } from '../fn/operations/post-api-blog';
+import { PostApiBlog$Params } from '../fn/operations/post-api-blog';
+import { postApiBlogEditId } from '../fn/operations/post-api-blog-edit-id';
+import { PostApiBlogEditId$Params } from '../fn/operations/post-api-blog-edit-id';
+import { postApiBlogId } from '../fn/operations/post-api-blog-id';
+import { PostApiBlogId$Params } from '../fn/operations/post-api-blog-id';
+import { postApiError } from '../fn/operations/post-api-error';
+import { PostApiError$Params } from '../fn/operations/post-api-error';
+import { postApiErrorId } from '../fn/operations/post-api-error-id';
+import { PostApiErrorId$Params } from '../fn/operations/post-api-error-id';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService extends BaseService {
@@ -58,527 +58,527 @@ export class ApiService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `getBlogApiBlogGet()` */
-  static readonly GetBlogApiBlogGetPath = '/api/blog';
+  /** Path part for operation `getApiBlog()` */
+  static readonly GetApiBlogPath = '/api/blog';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getBlogApiBlogGet()` instead.
+   * To access only the response body, use `getApiBlog()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getBlogApiBlogGet$Response(params?: GetBlogApiBlogGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getBlogApiBlogGet(this.http, this.rootUrl, params, context);
+  getApiBlog$Response(params?: GetApiBlog$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiBlog(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getBlogApiBlogGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiBlog$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getBlogApiBlogGet(params?: GetBlogApiBlogGet$Params, context?: HttpContext): Observable<void> {
-    return this.getBlogApiBlogGet$Response(params, context).pipe(
+  getApiBlog(params?: GetApiBlog$Params, context?: HttpContext): Observable<void> {
+    return this.getApiBlog$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `postBlogApiBlogPost()` */
-  static readonly PostBlogApiBlogPostPath = '/api/blog';
+  /** Path part for operation `postApiBlog()` */
+  static readonly PostApiBlogPath = '/api/blog';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `postBlogApiBlogPost()` instead.
+   * To access only the response body, use `postApiBlog()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postBlogApiBlogPost$Response(params?: PostBlogApiBlogPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return postBlogApiBlogPost(this.http, this.rootUrl, params, context);
+  postApiBlog$Response(params?: PostApiBlog$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return postApiBlog(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `postBlogApiBlogPost$Response()` instead.
+   * To access the full response (for headers, for example), `postApiBlog$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postBlogApiBlogPost(params?: PostBlogApiBlogPost$Params, context?: HttpContext): Observable<void> {
-    return this.postBlogApiBlogPost$Response(params, context).pipe(
+  postApiBlog(params?: PostApiBlog$Params, context?: HttpContext): Observable<void> {
+    return this.postApiBlog$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `deleteBlogApiBlogDeleteIdDelete()` */
-  static readonly DeleteBlogApiBlogDeleteIdDeletePath = '/api/blog/delete/{_id}';
+  /** Path part for operation `deleteApiBlogDeleteId()` */
+  static readonly DeleteApiBlogDeleteIdPath = '/api/blog/delete/{_id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `deleteBlogApiBlogDeleteIdDelete()` instead.
+   * To access only the response body, use `deleteApiBlogDeleteId()` instead.
    *
    * This method doesn't expect any request body.
    */
-  deleteBlogApiBlogDeleteIdDelete$Response(params?: DeleteBlogApiBlogDeleteIdDelete$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return deleteBlogApiBlogDeleteIdDelete(this.http, this.rootUrl, params, context);
+  deleteApiBlogDeleteId$Response(params?: DeleteApiBlogDeleteId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return deleteApiBlogDeleteId(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `deleteBlogApiBlogDeleteIdDelete$Response()` instead.
+   * To access the full response (for headers, for example), `deleteApiBlogDeleteId$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  deleteBlogApiBlogDeleteIdDelete(params?: DeleteBlogApiBlogDeleteIdDelete$Params, context?: HttpContext): Observable<void> {
-    return this.deleteBlogApiBlogDeleteIdDelete$Response(params, context).pipe(
+  deleteApiBlogDeleteId(params?: DeleteApiBlogDeleteId$Params, context?: HttpContext): Observable<void> {
+    return this.deleteApiBlogDeleteId$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `editBlogApiBlogEditIdPost()` */
-  static readonly EditBlogApiBlogEditIdPostPath = '/api/blog/edit/{_id}';
+  /** Path part for operation `postApiBlogEditId()` */
+  static readonly PostApiBlogEditIdPath = '/api/blog/edit/{_id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `editBlogApiBlogEditIdPost()` instead.
+   * To access only the response body, use `postApiBlogEditId()` instead.
    *
    * This method doesn't expect any request body.
    */
-  editBlogApiBlogEditIdPost$Response(params?: EditBlogApiBlogEditIdPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return editBlogApiBlogEditIdPost(this.http, this.rootUrl, params, context);
+  postApiBlogEditId$Response(params?: PostApiBlogEditId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return postApiBlogEditId(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `editBlogApiBlogEditIdPost$Response()` instead.
+   * To access the full response (for headers, for example), `postApiBlogEditId$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  editBlogApiBlogEditIdPost(params?: EditBlogApiBlogEditIdPost$Params, context?: HttpContext): Observable<void> {
-    return this.editBlogApiBlogEditIdPost$Response(params, context).pipe(
+  postApiBlogEditId(params?: PostApiBlogEditId$Params, context?: HttpContext): Observable<void> {
+    return this.postApiBlogEditId$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getBlogIdApiBlogIdGet()` */
-  static readonly GetBlogIdApiBlogIdGetPath = '/api/blog/{_id}';
+  /** Path part for operation `getApiBlogId()` */
+  static readonly GetApiBlogIdPath = '/api/blog/{_id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getBlogIdApiBlogIdGet()` instead.
+   * To access only the response body, use `getApiBlogId()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getBlogIdApiBlogIdGet$Response(params?: GetBlogIdApiBlogIdGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getBlogIdApiBlogIdGet(this.http, this.rootUrl, params, context);
+  getApiBlogId$Response(params?: GetApiBlogId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiBlogId(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getBlogIdApiBlogIdGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiBlogId$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getBlogIdApiBlogIdGet(params?: GetBlogIdApiBlogIdGet$Params, context?: HttpContext): Observable<void> {
-    return this.getBlogIdApiBlogIdGet$Response(params, context).pipe(
+  getApiBlogId(params?: GetApiBlogId$Params, context?: HttpContext): Observable<void> {
+    return this.getApiBlogId$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `postBlogIdApiBlogIdPost()` */
-  static readonly PostBlogIdApiBlogIdPostPath = '/api/blog/{_id}';
+  /** Path part for operation `postApiBlogId()` */
+  static readonly PostApiBlogIdPath = '/api/blog/{_id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `postBlogIdApiBlogIdPost()` instead.
+   * To access only the response body, use `postApiBlogId()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postBlogIdApiBlogIdPost$Response(params?: PostBlogIdApiBlogIdPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return postBlogIdApiBlogIdPost(this.http, this.rootUrl, params, context);
+  postApiBlogId$Response(params?: PostApiBlogId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return postApiBlogId(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `postBlogIdApiBlogIdPost$Response()` instead.
+   * To access the full response (for headers, for example), `postApiBlogId$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postBlogIdApiBlogIdPost(params?: PostBlogIdApiBlogIdPost$Params, context?: HttpContext): Observable<void> {
-    return this.postBlogIdApiBlogIdPost$Response(params, context).pipe(
+  postApiBlogId(params?: PostApiBlogId$Params, context?: HttpContext): Observable<void> {
+    return this.postApiBlogId$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getErrorApiErrorGet()` */
-  static readonly GetErrorApiErrorGetPath = '/api/error';
+  /** Path part for operation `getApiError()` */
+  static readonly GetApiErrorPath = '/api/error';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getErrorApiErrorGet()` instead.
+   * To access only the response body, use `getApiError()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getErrorApiErrorGet$Response(params?: GetErrorApiErrorGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getErrorApiErrorGet(this.http, this.rootUrl, params, context);
+  getApiError$Response(params?: GetApiError$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiError(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getErrorApiErrorGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiError$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getErrorApiErrorGet(params?: GetErrorApiErrorGet$Params, context?: HttpContext): Observable<void> {
-    return this.getErrorApiErrorGet$Response(params, context).pipe(
+  getApiError(params?: GetApiError$Params, context?: HttpContext): Observable<void> {
+    return this.getApiError$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `postErrorApiErrorPost()` */
-  static readonly PostErrorApiErrorPostPath = '/api/error';
+  /** Path part for operation `postApiError()` */
+  static readonly PostApiErrorPath = '/api/error';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `postErrorApiErrorPost()` instead.
+   * To access only the response body, use `postApiError()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postErrorApiErrorPost$Response(params?: PostErrorApiErrorPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return postErrorApiErrorPost(this.http, this.rootUrl, params, context);
+  postApiError$Response(params?: PostApiError$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return postApiError(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `postErrorApiErrorPost$Response()` instead.
+   * To access the full response (for headers, for example), `postApiError$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postErrorApiErrorPost(params?: PostErrorApiErrorPost$Params, context?: HttpContext): Observable<void> {
-    return this.postErrorApiErrorPost$Response(params, context).pipe(
+  postApiError(params?: PostApiError$Params, context?: HttpContext): Observable<void> {
+    return this.postApiError$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `deleteErrorByIdApiErrorDeleteIdDelete()` */
-  static readonly DeleteErrorByIdApiErrorDeleteIdDeletePath = '/api/error/delete/{_id}';
+  /** Path part for operation `deleteApiErrorDeleteId()` */
+  static readonly DeleteApiErrorDeleteIdPath = '/api/error/delete/{_id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `deleteErrorByIdApiErrorDeleteIdDelete()` instead.
+   * To access only the response body, use `deleteApiErrorDeleteId()` instead.
    *
    * This method doesn't expect any request body.
    */
-  deleteErrorByIdApiErrorDeleteIdDelete$Response(params?: DeleteErrorByIdApiErrorDeleteIdDelete$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return deleteErrorByIdApiErrorDeleteIdDelete(this.http, this.rootUrl, params, context);
+  deleteApiErrorDeleteId$Response(params?: DeleteApiErrorDeleteId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return deleteApiErrorDeleteId(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `deleteErrorByIdApiErrorDeleteIdDelete$Response()` instead.
+   * To access the full response (for headers, for example), `deleteApiErrorDeleteId$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  deleteErrorByIdApiErrorDeleteIdDelete(params?: DeleteErrorByIdApiErrorDeleteIdDelete$Params, context?: HttpContext): Observable<void> {
-    return this.deleteErrorByIdApiErrorDeleteIdDelete$Response(params, context).pipe(
+  deleteApiErrorDeleteId(params?: DeleteApiErrorDeleteId$Params, context?: HttpContext): Observable<void> {
+    return this.deleteApiErrorDeleteId$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `deleteAllErrorsApiErrorDeleteAllDelete()` */
-  static readonly DeleteAllErrorsApiErrorDeleteAllDeletePath = '/api/error/delete_all';
+  /** Path part for operation `deleteApiErrorDeleteAll()` */
+  static readonly DeleteApiErrorDeleteAllPath = '/api/error/delete_all';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `deleteAllErrorsApiErrorDeleteAllDelete()` instead.
+   * To access only the response body, use `deleteApiErrorDeleteAll()` instead.
    *
    * This method doesn't expect any request body.
    */
-  deleteAllErrorsApiErrorDeleteAllDelete$Response(params?: DeleteAllErrorsApiErrorDeleteAllDelete$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return deleteAllErrorsApiErrorDeleteAllDelete(this.http, this.rootUrl, params, context);
+  deleteApiErrorDeleteAll$Response(params?: DeleteApiErrorDeleteAll$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return deleteApiErrorDeleteAll(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `deleteAllErrorsApiErrorDeleteAllDelete$Response()` instead.
+   * To access the full response (for headers, for example), `deleteApiErrorDeleteAll$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  deleteAllErrorsApiErrorDeleteAllDelete(params?: DeleteAllErrorsApiErrorDeleteAllDelete$Params, context?: HttpContext): Observable<void> {
-    return this.deleteAllErrorsApiErrorDeleteAllDelete$Response(params, context).pipe(
+  deleteApiErrorDeleteAll(params?: DeleteApiErrorDeleteAll$Params, context?: HttpContext): Observable<void> {
+    return this.deleteApiErrorDeleteAll$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getErrorIdApiErrorIdGet()` */
-  static readonly GetErrorIdApiErrorIdGetPath = '/api/error/{_id}';
+  /** Path part for operation `getApiErrorId()` */
+  static readonly GetApiErrorIdPath = '/api/error/{_id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getErrorIdApiErrorIdGet()` instead.
+   * To access only the response body, use `getApiErrorId()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getErrorIdApiErrorIdGet$Response(params?: GetErrorIdApiErrorIdGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getErrorIdApiErrorIdGet(this.http, this.rootUrl, params, context);
+  getApiErrorId$Response(params?: GetApiErrorId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiErrorId(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getErrorIdApiErrorIdGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiErrorId$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getErrorIdApiErrorIdGet(params?: GetErrorIdApiErrorIdGet$Params, context?: HttpContext): Observable<void> {
-    return this.getErrorIdApiErrorIdGet$Response(params, context).pipe(
+  getApiErrorId(params?: GetApiErrorId$Params, context?: HttpContext): Observable<void> {
+    return this.getApiErrorId$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `postErrorIdApiErrorIdPost()` */
-  static readonly PostErrorIdApiErrorIdPostPath = '/api/error/{_id}';
+  /** Path part for operation `postApiErrorId()` */
+  static readonly PostApiErrorIdPath = '/api/error/{_id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `postErrorIdApiErrorIdPost()` instead.
+   * To access only the response body, use `postApiErrorId()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postErrorIdApiErrorIdPost$Response(params?: PostErrorIdApiErrorIdPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return postErrorIdApiErrorIdPost(this.http, this.rootUrl, params, context);
+  postApiErrorId$Response(params?: PostApiErrorId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return postApiErrorId(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `postErrorIdApiErrorIdPost$Response()` instead.
+   * To access the full response (for headers, for example), `postApiErrorId$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  postErrorIdApiErrorIdPost(params?: PostErrorIdApiErrorIdPost$Params, context?: HttpContext): Observable<void> {
-    return this.postErrorIdApiErrorIdPost$Response(params, context).pipe(
+  postApiErrorId(params?: PostApiErrorId$Params, context?: HttpContext): Observable<void> {
+    return this.postApiErrorId$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getHipnoterapijaApiHipnoterapijaGet()` */
-  static readonly GetHipnoterapijaApiHipnoterapijaGetPath = '/api/hipnoterapija';
+  /** Path part for operation `getApiHipnoterapija()` */
+  static readonly GetApiHipnoterapijaPath = '/api/hipnoterapija';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getHipnoterapijaApiHipnoterapijaGet()` instead.
+   * To access only the response body, use `getApiHipnoterapija()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getHipnoterapijaApiHipnoterapijaGet$Response(params?: GetHipnoterapijaApiHipnoterapijaGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getHipnoterapijaApiHipnoterapijaGet(this.http, this.rootUrl, params, context);
+  getApiHipnoterapija$Response(params?: GetApiHipnoterapija$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiHipnoterapija(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getHipnoterapijaApiHipnoterapijaGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiHipnoterapija$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getHipnoterapijaApiHipnoterapijaGet(params?: GetHipnoterapijaApiHipnoterapijaGet$Params, context?: HttpContext): Observable<void> {
-    return this.getHipnoterapijaApiHipnoterapijaGet$Response(params, context).pipe(
+  getApiHipnoterapija(params?: GetApiHipnoterapija$Params, context?: HttpContext): Observable<void> {
+    return this.getApiHipnoterapija$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getIndexApiIndexGet()` */
-  static readonly GetIndexApiIndexGetPath = '/api/index';
+  /** Path part for operation `getApiIndex()` */
+  static readonly GetApiIndexPath = '/api/index';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getIndexApiIndexGet()` instead.
+   * To access only the response body, use `getApiIndex()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getIndexApiIndexGet$Response(params?: GetIndexApiIndexGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getIndexApiIndexGet(this.http, this.rootUrl, params, context);
+  getApiIndex$Response(params?: GetApiIndex$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiIndex(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getIndexApiIndexGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiIndex$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getIndexApiIndexGet(params?: GetIndexApiIndexGet$Params, context?: HttpContext): Observable<void> {
-    return this.getIndexApiIndexGet$Response(params, context).pipe(
+  getApiIndex(params?: GetApiIndex$Params, context?: HttpContext): Observable<void> {
+    return this.getApiIndex$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getKnjigaApiIndexKnjigaGet()` */
-  static readonly GetKnjigaApiIndexKnjigaGetPath = '/api/index/knjiga';
+  /** Path part for operation `getApiIndexKnjiga()` */
+  static readonly GetApiIndexKnjigaPath = '/api/index/knjiga';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getKnjigaApiIndexKnjigaGet()` instead.
+   * To access only the response body, use `getApiIndexKnjiga()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getKnjigaApiIndexKnjigaGet$Response(params?: GetKnjigaApiIndexKnjigaGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getKnjigaApiIndexKnjigaGet(this.http, this.rootUrl, params, context);
+  getApiIndexKnjiga$Response(params?: GetApiIndexKnjiga$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiIndexKnjiga(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getKnjigaApiIndexKnjigaGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiIndexKnjiga$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getKnjigaApiIndexKnjigaGet(params?: GetKnjigaApiIndexKnjigaGet$Params, context?: HttpContext): Observable<void> {
-    return this.getKnjigaApiIndexKnjigaGet$Response(params, context).pipe(
+  getApiIndexKnjiga(params?: GetApiIndexKnjiga$Params, context?: HttpContext): Observable<void> {
+    return this.getApiIndexKnjiga$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getJasnovidnostApiJasnovidnostGet()` */
-  static readonly GetJasnovidnostApiJasnovidnostGetPath = '/api/jasnovidnost';
+  /** Path part for operation `getApiJasnovidnost()` */
+  static readonly GetApiJasnovidnostPath = '/api/jasnovidnost';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getJasnovidnostApiJasnovidnostGet()` instead.
+   * To access only the response body, use `getApiJasnovidnost()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getJasnovidnostApiJasnovidnostGet$Response(params?: GetJasnovidnostApiJasnovidnostGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getJasnovidnostApiJasnovidnostGet(this.http, this.rootUrl, params, context);
+  getApiJasnovidnost$Response(params?: GetApiJasnovidnost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiJasnovidnost(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getJasnovidnostApiJasnovidnostGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiJasnovidnost$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getJasnovidnostApiJasnovidnostGet(params?: GetJasnovidnostApiJasnovidnostGet$Params, context?: HttpContext): Observable<void> {
-    return this.getJasnovidnostApiJasnovidnostGet$Response(params, context).pipe(
+  getApiJasnovidnost(params?: GetApiJasnovidnost$Params, context?: HttpContext): Observable<void> {
+    return this.getApiJasnovidnost$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getMedijiApiMedijiGet()` */
-  static readonly GetMedijiApiMedijiGetPath = '/api/mediji';
+  /** Path part for operation `getApiMediji()` */
+  static readonly GetApiMedijiPath = '/api/mediji';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getMedijiApiMedijiGet()` instead.
+   * To access only the response body, use `getApiMediji()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getMedijiApiMedijiGet$Response(params?: GetMedijiApiMedijiGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getMedijiApiMedijiGet(this.http, this.rootUrl, params, context);
+  getApiMediji$Response(params?: GetApiMediji$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiMediji(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getMedijiApiMedijiGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiMediji$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getMedijiApiMedijiGet(params?: GetMedijiApiMedijiGet$Params, context?: HttpContext): Observable<void> {
-    return this.getMedijiApiMedijiGet$Response(params, context).pipe(
+  getApiMediji(params?: GetApiMediji$Params, context?: HttpContext): Observable<void> {
+    return this.getApiMediji$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getMedijstvoApiMedijstvoGet()` */
-  static readonly GetMedijstvoApiMedijstvoGetPath = '/api/medijstvo';
+  /** Path part for operation `getApiMedijstvo()` */
+  static readonly GetApiMedijstvoPath = '/api/medijstvo';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getMedijstvoApiMedijstvoGet()` instead.
+   * To access only the response body, use `getApiMedijstvo()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getMedijstvoApiMedijstvoGet$Response(params?: GetMedijstvoApiMedijstvoGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getMedijstvoApiMedijstvoGet(this.http, this.rootUrl, params, context);
+  getApiMedijstvo$Response(params?: GetApiMedijstvo$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiMedijstvo(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getMedijstvoApiMedijstvoGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiMedijstvo$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getMedijstvoApiMedijstvoGet(params?: GetMedijstvoApiMedijstvoGet$Params, context?: HttpContext): Observable<void> {
-    return this.getMedijstvoApiMedijstvoGet$Response(params, context).pipe(
+  getApiMedijstvo(params?: GetApiMedijstvo$Params, context?: HttpContext): Observable<void> {
+    return this.getApiMedijstvo$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getOmeniApiOmeniGet()` */
-  static readonly GetOmeniApiOmeniGetPath = '/api/omeni';
+  /** Path part for operation `getApiOmeni()` */
+  static readonly GetApiOmeniPath = '/api/omeni';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getOmeniApiOmeniGet()` instead.
+   * To access only the response body, use `getApiOmeni()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getOmeniApiOmeniGet$Response(params?: GetOmeniApiOmeniGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getOmeniApiOmeniGet(this.http, this.rootUrl, params, context);
+  getApiOmeni$Response(params?: GetApiOmeni$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiOmeni(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getOmeniApiOmeniGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiOmeni$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getOmeniApiOmeniGet(params?: GetOmeniApiOmeniGet$Params, context?: HttpContext): Observable<void> {
-    return this.getOmeniApiOmeniGet$Response(params, context).pipe(
+  getApiOmeni(params?: GetApiOmeni$Params, context?: HttpContext): Observable<void> {
+    return this.getApiOmeni$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getRegresijaApiRegresijaGet()` */
-  static readonly GetRegresijaApiRegresijaGetPath = '/api/regresija';
+  /** Path part for operation `getApiRegresija()` */
+  static readonly GetApiRegresijaPath = '/api/regresija';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getRegresijaApiRegresijaGet()` instead.
+   * To access only the response body, use `getApiRegresija()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getRegresijaApiRegresijaGet$Response(params?: GetRegresijaApiRegresijaGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getRegresijaApiRegresijaGet(this.http, this.rootUrl, params, context);
+  getApiRegresija$Response(params?: GetApiRegresija$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiRegresija(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getRegresijaApiRegresijaGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiRegresija$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getRegresijaApiRegresijaGet(params?: GetRegresijaApiRegresijaGet$Params, context?: HttpContext): Observable<void> {
-    return this.getRegresijaApiRegresijaGet$Response(params, context).pipe(
+  getApiRegresija(params?: GetApiRegresija$Params, context?: HttpContext): Observable<void> {
+    return this.getApiRegresija$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
-  /** Path part for operation `getSamohipnozaApiSamohipnozaGet()` */
-  static readonly GetSamohipnozaApiSamohipnozaGetPath = '/api/samohipnoza';
+  /** Path part for operation `getApiSamohipnoza()` */
+  static readonly GetApiSamohipnozaPath = '/api/samohipnoza';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getSamohipnozaApiSamohipnozaGet()` instead.
+   * To access only the response body, use `getApiSamohipnoza()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getSamohipnozaApiSamohipnozaGet$Response(params?: GetSamohipnozaApiSamohipnozaGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return getSamohipnozaApiSamohipnozaGet(this.http, this.rootUrl, params, context);
+  getApiSamohipnoza$Response(params?: GetApiSamohipnoza$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return getApiSamohipnoza(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getSamohipnozaApiSamohipnozaGet$Response()` instead.
+   * To access the full response (for headers, for example), `getApiSamohipnoza$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getSamohipnozaApiSamohipnozaGet(params?: GetSamohipnozaApiSamohipnozaGet$Params, context?: HttpContext): Observable<void> {
-    return this.getSamohipnozaApiSamohipnozaGet$Response(params, context).pipe(
+  getApiSamohipnoza(params?: GetApiSamohipnoza$Params, context?: HttpContext): Observable<void> {
+    return this.getApiSamohipnoza$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }

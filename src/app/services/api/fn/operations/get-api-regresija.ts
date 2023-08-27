@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetMedijstvoApiMedijstvoGet$Params {
+export interface GetApiRegresija$Params {
 }
 
-export function getMedijstvoApiMedijstvoGet(http: HttpClient, rootUrl: string, params?: GetMedijstvoApiMedijstvoGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, getMedijstvoApiMedijstvoGet.PATH, 'get');
+export function getApiRegresija(http: HttpClient, rootUrl: string, params?: GetApiRegresija$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, getApiRegresija.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function getMedijstvoApiMedijstvoGet(http: HttpClient, rootUrl: string, p
   );
 }
 
-getMedijstvoApiMedijstvoGet.PATH = '/api/medijstvo';
+getApiRegresija.PATH = '/api/regresija';

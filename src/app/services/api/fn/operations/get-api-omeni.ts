@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface DeleteErrorByIdApiErrorDeleteIdDelete$Params {
+export interface GetApiOmeni$Params {
 }
 
-export function deleteErrorByIdApiErrorDeleteIdDelete(http: HttpClient, rootUrl: string, params?: DeleteErrorByIdApiErrorDeleteIdDelete$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, deleteErrorByIdApiErrorDeleteIdDelete.PATH, 'delete');
+export function getApiOmeni(http: HttpClient, rootUrl: string, params?: GetApiOmeni$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, getApiOmeni.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function deleteErrorByIdApiErrorDeleteIdDelete(http: HttpClient, rootUrl:
   );
 }
 
-deleteErrorByIdApiErrorDeleteIdDelete.PATH = '/api/error/delete/{_id}';
+getApiOmeni.PATH = '/api/omeni';

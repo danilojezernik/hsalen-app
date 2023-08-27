@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface PostErrorApiErrorPost$Params {
+export interface PostApiError$Params {
 }
 
-export function postErrorApiErrorPost(http: HttpClient, rootUrl: string, params?: PostErrorApiErrorPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, postErrorApiErrorPost.PATH, 'post');
+export function postApiError(http: HttpClient, rootUrl: string, params?: PostApiError$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, postApiError.PATH, 'post');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function postErrorApiErrorPost(http: HttpClient, rootUrl: string, params?
   );
 }
 
-postErrorApiErrorPost.PATH = '/api/error';
+postApiError.PATH = '/api/error';

@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetOmeniApiOmeniGet$Params {
+export interface GetApiBlogId$Params {
 }
 
-export function getOmeniApiOmeniGet(http: HttpClient, rootUrl: string, params?: GetOmeniApiOmeniGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, getOmeniApiOmeniGet.PATH, 'get');
+export function getApiBlogId(http: HttpClient, rootUrl: string, params?: GetApiBlogId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, getApiBlogId.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function getOmeniApiOmeniGet(http: HttpClient, rootUrl: string, params?: 
   );
 }
 
-getOmeniApiOmeniGet.PATH = '/api/omeni';
+getApiBlogId.PATH = '/api/blog/{_id}';

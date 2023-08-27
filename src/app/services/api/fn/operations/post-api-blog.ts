@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetErrorApiErrorGet$Params {
+export interface PostApiBlog$Params {
 }
 
-export function getErrorApiErrorGet(http: HttpClient, rootUrl: string, params?: GetErrorApiErrorGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, getErrorApiErrorGet.PATH, 'get');
+export function postApiBlog(http: HttpClient, rootUrl: string, params?: PostApiBlog$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, postApiBlog.PATH, 'post');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function getErrorApiErrorGet(http: HttpClient, rootUrl: string, params?: 
   );
 }
 
-getErrorApiErrorGet.PATH = '/api/error';
+postApiBlog.PATH = '/api/blog';

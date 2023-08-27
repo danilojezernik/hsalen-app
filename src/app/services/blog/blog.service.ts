@@ -6,6 +6,7 @@ import {environment} from "../../../environments/environment";
 import {trace} from "../../utils/trace";
 import {Router} from "@angular/router";
 import {NewBlog} from "../../data/blog/newBlog";
+import {ApiService} from "../api/services/api.service";
 
 @Injectable({
   providedIn: 'root'
@@ -17,17 +18,13 @@ export class BlogService {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private api: ApiService
   ) {
   }
 
   @trace()
   getBlogAll(): Observable<Blog[]> {
-    return this.http.get<Blog[]>(`${this.BASE_PATH}`).pipe(
-      catchError(error => {
-        console.error("Napaka pri pridobivanju vseh blogov:", error);
-        return throwError('Pri pridobivanju blogov je šlo nekaj narobe. Prosim poskusite kasneje.');
-      })
-    )
+   this.api.
   }
 
   @trace()

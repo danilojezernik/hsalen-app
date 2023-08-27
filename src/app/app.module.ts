@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {forwardRef, NgModule, Provider} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {BlogComponent} from './pages/public/blog/blog.component';
@@ -23,6 +24,15 @@ import {HeaderComponent} from "./header/header.component";
 import {SamohipnozaComponent} from './pages/public/samohipnoza/samohipnoza.component';
 import {RegresijaComponent} from './pages/public/regresija/regresija.component';
 import {KnjigaComponent} from "./components/knjiga/knjiga.component";
+import {ApiModule} from "./services/api/api.module";
+import {environment} from "../environments/environment";
+import {HttpApiInterceptor} from "./middleware/api-interceptor";
+
+export const API_INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useExisting: forwardRef(() => HttpApiInterceptor),
+  multi: true
+};
 
 @NgModule({
   declarations: [
@@ -43,6 +53,7 @@ import {KnjigaComponent} from "./components/knjiga/knjiga.component";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ApiModule.forRoot({rootUrl: environment.backUrl}),
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -54,7 +65,10 @@ import {KnjigaComponent} from "./components/knjiga/knjiga.component";
     KnjigaComponent,
 
   ],
-  providers: [],
+  providers: [
+    HttpApiInterceptor,
+    API_INTERCEPTOR_PROVIDER
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface EditBlogApiBlogEditIdPost$Params {
+export interface PostApiBlogId$Params {
 }
 
-export function editBlogApiBlogEditIdPost(http: HttpClient, rootUrl: string, params?: EditBlogApiBlogEditIdPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, editBlogApiBlogEditIdPost.PATH, 'post');
+export function postApiBlogId(http: HttpClient, rootUrl: string, params?: PostApiBlogId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, postApiBlogId.PATH, 'post');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function editBlogApiBlogEditIdPost(http: HttpClient, rootUrl: string, par
   );
 }
 
-editBlogApiBlogEditIdPost.PATH = '/api/blog/edit/{_id}';
+postApiBlogId.PATH = '/api/blog/{_id}';

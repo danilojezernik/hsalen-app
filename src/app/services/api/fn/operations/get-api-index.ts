@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetMedijiApiMedijiGet$Params {
+export interface GetApiIndex$Params {
 }
 
-export function getMedijiApiMedijiGet(http: HttpClient, rootUrl: string, params?: GetMedijiApiMedijiGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, getMedijiApiMedijiGet.PATH, 'get');
+export function getApiIndex(http: HttpClient, rootUrl: string, params?: GetApiIndex$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, getApiIndex.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function getMedijiApiMedijiGet(http: HttpClient, rootUrl: string, params?
   );
 }
 
-getMedijiApiMedijiGet.PATH = '/api/mediji';
+getApiIndex.PATH = '/api/index';
