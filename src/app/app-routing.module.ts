@@ -9,6 +9,8 @@ import {BlogPregledComponent} from "./pages/private/blog-pregled/blog-pregled.co
 import {BlogBeriComponent} from "./pages/public/blog-beri/blog-beri.component";
 import {BlogUrediComponent} from "./pages/private/blog-uredi/blog-uredi.component";
 import {HipnoterapijaComponent} from "./pages/public/hipnoterapija/hipnoterapija.component";
+import {SamohipnozaComponent} from "./pages/public/samohipnoza/samohipnoza.component";
+import {RegresijaComponent} from "./pages/public/regresija/regresija.component";
 
 
 const routes: Routes = [
@@ -38,6 +40,12 @@ const routes: Routes = [
   },
   {
     path: 'hipnoterapija', component: HipnoterapijaComponent
+  },
+  {
+    path: 'samohipnoza', component: SamohipnozaComponent
+  },
+  {
+    path: 'regresija', component: RegresijaComponent
   }
 ];
 

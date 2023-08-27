@@ -1,20 +1,20 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {trace} from "../../../utils/trace";
-import {Subject} from "rxjs";
-import {Hipnoterapija} from "../../../data/hipnoterapija/hipnoterapija";
+import {Samohipnoza} from "../../../data/samohipnoza/samohipnoza";
 import {PublicGetDataService} from "../../../services/permanent/public-get-data.service";
 import {takeUntil} from "rxjs/operators";
+import {Subject} from "rxjs";
 
 @Component({
-  selector: 'app-hipnoterapija',
-  templateUrl: './hipnoterapija.component.html',
-  styleUrls: ['./hipnoterapija.component.css']
+  selector: 'app-samohipnoza',
+  templateUrl: './samohipnoza.component.html',
+  styleUrls: ['./samohipnoza.component.css']
 })
-export class HipnoterapijaComponent implements OnInit, OnDestroy {
+export class SamohipnozaComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  hipnoterapija: Hipnoterapija[] = []
+  samohipnoza: Samohipnoza[] = []
 
   constructor(
     private publicService: PublicGetDataService
@@ -23,10 +23,10 @@ export class HipnoterapijaComponent implements OnInit, OnDestroy {
 
   @trace()
   ngOnInit() {
-    this.publicService.getHipnoterapija()
+    this.publicService.getSamohipnoza()
       .pipe(takeUntil(this.destroy$))
       .subscribe(data => {
-        this.hipnoterapija = data;
+        this.samohipnoza = data;
       })
   }
 

@@ -11,7 +11,7 @@ import {LoginService} from "../../../services/login/login.service";
 })
 export class LoginComponent {
 
-  private BASE_PATH = environment.backUrl + '/api/login'
+  private BASE_PATH_LOGIN = environment.backUrl + '/api/login'
 
   isLoggedIn: boolean = false;
 

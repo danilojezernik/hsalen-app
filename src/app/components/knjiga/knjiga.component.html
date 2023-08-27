@@ -1,0 +1,6 @@
+<!-- PRIKAZ KNJIGA -->
+<div *ngFor="let alen of knjiga">
+  <h1 [innerHTML]="alen['naslov']"></h1>
+  <p [innerHTML]="alen['podnaslov']"></p>
+  <p [innerHTML]="alen['opis']"></p>
+</div>

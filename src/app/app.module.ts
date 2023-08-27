@@ -20,6 +20,9 @@ import {GoBackComponent} from "./components/go-back/go-back.component";
 import {BlogUrediComponent} from './pages/private/blog-uredi/blog-uredi.component';
 import {HipnoterapijaComponent} from './pages/public/hipnoterapija/hipnoterapija.component';
 import {HeaderComponent} from "./header/header.component";
+import {SamohipnozaComponent} from './pages/public/samohipnoza/samohipnoza.component';
+import {RegresijaComponent} from './pages/public/regresija/regresija.component';
+import {KnjigaComponent} from "./components/knjiga/knjiga.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import {HeaderComponent} from "./header/header.component";
     BlogBeriComponent,
     BlogUrediComponent,
     IndexComponent,
-    HipnoterapijaComponent
+    HipnoterapijaComponent,
+    SamohipnozaComponent,
+    RegresijaComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,7 @@ import {HeaderComponent} from "./header/header.component";
     MatButtonModule,
     GoBackComponent,
     HeaderComponent,
+    KnjigaComponent,
 
   ],
   providers: [],
