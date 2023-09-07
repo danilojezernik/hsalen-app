@@ -4,7 +4,17 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
-import { ApiService } from './services/api.service';
+import { IndexService } from './services/index.service';
+import { BlogService } from './services/blog.service';
+import { LogInService } from './services/log-in.service';
+import { AdminService } from './services/admin.service';
+import { OMeniService } from './services/o-meni.service';
+import { SamohipnozaService } from './services/samohipnoza.service';
+import { MedijstvoService } from './services/medijstvo.service';
+import { JasnovidnostService } from './services/jasnovidnost.service';
+import { RegresijaService } from './services/regresija.service';
+import { HipnoterapijaService } from './services/hipnoterapija.service';
+import { GlobalErrorService } from './services/global-error.service';
 
 /**
  * Module that provides all services and configuration.
@@ -14,7 +24,17 @@ import { ApiService } from './services/api.service';
   exports: [],
   declarations: [],
   providers: [
-    ApiService,
+    IndexService,
+    BlogService,
+    LogInService,
+    AdminService,
+    OMeniService,
+    SamohipnozaService,
+    MedijstvoService,
+    JasnovidnostService,
+    RegresijaService,
+    HipnoterapijaService,
+    GlobalErrorService,
     ApiConfiguration
   ],
 })

@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Blog} from '../../../data/blog/blog';
 import {BlogService} from '../../../services/blog/blog.service';
 import {trace} from "../../../utils/trace";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-blog-uredi',
@@ -16,7 +17,8 @@ export class BlogUrediComponent implements OnInit {
   constructor(
     private blogService: BlogService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -44,7 +46,7 @@ export class BlogUrediComponent implements OnInit {
     if (this.blog) {
       this.blogService.editBlog(this.blog._id['$oid'], this.blog)
         .subscribe(() => {
-          this.router.navigate(['/blog-pregled']); // Navigate to the edit page
+          this.router.navigate(['/blog-pregled']);
         });
     }
   }

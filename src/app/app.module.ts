@@ -27,6 +27,7 @@ import {KnjigaComponent} from "./components/knjiga/knjiga.component";
 import {ApiModule} from "./services/api/api.module";
 import {environment} from "../environments/environment";
 import {HttpApiInterceptor} from "./middleware/api-interceptor";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 export const API_INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -63,6 +64,7 @@ export const API_INTERCEPTOR_PROVIDER: Provider = {
     GoBackComponent,
     HeaderComponent,
     KnjigaComponent,
+    MatSnackBarModule
 
   ],
   providers: [
