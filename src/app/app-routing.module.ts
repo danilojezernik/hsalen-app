@@ -1,16 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {IndexComponent} from "./pages/public/index/index.component";
-import {BlogComponent} from "./pages/public/blog/blog.component";
-import {BlogAddComponent} from "./pages/private/blog-dodaj/blog-add.component";
-import {LoginComponent} from "./pages/public/login/login.component";
-import {AdminComponent} from "./pages/private/admin/admin.component";
-import {BlogPregledComponent} from "./pages/private/blog-pregled/blog-pregled.component";
-import {BlogBeriComponent} from "./pages/public/blog-beri/blog-beri.component";
-import {BlogUrediComponent} from "./pages/private/blog-uredi/blog-uredi.component";
-import {HipnoterapijaComponent} from "./pages/public/hipnoterapija/hipnoterapija.component";
-import {SamohipnozaComponent} from "./pages/public/samohipnoza/samohipnoza.component";
-import {RegresijaComponent} from "./pages/public/regresija/regresija.component";
+import {IndexComponent} from "./core/pages/public/index/index.component";
+import {BlogComponent} from "./core/pages/public/blog/blog.component";
+import {BlogAddComponent} from "./core/pages/private/blog-dodaj/blog-add.component";
+import {LoginComponent} from "./core/pages/public/login/login.component";
+import {AdminComponent} from "./core/pages/private/admin/admin.component";
+import {BlogPregledComponent} from "./core/pages/private/blog-pregled/blog-pregled.component";
+import {BlogBeriComponent} from "./core/pages/public/blog-beri/blog-beri.component";
+import {BlogUrediComponent} from "./core/pages/private/blog-uredi/blog-uredi.component";
+import {HipnoterapijaComponent} from "./core/pages/public/hipnoterapija/hipnoterapija.component";
+import {SamohipnozaComponent} from "./core/pages/public/samohipnoza/samohipnoza.component";
+import {RegresijaComponent} from "./core/pages/public/regresija/regresija.component";
 
 
 const routes: Routes = [

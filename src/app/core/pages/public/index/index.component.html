@@ -1,0 +1,18 @@
+<!-- PRIKAZ INDEX -->
+<div *ngIf="index">
+  <h1>{{ index.naslov }}</h1>
+  <p>{{ index.podnaslov }}</p>
+  <p>{{ index.pomoc_hipnoterapija }}</p>
+  <p>{{ index.pomoc_jasnovidnsot }}</p>
+  <p>{{ index.pomoc_medijstvo }}</p>
+</div>
+
+<!-- PRIKAZ KNJIGA -->
+<app-knjiga></app-knjiga>
+
+<!-- PRIKAZ INDEX -->
+<div>
+  <p [innerHTML]=""></p>
+  <p [innerHTML]=""></p>
+  <p [innerHTML]=""></p>
+</div>
