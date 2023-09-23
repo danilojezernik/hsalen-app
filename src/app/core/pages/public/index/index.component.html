@@ -1,10 +1,10 @@
 <!-- PRIKAZ INDEX -->
 <div *ngIf="index">
-  <h1>{{ index.naslov }}</h1>
-  <p>{{ index.podnaslov }}</p>
-  <p>{{ index.pomoc_hipnoterapija }}</p>
-  <p>{{ index.pomoc_jasnovidnsot }}</p>
-  <p>{{ index.pomoc_medijstvo }}</p>
+  <h1 [innerHTML]="index['naslov']"></h1>
+  <p [innerHTML]="index['podnaslov']"></p>
+  <p [innerHTML]="index['pomoc_hipnoterapija']"></p>
+  <p [innerHTML]="index['pomoc_jasnovidnsot']"></p>
+  <p [innerHTML]="index['pomoc_medijstvo']"></p>
 </div>
 
 <!-- PRIKAZ KNJIGA -->

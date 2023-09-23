@@ -4,33 +4,32 @@ import {trace} from "../../../utils/trace";
 import {HttpClient} from "@angular/common/http";
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html'
+    selector: 'app-index',
+    templateUrl: './index.component.html'
 })
 export class IndexComponent implements OnInit, OnDestroy {
 
 
-  index: any;
-  private destroy$: Subject<boolean> = new Subject<boolean>();
+    index: any;
+    private destroy$: Subject<boolean> = new Subject<boolean>();
 
 
-  constructor(private db: HttpClient) {
-  }
+    constructor(private db: HttpClient) {
+    }
 
-  @trace()
-  ngOnInit() {
-    const path: string = 'assets/index.json'
-    this.db.get(path).subscribe((response) => {
-        console.log(response)
-        this.index = response
-      }
-    )
-  }
+    @trace()
+    ngOnInit() {
+        const path: string = 'assets/index.json'
+        this.db.get(path).subscribe((response) => {
+                this.index = response
+            }
+        )
+    }
 
-  @trace()
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete();
-  }
+    @trace()
+    ngOnDestroy() {
+        this.destroy$.next(true);
+        this.destroy$.complete();
+    }
 
 }

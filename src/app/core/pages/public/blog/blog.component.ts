@@ -1,28 +1,37 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from "rxjs";
 import {trace} from "../../../utils/trace";
-import {Blog} from "../../../models/blog";
+import {BlogService} from "../../../services/api/blog.service";
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html'
+    selector: 'app-blog',
+    templateUrl: './blog.component.html'
 })
 export class BlogComponent implements OnInit, OnDestroy {
 
-  blog: Blog[] = [];
+    blog: any;
 
-  private destroy$: Subject<boolean> = new Subject<boolean>();
+    private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor() {
-  }
+    constructor(private api: BlogService) {
+    }
 
-  @trace()
-  ngOnInit() {
-  }
+    @trace()
+    ngOnInit() {
+        this.loadAllBlog()
+    }
 
-  @trace()
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete();
-  }
+    loadAllBlog() {
+        this.api.getAllBlog().subscribe(
+            (data) => {
+                this.blog = data
+            }
+        )
+    }
+
+    @trace()
+    ngOnDestroy() {
+        this.destroy$.next(true);
+        this.destroy$.complete();
+    }
 }
