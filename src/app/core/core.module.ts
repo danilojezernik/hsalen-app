@@ -15,12 +15,13 @@ import {BlogComponent} from "./pages/public/blog/blog.component";
 import {HeaderComponent} from "./header/header.component";
 import {RouterLink} from "@angular/router";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../shared/shared.module";
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -62,7 +63,9 @@ import {MatDialogModule} from "@angular/material/dialog";
         MatTableModule,
         MatButtonModule,
         MatPaginatorModule,
-        MatDialogModule
+        MatDialogModule,
+        ReactiveFormsModule,
+        MatIconModule
     ]
 })
 export class CoreModule {

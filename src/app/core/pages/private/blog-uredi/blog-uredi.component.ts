@@ -1,26 +1,33 @@
 import {Component, OnInit} from '@angular/core';
-import {Blog} from "../../../models/blog";
-import {BlogService} from "../../../services/api/blog.service";
-import {ActivatedRoute} from "@angular/router";
+import {Blog} from '../../../models/blog';
+import {BlogService} from '../../../services/api/blog.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms'; // Import necessary form-related modules
 
 @Component({
     selector: 'app-blog-uredi',
     templateUrl: './blog-uredi.component.html',
 })
 export class BlogUrediComponent implements OnInit {
-
     blogId: any;
-    // @ts-ignore
-    blog: Blog = {naslov: '', podnaslov: '', tag: '', vsebina: ''};
+    blogForm: FormGroup; // Declare FormGroup for the form
 
     constructor(
         private api: BlogService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router,  // Inject Router
+        private fb: FormBuilder // Inject FormBuilder
     ) {
+        this.blogForm = this.fb.group({
+            naslov: ['', Validators.required],
+            podnaslov: [''],
+            tag: [''],
+            vsebina: ['', Validators.required],
+        });
     }
 
     ngOnInit() {
-        this.route.params.subscribe(params => {
+        this.route.params.subscribe((params) => {
             this.blogId = params['id'];
             this.loadBlog();
         });
@@ -29,7 +36,7 @@ export class BlogUrediComponent implements OnInit {
     loadBlog() {
         this.api.getBlogById(this.blogId).subscribe(
             (data) => {
-                this.blog = data;
+                this.blogForm.patchValue(data); // Patch form values from the retrieved blog data
             },
             (error) => {
                 console.error('Error getting blog', error);
@@ -37,4 +44,20 @@ export class BlogUrediComponent implements OnInit {
         );
     }
 
+    onSubmit() {
+        if (this.blogForm.valid) {
+            const editedBlog: Blog = this.blogForm.value;
+            this.api.editBlog(this.blogId, editedBlog).subscribe(
+                (response) => {
+                    // Handle successful update
+                    console.log('Blog updated successfully:', response);
+                    this.router.navigate(['/blog-pregled']);  // Navigate to the desired route
+
+                },
+                (error) => {
+                    console.error('Error updating blog:', error);
+                }
+            );
+        }
+    }
 }

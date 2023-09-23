@@ -1,34 +1,33 @@
 <div>
     <h2>Uredi blog</h2>
-    <form class="example-form">
+    <form class="example-form" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
         <table class="example-full-width">
             <tr>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Naslov</mat-label>
-                        <input name="naslov" matInput [(ngModel)]="blog['naslov']">
+                        <input name="naslov" matInput formControlName="naslov"/>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Podnaslov</mat-label>
-                        <input name="podnaslov" matInput [(ngModel)]="blog.podnaslov">
+                        <input name="podnaslov" matInput formControlName="podnaslov"/>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Kategorija</mat-label>
-                        <input name="tag" matInput [(ngModel)]="blog.tag">
+                        <input name="tag" matInput formControlName="tag"/>
                     </mat-form-field>
                 </td>
             </tr>
         </table>
         <mat-form-field class="example-full-width">
             <mat-label>Vsebina</mat-label>
-            <textarea name="vsebina" matInput [(ngModel)]="blog.vsebina"
-                      style="height: 300px"></textarea>
+            <textarea name="vsebina" matInput formControlName="vsebina" style="height: 300px"></textarea>
         </mat-form-field>
-        <button mat-button [mat-dialog-close]="blog" cdkFocusInitial>Save Changes</button>
+        <button mat-button type="submit">Save Changes</button>
     </form>
 </div>
 <app-go-back></app-go-back>

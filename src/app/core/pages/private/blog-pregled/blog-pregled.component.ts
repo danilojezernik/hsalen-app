@@ -5,8 +5,9 @@ import {BlogService} from "../../../services/api/blog.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {Blog} from "../../../models/blog";
 import {MatPaginator} from "@angular/material/paginator";
-import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {EditAddBlogComponent} from "../../../../shared/components/dialog/edit-add-blog/edit-add-blog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {BlogAddComponent} from "../blog-dodaj/blog-add.component";
+import {DataUpdateService} from "../../../services/communication/data-update.service";
 
 @Component({
     selector: 'app-blog-pregled',
@@ -14,7 +15,7 @@ import {EditAddBlogComponent} from "../../../../shared/components/dialog/edit-ad
 })
 export class BlogPregledComponent implements OnInit, OnDestroy {
 
-    blog: any;
+    blog: any | undefined;
     dataSource = new MatTableDataSource<Blog>()
     spinner: boolean = false;
     displayColumns: string[] = ['blog_id', 'naslov', 'podnaslov', 'datum_vnosa', 'action']
@@ -31,13 +32,26 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
 
     constructor(
         private api: BlogService,
-        private dialog: MatDialog
+        private dialog: MatDialog,
+        private dataUpdateService: DataUpdateService,
     ) {
     }
 
     @trace()
     ngOnInit() {
         this.loadAllBlog()
+        // Subscribe to data update events using the DataUpdateService
+        this.dataUpdateService.dataUpdated$.subscribe(() => {
+            // Reload the table when data is updated
+            this.loadAllBlog();
+        });
+    }
+
+    openDialog() {
+        // Open a dialog using Angular Material's MatDialog
+        this.dialog.open(BlogAddComponent, {
+            minWidth: '70%' // Set the width of the dialog
+        });
     }
 
     /**
@@ -70,33 +84,6 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
             console.error('Error deleting blog', error)
             this.spinner = false;
         })
-    }
-
-
-    openEditDialog(blog: Blog): void {
-        // Create dialog configuration
-        const dialogConfig = new MatDialogConfig();
-        dialogConfig.autoFocus = true;
-        dialogConfig.data = {blog}; // Pass the blog data to the dialog
-
-        // Open the dialog
-        const dialogRef = this.dialog.open(EditAddBlogComponent, dialogConfig);
-
-        // Subscribe to the dialog close event
-        dialogRef.afterClosed().subscribe((result: Blog) => {
-            if (result) {
-                // Handle the result from the dialog (edited blog data)
-                console.log('Dialog result (edited blog):', result);
-
-                // Update the blog data in your data source if needed
-                // For example, you could update the data source with the edited blog
-                const index = this.dataSource.data.findIndex(blog => blog._id === result._id);
-                if (index !== -1) {
-                    this.dataSource.data[index] = result;
-                    this.dataSource._updateChangeSubscription();
-                }
-            }
-        });
     }
 
     @trace()

@@ -1,7 +1,9 @@
 <h3>BLOG PREGLED</h3>
-
+<button (click)="openDialog()">Dodaj Blog</button>
 <!-- PRIKAZ BLOGA -->
 <div>
+
+
     <table *ngIf="blog" mat-table [dataSource]="dataSource">
         <!-- Post Title Column -->
         <ng-container matColumnDef="blog_id">
@@ -31,10 +33,16 @@
         <!-- Action Column -->
         <ng-container matColumnDef="action">
             <th style="text-align: center" mat-header-cell *matHeaderCellDef> Action</th>
-            <td style="text-align: center" mat-cell *matCellDef="let element">
-                <button style="margin-right: 10px" mat-raised-button color="primary" [routerLink]="['/blog/', element._id]">READ</button>
-                <button style="margin-right: 10px" mat-raised-button color="warn" (click)="deleteBlog(element._id)">DELETE</button>
-                <button style="margin-right: 10px" mat-raised-button color="warn" (click)="openEditDialog(element)">EDIT</button>
+            <td class="py-3" style="text-align: center" mat-cell *matCellDef="let element">
+                <button style="margin-right: 10px" mat-mini-fab color="primary" [routerLink]="['/blog/', element._id]">
+                    <mat-icon>search</mat-icon>
+                </button>
+                <button style="margin-right: 10px" mat-mini-fab color="warn" (click)="deleteBlog(element._id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button style="margin-right: 10px" mat-mini-fab color="accent" [routerLink]="['/blog/edit', element._id]">
+                    <mat-icon>edit</mat-icon>
+                </button>
             </td>
         </ng-container>
 
