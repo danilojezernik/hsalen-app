@@ -2,11 +2,52 @@
 
 <!-- PRIKAZ BLOGA -->
 <div>
-  <span>1. </span>
-  <span>naslov | </span>
-  <span><b>blogi.tag </b></span>
-  <button>X</button>
-  <button>Beri dalje</button>
-  <button>Edit</button> <!-- New button for editing -->
+    <table *ngIf="blog" mat-table [dataSource]="dataSource">
+        <!-- Post Title Column -->
+        <ng-container matColumnDef="blog_id">
+            <th mat-header-cell *matHeaderCellDef> Blog ID</th>
+            <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+        </ng-container>
+        <!-- Author Column -->
+        <ng-container matColumnDef="naslov">
+            <th mat-header-cell *matHeaderCellDef> Naslov</th>
+            <td class="fw-bold" mat-cell *matCellDef="let element"> {{element.naslov}} </td>
+        </ng-container>
+
+        <!-- Created At Column -->
+        <ng-container matColumnDef="podnaslov">
+            <th mat-header-cell *matHeaderCellDef> Podnaslov</th>
+            <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element.podnaslov}">
+                {{ element.podnaslov ? element.podnaslov : 'Ni podnaslova' }}
+            </td>
+        </ng-container>
+
+        <!-- Updated At Column -->
+        <ng-container matColumnDef="datum_vnosa">
+            <th mat-header-cell *matHeaderCellDef> Datum vnosa</th>
+            <td mat-cell *matCellDef="let element"> {{element.datum_vnosa | date: 'MMM d, y, h:mm:ss a' }} </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th style="text-align: center" mat-header-cell *matHeaderCellDef> Action</th>
+            <td style="text-align: center" mat-cell *matCellDef="let element">
+                <button style="margin-right: 10px" mat-raised-button color="primary" [routerLink]="['/blog/', element._id]">READ</button>
+                <button style="margin-right: 10px" mat-raised-button color="warn" (click)="deleteBlog(element._id)">DELETE</button>
+                <button style="margin-right: 10px" mat-raised-button color="warn" (click)="openEditDialog(element)">EDIT</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>
+<div *ngIf="spinner">
+    <app-spinner></app-spinner>
 </div>
 <app-go-back></app-go-back>

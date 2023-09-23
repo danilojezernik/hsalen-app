@@ -30,4 +30,5 @@ export class BlogBeriComponent implements OnInit {
             }
         )
     }
+
 }

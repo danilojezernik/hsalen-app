@@ -1,6 +1,6 @@
 <div>
     <h2>Uredi blog</h2>
-    <form class="example-form">
+    <form class="example-form" (click)="saveChanges()">
         <table class="example-full-width">
             <tr>
                 <td>
@@ -31,4 +31,3 @@
         <button mat-button [mat-dialog-close]="blog" cdkFocusInitial>Save Changes</button>
     </form>
 </div>
-<app-go-back></app-go-back>
