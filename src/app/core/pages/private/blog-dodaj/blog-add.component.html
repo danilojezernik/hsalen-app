@@ -1,32 +1,29 @@
-<h2>DODAJ BLOG</h2>
-<form (submit)="dodajBlog()" class="example-form">
-  <table class="example-full-width">
-    <tr>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Naslov</mat-label>
-          <input name="naslov" matInput>
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Podnaslov</mat-label>
-          <input name="podnaslov" matInput>
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Kategorija</mat-label>
-          <input name="tag" matInput>
-        </mat-form-field>
-      </td>
-    </tr>
-  </table>
-  <mat-form-field class="example-full-width">
-    <mat-label>Vsebina</mat-label>
-    <textarea name="vsebina" matInput style="height: 300px"></textarea>
-  </mat-form-field>
-  <button type="submit">Dodaj blog</button>
-</form>
+<h1 mat-dialog-title>Add new post</h1>
 
-<app-go-back></app-go-back>
+<div mat-dialog-content>
+    <form [formGroup]="addingPostForm" (ngSubmit)="addPost()">
+        <mat-form-field style="width: 100%">
+            <mat-label>Naslov</mat-label>
+            <input type="text" formControlName="naslov" required matInput>
+        </mat-form-field>
+        <mat-form-field style="width: 100%">
+            <mat-label>Podnaslov</mat-label>
+            <input type="text" formControlName="podnaslov" required matInput>
+        </mat-form-field>
+
+
+        <mat-form-field style="width: 100%">
+            <mat-label>Tag</mat-label>
+            <input type="text" formControlName="tag" required matInput>
+        </mat-form-field>
+
+        
+        <mat-form-field style="width: 100%">
+            <mat-label>Vsebina</mat-label>
+            <textarea type="text" formControlName="vsebina" required matInput></textarea>
+        </mat-form-field>
+        <button mat-button mat-dialog-close>Zapri okno</button>
+
+        <button mat-raised-button color="warn" type="submit" [disabled]="addingPostForm.invalid">Dodaj Blog</button>
+    </form>
+</div>

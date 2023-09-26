@@ -51,7 +51,7 @@ export class BlogService {
      */
     addNewBlog(newBlog: Blog): Observable<Blog> {
         // Using Angular HttpClient to make a POST request to the specified API endpoint
-        return this.http.post<Blog>(`${environment.backUrl}/post`, newBlog).pipe(
+        return this.http.post<Blog>(`${environment.backUrl}/blog`, newBlog).pipe(
             catchError(error => {
                 // Log an error message if an error occurs during the API call
                 console.error("Error adding a new post:", error);
