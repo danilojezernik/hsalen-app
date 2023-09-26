@@ -4,6 +4,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Blog} from "../../../models/blog";
 import {DataUpdateService} from "../../../services/communication/data-update.service";
+import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
 
 @Component({
   selector: 'app-blog-dodaj',
@@ -18,7 +19,8 @@ export class BlogAddComponent implements OnInit {
     private api: BlogService,
     public dialog: MatDialog,
     public formBuilder: FormBuilder, // Angular service for building forms
-    private dataUpdateService: DataUpdateService // Inject custom service for updating data
+    private dataUpdateService: DataUpdateService, // Inject custom service for updating data
+    private snackbarService: SnackBarService
   ) {
   }
 
@@ -47,11 +49,11 @@ export class BlogAddComponent implements OnInit {
 
     // Call the postService to add a new post
     this.api.addNewBlog(newBlog).subscribe(
-      () => {
-
+      (data) => {
+        console.log(data)
+        this.snackbarService.showSnackbar(`Blog ${data.naslov.toUpperCase()} je bil uspešno dodan!`)
         // Update the post data
         this.blog = this.api.getAllBlog()
-
         // Reset the form
         this.addingPostForm.reset();
         this.dialog.closeAll()

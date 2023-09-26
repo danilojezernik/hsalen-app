@@ -8,87 +8,91 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatDialog} from "@angular/material/dialog";
 import {BlogAddComponent} from "../blog-dodaj/blog-add.component";
 import {DataUpdateService} from "../../../services/communication/data-update.service";
+import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
 
 @Component({
-    selector: 'app-blog-pregled',
-    templateUrl: './blog-pregled.component.html',
+  selector: 'app-blog-pregled',
+  templateUrl: './blog-pregled.component.html',
 })
 export class BlogPregledComponent implements OnInit, OnDestroy {
 
-    blog: any | undefined;
-    dataSource = new MatTableDataSource<Blog>()
-    spinner: boolean = false;
-    displayColumns: string[] = ['blog_id', 'naslov', 'podnaslov', 'datum_vnosa', 'action']
+  blog: any | undefined;
+  dataSource = new MatTableDataSource<Blog>()
+  spinner: boolean = false;
+  displayColumns: string[] = ['blog_id', 'naslov', 'podnaslov', 'datum_vnosa', 'action']
 
-    private destroy$: Subject<boolean> = new Subject<boolean>();
+  private destroy$: Subject<boolean> = new Subject<boolean>();
 
-    /**
-     * ViewChild decorator to get a reference to the MatPaginator component.
-     * Used to access and manipulate the MatPaginator component in the template.
-     *
-     */
-        // @ts-ignore
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+  /**
+   * ViewChild decorator to get a reference to the MatPaginator component.
+   * Used to access and manipulate the MatPaginator component in the template.
+   *
+   */
+    // @ts-ignore
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    constructor(
-        private api: BlogService,
-        private dialog: MatDialog,
-        private dataUpdateService: DataUpdateService,
-    ) {
-    }
+  constructor(
+    private api: BlogService,
+    private dialog: MatDialog,
+    private dataUpdateService: DataUpdateService,
+    private snackbarService: SnackBarService
+  ) {
+  }
 
-    @trace()
-    ngOnInit() {
-        this.loadAllBlog()
-        // Subscribe to data update events using the DataUpdateService
-        this.dataUpdateService.dataUpdated$.subscribe(() => {
-            // Reload the table when data is updated
-            this.loadAllBlog();
-        });
-    }
+  @trace()
+  ngOnInit() {
+    this.loadAllBlog()
+    // Subscribe to data update events using the DataUpdateService
+    this.dataUpdateService.dataUpdated$.subscribe(() => {
+      // Reload the table when data is updated
+      this.loadAllBlog();
+    });
+  }
 
-    openDialog() {
-        // Open a dialog using Angular Material's MatDialog
-        this.dialog.open(BlogAddComponent, {
-            minWidth: '70%' // Set the width of the dialog
-        });
-    }
+  openDialog() {
+    // Open a dialog using Angular Material's MatDialog
+    this.dialog.open(BlogAddComponent, {
+      minWidth: '70%' // Set the width of the dialog
+    });
+  }
 
-    /**
-     * Method to handle actions after the view and child views are initialized.
-     * Assigns the paginator to the MatTable dataSource.
-     */
-    ngAfterViewInit() {
-        this.dataSource.paginator = this.paginator; // Assign the paginator to the MatTable dataSource
-    }
+  /**
+   * Method to handle actions after the view and child views are initialized.
+   * Assigns the paginator to the MatTable dataSource.
+   */
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator; // Assign the paginator to the MatTable dataSource
+  }
 
-    loadAllBlog() {
-        this.spinner = true
-        this.api.getAllBlog().subscribe(
-            (data) => {
-                this.spinner = false;
-                this.blog = data;
-                this.dataSource.data = data;
-            }, (error) => {
-                console.error('Error getting all blog', error);
-                this.spinner = false;
-            }
-        )
-    }
+  loadAllBlog() {
+    this.spinner = true
+    this.api.getAllBlog().subscribe(
+      (data) => {
+        this.spinner = false;
+        this.blog = data;
+        this.dataSource.data = data;
+      }, (error) => {
+        console.error('Error getting all blog', error);
+        this.spinner = false;
+      }
+    )
+  }
 
-    deleteBlog(id: string) {
-        this.spinner = true;
-        this.api.deleteBlogById(id).subscribe(() => {
-            this.spinner = false;
-        }, (error) => {
-            console.error('Error deleting blog', error)
-            this.spinner = false;
-        })
-    }
+  deleteBlog(id: string) {
+    this.spinner = true;
+    this.api.deleteBlogById(id).subscribe(() => {
+      this.snackbarService.showSnackbar('Blog je bil uspešno izbrisan!')
+      this.spinner = false;
+      this.loadAllBlog()
+    }, (error) => {
+      console.error('Error deleting blog', error)
+      this.spinner = false;
+    })
+  }
 
-    @trace()
-    ngOnDestroy() {
-        this.destroy$.next(true);
-        this.destroy$.complete();
-    }
+  @trace()
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    this.destroy$.complete();
+  }
 }

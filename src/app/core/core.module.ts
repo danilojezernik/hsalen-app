@@ -22,51 +22,53 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
-    declarations: [
-        BlogAddComponent,
-        BlogPregledComponent,
-        LoginComponent,
-        AdminComponent,
-        BlogBeriComponent,
-        BlogUrediComponent,
-        IndexComponent,
-        HipnoterapijaComponent,
-        SamohipnozaComponent,
-        RegresijaComponent,
-        BlogComponent,
-        HeaderComponent
-    ],
-    exports: [
-        BlogAddComponent,
-        BlogPregledComponent,
-        LoginComponent,
-        AdminComponent,
-        BlogBeriComponent,
-        BlogUrediComponent,
-        IndexComponent,
-        HipnoterapijaComponent,
-        SamohipnozaComponent,
-        RegresijaComponent,
-        BlogComponent,
-        HeaderComponent
-    ],
-    imports: [
-        CommonModule,
-        BrowserAnimationsModule,
-        RouterLink,
-        MatInputModule,
-        FormsModule,
-        SharedModule,
-        MatTableModule,
-        MatButtonModule,
-        MatPaginatorModule,
-        MatDialogModule,
-        ReactiveFormsModule,
-        MatIconModule
-    ]
+  declarations: [
+    BlogAddComponent,
+    BlogPregledComponent,
+    LoginComponent,
+    AdminComponent,
+    BlogBeriComponent,
+    BlogUrediComponent,
+    IndexComponent,
+    HipnoterapijaComponent,
+    SamohipnozaComponent,
+    RegresijaComponent,
+    BlogComponent,
+    HeaderComponent
+  ],
+  exports: [
+    BlogAddComponent,
+    BlogPregledComponent,
+    LoginComponent,
+    AdminComponent,
+    BlogBeriComponent,
+    BlogUrediComponent,
+    IndexComponent,
+    HipnoterapijaComponent,
+    SamohipnozaComponent,
+    RegresijaComponent,
+    BlogComponent,
+    HeaderComponent
+  ],
+  imports: [
+    CommonModule,
+    BrowserAnimationsModule,
+    RouterLink,
+    MatInputModule,
+    FormsModule,
+    SharedModule,
+    MatTableModule,
+    MatButtonModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatSnackBarModule
+  ]
 })
 export class CoreModule {
 }
