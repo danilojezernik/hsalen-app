@@ -6,4 +6,5 @@
 <a routerLink="/blog">Blog</a> |
 
 <!-- Show "Login" if not logged in -->
-<a routerLink="/login">Login</a>
+<a *ngIf="!isLoggedIn" routerLink="/login">LogIn</a>
+<a *ngIf="isLoggedIn" (click)="logOut()" routerLink="/login">LogOut</a>
