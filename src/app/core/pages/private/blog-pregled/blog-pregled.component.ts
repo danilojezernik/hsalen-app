@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subject} from "rxjs";
-import {trace} from "../../../utils/trace";
 import {BlogService} from "../../../services/api/blog.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {Blog} from "../../../models/blog";
@@ -39,7 +38,6 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
   ) {
   }
 
-  @trace()
   ngOnInit() {
     this.loadAllBlog()
     // Subscribe to data update events using the DataUpdateService
@@ -66,7 +64,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
 
   loadAllBlog() {
     this.spinner = true
-    this.api.getAllBlog().subscribe(
+    this.api.getAllBlogAdmin().subscribe(
       (data) => {
         this.spinner = false;
         this.blog = data;
@@ -80,7 +78,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
 
   deleteBlog(id: string) {
     this.spinner = true;
-    this.api.deleteBlogById(id).subscribe(() => {
+    this.api.deleteBlogByIdAdmin(id).subscribe(() => {
       this.snackbarService.showSnackbar('Blog je bil uspešno izbrisan!')
       this.spinner = false;
       this.loadAllBlog()
@@ -90,7 +88,6 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
     })
   }
 
-  @trace()
   ngOnDestroy() {
     this.destroy$.next(true);
     this.destroy$.complete();

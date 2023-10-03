@@ -48,12 +48,12 @@ export class BlogAddComponent implements OnInit {
     };
 
     // Call the postService to add a new post
-    this.api.addNewBlog(newBlog).subscribe(
+    this.api.addNewBlogAdmin(newBlog).subscribe(
       (data) => {
         console.log(data)
         this.snackbarService.showSnackbar(`Blog ${data.naslov.toUpperCase()} je bil uspešno dodan!`)
         // Update the post data
-        this.blog = this.api.getAllBlog()
+        this.blog = this.api.getAllBlogAdmin()
         // Reset the form
         this.addingPostForm.reset();
         this.dialog.closeAll()

@@ -36,7 +36,7 @@ export class BlogUrediComponent implements OnInit {
   }
 
   loadBlog() {
-    this.api.getBlogById(this.blogId).subscribe(
+    this.api.getBlogByIdAdmin(this.blogId).subscribe(
       (data) => {
         this.blogForm.patchValue(data); // Patch form values from the retrieved blog data
       },
@@ -49,7 +49,7 @@ export class BlogUrediComponent implements OnInit {
   onSubmit() {
     if (this.blogForm.valid) {
       const editedBlog: Blog = this.blogForm.value;
-      this.api.editBlog(this.blogId, editedBlog).subscribe(
+      this.api.editBlogAdmin(this.blogId, editedBlog).subscribe(
         (data) => {
           // Handle successful update
           this.snackbarService.showSnackbar(`Blog ${data.naslov.toUpperCase()} je bil uspešno posodobljen!`)
