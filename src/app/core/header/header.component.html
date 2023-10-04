@@ -1,10 +1,9 @@
-<!-- header.component.html -->
 <a routerLink="/">Domov</a> |
 <a routerLink="/hipnoterapija">Hipnoterapija</a> |
 <a routerLink="/samohipnoza">Samohipnoza</a> |
 <a routerLink="/regresija">Regresija</a> |
 <a routerLink="/blog">Blog</a> |
 
-<!-- Show "Login" if not logged in -->
+<!-- User logged in or logged out -->
 <a *ngIf="!isLoggedIn" routerLink="/login">LogIn</a>
 <a *ngIf="isLoggedIn" (click)="logOut()" routerLink="/login">LogOut</a>

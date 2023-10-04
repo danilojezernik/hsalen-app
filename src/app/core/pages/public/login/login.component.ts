@@ -14,6 +14,10 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {
   }
 
+  /**
+   * Method to log the user in by making a login request.
+   * Calls the AuthService's login method and handles the response.
+   */
   logIn() {
     this.authService.login(this.username, this.password)
       .subscribe(

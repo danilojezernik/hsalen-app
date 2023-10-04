@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
+
 import {Blog} from "../../models/blog";
 import {environment} from "../../../../environments/environment.development";
 
@@ -12,7 +13,7 @@ export class BlogService {
   constructor(private http: HttpClient) {
   }
 
-  // PUBLIC BLOG
+  // ***************** PUBLIC BLOG ******************* //
 
   /**
    * Fetches all blogs
@@ -45,7 +46,7 @@ export class BlogService {
     )
   }
 
-  // ADMIN BLOG
+  // ***************** ADMIN BLOG ******************* //
 
   /**
    * Fetches all blogs
@@ -102,6 +103,7 @@ export class BlogService {
    * @returns An observable of the specified blog.
    */
   deleteBlogByIdAdmin(id: string): Observable<any> {
+    // Send a DELETE request to remove the blog post by its ID
     return this.http.delete<any>(`${environment.backUrl}/blog/admin/${id}`).pipe(
       catchError(error => {
         // Log an error message if an error occurs during the API call
@@ -112,15 +114,22 @@ export class BlogService {
     )
   }
 
-
+  /**
+   * Edits a blog post in the admin interface.
+   * @param id The ID of the blog post to edit.
+   * @param newBody The updated content for the blog post.
+   * @returns An observable of the updated blog post.
+   */
   editBlogAdmin(id: string, newBody: Blog) {
+    // Send a PUT request to update a blog post in the admin interface
     return this.http.put<Blog>(`${environment.backUrl}/blog/admin/${id}`, newBody).pipe(
       catchError(error => {
         // Log an error message if an error occurs during the API call
-        console.error("Error getting all the blog data:", error)
+        console.error("Error updating the blog post:", error);
         // Return a new observable with an error message if there's an error
-        return throwError('Something went wrong')
+        return throwError('Something went wrong');
       })
-    )
+    );
   }
+
 }
