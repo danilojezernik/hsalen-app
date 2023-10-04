@@ -23,6 +23,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NotFoundComponent } from './pages/public/not-found/not-found.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     SamohipnozaComponent,
     RegresijaComponent,
     BlogComponent,
-    HeaderComponent
+    HeaderComponent,
+    NotFoundComponent
   ],
   exports: [
     BlogAddComponent,

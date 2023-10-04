@@ -11,42 +11,69 @@ import {BlogUrediComponent} from "./core/pages/private/blog-uredi/blog-uredi.com
 import {HipnoterapijaComponent} from "./core/pages/public/hipnoterapija/hipnoterapija.component";
 import {SamohipnozaComponent} from "./core/pages/public/samohipnoza/samohipnoza.component";
 import {RegresijaComponent} from "./core/pages/public/regresija/regresija.component";
-
+import {NotFoundComponent} from "./core/pages/public/not-found/not-found.component";
 
 const routes: Routes = [
   {
-    path: '', component: IndexComponent
+    path: '',
+    component: IndexComponent,
+    title: 'Hypnosis studio Alen'
   },
   {
-    path: 'blog', component: BlogComponent
+    path: 'blog',
+    component: BlogComponent,
+    title: 'Hypnosis studio Alen - Blog'
   },
   {
-    path: 'blog/:id', component: BlogBeriComponent
+    path: 'blog/:id',
+    component: BlogBeriComponent,
+    title: 'Hypnosis studio Alen - Blog objava'
   },
   {
-    path: 'blog/edit/:id', component: BlogUrediComponent
+    path: 'blog/edit/:id',
+    component: BlogUrediComponent,
+    title: 'Hypnosis studio Alen - Uredi objavo'
   },
   {
-    path: 'blog-pregled', component: BlogPregledComponent
+    path: 'blog-pregled',
+    component: BlogPregledComponent,
+    title: 'Hypnosis studio Alen - Pregled objav'
   },
   {
-    path: 'blog-dodaj', component: BlogAddComponent
+    path: 'blog-dodaj',
+    component: BlogAddComponent,
+    title: 'Hypnosis studio Alen - Dodaj nov blog'
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
+    title: 'Hypnosis studio Alen - Prijava'
   },
   {
-    path: 'admin', component: AdminComponent
+    path: 'admin',
+    component: AdminComponent,
+    title: 'Hypnosis studio Alen - Admin'
   },
   {
-    path: 'hipnoterapija', component: HipnoterapijaComponent
+    path: 'hipnoterapija',
+    component: HipnoterapijaComponent,
+    title: 'Hypnosis studio Alen - Hipnoterapija'
   },
   {
-    path: 'samohipnoza', component: SamohipnozaComponent
+    path: 'samohipnoza',
+    component: SamohipnozaComponent,
+    title: 'Hypnosis studio Alen - Samohipnoza'
   },
   {
-    path: 'regresija', component: RegresijaComponent
-  }
+    path: 'regresija',
+    component: RegresijaComponent,
+    title: 'Hypnosis studio Alen - Regresija'
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+    title: 'Hypnosis studio Alen - Stran ne obstaja ali ni najdena'
+  },
 ];
 
 @NgModule({
