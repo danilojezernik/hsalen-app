@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {SharedModule} from "./shared/shared.module";
 import {CoreModule} from "./core/core.module";
 import {InterceptorService} from "./core/services/interceptor/interceptor.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {InterceptorService} from "./core/services/interceptor/interceptor.servic
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {

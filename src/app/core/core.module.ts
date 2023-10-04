@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {BlogAddComponent} from "./pages/private/blog-dodaj/blog-add.component";
 import {BlogPregledComponent} from "./pages/private/blog-pregled/blog-pregled.component";
 import {LoginComponent} from "./pages/public/login/login.component";
@@ -23,7 +22,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { NotFoundComponent } from './pages/public/not-found/not-found.component';
+import {NotFoundComponent} from './pages/public/not-found/not-found.component';
 
 
 @NgModule({
@@ -58,7 +57,6 @@ import { NotFoundComponent } from './pages/public/not-found/not-found.component'
   ],
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     RouterLink,
     MatInputModule,
     FormsModule,

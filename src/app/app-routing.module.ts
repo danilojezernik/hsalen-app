@@ -13,66 +13,81 @@ import {SamohipnozaComponent} from "./core/pages/public/samohipnoza/samohipnoza.
 import {RegresijaComponent} from "./core/pages/public/regresija/regresija.component";
 import {NotFoundComponent} from "./core/pages/public/not-found/not-found.component";
 
+// Function to handle loadChildren logic for CoreModule
+const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
+
 const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
-    title: 'Hypnosis studio Alen'
+    title: 'Hypnosis studio Alen',
+    loadChildren: coreModuleLoader
   },
   {
     path: 'blog',
     component: BlogComponent,
-    title: 'Hypnosis studio Alen - Blog'
+    title: 'Hypnosis studio Alen - Blog',
+    loadChildren: coreModuleLoader
   },
   {
     path: 'blog/:id',
     component: BlogBeriComponent,
-    title: 'Hypnosis studio Alen - Blog objava'
+    title: 'Hypnosis studio Alen - Blog objava',
+    loadChildren: coreModuleLoader
   },
   {
     path: 'blog/edit/:id',
     component: BlogUrediComponent,
-    title: 'Hypnosis studio Alen - Uredi objavo'
+    title: 'Hypnosis studio Alen - Uredi objavo',
+    loadChildren: coreModuleLoader
   },
   {
     path: 'blog-pregled',
     component: BlogPregledComponent,
-    title: 'Hypnosis studio Alen - Pregled objav'
+    title: 'Hypnosis studio Alen - Pregled objav',
+    loadChildren: coreModuleLoader
   },
   {
     path: 'blog-dodaj',
     component: BlogAddComponent,
-    title: 'Hypnosis studio Alen - Dodaj nov blog'
+    title: 'Hypnosis studio Alen - Dodaj nov blog',
+    loadChildren: coreModuleLoader
   },
   {
     path: 'login',
     component: LoginComponent,
-    title: 'Hypnosis studio Alen - Prijava'
+    title: 'Hypnosis studio Alen - Prijava',
+    loadChildren: coreModuleLoader
   },
   {
     path: 'admin',
     component: AdminComponent,
-    title: 'Hypnosis studio Alen - Admin'
+    title: 'Hypnosis studio Alen - Admin',
+    loadChildren: coreModuleLoader
   },
   {
     path: 'hipnoterapija',
     component: HipnoterapijaComponent,
-    title: 'Hypnosis studio Alen - Hipnoterapija'
+    title: 'Hypnosis studio Alen - Hipnoterapija',
+    loadChildren: coreModuleLoader
   },
   {
     path: 'samohipnoza',
     component: SamohipnozaComponent,
-    title: 'Hypnosis studio Alen - Samohipnoza'
+    title: 'Hypnosis studio Alen - Samohipnoza',
+    loadChildren: coreModuleLoader
   },
   {
     path: 'regresija',
     component: RegresijaComponent,
-    title: 'Hypnosis studio Alen - Regresija'
+    title: 'Hypnosis studio Alen - Regresija',
+    loadChildren: coreModuleLoader
   },
   {
     path: '**',
     component: NotFoundComponent,
-    title: 'Hypnosis studio Alen - Stran ne obstaja ali ni najdena'
+    title: 'Hypnosis studio Alen - Stran ne obstaja ali ni najdena',
+    loadChildren: coreModuleLoader
   },
 ];
 
