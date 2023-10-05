@@ -18,111 +18,125 @@ import {MedijiPregledComponent} from "./core/pages/private/mediji-pregled/mediji
 import {MedijiUrediComponent} from "./core/pages/private/mediji-uredi/mediji-uredi.component";
 import {MedijiBeriComponent} from "./core/pages/private/mediji-beri/mediji-beri.component";
 import {ContactComponent} from "./core/pages/public/contact/contact.component";
+import {EmailPregledComponent} from "./core/pages/private/email-pregled/email-pregled.component";
+import {EmailIdComponent} from "./shared/components/dialog/email-id/email-id.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
 
 const routes: Routes = [
-  {
-    path: '',
-    component: IndexComponent,
-    title: 'Hypnosis studio Alen'
-  },
-  {
-    path: 'blog',
-    component: BlogComponent,
-    title: 'Hypnosis studio Alen - Blog',
-    loadChildren: coreModuleLoader
-  },
-  {
-    path: 'blog/:id',
-    component: BlogBeriComponent,
-    title: 'Hypnosis studio Alen - Blog objava',
-    loadChildren: coreModuleLoader
-  },
-  {
-    path: 'blog/edit/:id',
-    component: BlogUrediComponent,
-    title: 'Hypnosis studio Alen - Uredi objavo',
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'blog-pregled',
-    component: BlogPregledComponent,
-    title: 'Hypnosis studio Alen - Pregled objav',
-    loadChildren: coreModuleLoader,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'blog-dodaj',
-    component: BlogAddComponent,
-    title: 'Hypnosis studio Alen - Dodaj nov blog',
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'mediji-pregled',
-    component: MedijiPregledComponent,
-    title: 'Hypnosis studio Alen - Dodaj nov medij',
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'mediji/edit/:id',
-    component: MedijiUrediComponent,
-    title: 'Hypnosis studio Alen - Uredi medij',
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'mediji/:id',
-    component: MedijiBeriComponent,
-    title: 'Hypnosis studio Alen - Mediji objava',
-    loadChildren: coreModuleLoader
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    title: 'Hypnosis studio Alen - Prijava'
-  },
-  {
-    path: 'admin',
-    component: AdminComponent,
-    title: 'Hypnosis studio Alen - Admin',
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'hipnoterapija',
-    component: HipnoterapijaComponent,
-    title: 'Hypnosis studio Alen - Hipnoterapija'
-  },
-  {
-    path: 'samohipnoza',
-    component: SamohipnozaComponent,
-    title: 'Hypnosis studio Alen - Samohipnoza'
-  },
-  {
-    path: 'regresija',
-    component: RegresijaComponent,
-    title: 'Hypnosis studio Alen - Regresija'
-  },
-  {
-    path: 'omeni',
-    component: OmeniComponent,
-    title: 'Hypnosis studio Alen - O meni',
-  },
-  {
-    path: 'kontakt',
-    component: ContactComponent,
-    title: 'Hypnosis studio Alen - Kontakt',
-  },
-  {
-    path: '**',
-    component: NotFoundComponent,
-    title: 'Hypnosis studio Alen - Stran ne obstaja ali ni najdena'
-  },
+    {
+        path: '',
+        component: IndexComponent,
+        title: 'Hypnosis studio Alen'
+    },
+    {
+        path: 'blog',
+        component: BlogComponent,
+        title: 'Hypnosis studio Alen - Blog',
+        loadChildren: coreModuleLoader
+    },
+    {
+        path: 'blog/:id',
+        component: BlogBeriComponent,
+        title: 'Hypnosis studio Alen - Blog objava',
+        loadChildren: coreModuleLoader
+    },
+    {
+        path: 'blog/edit/:id',
+        component: BlogUrediComponent,
+        title: 'Hypnosis studio Alen - Uredi objavo',
+        canActivate: [AuthGuardService]
+    },
+    {
+        path: 'blog-pregled',
+        component: BlogPregledComponent,
+        title: 'Hypnosis studio Alen - Pregled objav',
+        loadChildren: coreModuleLoader,
+        canActivate: [AuthGuardService]
+    },
+    {
+        path: 'blog-dodaj',
+        component: BlogAddComponent,
+        title: 'Hypnosis studio Alen - Dodaj nov blog',
+        canActivate: [AuthGuardService]
+    },
+    {
+        path: 'mediji-pregled',
+        component: MedijiPregledComponent,
+        title: 'Hypnosis studio Alen - Dodaj nov medij',
+        canActivate: [AuthGuardService]
+    },
+    {
+        path: 'mediji/edit/:id',
+        component: MedijiUrediComponent,
+        title: 'Hypnosis studio Alen - Uredi medij',
+        canActivate: [AuthGuardService]
+    },
+    {
+        path: 'mediji/:id',
+        component: MedijiBeriComponent,
+        title: 'Hypnosis studio Alen - Mediji objava',
+        loadChildren: coreModuleLoader
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+        title: 'Hypnosis studio Alen - Prijava'
+    },
+    {
+        path: 'admin',
+        component: AdminComponent,
+        title: 'Hypnosis studio Alen - Admin',
+        canActivate: [AuthGuardService]
+    },
+    {
+        path: 'hipnoterapija',
+        component: HipnoterapijaComponent,
+        title: 'Hypnosis studio Alen - Hipnoterapija'
+    },
+    {
+        path: 'samohipnoza',
+        component: SamohipnozaComponent,
+        title: 'Hypnosis studio Alen - Samohipnoza'
+    },
+    {
+        path: 'regresija',
+        component: RegresijaComponent,
+        title: 'Hypnosis studio Alen - Regresija'
+    },
+    {
+        path: 'omeni',
+        component: OmeniComponent,
+        title: 'Hypnosis studio Alen - O meni',
+    },
+    {
+        path: 'kontakt',
+        component: ContactComponent,
+        title: 'Hypnosis studio Alen - Kontakt',
+    },
+    {
+        path: 'email-pregled',
+        component: EmailPregledComponent,
+        title: 'Hypnosis studio Alen - Pregled emailov',
+        loadChildren: coreModuleLoader
+    },
+    {
+        path: 'email/:id',
+        component: EmailIdComponent,
+        title: 'Hypnosis studio Alen - Pregled email vsebine',
+        loadChildren: coreModuleLoader
+    },
+    {
+        path: '**',
+        component: NotFoundComponent,
+        title: 'Hypnosis studio Alen - Stran ne obstaja ali ni najdena'
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule {
 }

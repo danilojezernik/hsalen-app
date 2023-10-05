@@ -26,61 +26,72 @@ import {NotFoundComponent} from './pages/public/not-found/not-found.component';
 import {OmeniComponent} from './pages/public/omeni/omeni.component';
 import {MedijiPregledComponent} from './pages/private/mediji-pregled/mediji-pregled.component';
 import {MedijiUrediComponent} from './pages/private/mediji-uredi/mediji-uredi.component';
-import { MedijiBeriComponent } from './pages/private/mediji-beri/mediji-beri.component';
-import { MedijiDodajComponent } from './pages/private/mediji-dodaj/mediji-dodaj.component';
-import { ContactComponent } from './pages/public/contact/contact.component';
+import {MedijiBeriComponent} from './pages/private/mediji-beri/mediji-beri.component';
+import {MedijiDodajComponent} from './pages/private/mediji-dodaj/mediji-dodaj.component';
+import {ContactComponent} from './pages/public/contact/contact.component';
+import {EmailPregledComponent} from './pages/private/email-pregled/email-pregled.component';
+import {EmailIdComponent} from '../shared/components/dialog/email-id/email-id.component';
 
 
 @NgModule({
-  declarations: [
-    BlogAddComponent,
-    BlogPregledComponent,
-    LoginComponent,
-    AdminComponent,
-    BlogBeriComponent,
-    BlogUrediComponent,
-    IndexComponent,
-    HipnoterapijaComponent,
-    SamohipnozaComponent,
-    RegresijaComponent,
-    BlogComponent,
-    HeaderComponent,
-    NotFoundComponent,
-    OmeniComponent,
-    MedijiPregledComponent,
-    MedijiUrediComponent,
-    MedijiBeriComponent,
-    MedijiDodajComponent,
-    ContactComponent,
-  ],
-  exports: [
-    BlogAddComponent,
-    BlogPregledComponent,
-    LoginComponent,
-    AdminComponent,
-    BlogBeriComponent,
-    BlogUrediComponent,
-    IndexComponent,
-    HipnoterapijaComponent,
-    SamohipnozaComponent,
-    RegresijaComponent,
-    BlogComponent,
-    HeaderComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterLink,
-    MatInputModule,
-    FormsModule,
-    SharedModule,
-    MatTableModule,
-    MatButtonModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatSnackBarModule
-  ]
+    declarations: [
+        BlogAddComponent,
+        BlogPregledComponent,
+        LoginComponent,
+        AdminComponent,
+        BlogBeriComponent,
+        BlogUrediComponent,
+        IndexComponent,
+        HipnoterapijaComponent,
+        SamohipnozaComponent,
+        RegresijaComponent,
+        BlogComponent,
+        HeaderComponent,
+        NotFoundComponent,
+        OmeniComponent,
+        MedijiPregledComponent,
+        MedijiUrediComponent,
+        MedijiBeriComponent,
+        MedijiDodajComponent,
+        ContactComponent,
+        EmailPregledComponent,
+        EmailIdComponent,
+    ],
+    exports: [
+        BlogAddComponent,
+        BlogPregledComponent,
+        LoginComponent,
+        AdminComponent,
+        BlogBeriComponent,
+        BlogUrediComponent,
+        IndexComponent,
+        HipnoterapijaComponent,
+        SamohipnozaComponent,
+        RegresijaComponent,
+        BlogComponent,
+        HeaderComponent,
+        NotFoundComponent,
+        OmeniComponent,
+        MedijiPregledComponent,
+        MedijiUrediComponent,
+        MedijiBeriComponent,
+        MedijiDodajComponent,
+        ContactComponent,
+    ],
+    imports: [
+        CommonModule,
+        RouterLink,
+        MatInputModule,
+        FormsModule,
+        SharedModule,
+        MatTableModule,
+        MatButtonModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        MatSnackBarModule
+    ]
 })
 export class CoreModule {
 }

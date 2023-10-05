@@ -1,0 +1,8 @@
+<h1>Pregled emailov</h1>
+
+<div *ngFor="let mail of email">
+    <p>{{mail['name']}} {{mail['surname']}}</p>
+    <p>{{mail['email']}}</p>
+    <p>{{mail['datum_vnosa'] | date: 'MMM d, y, H:MM:SS'}}</p>
+    <button (click)="openDialog(mail.content)">Preberi vsebino</button>
+</div>
