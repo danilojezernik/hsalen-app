@@ -20,8 +20,7 @@ const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
-    title: 'Hypnosis studio Alen',
-    loadChildren: coreModuleLoader
+    title: 'Hypnosis studio Alen'
   },
   {
     path: 'blog',
@@ -38,8 +37,7 @@ const routes: Routes = [
   {
     path: 'blog/edit/:id',
     component: BlogUrediComponent,
-    title: 'Hypnosis studio Alen - Uredi objavo',
-    loadChildren: coreModuleLoader
+    title: 'Hypnosis studio Alen - Uredi objavo'
   },
   {
     path: 'blog-pregled',
@@ -50,44 +48,37 @@ const routes: Routes = [
   {
     path: 'blog-dodaj',
     component: BlogAddComponent,
-    title: 'Hypnosis studio Alen - Dodaj nov blog',
-    loadChildren: coreModuleLoader
+    title: 'Hypnosis studio Alen - Dodaj nov blog'
   },
   {
     path: 'login',
     component: LoginComponent,
-    title: 'Hypnosis studio Alen - Prijava',
-    loadChildren: coreModuleLoader
+    title: 'Hypnosis studio Alen - Prijava'
   },
   {
     path: 'admin',
     component: AdminComponent,
-    title: 'Hypnosis studio Alen - Admin',
-    loadChildren: coreModuleLoader
+    title: 'Hypnosis studio Alen - Admin'
   },
   {
     path: 'hipnoterapija',
     component: HipnoterapijaComponent,
-    title: 'Hypnosis studio Alen - Hipnoterapija',
-    loadChildren: coreModuleLoader
+    title: 'Hypnosis studio Alen - Hipnoterapija'
   },
   {
     path: 'samohipnoza',
     component: SamohipnozaComponent,
-    title: 'Hypnosis studio Alen - Samohipnoza',
-    loadChildren: coreModuleLoader
+    title: 'Hypnosis studio Alen - Samohipnoza'
   },
   {
     path: 'regresija',
     component: RegresijaComponent,
-    title: 'Hypnosis studio Alen - Regresija',
-    loadChildren: coreModuleLoader
+    title: 'Hypnosis studio Alen - Regresija'
   },
   {
     path: '**',
     component: NotFoundComponent,
-    title: 'Hypnosis studio Alen - Stran ne obstaja ali ni najdena',
-    loadChildren: coreModuleLoader
+    title: 'Hypnosis studio Alen - Stran ne obstaja ali ni najdena'
   },
 ];
 
