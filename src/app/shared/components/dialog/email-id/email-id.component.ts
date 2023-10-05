@@ -24,5 +24,4 @@ export class EmailIdComponent {
         this.content = this.data.content;
     }
 
-
 }

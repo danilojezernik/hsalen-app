@@ -16,10 +16,9 @@
             <input type="text" formControlName="tag" required matInput>
         </mat-form-field>
 
-        <mat-form-field style="width: 100%">
-            <mat-label>Vsebina</mat-label>
-            <textarea type="text" formControlName="vsebina" required matInput></textarea>
-        </mat-form-field>
+
+        <angular-editor formControlName="vsebina" [config]="editorConfig" required></angular-editor>
+
         <button mat-button mat-dialog-close>Zapri okno</button>
 
         <button mat-raised-button color="warn" type="submit" [disabled]="addingPostForm.invalid">Dodaj Blog</button>

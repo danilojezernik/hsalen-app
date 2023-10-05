@@ -31,6 +31,7 @@ import {MedijiDodajComponent} from './pages/private/mediji-dodaj/mediji-dodaj.co
 import {ContactComponent} from './pages/public/contact/contact.component';
 import {EmailPregledComponent} from './pages/private/email-pregled/email-pregled.component';
 import {EmailIdComponent} from '../shared/components/dialog/email-id/email-id.component';
+import {AngularEditorModule} from "@kolkov/angular-editor";
 
 
 @NgModule({
@@ -90,7 +91,8 @@ import {EmailIdComponent} from '../shared/components/dialog/email-id/email-id.co
         MatDialogModule,
         ReactiveFormsModule,
         MatIconModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        AngularEditorModule
     ]
 })
 export class CoreModule {
