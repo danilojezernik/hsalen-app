@@ -12,6 +12,7 @@ import {HipnoterapijaComponent} from "./core/pages/public/hipnoterapija/hipnoter
 import {SamohipnozaComponent} from "./core/pages/public/samohipnoza/samohipnoza.component";
 import {RegresijaComponent} from "./core/pages/public/regresija/regresija.component";
 import {NotFoundComponent} from "./core/pages/public/not-found/not-found.component";
+import {AuthGuardService} from "./core/services/auth/auth-guard.service";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -37,18 +38,21 @@ const routes: Routes = [
   {
     path: 'blog/edit/:id',
     component: BlogUrediComponent,
-    title: 'Hypnosis studio Alen - Uredi objavo'
+    title: 'Hypnosis studio Alen - Uredi objavo',
+    canActivate: [AuthGuardService]
   },
   {
     path: 'blog-pregled',
     component: BlogPregledComponent,
     title: 'Hypnosis studio Alen - Pregled objav',
-    loadChildren: coreModuleLoader
+    loadChildren: coreModuleLoader,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'blog-dodaj',
     component: BlogAddComponent,
-    title: 'Hypnosis studio Alen - Dodaj nov blog'
+    title: 'Hypnosis studio Alen - Dodaj nov blog',
+    canActivate: [AuthGuardService]
   },
   {
     path: 'login',
@@ -58,7 +62,8 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
-    title: 'Hypnosis studio Alen - Admin'
+    title: 'Hypnosis studio Alen - Admin',
+    canActivate: [AuthGuardService]
   },
   {
     path: 'hipnoterapija',

@@ -39,7 +39,7 @@ import {NotFoundComponent} from './pages/public/not-found/not-found.component';
     RegresijaComponent,
     BlogComponent,
     HeaderComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   exports: [
     BlogAddComponent,
