@@ -1,0 +1,7 @@
+<div *ngIf="mediji">
+  <h2>{{ mediji.naslov_mediji }}</h2>
+  <p>{{ mediji.opis_mediji }}</p>
+  <p [innerHTML]="mediji.povezava_mediji"></p>
+  <p [innerHTML]="mediji.povezava_slika"></p>
+</div>
+<app-go-back></app-go-back>

@@ -1,7 +1,7 @@
 <!-- PRIKAZ REGRESIJA -->
-<div *ngFor="let hipnoza of regresija">
-  <h1 [innerHTML]="hipnoza['naslov']"></h1>
-  <p [innerHTML]="hipnoza['podnaslov']"></p>
-  <p [innerHTML]="hipnoza['regresija']"></p>
-  <p [innerHTML]="hipnoza['preteklost']"></p>
+<div *ngIf="regresija">
+  <h1 [innerHTML]="regresija['naslov']"></h1>
+  <p [innerHTML]="regresija['podnaslov']"></p>
+  <p [innerHTML]="regresija['regresija']"></p>
+  <p [innerHTML]="regresija['preteklost']"></p>
 </div>

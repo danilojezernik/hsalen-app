@@ -13,6 +13,11 @@ import {SamohipnozaComponent} from "./core/pages/public/samohipnoza/samohipnoza.
 import {RegresijaComponent} from "./core/pages/public/regresija/regresija.component";
 import {NotFoundComponent} from "./core/pages/public/not-found/not-found.component";
 import {AuthGuardService} from "./core/services/auth/auth-guard.service";
+import {OmeniComponent} from "./core/pages/public/omeni/omeni.component";
+import {MedijiPregledComponent} from "./core/pages/private/mediji-pregled/mediji-pregled.component";
+import {MedijiUrediComponent} from "./core/pages/private/mediji-uredi/mediji-uredi.component";
+import {MedijiBeriComponent} from "./core/pages/private/mediji-beri/mediji-beri.component";
+import {ContactComponent} from "./core/pages/public/contact/contact.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -55,6 +60,24 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
+    path: 'mediji-pregled',
+    component: MedijiPregledComponent,
+    title: 'Hypnosis studio Alen - Dodaj nov medij',
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'mediji/edit/:id',
+    component: MedijiUrediComponent,
+    title: 'Hypnosis studio Alen - Uredi medij',
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'mediji/:id',
+    component: MedijiBeriComponent,
+    title: 'Hypnosis studio Alen - Mediji objava',
+    loadChildren: coreModuleLoader
+  },
+  {
     path: 'login',
     component: LoginComponent,
     title: 'Hypnosis studio Alen - Prijava'
@@ -79,6 +102,16 @@ const routes: Routes = [
     path: 'regresija',
     component: RegresijaComponent,
     title: 'Hypnosis studio Alen - Regresija'
+  },
+  {
+    path: 'omeni',
+    component: OmeniComponent,
+    title: 'Hypnosis studio Alen - O meni',
+  },
+  {
+    path: 'kontakt',
+    component: ContactComponent,
+    title: 'Hypnosis studio Alen - Kontakt',
   },
   {
     path: '**',

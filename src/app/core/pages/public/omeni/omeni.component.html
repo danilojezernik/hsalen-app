@@ -1,0 +1,13 @@
+<!-- PRIKAZ O MENI -->
+<div *ngIf="omeni">
+  <h1 [innerHTML]="omeni['naslov']"></h1>
+  <p [innerHTML]="omeni['podnaslov']"></p>
+  <p [innerHTML]="omeni['opis']"></p>
+</div>
+
+<div *ngFor="let jaz of mediji">
+  <h1 [innerHTML]="jaz['naslov_mediji']"></h1>
+  <p [innerHTML]="jaz['opis_mediji']"></p>
+  <p [innerHTML]="jaz['povezava_slika']"></p>
+  <p [innerHTML]="jaz['povezava_mediji']"></p>
+</div>

@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Add new medij</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="addingMedijiForm" (ngSubmit)="addMediji()">
+    <mat-form-field style="width: 100%">
+      <mat-label>naslov_mediji</mat-label>
+      <input type="text" formControlName="naslov_mediji" required matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%">
+      <mat-label>povezava_slika</mat-label>
+      <input type="text" formControlName="povezava_slika" matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%">
+      <mat-label>povezava_mediji</mat-label>
+      <input type="text" formControlName="povezava_mediji" matInput>
+    </mat-form-field>
+
+
+    <mat-form-field style="width: 100%">
+      <mat-label>opis_mediji</mat-label>
+      <textarea type="text" formControlName="opis_mediji" required matInput></textarea>
+    </mat-form-field>
+    <button mat-button mat-dialog-close>Zapri okno</button>
+
+    <button mat-raised-button color="warn" type="submit" [disabled]="addingMedijiForm.invalid">Dodaj Medij</button>
+  </form>
+</div>

@@ -1,7 +1,8 @@
 <!-- PRIKAZ SAMOHIPNOZA -->
-<div *ngFor="let hipnoza of samohipnoza">
-  <h1 [innerHTML]="hipnoza['naslov']"></h1>
-  <p [innerHTML]="hipnoza['podnaslov']"></p>
-  <p [innerHTML]="hipnoza['samohipnoza']"></p>
-  <p [innerHTML]="hipnoza['pomaga']"></p>
+<div *ngIf="samohipnoza">
+  <h1 [innerHTML]="samohipnoza['naslov']"></h1>
+  <p [innerHTML]="samohipnoza['podnaslov']"></p>
+  <p [innerHTML]="samohipnoza['samohipnoza']"></p>
+  <p [innerHTML]="samohipnoza['pomaga']"></p>
 </div>
+

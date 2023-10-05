@@ -23,7 +23,7 @@ export class AuthGuardService implements CanActivate {
   // Private method to handle authentication logic
   private async authGuard(): Promise<boolean> {
     const token = this.auth.getAccessToken(); // Retrieve the access token
-    // If no token, redirect to login and resolve to false
+    // If no token, redirect to log in and resolve to false
     if (!token) {
       await this.router.navigate(['/login']);
       return Promise.resolve(false);

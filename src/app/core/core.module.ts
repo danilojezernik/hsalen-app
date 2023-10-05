@@ -23,6 +23,12 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {NotFoundComponent} from './pages/public/not-found/not-found.component';
+import {OmeniComponent} from './pages/public/omeni/omeni.component';
+import {MedijiPregledComponent} from './pages/private/mediji-pregled/mediji-pregled.component';
+import {MedijiUrediComponent} from './pages/private/mediji-uredi/mediji-uredi.component';
+import { MedijiBeriComponent } from './pages/private/mediji-beri/mediji-beri.component';
+import { MedijiDodajComponent } from './pages/private/mediji-dodaj/mediji-dodaj.component';
+import { ContactComponent } from './pages/public/contact/contact.component';
 
 
 @NgModule({
@@ -40,6 +46,12 @@ import {NotFoundComponent} from './pages/public/not-found/not-found.component';
     BlogComponent,
     HeaderComponent,
     NotFoundComponent,
+    OmeniComponent,
+    MedijiPregledComponent,
+    MedijiUrediComponent,
+    MedijiBeriComponent,
+    MedijiDodajComponent,
+    ContactComponent,
   ],
   exports: [
     BlogAddComponent,

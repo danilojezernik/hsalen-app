@@ -1,0 +1,33 @@
+<div>
+  <h2>Uredi mediji</h2>
+  <form class="example-form" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <table class="example-full-width">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Naslov</mat-label>
+            <input name="naslov_mediji" matInput formControlName="naslov_mediji"/>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>povezava_slika</mat-label>
+            <input name="povezava_slika" matInput formControlName="povezava_slika"/>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>povezava_mediji</mat-label>
+            <input name="povezava_mediji" matInput formControlName="povezava_mediji"/>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <mat-form-field class="example-full-width">
+      <mat-label>opis_mediji</mat-label>
+      <textarea name="opis_mediji" matInput formControlName="opis_mediji" style="height: 300px"></textarea>
+    </mat-form-field>
+    <button mat-button type="submit">Save Changes</button>
+  </form>
+</div>
+<app-go-back></app-go-back>

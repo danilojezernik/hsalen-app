@@ -8,7 +8,7 @@ import {BlogService} from "../../../services/api/blog.service";
 })
 export class BlogBeriComponent implements OnInit {
 
-  blog: any; // Initialize with null as there's no blog data yet
+  blog: any;
 
   constructor(
     private api: BlogService,

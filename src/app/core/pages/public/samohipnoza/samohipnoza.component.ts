@@ -1,29 +1,26 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {trace} from "../../../utils/trace";
-import {Subject} from "rxjs";
-import {Samohipnoza} from "../../../models/samohipnoza";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-samohipnoza',
   templateUrl: './samohipnoza.component.html'
 })
-export class SamohipnozaComponent implements OnInit, OnDestroy {
+export class SamohipnozaComponent implements OnInit {
 
-  private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  samohipnoza: Samohipnoza[] = [];
+  samohipnoza: any;
 
-  constructor() {
+  constructor(private db: HttpClient) {
   }
 
   @trace()
   ngOnInit() {
+    const path: string = 'assets/samohipnoza.json'
+    this.db.get(path).subscribe(data => {
+      this.samohipnoza = data;
+    })
   }
 
-  @trace()
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete();
-  }
 
 }

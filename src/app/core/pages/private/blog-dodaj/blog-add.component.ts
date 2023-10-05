@@ -18,14 +18,14 @@ export class BlogAddComponent implements OnInit {
   constructor(
     private api: BlogService,
     public dialog: MatDialog,
-    public formBuilder: FormBuilder, // Angular service for building forms
+    public fb: FormBuilder, // Angular service for building forms
     private dataUpdateService: DataUpdateService, // Inject custom service for updating data
     private snackbarService: SnackBarService
   ) {
   }
 
   ngOnInit() {
-    this.addingPostForm = this.formBuilder.group({
+    this.addingPostForm = this.fb.group({
       naslov: ['', Validators.required],
       podnaslov: ['', Validators.required],
       tag: ['', Validators.required],
@@ -47,7 +47,7 @@ export class BlogAddComponent implements OnInit {
       datum_vnosa: new Date().toISOString()
     };
 
-    // Call the postService to add a new post
+    // Call the BlogService to add a new post
     this.api.addNewBlogAdmin(newBlog).subscribe(
       (data) => {
         console.log(data)

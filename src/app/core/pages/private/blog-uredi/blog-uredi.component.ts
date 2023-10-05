@@ -38,7 +38,8 @@ export class BlogUrediComponent implements OnInit {
   loadBlog() {
     this.api.getBlogByIdAdmin(this.blogId).subscribe(
       (data) => {
-        this.blogForm.patchValue(data); // Patch form values from the retrieved blog data
+        // Patch form values from the retrieved blog data
+        this.blogForm.patchValue(data);
       },
       (error) => {
         console.error('Error getting blog', error);
