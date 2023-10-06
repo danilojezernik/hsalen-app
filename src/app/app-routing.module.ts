@@ -77,7 +77,8 @@ const routes: Routes = [
         path: 'mediji/:id',
         component: MedijiBeriComponent,
         title: 'Hypnosis studio Alen - Mediji objava',
-        loadChildren: coreModuleLoader
+        loadChildren: coreModuleLoader,
+        canActivate: [AuthGuardService]
     },
     {
         path: 'login',
@@ -119,13 +120,15 @@ const routes: Routes = [
         path: 'email-pregled',
         component: EmailPregledComponent,
         title: 'Hypnosis studio Alen - Pregled emailov',
-        loadChildren: coreModuleLoader
+        loadChildren: coreModuleLoader,
+        canActivate: [AuthGuardService]
     },
     {
         path: 'email/:id',
         component: EmailIdComponent,
         title: 'Hypnosis studio Alen - Pregled email vsebine',
-        loadChildren: coreModuleLoader
+        loadChildren: coreModuleLoader,
+        canActivate: [AuthGuardService]
     },
     {
         path: '**',

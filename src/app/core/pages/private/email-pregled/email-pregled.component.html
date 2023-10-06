@@ -1,10 +1,62 @@
 <h1>Pregled emailov</h1>
 
-<div *ngFor="let mail of email">
-    <p>{{mail['name']}} {{mail['surname']}}</p>
-    <p>{{mail['email']}}</p>
-    <p>{{mail['datum_vnosa'] | date: 'MMM d, y, H:MM:SS'}}</p>
-    <button (click)="openDialog(mail.content)">Preberi vsebino</button>
+
+<table *ngIf="email" mat-table [dataSource]="dataSource">
+
+    <!-- Post Title Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Ime</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Author Column -->
+    <ng-container matColumnDef="surname">
+        <th mat-header-cell *matHeaderCellDef> Priimek</th>
+        <td mat-cell *matCellDef="let element">
+            {{element.surname}}
+        </td>
+    </ng-container>
+
+    <!-- Created At Column -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email</th>
+        <td mat-cell *matCellDef="let element">
+            {{ element.email}}
+        </td>
+    </ng-container>
+
+    <!-- Updated At Column -->
+    <ng-container matColumnDef="datum_vnosa">
+        <th mat-header-cell *matHeaderCellDef> Datum vnosa</th>
+        <td mat-cell *matCellDef="let element">
+            {{element.datum_vnosa | date: 'MMM d, y, h:mm:ss a' }}
+        </td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td class="py-3 text-end" style="text-align: center" mat-cell *matCellDef="let element">
+            <button style="margin-right: 10px" mat-mini-fab color="primary" (click)="openDialog(element.content)">
+                <mat-icon>search</mat-icon>
+            </button>
+            <button style="margin-right: 10px" mat-mini-fab color="warn" (click)="deleteEmail(element._id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+</table>
+<div class="d-flex justify-content-center align-content-center">
+    <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>
+<div *ngIf="spinner">
+    <app-spinner></app-spinner>
 </div>
 <app-go-back></app-go-back>
 

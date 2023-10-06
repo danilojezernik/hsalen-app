@@ -9,6 +9,10 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatIconModule} from "@angular/material/icon";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
+import {RouterLink} from "@angular/router";
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import {MatDialogModule} from "@angular/material/dialog";
         MatButtonModule,
         MatFormFieldModule,
         MatInputModule,
-        MatDialogModule
+        MatDialogModule,
+        MatIconModule,
+        MatPaginatorModule,
+        MatTableModule,
+        RouterLink
     ]
 })
 export class SharedModule {

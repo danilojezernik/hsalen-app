@@ -78,6 +78,8 @@ import {AngularEditorModule} from "@kolkov/angular-editor";
         MedijiBeriComponent,
         MedijiDodajComponent,
         ContactComponent,
+        EmailPregledComponent,
+        EmailIdComponent
     ],
     imports: [
         CommonModule,

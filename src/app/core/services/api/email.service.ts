@@ -46,5 +46,21 @@ export class EmailService {
             })
         )
     }
-    
+
+    /**
+     * Fetches an email by its ID
+     * @param id The ID of an email to fecth
+     * @returns Observable of the specified email
+     * */
+    deleteEmailByIdAdmin(id: string): Observable<any> {
+        return this.http.delete<any>(`${environment.backUrl}/email/${id}`).pipe(
+            catchError(error => {
+                // Log an error message if an error occurs during the API call
+                console.error("Error getting all the emails data:", error)
+                // Return a new observable with an error message if there's an error
+                return throwError('Something went wrong')
+            })
+        )
+    }
+
 }

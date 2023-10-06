@@ -61,5 +61,4 @@ export class MedijiDodajComponent implements OnInit {
 
     }
 
-    protected readonly sharedEditorConfig = sharedEditorConfig;
 }

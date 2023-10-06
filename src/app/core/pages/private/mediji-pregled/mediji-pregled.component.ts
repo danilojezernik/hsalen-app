@@ -10,83 +10,87 @@ import {DataUpdateService} from "../../../services/communication/data-update.ser
 import {MedijiDodajComponent} from "../mediji-dodaj/mediji-dodaj.component";
 
 @Component({
-  selector: 'app-mediji-pregled',
-  templateUrl: './mediji-pregled.component.html'
+    selector: 'app-mediji-pregled',
+    templateUrl: './mediji-pregled.component.html'
 })
 export class MedijiPregledComponent implements OnInit, OnDestroy {
 
-  mediji: any | undefined;
-  dataSource = new MatTableDataSource<Mediji>()
-  displayColumns: string[] = ['mediji_id', 'naslov', 'opis', 'povezava_slika', 'povezava_mediji', 'datum_vnosa', 'action']
-  spinner: boolean = false;
+    mediji: any | undefined;
+    dataSource = new MatTableDataSource<Mediji>()
+    displayColumns: string[] = ['mediji_id', 'naslov', 'opis', 'povezava_slika', 'povezava_mediji', 'datum_vnosa', 'action']
+    spinner: boolean = false;
 
 
-  // Subject for component destruction
-  private destroy$: Subject<boolean> = new Subject<boolean>()
+    // Subject for component destruction
+    private destroy$: Subject<boolean> = new Subject<boolean>()
 
-  /**
-   * ViewChild decorator to get a reference to the MatPaginator component.
-   * Used to access and manipulate the MatPaginator component in the template.
-   *
-   */
-    // @ts-ignore
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+    /**
+     * ViewChild decorator to get a reference to the MatPaginator component.
+     * Used to access and manipulate the MatPaginator component in the template.
+     *
+     */
+        // @ts-ignore
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(
-    private api: MedijiService,
-    private dialog: MatDialog,
-    private dataUpdateService: DataUpdateService,
-  ) {
-  }
+    constructor(
+        private api: MedijiService,
+        private dialog: MatDialog,
+        private dataUpdateService: DataUpdateService,
+    ) {
+    }
 
-  ngOnInit() {
-    this.loadAllMedijAdmin()
-    this.dataUpdateService.dataUpdated$.subscribe(() => {
-      // Reload the table when data is updated
-      this.loadAllMedijAdmin()
-    });
-  }
+    ngOnInit() {
+        this.loadAllMedijAdmin()
+        this.dataUpdateService.dataUpdated$.subscribe(() => {
+            // Reload the table when data is updated
+            this.loadAllMedijAdmin()
+        });
+    }
 
-  openDialog() {
-    // Open a dialog using Angular Material's MatDialog
-    this.dialog.open(MedijiDodajComponent, {
-      minWidth: '70%' // Set the width of the dialog
-    });
-  }
+    openDialog() {
+        // Open a dialog using Angular Material's MatDialog
+        this.dialog.open(MedijiDodajComponent, {
+            minWidth: '70%' // Set the width of the dialog
+        });
+    }
 
-  /**
-   * Method to handle actions after the view and child views are initialized.
-   * Assigns the paginator to the MatTable dataSource.
-   */
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator; // Assign the paginator to the MatTable dataSource
-  }
+    /**
+     * Method to handle actions after the view and child views are initialized.
+     * Assigns the paginator to the MatTable dataSource.
+     */
+    ngAfterViewInit() {
+        this.dataSource.paginator = this.paginator; // Assign the paginator to the MatTable dataSource
+    }
 
-  loadAllMedijAdmin() {
-    this.spinner = true
-    this.api.getAllMedijiAdmin().subscribe((data) => {
-      this.spinner = false;
-      this.mediji = data;
-      this.dataSource.data = data;
-    }, (error) => {
-      console.error('Error getting all mediji', error);
-      this.spinner = false;
-    })
-  }
+    loadAllMedijAdmin() {
+        this.spinner = true
+        this.api.getAllMedijiAdmin().subscribe((data) => {
+            this.spinner = false;
+            this.mediji = data;
+            this.dataSource.data = data;
+        }, (error) => {
+            console.error('Error getting all mediji', error);
+            this.spinner = false;
+        })
+    }
 
-  deleteMedijiAdmin(id: string) {
-    this.api.deleteMedijiByIdAdmin(id).subscribe(() => {
-      this.loadAllMedijAdmin()
-    }, (error) => {
-      console.error('Error deleting mediji', error)
-    })
-  }
+    deleteMedijiAdmin(id: string) {
+        this.spinner = true;
+        this.api.deleteMedijiByIdAdmin(id).subscribe(() => {
+            this.spinner = false;
+            this.loadAllMedijAdmin()
+        }, (error) => {
+            console.error('Error deleting mediji', error)
+            this.spinner = false;
 
-  @trace()
-  // Lifecycle hook called when the component is about to be destroyed
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete()
-  }
+        })
+    }
+
+    @trace()
+    // Lifecycle hook called when the component is about to be destroyed
+    ngOnDestroy() {
+        this.destroy$.next(true);
+        this.destroy$.complete()
+    }
 
 }
