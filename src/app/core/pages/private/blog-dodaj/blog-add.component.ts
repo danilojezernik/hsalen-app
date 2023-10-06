@@ -38,6 +38,23 @@ export class BlogAddComponent implements OnInit {
         outline: true,
         // showToolbar: false,
         defaultParagraphSeparator: 'p',
+        toolbarHiddenButtons: [
+            [
+                'strikeThrough',
+                'indent',
+                'outdent',
+                'fontName'
+            ],
+            [
+                'fontSize',
+                'backgroundColor',
+                'customClasses',
+                'insertVideo',
+                'insertHorizontalRule',
+                'removeFormat',
+                'toggleEditorMode'
+            ]
+        ]
     };
 
     ngOnInit() {
