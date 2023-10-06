@@ -1,11 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogService} from "../../../services/api/blog.service";
 import {MatDialog} from "@angular/material/dialog";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+
+import {BlogService} from "../../../services/api/blog.service";
 import {Blog} from "../../../models/blog";
 import {DataUpdateService} from "../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
 import {AngularEditorConfig} from "@kolkov/angular-editor";
+
+import {sharedEditorConfig} from "../../../../shared/config/editor-config";
 
 
 @Component({
@@ -16,6 +19,7 @@ export class BlogAddComponent implements OnInit {
 
     blog: any;
     addingPostForm: FormGroup = new FormGroup({}) // FormGroup for post form
+    editorConfig: AngularEditorConfig = sharedEditorConfig
 
     constructor(
         private api: BlogService,
@@ -25,37 +29,6 @@ export class BlogAddComponent implements OnInit {
         private snackbarService: SnackBarService
     ) {
     }
-
-    editorConfig: AngularEditorConfig = {
-        editable: true,
-        spellcheck: false,
-        minHeight: '5rem',
-        maxHeight: '15rem',
-        placeholder: 'Enter text here...',
-        translate: 'no',
-        sanitize: false,
-        // toolbarPosition: 'top',
-        outline: true,
-        // showToolbar: false,
-        defaultParagraphSeparator: 'p',
-        toolbarHiddenButtons: [
-            [
-                'strikeThrough',
-                'indent',
-                'outdent',
-                'fontName'
-            ],
-            [
-                'fontSize',
-                'backgroundColor',
-                'customClasses',
-                'insertVideo',
-                'insertHorizontalRule',
-                'removeFormat',
-                'toggleEditorMode'
-            ]
-        ]
-    };
 
     ngOnInit() {
         this.addingPostForm = this.fb.group({
