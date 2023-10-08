@@ -32,6 +32,8 @@ import {ContactComponent} from './pages/public/contact/contact.component';
 import {EmailPregledComponent} from './pages/private/email-pregled/email-pregled.component';
 import {EmailIdComponent} from '../shared/components/dialog/email-id/email-id.component';
 import {AngularEditorModule} from "@kolkov/angular-editor";
+import { JasnovidnostComponent } from './pages/public/jasnovidnost/jasnovidnost.component';
+import { MedijstvoComponent } from './pages/public/medijstvo/medijstvo.component';
 
 
 @NgModule({
@@ -57,6 +59,8 @@ import {AngularEditorModule} from "@kolkov/angular-editor";
         ContactComponent,
         EmailPregledComponent,
         EmailIdComponent,
+        JasnovidnostComponent,
+        MedijstvoComponent,
     ],
     exports: [
         BlogAddComponent,
