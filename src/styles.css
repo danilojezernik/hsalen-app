@@ -61,11 +61,10 @@ a:hover {
 }
 
 .card:hover {
-  transform: scale(1.1); /* You can apply other transformations here */
+  transform: scale(1.1);
 }
 
 /* SHAPE DIVIDER BOTTOM */
-
 
 .custom-shape-divider-bottom-1696908549 {
   position: absolute;
