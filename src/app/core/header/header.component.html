@@ -1,13 +1,63 @@
-<a routerLink="/">Domov</a> |
-<a routerLink="/hipnoterapija">Hipnoterapija</a> |
-<a routerLink="/samohipnoza">Samohipnoza</a> |
-<a routerLink="/regresija">Regresija</a> |
-<a routerLink="/jasnovidnost">Jasnovidnost</a> |
-<a routerLink="/medijstvo">Medijstvo</a> |
-<a routerLink="/blog">Blog</a> |
-<a routerLink="/omeni">O meni</a> |
-<a routerLink="/kontakt">Kontakt</a> |
+<nav class="navbar shadow sticky-top navbar-expand-lg bg-white border-bottom">
+  <div class="container-fluid">
+    <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse p-2 navbar-collapse justify-content-center" id="navbarContent">
+      <ul class="navbar-nav text-center gap-md-5">
+        <li class="nav-item">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Domov</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hipnoza
+          </a>
+          <ul class="dropdown-menu text-center">
+            <li>
+              <a class="dropdown-item" routerLink="/hipnoterapija" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                Hipnoterapija
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/samohipnoza" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                Samohipnoza
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/regresija" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                Regresija
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/jasnovidnost" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Jasnovidnost</a>
 
-<!-- User logged in or logged out -->
-<a *ngIf="!isLoggedIn" routerLink="/login">LogIn</a>
-<a *ngIf="isLoggedIn" (click)="logOut()" routerLink="/login">LogOut</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/medijstvo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Medijstvo</a>
+
+        </li>
+        <li class="nav-item">
+          <a routerLink="/blog" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Blog</a>
+
+        </li>
+        <li class="nav-item">
+          <a routerLink="/omeni" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">O meni</a>
+
+        </li>
+        <li class="nav-item">
+          <a routerLink="/kontakt" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Kontakt</a>
+
+        </li>
+        <li class="nav-item">
+          <!-- User logged in or logged out -->
+          <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">LogIn</a>
+          <a *ngIf="isLoggedIn" (click)="logOut()" routerLink="/login" routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }">LogOut</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

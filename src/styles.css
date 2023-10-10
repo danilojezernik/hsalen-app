@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;500&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
 /* Style for a spinner overlay */
 .spinner-overlay {
   position: fixed;
@@ -23,3 +29,83 @@
   background: #2196F3;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+a:hover {
+  color: orange;
+}
+
+.active {
+  color: orange;
+}
+
+.nav-item {
+  padding: 10px;
+}
+
+.galaxy-bg {
+  background-image: url('assets/media/hero/galaxy.png');
+  background-position: right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: contain;
+}
+
+.card {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.1); /* You can apply other transformations here */
+}
+
+/* SHAPE DIVIDER BOTTOM */
+
+
+.custom-shape-divider-bottom-1696908549 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1696908549 svg {
+  position: relative;
+  display: block;
+  width: calc(104% + 1.3px);
+  height: 124px;
+}
+
+.custom-shape-divider-bottom-1696908549 .shape-fill-gray {
+  fill: #e2e3e5;
+}
+
+/* SHAPE DIVIDER TOP */
+
+.custom-shape-divider-top-1696909321 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1696909321 svg {
+  position: relative;
+  display: block;
+  width: calc(104% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-top-1696909321 .shape-fill {
+  fill: #e2e3e5;
+}

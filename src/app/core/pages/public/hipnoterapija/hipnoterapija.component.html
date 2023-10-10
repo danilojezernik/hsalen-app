@@ -1,7 +1,9 @@
 <!-- PRIKAZ HIPNOTERAPIJA -->
+<app-hero [hero]="heroData"></app-hero>
+
 <div *ngIf="hipnoterapija">
-    <h1 [innerHTML]="hipnoterapija['naslov']"></h1>
-    <p [innerHTML]="hipnoterapija['podnaslov']"></p>
-    <p [innerHTML]="hipnoterapija['hipnoza']"></p>
-    <p [innerHTML]="hipnoterapija['hipnoterapija']"></p>
+  <h1 [innerHTML]="hipnoterapija['naslov']"></h1>
+  <p [innerHTML]="hipnoterapija['podnaslov']"></p>
+  <p [innerHTML]="hipnoterapija['hipnoza']"></p>
+  <p [innerHTML]="hipnoterapija['hipnoterapija']"></p>
 </div>

@@ -1,0 +1,22 @@
+[
+  {
+    "storitev": "Hipnoterapija",
+    "vsebina": "Hipnoterapija je orodje, s pomočjo katerega rešujemo globoko zakoreninjene težave na zelo hiter in učinkovit način s pomočjo hipnoterapevta. Je orodje s pomočjo katerega lahko resnično izboljšamo kvaliteto življenja.",
+    "link": "/hipnoterapija"
+  },
+  {
+    "storitev": "Samohipnoza",
+    "vsebina": "Samohipnoza je tehnika, ki vam omogoča, da izboljšate kvaliteto svojega življenja na poseben način, katerega vas nauči hipnoterapevt. Tehniko izvajate doma sami po svoji želji, skupaj s hipnoterapevtu pa ustvarite načrt.",
+    "link": "/samohipnoza"
+  },
+  {
+    "storitev": "Jasnovidnost",
+    "vsebina": "Jasnovidnost nam omogoča pogled v preteklost, natančen pogled v sedanjost in prihodnost in nam tako razkriva svet okoli nas, daje odgovore na vprašanja, ki jih imamo že dlje. Klient lahko na ta način izve vse o sebi.",
+    "link": "/jasnovidnost"
+  },
+  {
+    "storitev": "Medijstvo",
+    "vsebina": "Obstajajo ljudje, kateri imajo sposobnost, da komunicirajo z našimi preminulimi in drugimi preminulimi dušami. V medije lahko vstopajo tudi druge entitete. Dobesedno komuniciramo z onostranstvom ali s tavajočimi dušami, vodniki.",
+    "link": "/medijstvo"
+  }
+]

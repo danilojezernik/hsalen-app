@@ -1,18 +1,35 @@
-<!-- PRIKAZ INDEX -->
-<div *ngIf="index">
-  <h1 [innerHTML]="index['naslov']"></h1>
-  <p [innerHTML]="index['podnaslov']"></p>
-  <p [innerHTML]="index['pomoc_hipnoterapija']"></p>
-  <p [innerHTML]="index['pomoc_jasnovidnsot']"></p>
-  <p [innerHTML]="index['pomoc_medijstvo']"></p>
+<app-hero [hero]="heroData"></app-hero>
+<div class="container-fluid">
+  <div class="container py-2 py-md-5">
+
+    <app-offer></app-offer>
+  </div>
+
+  <!-- PRIKAZ KNJIGA -->
 </div>
 
-<!-- PRIKAZ KNJIGA -->
-<app-knjiga></app-knjiga>
+<div class="container-fluid d-flex justify-content-center align-items-center bg-white position-relative" style="min-height: 800px">
 
-<!-- PRIKAZ INDEX -->
-<div>
-  <p [innerHTML]=""></p>
-  <p [innerHTML]=""></p>
-  <p [innerHTML]=""></p>
+  <div class="custom-shape-divider-top-1696909321">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none">
+      <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+    </svg>
+  </div>
+
+  <div class="container">
+    <app-knjiga></app-knjiga>
+  </div>
 </div>
+<!-- PRIKAZ INDEX -->
+<div class="container-fluid">
+
+  <div *ngIf="index" class="container">
+
+    <h1 [innerHTML]="index['naslov']"></h1>
+    <p [innerHTML]="index['podnaslov']"></p>
+    <p [innerHTML]="index['pomoc_hipnoterapija']"></p>
+    <p [innerHTML]="index['pomoc_jasnovidnsot']"></p>
+    <p [innerHTML]="index['pomoc_medijstvo']"></p>
+  </div>
+</div>
+

@@ -1,6 +1,13 @@
 <!-- PRIKAZ KNJIGA -->
-<div>
-  <h1 [innerHTML]=""></h1>
-  <p [innerHTML]=""></p>
-  <p [innerHTML]=""></p>
+<div class="d-flex">
+  <div *ngIf="knjiga" class="row pt-5 justify-content-center align-items-center">
+    <div class="col-md-4">
+      <img src="assets/media/knjiga/knjigaalen.jpg" class="img-fluid" alt="Zakaj se rodimo in zakaj umremo">
+    </div>
+    <div class="col-md-6">
+      <h2 class="fs-3 p-0">{{knjiga['naslov']}}</h2>
+      <p [innerHTML]="knjiga['podnaslov']"></p>
+      <p [innerHTML]="knjiga['opis']"></p>
+    </div>
+  </div>
 </div>

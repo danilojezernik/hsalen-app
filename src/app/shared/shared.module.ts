@@ -13,32 +13,38 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
 import {RouterLink} from "@angular/router";
+import {HeroComponent} from './components/hero/hero.component';
+import {OfferComponent} from './components/offer/offer.component';
 
 
 @NgModule({
-    declarations: [
-        GoBackComponent,
-        KnjigaComponent,
-        SpinnerComponent
-    ],
-    exports: [
-        GoBackComponent,
-        KnjigaComponent,
-        SpinnerComponent
-    ],
-    imports: [
-        CommonModule,
-        MatProgressSpinnerModule,
-        FormsModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatDialogModule,
-        MatIconModule,
-        MatPaginatorModule,
-        MatTableModule,
-        RouterLink
-    ]
+  declarations: [
+    GoBackComponent,
+    KnjigaComponent,
+    SpinnerComponent,
+    HeroComponent,
+    OfferComponent
+  ],
+  exports: [
+    GoBackComponent,
+    KnjigaComponent,
+    SpinnerComponent,
+    HeroComponent,
+    OfferComponent
+  ],
+  imports: [
+    CommonModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatTableModule,
+    RouterLink
+  ]
 })
 export class SharedModule {
 }

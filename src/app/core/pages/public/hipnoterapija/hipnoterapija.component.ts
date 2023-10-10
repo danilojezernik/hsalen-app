@@ -10,6 +10,11 @@ export class HipnoterapijaComponent implements OnInit {
 
   hipnoterapija: any;
 
+  heroData = {
+    naslov: '',
+    podnaslov: ''
+  }
+
   constructor(private db: HttpClient) {
   }
 
@@ -18,6 +23,11 @@ export class HipnoterapijaComponent implements OnInit {
     const path: string = 'assets/hipnoterapija.json'
     this.db.get(path).subscribe((response) => {
       this.hipnoterapija = response;
+
+      this.heroData = {
+        naslov: this.hipnoterapija.naslov,
+        podnaslov: this.hipnoterapija.podnaslov,
+      }
     })
   }
 

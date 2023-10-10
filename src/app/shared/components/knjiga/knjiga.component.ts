@@ -1,27 +1,25 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Subject} from "rxjs";
+import {Component, OnInit} from '@angular/core';
 import {trace} from "../../../core/utils/trace";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-knjiga',
   templateUrl: './knjiga.component.html'
 })
-export class KnjigaComponent implements OnInit, OnDestroy {
+export class KnjigaComponent implements OnInit {
 
-  private destroy$: Subject<boolean> = new Subject<boolean>();
+  knjiga: any;
 
-
-  constructor() {
+  constructor(private db: HttpClient) {
   }
 
   @trace()
   ngOnInit() {
+    const path: string = 'assets/knjiga.json'
+    this.db.get(path).subscribe(response => {
+      this.knjiga = response
+    })
   }
 
-  @trace()
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete()
-  }
 
 }

@@ -7,8 +7,13 @@ import {HttpClient} from "@angular/common/http";
   templateUrl: './index.component.html'
 })
 export class IndexComponent implements OnInit {
-  
+
   index: any;
+
+  heroData = {
+    naslov: '',
+    podnaslov: ''
+  }
 
   constructor(private db: HttpClient) {
   }
@@ -18,6 +23,11 @@ export class IndexComponent implements OnInit {
     const path: string = 'assets/index.json'
     this.db.get(path).subscribe((response) => {
         this.index = response
+
+        this.heroData = {
+          naslov: this.index.naslov,
+          podnaslov: this.index.podnaslov,
+        }
       }
     )
   }
