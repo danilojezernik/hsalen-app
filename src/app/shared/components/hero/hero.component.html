@@ -1,13 +1,9 @@
-<div class="text-center border-0 bg-dark galaxy-bg d-flex justify-content-center align-items-center position-relative" style="min-height: 500px">
-  <div class="custom-shape-divider-bottom-1696908549">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none">
-      <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill-gray"></path>
-    </svg>
-  </div>
-  <div class="container py-5">
-    <h1 class="fw-bold text-warning fs-1">{{hero?.naslov}}</h1>
+<div class="text-center shadow border-bottom galaxy-bg d-flex justify-content-center align-items-md-center position-relative"
+     style="min-height: 500px">
+  <div class="container-fluid p-0">
+    <h1 class="fw-bold text-dark fs-1">{{hero?.naslov}}</h1>
     <div class="col-lg-12 mx-auto">
-      <p class="lead text-white">{{hero?.podnaslov}}</p>
+      <p class="lead">{{hero?.podnaslov}}</p>
       <div class="gap-2 d-sm-flex py-4 justify-content-sm-center">
         <span class="px-4">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="35" height="35" viewBox="0 0 24 24"
@@ -30,5 +26,10 @@
         </span>
       </div>
     </div>
+    <app-notification></app-notification>
   </div>
+
+
 </div>
+
+

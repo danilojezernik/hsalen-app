@@ -22,6 +22,7 @@ import {EmailPregledComponent} from "./core/pages/private/email-pregled/email-pr
 import {EmailIdComponent} from "./shared/components/dialog/email-id/email-id.component";
 import {JasnovidnostComponent} from "./core/pages/public/jasnovidnost/jasnovidnost.component";
 import {MedijstvoComponent} from "./core/pages/public/medijstvo/medijstvo.component";
+import {EventsComponent} from "./core/pages/public/events/events.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -127,6 +128,11 @@ const routes: Routes = [
     path: 'kontakt',
     component: ContactComponent,
     title: 'Hypnosis studio Alen - Kontakt',
+  },
+  {
+    path: 'events',
+    component: EventsComponent,
+    title: 'Hypnosis studio Alen - Events',
   },
   {
     path: 'email-pregled',

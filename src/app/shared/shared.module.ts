@@ -15,6 +15,7 @@ import {MatTableModule} from "@angular/material/table";
 import {RouterLink} from "@angular/router";
 import {HeroComponent} from './components/hero/hero.component';
 import {OfferComponent} from './components/offer/offer.component';
+import {NotificationComponent} from './components/notification-index/notification.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {OfferComponent} from './components/offer/offer.component';
     KnjigaComponent,
     SpinnerComponent,
     HeroComponent,
-    OfferComponent
+    OfferComponent,
+    NotificationComponent
   ],
   exports: [
     GoBackComponent,

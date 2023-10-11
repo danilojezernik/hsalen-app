@@ -108,3 +108,25 @@ a:hover {
 .custom-shape-divider-top-1696909321 .shape-fill {
   fill: #e2e3e5;
 }
+
+@keyframes my-animation {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+#scroll-container {
+  overflow: hidden;
+  color: white;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+#scroll-text {
+  animation: my-animation 30s linear infinite; /* Adjust the duration as needed */
+  white-space: nowrap; /* Ensure the text stays in a single line */
+}
