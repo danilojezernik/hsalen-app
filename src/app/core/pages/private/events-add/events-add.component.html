@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Dodaj dogodek</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="addingEventForm" (ngSubmit)="addEvent()">
+
+    <mat-form-field style="width: 100%">
+      <mat-label>Naslov dogodka</mat-label>
+      <input type="text" formControlName="event" required matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 40%" class="pe-1">
+      <mat-label>Lokacija</mat-label>
+      <input type="text" formControlName="location" required matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 20%" class="pe-1">
+      <mat-label>Trajanje dogodka</mat-label>
+      <input type="text" formControlName="event_length" required matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 40%">
+      <mat-label>Začetek dogodka</mat-label>
+      <input matInput formControlName="start_date" required [matDatepicker]="picker">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <angular-editor formControlName="content" [config]="editorConfig" required></angular-editor>
+
+    <section class="example-section float-end">
+      <mat-checkbox formControlName="show_notification" class="example-margin">
+        Prikaži dogodek na začetni strani
+      </mat-checkbox>
+    </section>
+
+    <button mat-button mat-dialog-close>Zapri okno</button>
+    <button mat-raised-button color="warn" type="submit" [disabled]="addingEventForm.invalid">Dodaj dogodek</button>
+  </form>
+</div>

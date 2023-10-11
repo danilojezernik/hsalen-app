@@ -16,6 +16,7 @@ import {RouterLink} from "@angular/router";
 import {HeroComponent} from './components/hero/hero.component';
 import {OfferComponent} from './components/offer/offer.component';
 import {NotificationComponent} from './components/notification-index/notification.component';
+import {SlovenainDatePipe} from './pipes/slovenain-date.pipe';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {NotificationComponent} from './components/notification-index/notificatio
     SpinnerComponent,
     HeroComponent,
     OfferComponent,
-    NotificationComponent
+    NotificationComponent,
+    SlovenainDatePipe
   ],
   exports: [
     GoBackComponent,
@@ -33,7 +35,8 @@ import {NotificationComponent} from './components/notification-index/notificatio
     SpinnerComponent,
     HeroComponent,
     OfferComponent,
-    NotificationComponent
+    NotificationComponent,
+    SlovenainDatePipe
   ],
   imports: [
     CommonModule,

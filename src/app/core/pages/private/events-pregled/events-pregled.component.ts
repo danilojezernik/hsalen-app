@@ -6,6 +6,8 @@ import {Subject} from "rxjs";
 import {MatPaginator} from "@angular/material/paginator";
 import {GetIdComponent} from "../../../../shared/components/dialog/get-id.component";
 import {MatDialog} from "@angular/material/dialog";
+import {EventsAddComponent} from "../events-add/events-add.component";
+import {DataUpdateService} from "../../../services/communication/data-update.service";
 
 @Component({
   selector: 'app-events-pregled',
@@ -30,7 +32,8 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
 
   constructor(
     private api: EventsService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public dataUpdateService: DataUpdateService
   ) {
   }
 
@@ -43,6 +46,10 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.dataUpdateService.dataUpdated$.subscribe(() => {
+      // Reload the table when data is updated
+      this.getAlleEventsAdmin()
+    });
     this.getAlleEventsAdmin()
   }
 
@@ -50,6 +57,13 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
     this.dialog.open(GetIdComponent, {
       width: '80%', // Set the width of the dialog
       data: {content} // Pass the content to the dialog
+    });
+  }
+
+  openDialogToAddEvent() {
+    // Open a dialog using Angular Material's MatDialog
+    this.dialog.open(EventsAddComponent, {
+      minWidth: '70%' // Set the width of the dialog
     });
   }
 
@@ -62,6 +76,12 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
     }, (error) => {
       console.error('Error getting all events:', error)
       this.spinner = false;
+    })
+  }
+
+  deleteEvent(id: string) {
+    this.api.deleteEvent(id).subscribe(() => {
+      this.getAlleEventsAdmin()
     })
   }
 

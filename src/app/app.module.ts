@@ -1,7 +1,9 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
+
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {LOCALE_ID} from '@angular/core';
 
 import {AppComponent} from './app.component';
 
@@ -11,25 +13,29 @@ import {InterceptorService} from "./core/services/interceptor/interceptor.servic
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        SharedModule,
-        CoreModule,
-        BrowserAnimationsModule
-    ],
-    providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: InterceptorService,
-            multi: true
-        }
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    SharedModule,
+    CoreModule,
+    BrowserAnimationsModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    },
+    {
+      provide: LOCALE_ID,
+      useValue: 'sl'
+    }
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

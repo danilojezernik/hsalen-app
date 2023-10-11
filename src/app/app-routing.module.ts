@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {IndexComponent} from "./core/pages/public/index/index.component";
 import {BlogComponent} from "./core/pages/public/blog/blog.component";
-import {BlogAddComponent} from "./core/pages/private/blog-dodaj/blog-add.component";
+import {BlogAddComponent} from "./core/pages/private/blog-add/blog-add.component";
 import {LoginComponent} from "./core/pages/public/login/login.component";
 import {AdminComponent} from "./core/pages/private/admin/admin.component";
 import {BlogPregledComponent} from "./core/pages/private/blog-pregled/blog-pregled.component";
@@ -24,6 +24,7 @@ import {JasnovidnostComponent} from "./core/pages/public/jasnovidnost/jasnovidno
 import {MedijstvoComponent} from "./core/pages/public/medijstvo/medijstvo.component";
 import {EventsComponent} from "./core/pages/public/events/events.component";
 import {EventsPregledComponent} from "./core/pages/private/events-pregled/events-pregled.component";
+import {EventsAddComponent} from "./core/pages/private/events-add/events-add.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -140,6 +141,12 @@ const routes: Routes = [
     component: EventsPregledComponent,
     title: 'Hypnosis studio Alen - Dogodki pregled',
     loadChildren: coreModuleLoader,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'events-dodaj',
+    component: EventsAddComponent,
+    title: 'Hypnosis studio Alen - Dodaj nov dogodek',
     canActivate: [AuthGuardService]
   },
   {

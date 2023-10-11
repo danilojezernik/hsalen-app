@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Dodaj objavo</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="addingPostForm" (ngSubmit)="addPost()">
+    <mat-form-field style="width: 100%">
+      <mat-label>Naslov</mat-label>
+      <input type="text" formControlName="naslov" required matInput>
+    </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>Podnaslov</mat-label>
+      <input type="text" formControlName="podnaslov" required matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%">
+      <mat-label>Tag</mat-label>
+      <input type="text" formControlName="tag" required matInput>
+    </mat-form-field>
+
+
+    <angular-editor formControlName="vsebina" [config]="editorConfig" required></angular-editor>
+
+    <button mat-button mat-dialog-close>Zapri okno</button>
+
+    <button mat-raised-button color="warn" type="submit" [disabled]="addingPostForm.invalid">Dodaj Blog</button>
+  </form>
+</div>

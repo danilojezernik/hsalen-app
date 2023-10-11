@@ -47,22 +47,6 @@ export class EventsService {
   }
 
   /**
-   * Fetches an event by its ID.
-   * @param id The ID of an event to fetch.
-   * @returns An observable of the specified event.
-   */
-  getEventByIdAdmin(id: string): Observable<Events> {
-    return this.http.get<Events>(`${environment.backUrl}/events/admin/${id}`).pipe(
-      catchError(error => {
-        // Log an error message if an error occurs during the API call
-        console.error("Error getting all the mediji data from admin:", error)
-        // Return a new observable with an error message if there's an error
-        return throwError('Something went wrong')
-      })
-    )
-  }
-
-  /**
    * Adds a new event.
    * @param newEvent The new event to be added.
    * @returns An observable of the added event.
@@ -73,6 +57,40 @@ export class EventsService {
       catchError(error => {
         // Log an error message if an error occurs during the API call
         console.error("Error adding new event to admin:", error);
+        // Return a new observable with an error message if there's an error
+        return throwError('Something went wrong')
+      })
+    )
+  }
+
+  /**
+   * Fetches an event by its ID.
+   * @param id The ID of the event to fetch.
+   * @returns An observable of the specified event.
+   */
+  deleteEvent(id: string): Observable<any> {
+    // Using Angular HttpClient to make a POST request to the specified API endpoint
+    return this.http.delete<any>(`${environment.backUrl}/events/admin/${id}`).pipe(
+      catchError(error => {
+        // Log an error message if an error occurs during the API call
+        console.error("Error deleting event for admin:", error);
+        // Return a new observable with an error message if there's an error
+        return throwError('Something went wrong')
+      })
+    )
+  }
+
+  /**
+   * Edits an event in the admin interface.
+   * @param id The ID of an event to edit.
+   * @param newBody The updated content for the event.
+   * @returns An observable of the updated event.
+   */
+  editEvent(id: string, newBody: Events) {
+    return this.http.put<Events>(`${environment.backUrl}/events/admin/${id}`, newBody).pipe(
+      catchError(error => {
+        // Log an error message if an error occurs during the API call
+        console.error("Error adding event for admin:", error);
         // Return a new observable with an error message if there's an error
         return throwError('Something went wrong')
       })

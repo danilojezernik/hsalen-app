@@ -5,7 +5,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Blog} from "../../../models/blog";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatDialog} from "@angular/material/dialog";
-import {BlogAddComponent} from "../blog-dodaj/blog-add.component";
+import {BlogAddComponent} from "../blog-add/blog-add.component";
 import {DataUpdateService} from "../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
 

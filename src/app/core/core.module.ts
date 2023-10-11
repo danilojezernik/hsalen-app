@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BlogAddComponent} from "./pages/private/blog-dodaj/blog-add.component";
+import {BlogAddComponent} from "./pages/private/blog-add/blog-add.component";
 import {BlogPregledComponent} from "./pages/private/blog-pregled/blog-pregled.component";
 import {LoginComponent} from "./pages/public/login/login.component";
 import {AdminComponent} from "./pages/private/admin/admin.component";
@@ -37,6 +37,9 @@ import {MedijstvoComponent} from './pages/public/medijstvo/medijstvo.component';
 import {EventsComponent} from './pages/public/events/events.component';
 import {EventsPregledComponent} from './pages/private/events-pregled/events-pregled.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {EventsAddComponent} from './pages/private/events-add/events-add.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -65,7 +68,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     JasnovidnostComponent,
     MedijstvoComponent,
     EventsComponent,
-    EventsPregledComponent
+    EventsPregledComponent,
+    EventsAddComponent
   ],
   exports: [
     BlogAddComponent,
@@ -109,7 +113,9 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatSnackBarModule,
     AngularEditorModule,
     RouterLinkActive,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class CoreModule {
