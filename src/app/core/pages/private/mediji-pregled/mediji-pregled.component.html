@@ -1,85 +1,88 @@
-<p>mediji-pregled works!</p>
-<button (click)="openDialog()">Dodaj Medij</button>
+<h1 class="text-center pt-5" style="font-size: 2rem;">Pregled v medijih</h1>
+<div class="container pt-5">
+  <button (click)="openDialog()">Dodaj Medij</button>
 
-<div>
+  <div>
 
-    <table *ngIf="mediji" mat-table [dataSource]="dataSource">
+    <table class="shadow" *ngIf="mediji" mat-table [dataSource]="dataSource">
 
-        <!-- Post Title Column -->
-        <ng-container matColumnDef="mediji_id">
-            <th mat-header-cell *matHeaderCellDef> Mediji ID</th>
-            <td mat-cell *matCellDef="let element"> {{element._id}} </td>
-        </ng-container>
+      <!-- Post Title Column -->
+      <ng-container matColumnDef="mediji_id">
+        <th mat-header-cell *matHeaderCellDef> Mediji ID</th>
+        <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+      </ng-container>
 
-        <!-- Author Column -->
-        <ng-container matColumnDef="naslov">
-            <th mat-header-cell *matHeaderCellDef> Naslov</th>
-            <td class="fw-bold" mat-cell *matCellDef="let element">
-                {{element.naslov_mediji}}
-            </td>
-        </ng-container>
+      <!-- Author Column -->
+      <ng-container matColumnDef="naslov">
+        <th mat-header-cell *matHeaderCellDef> Naslov</th>
+        <td class="fw-bold" mat-cell *matCellDef="let element">
+          {{element.naslov_mediji}}
+        </td>
+      </ng-container>
 
-        <!-- Created At Column -->
-        <ng-container matColumnDef="opis">
-            <th mat-header-cell *matHeaderCellDef> Vsebina</th>
-            <td class="fw-bold" mat-cell *matCellDef="let element">
-                {{ element.opis_mediji}}
-            </td>
-        </ng-container>
+      <!-- Created At Column -->
+      <ng-container matColumnDef="opis">
+        <th mat-header-cell *matHeaderCellDef> Vsebina</th>
+        <td class="fw-bold" mat-cell *matCellDef="let element">
+          {{ element.opis_mediji}}
+        </td>
+      </ng-container>
 
-        <!-- Created At Column -->
-        <ng-container matColumnDef="povezava_slika">
-            <th mat-header-cell *matHeaderCellDef> povezava_slika</th>
-            <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element.povezava_slika}">
-                {{ element.povezava_slika ? element.povezava_slika : 'povezava_slika' }}
-            </td>
-        </ng-container>
+      <!-- Created At Column -->
+      <ng-container matColumnDef="povezava_slika">
+        <th mat-header-cell *matHeaderCellDef> povezava_slika</th>
+        <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element.povezava_slika}">
+          {{ element.povezava_slika ? element.povezava_slika : 'povezava_slika' }}
+        </td>
+      </ng-container>
 
-        <!-- Created At Column -->
-        <ng-container matColumnDef="povezava_mediji">
-            <th mat-header-cell *matHeaderCellDef> povezava_mediji</th>
-            <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element.povezava_mediji}">
-                {{ element.povezava_mediji ? element.povezava_mediji : 'povezava_mediji' }}
-            </td>
-        </ng-container>
+      <!-- Created At Column -->
+      <ng-container matColumnDef="povezava_mediji">
+        <th mat-header-cell *matHeaderCellDef> povezava_mediji</th>
+        <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element.povezava_mediji}">
+          {{ element.povezava_mediji ? element.povezava_mediji : 'povezava_mediji' }}
+        </td>
+      </ng-container>
 
-        <!-- Updated At Column -->
-        <ng-container matColumnDef="datum_vnosa">
-            <th mat-header-cell *matHeaderCellDef> Datum vnosa</th>
-            <td mat-cell *matCellDef="let element">
-                {{element.datum_vnosa | date: 'MMM d, y, h:mm:ss a' }}
-            </td>
-        </ng-container>
+      <!-- Updated At Column -->
+      <ng-container matColumnDef="datum_vnosa">
+        <th mat-header-cell *matHeaderCellDef> Datum vnosa</th>
+        <td mat-cell *matCellDef="let element">
+          {{element.datum_vnosa | date: 'MMM d, y, h:mm:ss a' }}
+        </td>
+      </ng-container>
 
-        <!-- Action Column -->
-        <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td class="py-3 text-end" style="text-align: center" mat-cell *matCellDef="let element">
-                <button style="margin-right: 10px" mat-mini-fab color="primary" [routerLink]="['/mediji/', element._id]">
-                    <mat-icon>search</mat-icon>
-                </button>
-                <button style="margin-right: 10px" mat-mini-fab color="warn" (click)="deleteMedijiAdmin(element._id)">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button style="margin-right: 10px" mat-mini-fab color="accent" [routerLink]="['/mediji/edit', element._id]">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </td>
-        </ng-container>
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td class="py-3 text-end" style="text-align: center" mat-cell *matCellDef="let element">
+          <button style="margin-right: 10px" mat-mini-fab color="primary" [routerLink]="['/mediji/', element._id]">
+            <mat-icon>search</mat-icon>
+          </button>
+          <button style="margin-right: 10px" mat-mini-fab color="warn" (click)="deleteMedijiAdmin(element._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button style="margin-right: 10px" mat-mini-fab color="accent" [routerLink]="['/mediji/edit', element._id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
     </table>
 
-    <div class="d-flex justify-content-center align-content-center">
-        <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"
-                       showFirstLastButtons
-                       aria-label="Select page of periodic elements">
-        </mat-paginator>
+    <div class="d-flex justify-content-center align-content-center bg-transparent">
+      <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"
+                     showFirstLastButtons
+                     class="bg-transparent pt-4"
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
     </div>
 
+  </div>
 </div>
+
 <div *ngIf="spinner">
-    <app-spinner></app-spinner>
+  <app-spinner></app-spinner>
 </div>
-<app-go-back></app-go-back>

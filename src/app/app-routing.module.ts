@@ -25,6 +25,7 @@ import {MedijstvoComponent} from "./core/pages/public/medijstvo/medijstvo.compon
 import {EventsComponent} from "./core/pages/public/events/events.component";
 import {EventsPregledComponent} from "./core/pages/private/events-pregled/events-pregled.component";
 import {EventsAddComponent} from "./core/pages/private/events-add/events-add.component";
+import {EventsUrediComponent} from "./core/pages/private/events-uredi/events-uredi.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -147,6 +148,12 @@ const routes: Routes = [
     path: 'events-dodaj',
     component: EventsAddComponent,
     title: 'Hypnosis studio Alen - Dodaj nov dogodek',
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'events/edit/:id',
+    component: EventsUrediComponent,
+    title: 'Hypnosis studio Alen - Uredi dogodek',
     canActivate: [AuthGuardService]
   },
   {

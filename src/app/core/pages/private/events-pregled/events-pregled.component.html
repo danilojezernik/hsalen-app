@@ -77,11 +77,8 @@
     </mat-paginator>
   </div>
 
-
-  <div *ngIf="spinner">
-    <app-spinner></app-spinner>
-  </div>
-
 </div>
 
-<app-go-back></app-go-back>
+<div *ngIf="spinner">
+  <app-spinner></app-spinner>
+</div>

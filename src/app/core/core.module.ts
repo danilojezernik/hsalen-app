@@ -40,6 +40,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {EventsAddComponent} from './pages/private/events-add/events-add.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import { EventsUrediComponent } from './pages/private/events-uredi/events-uredi.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import {MatNativeDateModule} from "@angular/material/core";
     MedijstvoComponent,
     EventsComponent,
     EventsPregledComponent,
-    EventsAddComponent
+    EventsAddComponent,
+    EventsUrediComponent
   ],
   exports: [
     BlogAddComponent,
