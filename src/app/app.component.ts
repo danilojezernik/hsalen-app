@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
 
-const routesToShowGoBack: string[] = ['/blog-pregled', '/blog/edit/:id', '/mediji-pregled', '/mediji/edit/:id', '/events', '/email-pregled'];
+const routesToShowGoBack: string[] = ['/blog-pregled', '/blog/:id', '/blog/edit/:id', '/mediji-pregled', '/mediji/edit/:id', '/events', '/email-pregled'];
 
 @Component({
   selector: 'app-root',
