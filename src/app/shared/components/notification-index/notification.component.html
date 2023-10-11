@@ -1,5 +1,5 @@
 <div *ngFor="let event of events">
-  <div *ngIf="event['show_notification'] == true">
+  <div *ngIf="event['show_notification'] === true">
     <div id="scroll-container" class="bg-dark p-3 fs-4">
       <div id="scroll-text">
         Dne {{event['start_date']}} se bo odvijal dogodek {{event['event']}} na lokaciji {{event['location']}} in bo trajal {{event['event_length']}}
@@ -7,4 +7,3 @@
     </div>
   </div>
 </div>
-

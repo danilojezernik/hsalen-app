@@ -23,6 +23,7 @@ import {EmailIdComponent} from "./shared/components/dialog/email-id/email-id.com
 import {JasnovidnostComponent} from "./core/pages/public/jasnovidnost/jasnovidnost.component";
 import {MedijstvoComponent} from "./core/pages/public/medijstvo/medijstvo.component";
 import {EventsComponent} from "./core/pages/public/events/events.component";
+import {EventsPregledComponent} from "./core/pages/private/events-pregled/events-pregled.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -132,7 +133,14 @@ const routes: Routes = [
   {
     path: 'events',
     component: EventsComponent,
-    title: 'Hypnosis studio Alen - Events',
+    title: 'Hypnosis studio Alen - Dogodki',
+  },
+  {
+    path: 'events-pregled',
+    component: EventsPregledComponent,
+    title: 'Hypnosis studio Alen - Dogodki pregled',
+    loadChildren: coreModuleLoader,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'email-pregled',

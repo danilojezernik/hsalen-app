@@ -31,5 +31,15 @@ export class EventsService {
 
   // ***************** PUBLIC ADMIN ******************* //
 
+  getAllEventsAdmin(): Observable<Events[]> {
+    return this.http.get<Events[]>(`${environment.backUrl}/events/admin/`).pipe(
+      catchError(error => {
+        // Log an error message if an error occurs during the API call
+        console.error("Error getting all the private events data:", error)
+        // Return a new observable with an error message if there's an error
+        return throwError('Something went wrong')
+      })
+    )
+  }
 
 }

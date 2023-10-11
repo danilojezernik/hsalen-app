@@ -35,6 +35,8 @@ import {AngularEditorModule} from "@kolkov/angular-editor";
 import {JasnovidnostComponent} from './pages/public/jasnovidnost/jasnovidnost.component';
 import {MedijstvoComponent} from './pages/public/medijstvo/medijstvo.component';
 import {EventsComponent} from './pages/public/events/events.component';
+import {EventsPregledComponent} from './pages/private/events-pregled/events-pregled.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -62,7 +64,8 @@ import {EventsComponent} from './pages/public/events/events.component';
     EmailIdComponent,
     JasnovidnostComponent,
     MedijstvoComponent,
-    EventsComponent
+    EventsComponent,
+    EventsPregledComponent
   ],
   exports: [
     BlogAddComponent,
@@ -104,7 +107,8 @@ import {EventsComponent} from './pages/public/events/events.component';
     MatIconModule,
     MatSnackBarModule,
     AngularEditorModule,
-    RouterLinkActive
+    RouterLinkActive,
+    MatCheckboxModule
   ]
 })
 export class CoreModule {
