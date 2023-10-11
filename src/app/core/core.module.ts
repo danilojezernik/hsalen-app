@@ -30,7 +30,7 @@ import {MedijiBeriComponent} from './pages/private/mediji-beri/mediji-beri.compo
 import {MedijiDodajComponent} from './pages/private/mediji-dodaj/mediji-dodaj.component';
 import {ContactComponent} from './pages/public/contact/contact.component';
 import {EmailPregledComponent} from './pages/private/email-pregled/email-pregled.component';
-import {EmailIdComponent} from '../shared/components/dialog/email-id/email-id.component';
+import {GetIdComponent} from '../shared/components/dialog/get-id.component';
 import {AngularEditorModule} from "@kolkov/angular-editor";
 import {JasnovidnostComponent} from './pages/public/jasnovidnost/jasnovidnost.component';
 import {MedijstvoComponent} from './pages/public/medijstvo/medijstvo.component';
@@ -61,7 +61,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MedijiDodajComponent,
     ContactComponent,
     EmailPregledComponent,
-    EmailIdComponent,
+    GetIdComponent,
     JasnovidnostComponent,
     MedijstvoComponent,
     EventsComponent,
@@ -88,10 +88,11 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MedijiDodajComponent,
     ContactComponent,
     EmailPregledComponent,
-    EmailIdComponent,
+    GetIdComponent,
     JasnovidnostComponent,
     MedijstvoComponent,
-    EventsComponent
+    EventsComponent,
+    EventsPregledComponent
   ],
   imports: [
     CommonModule,

@@ -32,7 +32,8 @@ import {NotificationComponent} from './components/notification-index/notificatio
     KnjigaComponent,
     SpinnerComponent,
     HeroComponent,
-    OfferComponent
+    OfferComponent,
+    NotificationComponent
   ],
   imports: [
     CommonModule,

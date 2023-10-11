@@ -19,7 +19,7 @@ import {MedijiUrediComponent} from "./core/pages/private/mediji-uredi/mediji-ure
 import {MedijiBeriComponent} from "./core/pages/private/mediji-beri/mediji-beri.component";
 import {ContactComponent} from "./core/pages/public/contact/contact.component";
 import {EmailPregledComponent} from "./core/pages/private/email-pregled/email-pregled.component";
-import {EmailIdComponent} from "./shared/components/dialog/email-id/email-id.component";
+import {GetIdComponent} from "./shared/components/dialog/get-id.component";
 import {JasnovidnostComponent} from "./core/pages/public/jasnovidnost/jasnovidnost.component";
 import {MedijstvoComponent} from "./core/pages/public/medijstvo/medijstvo.component";
 import {EventsComponent} from "./core/pages/public/events/events.component";
@@ -151,7 +151,7 @@ const routes: Routes = [
   },
   {
     path: 'email/:id',
-    component: EmailIdComponent,
+    component: GetIdComponent,
     title: 'Hypnosis studio Alen - Pregled email vsebine',
     loadChildren: coreModuleLoader,
     canActivate: [AuthGuardService]

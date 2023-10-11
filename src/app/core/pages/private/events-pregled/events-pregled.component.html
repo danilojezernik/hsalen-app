@@ -53,7 +53,7 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef></th>
       <td class="py-3 text-end" style="text-align: center" mat-cell *matCellDef="let element">
-        <button style="margin-right: 10px" mat-mini-fab color="primary">
+        <button style="margin-right: 10px" mat-mini-fab color="primary" (click)="openDialog(element.content)">
           <mat-icon>search</mat-icon>
         </button>
         <button style="margin-right: 10px" mat-mini-fab color="warn">

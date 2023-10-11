@@ -4,6 +4,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Events} from "../../../models/events";
 import {Subject} from "rxjs";
 import {MatPaginator} from "@angular/material/paginator";
+import {GetIdComponent} from "../../../../shared/components/dialog/get-id.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-events-pregled',
@@ -26,7 +28,10 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
     // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private api: EventsService) {
+  constructor(
+    private api: EventsService,
+    public dialog: MatDialog
+  ) {
   }
 
   /**
@@ -39,6 +44,13 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getAlleEventsAdmin()
+  }
+
+  openDialog(content: string) {
+    this.dialog.open(GetIdComponent, {
+      width: '80%', // Set the width of the dialog
+      data: {content} // Pass the content to the dialog
+    });
   }
 
   getAlleEventsAdmin() {

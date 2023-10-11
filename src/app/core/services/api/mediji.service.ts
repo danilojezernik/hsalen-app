@@ -55,7 +55,7 @@ export class MedijiService {
     return this.http.get<Mediji>(`${environment.backUrl}/mediji/admin/${id}`).pipe(
       catchError(error => {
         // Log an error message if an error occurs during the API call
-        console.error("Error getting all the mediji data from admin:", error)
+        console.error("Error getting mediji by id data from admin:", error)
         // Return a new observable with an error message if there's an error
         return throwError('Something went wrong')
       })
