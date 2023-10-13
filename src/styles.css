@@ -25,10 +25,6 @@
   border-radius: 10px;
 }
 
-.mat-mdc-snack-bar-container .mdc-snackbar__label {
-  background: #2196F3;
-}
-
 a {
   text-decoration: none;
   color: black;
@@ -114,7 +110,7 @@ a:hover {
     transform: translateX(100%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* Move exactly one screen width */
   }
 }
 
@@ -129,4 +125,17 @@ a:hover {
 #scroll-text {
   animation: my-animation 30s linear infinite; /* Adjust the duration as needed */
   white-space: nowrap; /* Ensure the text stays in a single line */
+}
+
+/* Adjust animation duration based on screen width */
+@media (max-width: 1000px) {
+  #scroll-text {
+    animation: my-animation 15s linear infinite;
+  }
+}
+
+@media (max-width: 500px) {
+  #scroll-text {
+    animation: my-animation 5s linear infinite;
+  }
 }

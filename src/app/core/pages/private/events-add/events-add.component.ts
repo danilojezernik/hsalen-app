@@ -6,6 +6,7 @@ import {sharedEditorConfig} from "../../../../shared/config/editor-config";
 import {MatDialog} from "@angular/material/dialog";
 import {DataUpdateService} from "../../../services/communication/data-update.service";
 import {Events} from "../../../models/events";
+import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
 
 @Component({
   selector: 'app-events-add',
@@ -14,6 +15,7 @@ import {Events} from "../../../models/events";
 export class EventsAddComponent implements OnInit {
 
   events: any;
+  spinner: boolean = false;
   addingEventForm: FormGroup = new FormGroup({})
   editorConfig: AngularEditorConfig = sharedEditorConfig
 
@@ -22,6 +24,7 @@ export class EventsAddComponent implements OnInit {
     public dialog: MatDialog,
     public fb: FormBuilder,
     private dataUpdateService: DataUpdateService,
+    public snackbarService: SnackBarService
   ) {
   }
 
@@ -49,11 +52,16 @@ export class EventsAddComponent implements OnInit {
       datum_vnosa: new Date().toISOString()
     };
 
-    this.api.addNewEvent(newEvent).subscribe(data => {
-      console.log(data)
+    this.spinner = true
+    this.api.addNewEvent(newEvent).subscribe(() => {
+      this.spinner = false;
+      this.snackbarService.showSnackbar('Dogodek je bil uspešno dodan!')
       this.addingEventForm.reset();
-      this.dialog.closeAll()
+      this.dialog.closeAll();
       this.dataUpdateService.triggerDataUpdate();
+    }, error => {
+      console.error('Error adding new event', error)
+      this.spinner = false;
     })
   }
 }

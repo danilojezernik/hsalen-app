@@ -8,7 +8,7 @@
     <!-- Post Title Column -->
     <ng-container matColumnDef="blog_id">
       <th mat-header-cell *matHeaderCellDef> Blog ID</th>
-      <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+      <td mat-cell *matCellDef="let element"> {{ calculateIndex(element) }} </td>
     </ng-container>
     <!-- Author Column -->
     <ng-container matColumnDef="naslov">

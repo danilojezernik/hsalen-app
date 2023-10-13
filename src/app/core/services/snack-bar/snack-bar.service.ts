@@ -6,7 +6,7 @@ import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
 })
 export class SnackBarService {
 
-  constructor(private snackBar: MatSnackBar) {
+  constructor(public snackBar: MatSnackBar) {
   }
 
   // Function to display a snackbar with the provided message
@@ -15,9 +15,8 @@ export class SnackBarService {
     // Configure the snackbar duration and position
     const config: MatSnackBarConfig = {
       duration: 4000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: ['mat-mdc-snack-bar-container']
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
 
     };
 

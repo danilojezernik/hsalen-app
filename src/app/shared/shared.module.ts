@@ -17,6 +17,7 @@ import {HeroComponent} from './components/hero/hero.component';
 import {OfferComponent} from './components/offer/offer.component';
 import {NotificationComponent} from './components/notification-index/notification.component';
 import {SlovenainDatePipe} from './pipes/slovenain-date.pipe';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {SlovenainDatePipe} from './pipes/slovenain-date.pipe';
     MatIconModule,
     MatPaginatorModule,
     MatTableModule,
-    RouterLink
+    RouterLink,
+    MatSnackBarModule
   ]
 })
 export class SharedModule {

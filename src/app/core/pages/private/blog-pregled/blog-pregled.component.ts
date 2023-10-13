@@ -8,6 +8,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {BlogAddComponent} from "../blog-add/blog-add.component";
 import {DataUpdateService} from "../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
+import {CalcIndexService} from "../../../services/calc-index/calc-index.service";
 
 @Component({
   selector: 'app-blog-pregled',
@@ -34,7 +35,8 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
     private api: BlogService,
     private dialog: MatDialog,
     private dataUpdateService: DataUpdateService,
-    private snackbarService: SnackBarService
+    public snackbarService: SnackBarService,
+    private indexCalc: CalcIndexService
   ) {
   }
 
@@ -79,13 +81,19 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
   deleteBlog(id: string) {
     this.spinner = true;
     this.api.deleteBlogByIdAdmin(id).subscribe(() => {
-      this.snackbarService.showSnackbar('Blog je bil uspešno izbrisan!')
+      this.snackbarService.showSnackbar('Blog je bil uspešno izbrisan!');
       this.spinner = false;
       this.loadAllBlog()
     }, (error) => {
       console.error('Error deleting blog', error)
       this.spinner = false;
     })
+  }
+
+  calculateIndex(element: any): number {
+    // The `calculateIndex` method calls the service's `calculateIndex` method
+    // to calculate the index of the given element.
+    return this.indexCalc.calculateIndex(this.dataSource, element);
   }
 
   ngOnDestroy() {

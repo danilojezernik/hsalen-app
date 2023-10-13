@@ -8,6 +8,7 @@ import {GetIdComponent} from "../../../../shared/components/dialog/get-id.compon
 import {MatDialog} from "@angular/material/dialog";
 import {EventsAddComponent} from "../events-add/events-add.component";
 import {DataUpdateService} from "../../../services/communication/data-update.service";
+import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
 
 @Component({
   selector: 'app-events-pregled',
@@ -33,7 +34,8 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
   constructor(
     private api: EventsService,
     public dialog: MatDialog,
-    public dataUpdateService: DataUpdateService
+    public dataUpdateService: DataUpdateService,
+    private snackbarService: SnackBarService
   ) {
   }
 
