@@ -18,8 +18,9 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
 
   blog: any | undefined;
   dataSource = new MatTableDataSource<Blog>()
+  displayColumns: string[] = ['blog_id', 'naslov', 'podnaslov', 'datum_vnosa', 'kategorija', 'action']
+
   spinner: boolean = false;
-  displayColumns: string[] = ['blog_id', 'naslov', 'podnaslov', 'datum_vnosa', 'action']
 
   private destroy$: Subject<boolean> = new Subject<boolean>();
 

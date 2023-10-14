@@ -3,29 +3,31 @@ import {Blog} from '../../../models/blog';
 import {BlogService} from '../../../services/api/blog.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {SnackBarService} from "../../../services/snack-bar/snack-bar.service"; // Import necessary form-related modules
+import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
+import {AngularEditorConfig} from "@kolkov/angular-editor";
+import {sharedEditorConfig} from "../../../../shared/config/editor-config"; // Import necessary form-related modules
 
 @Component({
   selector: 'app-blog-uredi',
   templateUrl: './blog-uredi.component.html',
 })
 export class BlogUrediComponent implements OnInit {
+
+  blog: any;
   blogId: any;
-  blogForm: FormGroup; // Declare FormGroup for the form
+  blogForm: FormGroup = new FormGroup({}); // Declare FormGroup for the form
+  editorConfig: AngularEditorConfig = sharedEditorConfig
+
+  spinner: boolean = false;
 
   constructor(
     private api: BlogService,
     private route: ActivatedRoute,
-    private router: Router,  // Inject Router
-    private fb: FormBuilder, // Inject FormBuilder
+    private router: Router,
+    private fb: FormBuilder,
     private snackbarService: SnackBarService
   ) {
-    this.blogForm = this.fb.group({
-      naslov: ['', Validators.required],
-      podnaslov: [''],
-      tag: [''],
-      vsebina: ['', Validators.required],
-    });
+
   }
 
   ngOnInit() {
@@ -33,11 +35,19 @@ export class BlogUrediComponent implements OnInit {
       this.blogId = params['id'];
       this.loadBlog();
     });
+
+    this.blogForm = this.fb.group({
+      naslov: ['', Validators.required],
+      podnaslov: [''],
+      kategorija: [''],
+      vsebina: ['', Validators.required],
+    });
   }
 
   loadBlog() {
     this.api.getBlogByIdAdmin(this.blogId).subscribe(
       (data) => {
+        this.blog = data;
         // Patch form values from the retrieved blog data
         this.blogForm.patchValue(data);
       },
@@ -48,16 +58,19 @@ export class BlogUrediComponent implements OnInit {
   }
 
   onSubmit() {
+    this.spinner = true;
     if (this.blogForm.valid) {
       const editedBlog: Blog = this.blogForm.value;
       this.api.editBlogAdmin(this.blogId, editedBlog).subscribe(
         (data) => {
+          this.spinner = false;
           // Handle successful update
           this.snackbarService.showSnackbar(`Blog ${data.naslov.toUpperCase()} je bil uspešno posodobljen!`)
           this.router.navigate(['/blog-pregled']);  // Navigate to the desired route
         },
         (error) => {
           console.error('Error updating blog:', error);
+          this.spinner = false;
         }
       );
     }

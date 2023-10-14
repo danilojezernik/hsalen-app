@@ -18,6 +18,8 @@ import {OfferComponent} from './components/offer/offer.component';
 import {NotificationComponent} from './components/notification-index/notification.component';
 import {SlovenainDatePipe} from './pipes/slovenain-date.pipe';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {ErrorBackendComponent} from './components/error/error-backend-admin/error-backend.component';
+import {ErrorBackendClientComponent} from './components/error/error-backend-client/error-backend-client.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     HeroComponent,
     OfferComponent,
     NotificationComponent,
-    SlovenainDatePipe
+    SlovenainDatePipe,
+    ErrorBackendComponent,
+    ErrorBackendClientComponent
   ],
   exports: [
     GoBackComponent,
@@ -37,7 +41,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     HeroComponent,
     OfferComponent,
     NotificationComponent,
-    SlovenainDatePipe
+    SlovenainDatePipe,
+    ErrorBackendComponent,
+    ErrorBackendClientComponent
   ],
   imports: [
     CommonModule,

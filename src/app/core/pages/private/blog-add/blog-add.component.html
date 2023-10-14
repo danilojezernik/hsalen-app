@@ -1,26 +1,32 @@
 <h1 mat-dialog-title>Dodaj objavo</h1>
-
 <div mat-dialog-content>
-  <form [formGroup]="addingPostForm" (ngSubmit)="addPost()">
+  <form [formGroup]="addingPostForm" (ngSubmit)="addBlog()">
+
     <mat-form-field style="width: 100%">
       <mat-label>Naslov</mat-label>
       <input type="text" formControlName="naslov" required matInput>
     </mat-form-field>
-    <mat-form-field style="width: 100%">
+
+    <mat-form-field style="width: 50%; padding-right: 2px">
       <mat-label>Podnaslov</mat-label>
       <input type="text" formControlName="podnaslov" required matInput>
     </mat-form-field>
 
-    <mat-form-field style="width: 100%">
-      <mat-label>Tag</mat-label>
-      <input type="text" formControlName="tag" required matInput>
+    <mat-form-field style="width: 50%">
+      <mat-label>Kategorija</mat-label>
+      <mat-select formControlName="kategorija" required>
+        <mat-option value="hipnoterapija">Hipnoterapija</mat-option>
+        <mat-option value="jasnovidnost">Jasnovidnost</mat-option>
+        <mat-option value="medijstvo">Medijstvo</mat-option>
+        <mat-option value="regresija">Regresija</mat-option>
+      </mat-select>
     </mat-form-field>
-
 
     <angular-editor formControlName="vsebina" [config]="editorConfig" required></angular-editor>
 
-    <button mat-button mat-dialog-close>Zapri okno</button>
-
-    <button mat-raised-button color="warn" type="submit" [disabled]="addingPostForm.invalid">Dodaj Blog</button>
+    <div class="pt-2">
+      <button mat-raised-button color="primary" type="submit" [disabled]="addingPostForm.invalid">Dodaj Blog</button>
+      <button class="float-end" color="warn" mat-button mat-raised-button mat-dialog-close>Zapri okno</button>
+    </div>
   </form>
 </div>

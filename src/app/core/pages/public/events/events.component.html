@@ -1,8 +1,19 @@
-<div *ngFor="let event of events">
-  <p>{{event['event']}}</p>
-  <p>{{event['content']}}</p>
-  <p>{{event['notification']}}</p>
-  <p>{{event['start_date']}}</p>
-  <p>{{event['event_length']}}</p>
-  <p>{{event['datum_vnosa'] | date: 'MMM d, y, H:MM:SS' }}</p>
+<h1 class="text-center pt-5 pb-4" style="font-size: 2rem;">Dogodki</h1>
+
+<div class="container">
+
+  <div class="mx-auto text-center">
+    <div *ngIf="!events">
+      <app-error-backend-client class="error-message"></app-error-backend-client>
+    </div>
+  </div>
+
+  <div *ngFor="let event of events">
+    <p>{{event['event']}}</p>
+    <p>{{event['content']}}</p>
+    <p>{{event['notification']}}</p>
+    <p>{{event['start_date']}}</p>
+    <p>{{event['event_length']}}</p>
+    <p>{{event['datum_vnosa'] | date: 'MMM d, y, H:MM:SS' }}</p>
+  </div>
 </div>

@@ -21,6 +21,8 @@ export class BlogAddComponent implements OnInit {
   addingPostForm: FormGroup = new FormGroup({}) // FormGroup for post form
   editorConfig: AngularEditorConfig = sharedEditorConfig
 
+  spinner: boolean = false;
+
   constructor(
     private api: BlogService,
     public dialog: MatDialog,
@@ -34,12 +36,12 @@ export class BlogAddComponent implements OnInit {
     this.addingPostForm = this.fb.group({
       naslov: ['', Validators.required],
       podnaslov: ['', Validators.required],
-      tag: ['', Validators.required],
+      kategorija: ['', Validators.required],
       vsebina: ['', Validators.required],
     })
   }
 
-  addPost() {
+  addBlog() {
 
     // Extract form values
     const formValues = this.addingPostForm.value;
@@ -48,14 +50,16 @@ export class BlogAddComponent implements OnInit {
     const newBlog: Blog = {
       naslov: formValues.naslov,
       podnaslov: formValues.podnaslov,
-      tag: formValues.tag,
+      kategorija: formValues.kategorija,
       vsebina: formValues.vsebina,
       datum_vnosa: new Date().toISOString()
     };
 
+    this.spinner = true
     // Call the BlogService to add a new post
     this.api.addNewBlogAdmin(newBlog).subscribe(
       (data) => {
+        this.spinner = false;
         this.snackbarService.showSnackbar(`Blog ${data.naslov.toUpperCase()} je bil uspešno dodan!`)
         // Update the post data
         this.blog = this.api.getAllBlogAdmin()
@@ -63,10 +67,10 @@ export class BlogAddComponent implements OnInit {
         this.addingPostForm.reset();
         this.dialog.closeAll()
         this.dataUpdateService.triggerDataUpdate();
-
       },
       (error) => {
         console.error('Error adding post:', error);
+        this.spinner = false;
       }
     );
   }

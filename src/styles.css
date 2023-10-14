@@ -139,3 +139,8 @@ a:hover {
     animation: my-animation 5s linear infinite;
   }
 }
+
+.error-message {
+  font-size: 1.5rem;
+  padding: 20px 20px;
+}

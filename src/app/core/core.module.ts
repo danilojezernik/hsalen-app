@@ -41,6 +41,7 @@ import {EventsAddComponent} from './pages/private/events-add/events-add.componen
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {EventsUrediComponent} from './pages/private/events-uredi/events-uredi.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -119,7 +120,8 @@ import {EventsUrediComponent} from './pages/private/events-uredi/events-uredi.co
     RouterLinkActive,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule
   ]
 })
 export class CoreModule {

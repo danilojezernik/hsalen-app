@@ -1,33 +1,45 @@
-<div class="container">
-  <h2>Uredi blog</h2>
+<h1 *ngIf="blog" class="text-center pt-5 pb-4" style="font-size: 2rem;">
+  Uredi blog: {{blog['naslov']}}
+</h1>
+
+<div class="container bg-white p-0 shadow">
+
   <form class="example-form" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
-    <table class="example-full-width">
-      <tr>
-        <td>
-          <mat-form-field class="example-full-width">
-            <mat-label>Naslov</mat-label>
-            <input name="naslov" matInput formControlName="naslov"/>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <mat-label>Podnaslov</mat-label>
-            <input name="podnaslov" matInput formControlName="podnaslov"/>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <mat-label>Kategorija</mat-label>
-            <input name="tag" matInput formControlName="tag"/>
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
-    <mat-form-field class="example-full-width">
-      <mat-label>Vsebina</mat-label>
-      <textarea name="vsebina" matInput formControlName="vsebina" style="height: 300px"></textarea>
-    </mat-form-field>
-    <button mat-button type="submit">Save Changes</button>
+    <div class="table-responsive-md">
+      <table style="width: 100%">
+        <tr>
+          <td>
+            <mat-form-field style="width: 100%;">
+              <mat-label>Naslov</mat-label>
+              <input name="naslov" matInput formControlName="naslov"/>
+            </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field style="width: 100%;">
+              <mat-label>Podnaslov</mat-label>
+              <input name="podnaslov" matInput formControlName="podnaslov"/>
+            </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field style="width: 100%;">
+              <mat-label>Kategorija</mat-label>
+              <mat-select formControlName="kategorija" required>
+                <mat-option value="hipnoterapija">Hipnoterapija</mat-option>
+                <mat-option value="jasnovidnost">Jasnovidnost</mat-option>
+                <mat-option value="medijstvo">Medijstvo</mat-option>
+                <mat-option value="regresija">Regresija</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+    <angular-editor formControlName="vsebina" [config]="editorConfig" required></angular-editor>
+    <button style="width: 100%" class="rounded-0" mat-raised-button color="primary" type="submit">Shrani spremembe</button>
+
   </form>
 </div>
 <app-go-back></app-go-back>

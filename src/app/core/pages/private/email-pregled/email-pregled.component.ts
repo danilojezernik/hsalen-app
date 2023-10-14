@@ -47,10 +47,10 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
   }
 
   // Function to open the dialog and pass content
-  openDialog(content: string) {
+  openDialog(content: string, name?: string) {
     this.dialog.open(GetIdComponent, {
       width: '80%', // Set the width of the dialog
-      data: {content} // Pass the content to the dialog
+      data: {content, name} // Pass the content to the dialog
     });
   }
 

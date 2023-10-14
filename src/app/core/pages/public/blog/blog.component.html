@@ -1,20 +1,28 @@
-<h3>BLOG</h3>
+<h1 class="text-center pt-5 pb-4" style="font-size: 2rem;">BLOG</h1>
 
-<!-- PRIKAZ BLOGA -->
-<div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col" *ngFor="let data of blog">
-        <div class="card h-100">
-            <div class="card-body">
-                <h5 class="card-title" [innerHTML]="data['naslov']"></h5>
-                <p *ngIf="data['podnaslov']" class="card-text" [innerHTML]="data['podnaslov']"></p>
-                <!-- TODO: IZBRIŠI PRED KONCEM-->
-                <p *ngIf="!data['podnaslov'].length" class="card-text text-danger"> NI podnaslova</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-body-secondary">
-                    <button [routerLink]="['/blog/', data._id]">Beri dalje</button>
-                </small>
-            </div>
-        </div>
+<div class="container">
+  <div class="mx-auto text-center">
+    <div *ngIf="!blog">
+      <app-error-backend-client class="error-message"></app-error-backend-client>
     </div>
+  </div>
+  <!-- PRIKAZ BLOGA -->
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let data of blog">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title" [innerHTML]="data['naslov']"></h5>
+          <p *ngIf="data['podnaslov']" class="card-text" [innerHTML]="data['podnaslov']"></p>
+          <!-- TODO: IZBRIŠI PRED KONCEM-->
+          <p *ngIf="!data['podnaslov'].length" class="card-text text-danger"> NI podnaslova</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-body-secondary">
+            <button [routerLink]="['/blog/', data._id]">Beri dalje</button>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
