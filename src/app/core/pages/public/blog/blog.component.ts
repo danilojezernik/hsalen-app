@@ -11,6 +11,9 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   blog: any;
 
+  spinner: boolean = false;
+
+
   // Subject for component destruction
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -23,9 +26,14 @@ export class BlogComponent implements OnInit, OnDestroy {
   }
 
   loadAllBlog() {
+    this.spinner = true
     this.api.getAllBlog().subscribe(
       (data) => {
+        this.spinner = false
         this.blog = data
+      }, error => {
+        console.error(error);
+        this.spinner = false
       }
     )
   }

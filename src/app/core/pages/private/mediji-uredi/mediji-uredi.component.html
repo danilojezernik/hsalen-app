@@ -1,33 +1,33 @@
-<div>
-  <h2>Uredi mediji</h2>
-  <form class="example-form" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
-    <table class="example-full-width">
-      <tr>
-        <td>
-          <mat-form-field class="example-full-width">
-            <mat-label>Naslov</mat-label>
-            <input name="naslov_mediji" matInput formControlName="naslov_mediji"/>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <mat-label>povezava_slika</mat-label>
-            <input name="povezava_slika" matInput formControlName="povezava_slika"/>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <mat-label>povezava_mediji</mat-label>
-            <input name="povezava_mediji" matInput formControlName="povezava_mediji"/>
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
-    <mat-form-field class="example-full-width">
-      <mat-label>opis_mediji</mat-label>
-      <textarea name="opis_mediji" matInput formControlName="opis_mediji" style="height: 300px"></textarea>
-    </mat-form-field>
-    <button mat-button type="submit">Save Changes</button>
+<h1 *ngIf="mediji" class="text-center pt-5 pb-4" style="font-size: 2rem;">
+  Naslov mediji: {{mediji['naslov_mediji']}}
+</h1>
+
+<div class="container bg-white p-0 shadow">
+
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-md-12">
+        <mat-form-field class="w-100">
+          <mat-label>Naslov</mat-label>
+          <input name="naslov_mediji" matInput formControlName="naslov_mediji"/>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field class="w-100">
+          <mat-label>povezava_slika</mat-label>
+          <input name="povezava_slika" matInput formControlName="povezava_slika"/>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field class="w-100">
+          <mat-label>povezava_mediji</mat-label>
+          <input name="povezava_mediji" matInput formControlName="povezava_mediji"/>
+        </mat-form-field>
+      </div>
+    </div>
+    <angular-editor formControlName="opis_mediji" [config]="editorConfig" required></angular-editor>
+    <button style="width: 100%" class="rounded-0" mat-raised-button color="primary" type="submit">Shrani spremembe</button>
   </form>
 </div>
 <app-go-back></app-go-back>

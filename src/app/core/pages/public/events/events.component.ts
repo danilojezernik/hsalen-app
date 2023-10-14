@@ -9,6 +9,8 @@ export class EventsComponent implements OnInit {
 
   events: any;
 
+  spinner: boolean = false;
+
   constructor(private api: EventsService) {
   }
 
@@ -17,9 +19,15 @@ export class EventsComponent implements OnInit {
   }
 
   loadAllEvents() {
+    this.spinner = true;
     this.api.getAllEvents().subscribe(data => {
-      this.events = data
-    })
+        this.spinner = false;
+        this.events = data;
+      }, error => {
+        console.error(error);
+        this.spinner = false
+      }
+    )
   }
 
 

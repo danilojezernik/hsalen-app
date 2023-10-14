@@ -1,24 +1,28 @@
-<h1 mat-dialog-title>Add new medij</h1>
+<h1 mat-dialog-title>Dodaj novo objavo v medijih</h1>
 
 <div mat-dialog-content>
-    <form [formGroup]="addingMedijiForm" (ngSubmit)="addMediji()">
-        <mat-form-field style="width: 100%">
-            <mat-label>naslov_mediji</mat-label>
-            <input type="text" formControlName="naslov_mediji" required matInput>
-        </mat-form-field>
+  <form [formGroup]="addingMedijiForm" (ngSubmit)="addMediji()">
 
-        <mat-form-field style="width: 100%">
-            <mat-label>povezava_slika</mat-label>
-            <input type="text" formControlName="povezava_slika" matInput>
-        </mat-form-field>
+    <mat-form-field style="width: 100%">
+      <mat-label>naslov_mediji</mat-label>
+      <input type="text" formControlName="naslov_mediji" required matInput>
+    </mat-form-field>
 
-        <mat-form-field style="width: 100%">
-            <mat-label>povezava_mediji</mat-label>
-            <input type="text" formControlName="povezava_mediji" matInput>
-        </mat-form-field>
-        <angular-editor formControlName="opis_mediji" [config]="editorConfig" required></angular-editor>
-        <button mat-button mat-dialog-close>Zapri okno</button>
+    <mat-form-field style="width: 50%; padding-right: 2px">
+      <mat-label>povezava_slika</mat-label>
+      <input type="text" formControlName="povezava_slika" matInput>
+    </mat-form-field>
 
-        <button mat-raised-button color="warn" type="submit" [disabled]="addingMedijiForm.invalid">Dodaj Medij</button>
-    </form>
+    <mat-form-field style="width: 50%">
+      <mat-label>povezava_mediji</mat-label>
+      <input type="text" formControlName="povezava_mediji" matInput>
+    </mat-form-field>
+
+    <angular-editor formControlName="opis_mediji" [config]="editorConfig" required></angular-editor>
+
+    <div class="pt-2">
+      <button mat-raised-button color="primary" type="submit" [disabled]="addingMedijiForm.invalid">Dodaj Medij</button>
+      <button class="float-end" color="warn" mat-button mat-raised-button mat-dialog-close>Zapri okno</button>
+    </div>
+  </form>
 </div>

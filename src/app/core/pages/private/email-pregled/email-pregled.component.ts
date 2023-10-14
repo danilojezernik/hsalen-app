@@ -6,6 +6,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Email} from "../../../models/email";
 import {Subject} from "rxjs";
 import {MatPaginator} from "@angular/material/paginator";
+import {CalcIndexService} from "../../../services/calc-index/calc-index.service";
 
 @Component({
   selector: 'app-email-pregled',
@@ -16,7 +17,7 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
   email: any | undefined;
   spinner: boolean = false;
   dataSource = new MatTableDataSource<Email>()
-  displayColumns: string[] = ['name', 'surname', 'email', 'datum_vnosa', 'action']
+  displayColumns: string[] = ['email_id', 'name', 'surname', 'email', 'datum_vnosa', 'action']
 
   private destroy$: Subject<boolean> = new Subject<boolean>()
 
@@ -31,6 +32,7 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
   constructor(
     private api: EmailService,
     public dialog: MatDialog,
+    private indexCalc: CalcIndexService
   ) {
   }
 
@@ -73,6 +75,12 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
     }, (error) => {
       console.error('Error deleting email:', error)
     })
+  }
+
+  calculateIndex(element: any): number {
+    // The `calculateIndex` method calls the service's `calculateIndex` method
+    // to calculate the index of the given element.
+    return this.indexCalc.calculateIndex(this.dataSource, element);
   }
 
   // Lifecycle hook called when the component is about to be destroyed

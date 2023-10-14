@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="mx-auto text-center">
-    <div *ngIf="!blog">
+    <div *ngIf="!blog && !spinner">
       <app-error-backend-client class="error-message"></app-error-backend-client>
     </div>
   </div>
@@ -25,4 +25,8 @@
     </div>
   </div>
 
+</div>
+
+<div *ngIf="spinner">
+  <app-spinner></app-spinner>
 </div>

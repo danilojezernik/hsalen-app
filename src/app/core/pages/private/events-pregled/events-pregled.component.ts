@@ -72,21 +72,37 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
   getAlleEventsAdmin() {
     this.spinner = true;
     this.api.getAllEventsAdmin().subscribe(data => {
+      this.snackbarService.showSnackbar('Vsi dogodki uspešno naloženi!');
       this.spinner = false;
       this.events = data
       this.dataSource.data = data;
     }, (error) => {
       console.error('Error getting all events:', error)
+      this.snackbarService.showSnackbar('Vsi dogodki se niso uspeli naložiti!');
       this.spinner = false;
     })
   }
 
   deleteEvent(id: string) {
-    this.api.deleteEvent(id).subscribe(() => {
-      this.getAlleEventsAdmin()
-    })
+    if (confirm('Ali ste prepričani, da želite izbrano objavo izbrisati?')) {
+      this.spinner = true;
+      this.api.deleteEvent(id).subscribe(() => {
+        this.snackbarService.showSnackbar('Dogodek JE bil uspešno izbrisan!');
+        this.spinner = false;
+        this.getAlleEventsAdmin()
+      }, error => {
+        console.error('Error deleting event', error)
+        this.snackbarService.showSnackbar('Dogodek NI bil uspešno izbrisan!');
+        this.spinner = false;
+      })
+    }
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
   ngOnDestroy() {
     this.destroy$.next(true);
     this.destroy$.complete()

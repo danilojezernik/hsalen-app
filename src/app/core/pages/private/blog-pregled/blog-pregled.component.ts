@@ -69,32 +69,43 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
     this.spinner = true
     this.api.getAllBlogAdmin().subscribe(
       (data) => {
+        this.snackbarService.showSnackbar('Vse objave uspešno naložene');
         this.spinner = false;
         this.blog = data;
         this.dataSource.data = data;
       }, (error) => {
         console.error('Error getting all blog', error);
+        this.snackbarService.showSnackbar('Vse objave se niso uspele naložiti!');
         this.spinner = false;
       }
     )
   }
 
   deleteBlog(id: string) {
-    this.spinner = true;
-    this.api.deleteBlogByIdAdmin(id).subscribe(() => {
-      this.snackbarService.showSnackbar('Blog je bil uspešno izbrisan!');
-      this.spinner = false;
-      this.loadAllBlog()
-    }, (error) => {
-      console.error('Error deleting blog', error)
-      this.spinner = false;
-    })
+    if (confirm('Ali ste prepričani, da želite izbrano objavo izbrisati?')) {
+      this.spinner = true;
+      this.api.deleteBlogByIdAdmin(id).subscribe(() => {
+        this.snackbarService.showSnackbar('Blog JE bil uspešno izbrisan!');
+        this.spinner = false;
+        this.loadAllBlog()
+      }, (error) => {
+        console.error('Error deleting blog', error)
+        this.snackbarService.showSnackbar('Blog NI bil uspešno izbrisan!');
+        this.spinner = false;
+      })
+    }
   }
 
   calculateIndex(element: any): number {
     // The `calculateIndex` method calls the service's `calculateIndex` method
     // to calculate the index of the given element.
     return this.indexCalc.calculateIndex(this.dataSource, element);
+  }
+
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   ngOnDestroy() {

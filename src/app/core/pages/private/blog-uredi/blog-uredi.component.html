@@ -5,41 +5,38 @@
 <div class="container bg-white p-0 shadow">
 
   <form class="example-form" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
-    <div class="table-responsive-md">
-      <table style="width: 100%">
-        <tr>
-          <td>
-            <mat-form-field style="width: 100%;">
-              <mat-label>Naslov</mat-label>
-              <input name="naslov" matInput formControlName="naslov"/>
-            </mat-form-field>
-          </td>
-
-          <td>
-            <mat-form-field style="width: 100%;">
-              <mat-label>Podnaslov</mat-label>
-              <input name="podnaslov" matInput formControlName="podnaslov"/>
-            </mat-form-field>
-          </td>
-
-          <td>
-            <mat-form-field style="width: 100%;">
-              <mat-label>Kategorija</mat-label>
-              <mat-select formControlName="kategorija" required>
-                <mat-option value="hipnoterapija">Hipnoterapija</mat-option>
-                <mat-option value="jasnovidnost">Jasnovidnost</mat-option>
-                <mat-option value="medijstvo">Medijstvo</mat-option>
-                <mat-option value="regresija">Regresija</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </td>
-
-        </tr>
-      </table>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Naslov</mat-label>
+          <input name="naslov" matInput formControlName="naslov"/>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Podnaslov</mat-label>
+          <input name="podnaslov" matInput formControlName="podnaslov"/>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Kategorija</mat-label>
+          <mat-select formControlName="kategorija" required>
+            <mat-option value="hipnoterapija">Hipnoterapija</mat-option>
+            <mat-option value="jasnovidnost">Jasnovidnost</mat-option>
+            <mat-option value="medijstvo">Medijstvo</mat-option>
+            <mat-option value="regresija">Regresija</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
     <angular-editor formControlName="vsebina" [config]="editorConfig" required></angular-editor>
     <button style="width: 100%" class="rounded-0" mat-raised-button color="primary" type="submit">Shrani spremembe</button>
-
   </form>
 </div>
+
+<div *ngIf="spinner">
+  <app-spinner></app-spinner>
+</div>
+
 <app-go-back></app-go-back>

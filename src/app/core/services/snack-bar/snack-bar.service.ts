@@ -15,9 +15,8 @@ export class SnackBarService {
     // Configure the snackbar duration and position
     const config: MatSnackBarConfig = {
       duration: 4000,
-      horizontalPosition: 'center',
+      horizontalPosition: 'left',
       verticalPosition: 'bottom'
-
     };
 
     // Open the snackbar with the given message and configured options

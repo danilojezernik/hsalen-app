@@ -70,6 +70,7 @@ export class BlogUrediComponent implements OnInit {
         },
         (error) => {
           console.error('Error updating blog:', error);
+          this.snackbarService.showSnackbar(`Objavo v blogu ni bilo mogoče posodobiti!`)
           this.spinner = false;
         }
       );

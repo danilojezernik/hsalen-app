@@ -1,15 +1,21 @@
 <h1 class="text-center pt-5" style="font-size: 2rem;">Pregled v medijih</h1>
 <div class="container pt-5">
-  <button (click)="openDialog()">Dodaj Medij</button>
+  <button mat-raised-button color="primary" style="width: 100%; border-radius: 0;" (click)="openDialog()">Dodaj Medij</button>
 
-  <div>
+  <div class="table-responsive-lg">
+
+    <div style="margin: 0 auto">
+      <div *ngIf="!mediji && !spinner">
+        <app-error-backend class="error-message"></app-error-backend>
+      </div>
+    </div>
 
     <table class="shadow" *ngIf="mediji" mat-table [dataSource]="dataSource">
 
       <!-- Post Title Column -->
       <ng-container matColumnDef="mediji_id">
         <th mat-header-cell *matHeaderCellDef> Mediji ID</th>
-        <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+        <td mat-cell *matCellDef="let element"> {{ calculateIndex(element) }} </td>
       </ng-container>
 
       <!-- Author Column -->
@@ -21,26 +27,18 @@
       </ng-container>
 
       <!-- Created At Column -->
-      <ng-container matColumnDef="opis">
-        <th mat-header-cell *matHeaderCellDef> Vsebina</th>
-        <td class="fw-bold" mat-cell *matCellDef="let element">
-          {{ element.opis_mediji}}
-        </td>
-      </ng-container>
-
-      <!-- Created At Column -->
       <ng-container matColumnDef="povezava_slika">
-        <th mat-header-cell *matHeaderCellDef> povezava_slika</th>
+        <th mat-header-cell *matHeaderCellDef> Povezava do slike</th>
         <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element.povezava_slika}">
-          {{ element.povezava_slika ? element.povezava_slika : 'povezava_slika' }}
+          {{ element.povezava_slika ? element.povezava_slika : 'Ni povezave do zunanje slikovne vsebine' }}
         </td>
       </ng-container>
 
       <!-- Created At Column -->
       <ng-container matColumnDef="povezava_mediji">
-        <th mat-header-cell *matHeaderCellDef> povezava_mediji</th>
+        <th mat-header-cell *matHeaderCellDef> Povezava do videa</th>
         <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element.povezava_mediji}">
-          {{ element.povezava_mediji ? element.povezava_mediji : 'povezava_mediji' }}
+          {{ element.povezava_mediji ? element.povezava_mediji : 'Ni povezave do zunanje video vsebine' }}
         </td>
       </ng-container>
 
@@ -48,7 +46,7 @@
       <ng-container matColumnDef="datum_vnosa">
         <th mat-header-cell *matHeaderCellDef> Datum vnosa</th>
         <td mat-cell *matCellDef="let element">
-          {{element.datum_vnosa | date: 'MMM d, y, h:mm:ss a' }}
+          {{element.datum_vnosa | date: 'MMM d, y, H:mm:ss' }}
         </td>
       </ng-container>
 
