@@ -15,7 +15,7 @@ export class BlogUrediComponent implements OnInit {
 
   blog: any;
   blogId: any;
-  blogForm: FormGroup = new FormGroup({}); // Declare FormGroup for the form
+  blogForm: FormGroup = new FormGroup({});
   editorConfig: AngularEditorConfig = sharedEditorConfig
 
   spinner: boolean = false;
@@ -27,7 +27,6 @@ export class BlogUrediComponent implements OnInit {
     private fb: FormBuilder,
     private snackbarService: SnackBarService
   ) {
-
   }
 
   ngOnInit() {
@@ -35,7 +34,6 @@ export class BlogUrediComponent implements OnInit {
       this.blogId = params['id'];
       this.loadBlog();
     });
-
     this.blogForm = this.fb.group({
       naslov: ['', Validators.required],
       podnaslov: [''],
@@ -62,18 +60,20 @@ export class BlogUrediComponent implements OnInit {
     if (this.blogForm.valid) {
       const editedBlog: Blog = this.blogForm.value;
       this.api.editBlogAdmin(this.blogId, editedBlog).subscribe(
-        (data) => {
+        () => {
           this.spinner = false;
-          // Handle successful update
-          this.snackbarService.showSnackbar(`Blog ${data.naslov.toUpperCase()} je bil uspešno posodobljen!`)
-          this.router.navigate(['/blog-pregled']);  // Navigate to the desired route
+          this.router.navigate(['/blog-pregled']);
         },
-        (error) => {
+        error => {
           console.error('Error updating blog:', error);
           this.snackbarService.showSnackbar(`Objavo v blogu ni bilo mogoče posodobiti!`)
           this.spinner = false;
         }
       );
+    } else {
+      console.error('Form is not valid')
+      this.snackbarService.showSnackbar(`Objavo objave ni pravilna. Prosim preverite vnose!`)
+      this.spinner = false;
     }
   }
 }

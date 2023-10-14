@@ -7,7 +7,9 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class GetIdComponent {
 
-  name: string;
+  name?: string;
+  surname?: string;
+  event?: string;
   content: string; // Variable to hold the content passed from EventsPregledComponent and EmailPregledComponent
 
   constructor(
@@ -23,7 +25,9 @@ export class GetIdComponent {
   ) {
     // Assign the content passed from EventsPregledComponent and EmailPregledComponent to the content variable
     this.content = this.data.content;
-    this.name = this.data.name
+    this.name = this.data.name;
+    this.surname = this.data.surname;
+    this.event = this.data.event;
   }
 
 }

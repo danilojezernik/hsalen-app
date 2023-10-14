@@ -4,6 +4,9 @@ import {EmailService} from "../../../services/api/email.service";
 import {EmailValidatorService} from "../../../services/email-validator/email-validator.service";
 import {Email} from "../../../models/email";
 import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
+import {AngularEditorConfig} from "@kolkov/angular-editor";
+import {sharedEditorConfigClient} from "../../../../shared/config/editor-config-email-client";
+import {sharedEditorConfig} from "../../../../shared/config/editor-config";
 
 @Component({
   selector: 'app-contact',
@@ -13,6 +16,7 @@ export class ContactComponent implements OnInit {
 
   emailForm: FormGroup = new FormGroup({})
   spinner: boolean = false;
+  editorConfigClient: AngularEditorConfig = sharedEditorConfigClient
 
   constructor(
     private api: EmailService,
@@ -61,4 +65,5 @@ export class ContactComponent implements OnInit {
     })
   }
 
+  protected readonly sharedEditorConfig = sharedEditorConfig;
 }

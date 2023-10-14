@@ -7,6 +7,7 @@ import {Email} from "../../../models/email";
 import {Subject} from "rxjs";
 import {MatPaginator} from "@angular/material/paginator";
 import {CalcIndexService} from "../../../services/calc-index/calc-index.service";
+import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
 
 @Component({
   selector: 'app-email-pregled',
@@ -32,6 +33,7 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
   constructor(
     private api: EmailService,
     public dialog: MatDialog,
+    private snackbarService: SnackBarService,
     private indexCalc: CalcIndexService
   ) {
   }
@@ -49,10 +51,10 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
   }
 
   // Function to open the dialog and pass content
-  openDialog(content: string, name?: string) {
+  openDialog(content: string, name: string, surname: string) {
     this.dialog.open(GetIdComponent, {
       width: '80%', // Set the width of the dialog
-      data: {content, name} // Pass the content to the dialog
+      data: {content, name, surname} // Pass the content to the dialog
     });
   }
 
@@ -70,17 +72,31 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
   }
 
   deleteEmail(id: string) {
-    this.api.deleteEmailByIdAdmin(id).subscribe(() => {
-      this.loadAllEmailsAdmin()
-    }, (error) => {
-      console.error('Error deleting email:', error)
-    })
+    if (confirm('Ali res želite izbrisati izbrani email?')) {
+      this.spinner = true;
+      this.api.deleteEmailByIdAdmin(id).subscribe(() => {
+        this.snackbarService.showSnackbar('Email JE bil uspešno izbrisan!');
+        this.spinner = false;
+        this.loadAllEmailsAdmin()
+      }, (error) => {
+        console.error('Error deleting email:', error)
+        this.snackbarService.showSnackbar('Email NI bil uspešno izbrisan!');
+        this.spinner = false;
+      })
+    } else {
+      this.snackbarService.showSnackbar('Odločili ste se, da emaila ne boste izbrisali!');
+    }
   }
 
   calculateIndex(element: any): number {
     // The `calculateIndex` method calls the service's `calculateIndex` method
     // to calculate the index of the given element.
     return this.indexCalc.calculateIndex(this.dataSource, element);
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   // Lifecycle hook called when the component is about to be destroyed

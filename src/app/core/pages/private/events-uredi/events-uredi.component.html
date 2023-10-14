@@ -1,46 +1,49 @@
-<h2>Uredi blog</h2>
-<form class="example-form" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
-  <table class="example-full-width">
-    <tr>
-      <td>
-        <mat-form-field class="example-full-width">
+<h1 *ngIf="event" class="text-center pt-5 pb-4" style="font-size: 2rem;">
+  Uredi blog: {{event['event']}}
+</h1>
+
+<div class="container bg-white p-0 shadow">
+
+
+  <form class="example-form" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field style="width: 100%;">
           <mat-label>Dogodek</mat-label>
           <input name="event" matInput formControlName="event"/>
         </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width">
+      </div>
+      <div class="col-md-3">
+        <mat-form-field style="width: 100%;">
           <mat-label>Lokacija</mat-label>
           <input name="location" matInput formControlName="location"/>
         </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width">
+      </div>
+      <div class="col-md-3">
+        <mat-form-field style="width: 100%;">
           <mat-label>Dolžina dogodka</mat-label>
           <input name="event_length" matInput formControlName="event_length"/>
         </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field style="width: 100%;">
           <mat-label>Začetek dogodka</mat-label>
           <input matInput formControlName="start_date" required [matDatepicker]="picker">
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-      </td>
-      <td>
+      </div>
+      <div class="col-md-12 pb-3">
         <section class="example-section">
           <mat-checkbox formControlName="show_notification" class="example-margin">
-            Prikaži dogodek na začetni strani
+            Označi, če želiš prikazati dogodek na začetni strani ali odznači, če tega ne želiš.
           </mat-checkbox>
         </section>
-      </td>
-    </tr>
-  </table>
-  <mat-form-field class="example-full-width">
-    <mat-label>Vsebina</mat-label>
-    <textarea name="content" matInput formControlName="content" style="height: 300px"></textarea>
-  </mat-form-field>
-  <button mat-button type="submit">Save Changes</button>
-</form>
+      </div>
+    </div>
+
+    <angular-editor formControlName="content" [config]="editorConfig" required></angular-editor>
+    <button style="width: 100%" class="rounded-0" mat-raised-button color="primary" type="submit">Shrani spremembe</button>
+  </form>
+</div>
 <app-go-back></app-go-back>

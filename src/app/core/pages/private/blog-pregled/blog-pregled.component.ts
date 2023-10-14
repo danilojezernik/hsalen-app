@@ -93,6 +93,8 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
         this.snackbarService.showSnackbar('Blog NI bil uspešno izbrisan!');
         this.spinner = false;
       })
+    } else {
+      this.snackbarService.showSnackbar('Odločili ste se, da bloga ne boste izbrisali!');
     }
   }
 
@@ -101,7 +103,6 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
     // to calculate the index of the given element.
     return this.indexCalc.calculateIndex(this.dataSource, element);
   }
-
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

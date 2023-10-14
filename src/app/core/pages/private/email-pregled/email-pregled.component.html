@@ -9,6 +9,11 @@
       </div>
     </div>
 
+    <mat-form-field style="width: 100%;">
+      <mat-label>Filtriraj elektronska sporočila</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+
     <table class="shadow" *ngIf="email" mat-table [dataSource]="dataSource">
 
       <!-- Email ID Column -->
@@ -43,7 +48,7 @@
       <ng-container matColumnDef="datum_vnosa">
         <th mat-header-cell *matHeaderCellDef> Datum vnosa</th>
         <td mat-cell *matCellDef="let element">
-          {{element.datum_vnosa | date: 'MMM d, y, h:mm:ss a' }}
+          {{element.datum_vnosa | date: 'MMM d, y, H:mm:ss' }}
         </td>
       </ng-container>
 
@@ -51,7 +56,7 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef></th>
         <td class="py-3 text-end" style="text-align: center" mat-cell *matCellDef="let element">
-          <button style="margin-right: 10px" mat-mini-fab color="primary" (click)="openDialog(element.content, element.name)">
+          <button style="margin-right: 10px" mat-mini-fab color="primary" (click)="openDialog(element.content, element.name, element.surname)">
             <mat-icon>search</mat-icon>
           </button>
           <button style="margin-right: 10px" mat-mini-fab color="warn" (click)="deleteEmail(element._id)">
@@ -62,16 +67,24 @@
 
       <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
-    </table>
 
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          Podatkov v primerjavi z vpisanim
+          "<span style="color: red">{{input.value}}</span>"
+          ni mogoče najti ali ne obstajajo.
+        </td>
+      </tr>
+    </table>
     <div class="d-flex justify-content-center align-content-center bg-transparent">
-      <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"
+      <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"
                      showFirstLastButtons
                      class="bg-transparent pt-4"
                      aria-label="Select page of periodic elements">
       </mat-paginator>
     </div>
-    
+
   </div>
 </div>
 

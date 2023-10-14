@@ -2,7 +2,6 @@
 <div class="container pt-5">
   <button mat-raised-button color="primary" style="width: 100%; border-radius: 0;" (click)="openDialogToAddEvent()">Dodaj dogodek</button>
 
-
   <div class="table-responsive-lg">
 
     <div style="margin: 0 auto">
@@ -13,7 +12,7 @@
 
     <mat-form-field style="width: 100%;">
       <mat-label>Filtriraj objave</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Filtriraj objave..." #input>
+      <input matInput (keyup)="applyFilter($event)" #input>
     </mat-form-field>
 
     <table class="shadow" *ngIf="events" mat-table [dataSource]="dataSource">
@@ -68,7 +67,7 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef></th>
         <td class="py-3 text-end" style="text-align: center" mat-cell *matCellDef="let element">
-          <button style="margin-right: 10px" mat-mini-fab color="primary" (click)="openDialog(element.content)">
+          <button style="margin-right: 10px" mat-mini-fab color="primary" (click)="openDialog(element.content, element.event)">
             <mat-icon>search</mat-icon>
           </button>
           <button style="margin-right: 10px" mat-mini-fab color="warn" (click)="deleteEvent(element._id)">
@@ -92,7 +91,7 @@
       </tr>
     </table>
     <div class="d-flex justify-content-center align-content-center bg-transparent">
-      <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"
+      <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"
                      showFirstLastButtons
                      class="bg-transparent pt-4"
                      aria-label="Select page of periodic elements">

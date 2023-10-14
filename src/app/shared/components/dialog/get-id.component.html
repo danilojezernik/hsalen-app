@@ -1,2 +1,6 @@
-<h3>{{ name }}</h3>
-<p class="p-3">{{ content }}</p>
+<div class="p-3">
+  <h3 *ngIf="name"><b>{{ name }} {{ surname }}</b> je napisal:</h3>
+  <h3 *ngIf="event">Dogodek: <b>{{ event }}</b></h3>
+
+  <p class="p-3" [innerHTML]="content"></p>
+</div>

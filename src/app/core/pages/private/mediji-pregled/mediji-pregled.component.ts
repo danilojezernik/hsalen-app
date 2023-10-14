@@ -100,6 +100,11 @@ export class MedijiPregledComponent implements OnInit, OnDestroy {
     return this.indexCalc.calculateIndex(this.dataSource, element);
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   // Lifecycle hook called when the component is about to be destroyed
   ngOnDestroy() {
     this.destroy$.next(true);

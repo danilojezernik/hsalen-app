@@ -55,10 +55,10 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
     this.getAlleEventsAdmin()
   }
 
-  openDialog(content: string) {
+  openDialog(content: string, event: string) {
     this.dialog.open(GetIdComponent, {
       width: '80%', // Set the width of the dialog
-      data: {content} // Pass the content to the dialog
+      data: {content, event} // Pass the content to the dialog
     });
   }
 
@@ -74,10 +74,10 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
     this.api.getAllEventsAdmin().subscribe(data => {
       this.snackbarService.showSnackbar('Vsi dogodki uspešno naloženi!');
       this.spinner = false;
-      this.events = data
+      this.events = data;
       this.dataSource.data = data;
     }, (error) => {
-      console.error('Error getting all events:', error)
+      console.error('Error getting all events:', error);
       this.snackbarService.showSnackbar('Vsi dogodki se niso uspeli naložiti!');
       this.spinner = false;
     })
@@ -87,14 +87,17 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
     if (confirm('Ali ste prepričani, da želite izbrano objavo izbrisati?')) {
       this.spinner = true;
       this.api.deleteEvent(id).subscribe(() => {
-        this.snackbarService.showSnackbar('Dogodek JE bil uspešno izbrisan!');
-        this.spinner = false;
-        this.getAlleEventsAdmin()
-      }, error => {
-        console.error('Error deleting event', error)
-        this.snackbarService.showSnackbar('Dogodek NI bil uspešno izbrisan!');
-        this.spinner = false;
-      })
+          this.snackbarService.showSnackbar('Dogodek JE bil uspešno izbrisan!');
+          this.spinner = false;
+          this.getAlleEventsAdmin();
+        }, error => {
+          console.error('Error deleting event', error);
+          this.snackbarService.showSnackbar('Dogodek NI bil uspešno izbrisan!');
+          this.spinner = false;
+        }
+      )
+    } else {
+      this.snackbarService.showSnackbar('Odločili ste se, da dogodka ne boste izbrisali!');
     }
   }
 
@@ -102,7 +105,7 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  
+
   ngOnDestroy() {
     this.destroy$.next(true);
     this.destroy$.complete()

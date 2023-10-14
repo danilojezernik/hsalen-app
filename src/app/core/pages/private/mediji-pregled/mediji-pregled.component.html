@@ -10,6 +10,11 @@
       </div>
     </div>
 
+    <mat-form-field style="width: 100%;">
+      <mat-label>Filtriraj objave</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filtriraj objave..." #input>
+    </mat-form-field>
+
     <table class="shadow" *ngIf="mediji" mat-table [dataSource]="dataSource">
 
       <!-- Post Title Column -->
