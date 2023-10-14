@@ -150,6 +150,11 @@ a:hover {
   font-weight: bold;
 }
 
-.mat-mdc-form-field-subscript-wrapper {
-  margin: 0;
+.page-link {
+  border-radius: 0 !important;
+  color: black;
+}
+
+.active > .page-link {
+  background-color: orange;
 }

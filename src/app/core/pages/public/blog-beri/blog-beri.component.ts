@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {BlogService} from "../../../services/api/blog.service";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-blog-beri',
@@ -12,7 +13,8 @@ export class BlogBeriComponent implements OnInit {
 
   constructor(
     private api: BlogService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) {
   }
 
@@ -29,6 +31,10 @@ export class BlogBeriComponent implements OnInit {
         this.blog = data
       }
     )
+  }
+
+  goBack() {
+    this.location.back()
   }
 
 }
