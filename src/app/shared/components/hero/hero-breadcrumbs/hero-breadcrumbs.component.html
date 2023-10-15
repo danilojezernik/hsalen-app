@@ -1,0 +1,8 @@
+<p>{{ hero?.naslov }}</p>
+<p>
+  <a routerLink="/">Domov</a>
+  <span *ngIf="hero?.blog">
+  / <a routerLink="/blog">{{hero?.blog}}</a>
+</span> /
+  <span [innerHTML]="hero?.path | firstLetterCapitald"></span>
+</p>

@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subject} from "rxjs";
 import {BlogService} from "../../../services/api/blog.service";
 import {MatPaginator} from "@angular/material/paginator";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-blog',
@@ -9,7 +10,12 @@ import {MatPaginator} from "@angular/material/paginator";
 })
 export class BlogComponent implements OnInit, OnDestroy {
 
-  blog: any;  // Placeholder for blog data
+  blog: any[] = [];  // Placeholder for blog data
+
+  heroData = {
+    naslov: 'Blog',
+    path: ''
+  }
 
   itemsPerPage = 10;  // Number of items to show per page
   currentPage = 1;  // Current page being displayed
@@ -24,7 +30,7 @@ export class BlogComponent implements OnInit, OnDestroy {
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private api: BlogService) {
+  constructor(private api: BlogService, private router: Router) {
   }
 
   ngOnInit() {
@@ -41,6 +47,8 @@ export class BlogComponent implements OnInit, OnDestroy {
         this.currentPage = 1;  // Reset to the first page when new data is loaded
         this.calculateTotalPages();  // Calculate the total number of pages based on the data
 
+        this.heroData.path = this.router.url.slice(1);
+
       }, error => {
         console.error(error);
         this.spinner = false;  // Hide loading spinner on error
@@ -53,7 +61,7 @@ export class BlogComponent implements OnInit, OnDestroy {
     this.calculateTotalPages();  // Calculate the total number of pages based on the blog data
 
     // Calculate the starting index of the blog data for the current page
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const startIndex: number = (this.currentPage - 1) * this.itemsPerPage;
 
     // Calculate the ending index of the blog data for the current page
     const endIndex = startIndex + this.itemsPerPage;

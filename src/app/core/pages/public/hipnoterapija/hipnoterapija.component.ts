@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {trace} from "../../../utils/trace";
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-hipnoterapija',
@@ -11,11 +12,11 @@ export class HipnoterapijaComponent implements OnInit {
   hipnoterapija: any;
 
   heroData = {
-    naslov: '',
-    podnaslov: ''
+    naslov: 'Hipnoterapija',
+    path: ''
   }
 
-  constructor(private db: HttpClient) {
+  constructor(private db: HttpClient, private router: Router) {
   }
 
   @trace()
@@ -24,10 +25,8 @@ export class HipnoterapijaComponent implements OnInit {
     this.db.get(path).subscribe((response) => {
       this.hipnoterapija = response;
 
-      this.heroData = {
-        naslov: this.hipnoterapija.naslov,
-        podnaslov: this.hipnoterapija.podnaslov,
-      }
+      this.heroData.path = this.router.url.slice(1);
+
     })
   }
 

@@ -11,6 +11,12 @@ export class BlogBeriComponent implements OnInit {
 
   blog: any;
 
+  heroData = {
+    naslov: '',
+    blog: '',
+    path: ''
+  }
+
   constructor(
     private api: BlogService,
     private route: ActivatedRoute,
@@ -25,10 +31,15 @@ export class BlogBeriComponent implements OnInit {
     }
   }
 
+
   getBlogById(blogId: string) {
     this.api.getBlogById(blogId).subscribe(
       data => {
         this.blog = data
+
+        this.heroData.naslov = data.naslov;
+        this.heroData.blog = 'Blog'
+        this.heroData.path = data.naslov;
       }
     )
   }

@@ -13,13 +13,15 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
 import {RouterLink} from "@angular/router";
-import {HeroComponent} from './components/hero/hero.component';
+import {HeroComponent} from './components/hero/hero-index/hero.component';
 import {OfferComponent} from './components/offer/offer.component';
 import {NotificationComponent} from './components/notification-index/notification.component';
-import {SlovenainDatePipe} from './pipes/slovenain-date.pipe';
+import {SlovenainDatePipe} from './pipes/slovenian-date/slovenain-date.pipe';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {ErrorBackendComponent} from './components/error/error-backend-admin/error-backend.component';
 import {ErrorBackendClientComponent} from './components/error/error-backend-client/error-backend-client.component';
+import {HeroBreadcrumbsComponent} from './components/hero/hero-breadcrumbs/hero-breadcrumbs.component';
+import {FirstLetterCapitaldPipe} from './pipes/first-letter-capitalized/first-letter-capitald.pipe';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {ErrorBackendClientComponent} from './components/error/error-backend-clie
     NotificationComponent,
     SlovenainDatePipe,
     ErrorBackendComponent,
-    ErrorBackendClientComponent
+    ErrorBackendClientComponent,
+    HeroBreadcrumbsComponent,
+    FirstLetterCapitaldPipe
   ],
   exports: [
     GoBackComponent,
@@ -43,7 +47,8 @@ import {ErrorBackendClientComponent} from './components/error/error-backend-clie
     NotificationComponent,
     SlovenainDatePipe,
     ErrorBackendComponent,
-    ErrorBackendClientComponent
+    ErrorBackendClientComponent,
+    HeroBreadcrumbsComponent
   ],
   imports: [
     CommonModule,

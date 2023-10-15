@@ -1,4 +1,6 @@
 <!-- PRIKAZ JASNOVIDNOST -->
+<app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
+
 <div *ngIf="jasnovidnost">
   <h1 [innerHTML]="jasnovidnost['naslov']"></h1>
   <p [innerHTML]="jasnovidnost['podnaslov']"></p>

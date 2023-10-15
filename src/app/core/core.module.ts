@@ -43,7 +43,6 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {EventsUrediComponent} from './pages/private/events-uredi/events-uredi.component';
 import {MatSelectModule} from "@angular/material/select";
 
-
 @NgModule({
   declarations: [
     BlogAddComponent,

@@ -36,6 +36,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
       provide: LOCALE_ID,
       useValue: 'sl'
     }
+
   ],
   bootstrap: [AppComponent]
 })
