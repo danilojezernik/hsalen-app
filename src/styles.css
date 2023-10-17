@@ -25,22 +25,13 @@ Dark orange: #FF8C00
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
-.logo-box {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-}
-
-.logo {
-  height: 80px;
-}
-
 .text-box {
   position: absolute;
   width: 100%;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
@@ -65,7 +56,9 @@ Dark orange: #FF8C00
   font-weight: 700;
   letter-spacing: 10px;
   animation: moveInRight 1s ease-out;
+
 }
+
 
 @media (max-width: 575px) {
   .heading-primary-main {
@@ -127,6 +120,7 @@ Dark orange: #FF8C00
   }
 }
 
+
 /* HERO ANIMATION */
 
 @keyframes moveInLeft {
@@ -163,10 +157,108 @@ Dark orange: #FF8C00
   }
 }
 
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.button:link,
+.button:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 50px;
+  transition: all .2s;
+  position: relative;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.button-white {
+  background-color: #fff;
+  color: #777;
+
+}
+
+.button::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.button-white::after {
+  background-color: #fff;
+}
+
+.button:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.button-animate {
+  animation: moveInBottom .5s ease-in .75s;
+  animation-fill-mode: backwards;
+}
+
 /* --------------------------
 BREADCRUMB HERO
 ------------------------------ */
 
+.header-hero {
+  background-image: linear-gradient(to right bottom, rgba(255, 87, 51, 0.8), rgba(255, 140, 0, 0.8)),
+  url('assets/media/hero/nature-relax.jpg');
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+}
+
+.breadcrumb {
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+.breadcrumb a {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.breadcrumb span {
+  margin: 0 5px;
+}
+
+.breadcrumb a:hover {
+  text-decoration: none;
+}
 
 /* Style for a spinner overlay */
 .spinner-overlay {
@@ -189,35 +281,8 @@ BREADCRUMB HERO
   border-radius: 10px;
 }
 
-a {
-  text-decoration: none;
-  color: black;
-  font-size: 1rem;
-}
-
-a:hover {
-  color: orange;
-}
-
-.active {
-  color: orange;
-}
-
 .nav-item {
   padding: 10px;
-}
-
-.galaxy-bg {
-  background-image: url('assets/media/hero/relax.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.space-breadcrumb-bg {
-  background-image: url('assets/media/hero/stars.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: contain;
 }
 
 .index-text {
