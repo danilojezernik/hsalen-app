@@ -13,7 +13,7 @@ export class BlogBeriComponent implements OnInit {
 
   heroData = {
     naslov: '',
-    blog: '',
+    blog: 'Blog',
     path: ''
   }
 
@@ -38,7 +38,6 @@ export class BlogBeriComponent implements OnInit {
         this.blog = data
 
         this.heroData.naslov = data.naslov;
-        this.heroData.blog = 'Blog'
         this.heroData.path = data.naslov;
       }
     )

@@ -1,34 +1,13 @@
-<div class="text-center shadow border-bottom galaxy-bg d-flex justify-content-center align-items-md-center position-relative"
-     style="min-height: 500px">
-  <div class="container-fluid p-0">
-    <h1 class="fw-bold text-dark fs-1">{{hero?.naslov}}</h1>
-    <div class="col-lg-12 mx-auto">
-      <p class="lead">{{hero?.podnaslov}}</p>
-      <div class="py-4">
-        <a routerLink="/kontakt" class="btn btn-primary btn-lg mx-2">Kontaktirajte me</a>
-        <a routerLink="/blog" class="btn btn-secondary btn-lg mx-2">Berite objave</a>
-      </div>
-      <div class="gap-2 d-sm-flex py-4 justify-content-sm-center">
+<header class="header">
 
-        <span class="px-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="35" height="35" viewBox="0 0 24 24"
-               stroke-width="2" stroke="#316FF6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
-          </svg>
-        </span>
-        <span class="px-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="35" height="35" viewBox="0 0 24 24"
-               stroke-width="2" stroke="#962fbf" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path>
-            <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-            <path d="M16.5 7.5l0 .01"></path>
-          </svg>
-        </span>
-      </div>
-
-    </div>
-    <app-notification></app-notification>
+  <div class="text-box">
+    <h1 class="heading-primary">
+      <span class="heading-primary-main">{{hero?.naslov}}</span>
+      <span class="heading-primary-sub">{{hero?.podnaslov}}</span>
+    </h1>
   </div>
-</div>
+  
+</header>
+
+
+
