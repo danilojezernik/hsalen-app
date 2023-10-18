@@ -13,10 +13,18 @@ export class OmeniComponent implements OnInit, OnDestroy {
   omeni: any;
   mediji: any;
 
+  heroData = {
+    naslov: 'O meni',
+    path: 'O meni'
+  }
+
   // Subject for component destruction
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private db: HttpClient, private api: MedijiService) {
+  constructor(
+    private db: HttpClient,
+    private api: MedijiService
+  ) {
   }
 
   ngOnInit() {

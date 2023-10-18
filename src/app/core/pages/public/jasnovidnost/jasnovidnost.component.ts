@@ -11,7 +11,7 @@ export class JasnovidnostComponent implements OnInit {
   jasnovidnost: any;
 
   heroData = {
-    naslov: 'Jasnovidnost',
+    naslov: '',
     path: ''
   }
 
@@ -23,6 +23,7 @@ export class JasnovidnostComponent implements OnInit {
     this.db.get(path).subscribe(response => {
       this.jasnovidnost = response;
 
+      this.heroData.naslov = this.jasnovidnost.naslov
       this.heroData.path = this.router.url.slice(1);
     })
   }

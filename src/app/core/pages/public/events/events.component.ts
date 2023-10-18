@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EventsService} from "../../../services/api/events.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-events',
@@ -9,9 +10,17 @@ export class EventsComponent implements OnInit {
 
   events: any;
 
+  heroData = {
+    naslov: 'Dogodki',
+    path: ''
+  }
+
   spinner: boolean = false;
 
-  constructor(private api: EventsService) {
+  constructor(
+    private api: EventsService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
@@ -23,6 +32,8 @@ export class EventsComponent implements OnInit {
     this.api.getAllEvents().subscribe(data => {
         this.spinner = false;
         this.events = data;
+
+        this.heroData.path = this.router.url.slice(1);
       }, error => {
         console.error(error);
         this.spinner = false

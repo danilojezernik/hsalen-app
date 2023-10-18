@@ -1,4 +1,7 @@
 <section class="header-hero">
+  <div class="breadcrumb-text">
+    <h1>{{hero?.naslov}}</h1>
+  </div>
   <div class="breadcrumb">
     <a routerLink="/">Domov</a>
     <span *ngIf="hero?.blog">
@@ -11,7 +14,8 @@
         </svg>
       </span>
         <a routerLink="/blog">{{hero?.blog}}</a>
-      </span>
+    </span>
+
     <span>
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="24" height="24" viewBox="0 0 24 24"
            stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -23,4 +27,3 @@
     <span class="text-white" [innerHTML]="hero?.path | firstLetterCapitald"></span>
   </div>
 </section>
-

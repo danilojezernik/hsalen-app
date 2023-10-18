@@ -1,12 +1,10 @@
-<div>
-  <h2>Login</h2>
-  <form (submit)="logIn()">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" [(ngModel)]="username"/>
+<app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" [(ngModel)]="password"/>
+<form (submit)="logIn()">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" [(ngModel)]="username"/>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" [(ngModel)]="password"/>
+  <button type="submit">Login</button>
+</form>
 
-    <button type="submit">Login</button>
-  </form>
-</div>

@@ -1,7 +1,7 @@
-<h1 class="text-center pt-5" style="font-size: 2rem;">Kontaktirajte me</h1>
+<app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
 
 <div class="container pt-5">
-  <form class="shadow p-2 bg-white" [formGroup]="emailForm" (ngSubmit)="sendEmail()">
+  <form class="p-2 bg-white" [formGroup]="emailForm" (ngSubmit)="sendEmail()">
     <div class="row">
 
       <div class="col-md-4">

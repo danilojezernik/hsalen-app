@@ -1,4 +1,3 @@
-<!--
 <nav class="navbar shadow sticky-top navbar-expand-xl bg-white border-bottom">
   <div class="container-fluid">
     <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
@@ -45,14 +44,14 @@
           <a routerLink="/omeni" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">O meni</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/events" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dogodki</a>
+          <a routerLink="/dogodki" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dogodki</a>
         </li>
         <li class="nav-item">
           <a routerLink="/kontakt" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Kontakt</a>
 
         </li>
         <li class="nav-item">
-          User logged in or logged out
+          <!--User logged in or logged out-->
           <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">LogIn</a>
           <a *ngIf="isLoggedIn" (click)="logOut()" routerLink="/login" routerLinkActive="active"
              [routerLinkActiveOptions]="{ exact: true }">LogOut</a>
@@ -61,4 +60,3 @@
     </div>
   </div>
 </nav>
--->

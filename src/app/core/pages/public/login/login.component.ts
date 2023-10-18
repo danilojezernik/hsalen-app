@@ -11,6 +11,11 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
+  heroData = {
+    naslov: 'Login',
+    path: 'login'
+  }
+
   constructor(private authService: AuthService, private router: Router) {
   }
 
@@ -19,19 +24,17 @@ export class LoginComponent {
    * Calls the AuthService's login method and handles the response.
    */
   logIn() {
-    this.authService.login(this.username, this.password)
-      .subscribe(
-        (response) => {
-          // Store the access token
-          this.authService.setAccessToken(response.access_token);
-          console.log('Login successful');
-          // Redirect to admin route after successful login
-          this.router.navigate(['admin']);
-        },
-        (error) => {
-          console.error('Login failed:', error);
-        }
-      );
+    this.authService.login(this.username, this.password).subscribe(
+      (response) => {
+        // Store the access token
+        this.authService.setAccessToken(response.access_token);
+        // Redirect to admin route after successful login
+        this.router.navigate(['admin']);
+      },
+      (error) => {
+        console.error('Login failed:', error);
+      }
+    );
   }
 
 

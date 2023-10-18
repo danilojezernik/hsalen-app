@@ -46,7 +46,6 @@ export class BlogComponent implements OnInit, OnDestroy {
         this.blog = data;  // Assign the fetched data to the blog variable
         this.currentPage = 1;  // Reset to the first page when new data is loaded
         this.calculateTotalPages();  // Calculate the total number of pages based on the data
-
         this.heroData.path = this.router.url.slice(1);
 
       }, error => {

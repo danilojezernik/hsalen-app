@@ -133,7 +133,7 @@ const routes: Routes = [
     title: 'Hypnosis studio Alen - Kontakt',
   },
   {
-    path: 'events',
+    path: 'dogodki',
     component: EventsComponent,
     title: 'Hypnosis studio Alen - Dogodki',
   },

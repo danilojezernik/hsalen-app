@@ -7,6 +7,7 @@ import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
 import {AngularEditorConfig} from "@kolkov/angular-editor";
 import {sharedEditorConfigClient} from "../../../../shared/config/editor-config-email-client";
 import {sharedEditorConfig} from "../../../../shared/config/editor-config";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-contact',
@@ -18,11 +19,17 @@ export class ContactComponent implements OnInit {
   spinner: boolean = false;
   editorConfigClient: AngularEditorConfig = sharedEditorConfigClient
 
+  heroData = {
+    naslov: 'Kontakt',
+    path: ''
+  }
+
   constructor(
     private api: EmailService,
     private fb: FormBuilder,
     private emailValidator: EmailValidatorService,
-    public snackbarService: SnackBarService
+    public snackbarService: SnackBarService,
+    private router: Router
   ) {
   }
 
@@ -33,6 +40,8 @@ export class ContactComponent implements OnInit {
       email: ['', Validators.required],
       content: ['', Validators.required]
     })
+    this.heroData.path = this.router.url.slice(1);
+
   }
 
   sendEmail() {
