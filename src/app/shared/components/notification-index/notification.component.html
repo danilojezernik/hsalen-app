@@ -1,26 +1,17 @@
 <div *ngFor="let event of events">
   <div *ngIf="event['show_notification'] === true">
-    <div id="scroll-container" class="bg-dark p-3 fs-4">
-      <div id="scroll-text">
-        Dne
-        <span class="text-warning">{{event['start_date'] | date}}</span>
-        se bo odvijal dogodek
-        <span class="text-warning">{{event['event']}}</span>
-        na lokaciji
-        <span class="text-warning">{{event['location']}}</span>
-        in bo trajal
-        <span class="text-warning">{{event['event_length']}}</span>.
-        <a class="text-white fs-4" routerLink="/events">
-          Preverite dalje
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-badge-right"
-               width="24" height="24"
-               viewBox="0 0 24 24"
-               stroke-width="2" stroke="orange" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M13 7h-6l4 5l-4 5h6l4 -5z"></path>
-          </svg>
-        </a>
-      </div>
+    <div class="bg-transparent p-3 fs-4 parent">
+      Dne {{event['start_date'] | date}} se bo odvijal dogodek {{event['event']}} na lokaciji {{event['location']}}
+      in bo trajal {{event['event_length']}}. <a class="text-decoration-none" routerLink="/events">
+      Preverite dalje
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-badge-right"
+           width="40" height="40"
+           viewBox="0 0 24 24"
+           stroke-width="2" stroke="orange" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M13 7h-6l4 5l-4 5h6l4 -5z"></path>
+      </svg>
+    </a>
     </div>
   </div>
 </div>

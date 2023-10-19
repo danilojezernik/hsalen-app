@@ -1,0 +1,41 @@
+/* --------------------------
+BREADCRUMB HERO
+------------------------------ */
+
+.header-hero {
+  background-image: linear-gradient(to right bottom, rgba(255, 87, 51, 0.8), rgba(255, 140, 0, 0.8)),
+  url('../assets/media/hero/nature-relax.jpg');
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+}
+
+.breadcrumb-text {
+  color: white; /* Adjust the margin as needed */
+}
+
+.breadcrumb {
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+.breadcrumb a {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.breadcrumb span {
+  margin: 0 5px;
+}
+
+.breadcrumb a:hover {
+  text-decoration: none;
+}

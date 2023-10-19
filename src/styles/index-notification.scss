@@ -1,0 +1,70 @@
+/* --------------------------
+NOTIFICATION ON INDEX FOR EVENTS
+------------------------------ */
+
+.parent {
+  color: white;
+  font-size: 20px !important;
+  max-width: 400px;
+  display: inline-flex;
+  flex-direction: column;
+  animation: moveInLeft 1s ease-out;
+
+  a {
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 575px) {
+    font-size: 14px !important;
+    text-transform: uppercase;
+
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    .heading-primary-main {
+      font-size: 35px;
+      font-weight: 700;
+      letter-spacing: 15px;
+      padding-bottom: 30px;
+    }
+
+    .heading-primary-sub {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 5px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .heading-primary-main {
+      font-size: 45px;
+      font-weight: 700;
+      letter-spacing: 25px;
+      padding-bottom: 30px;
+    }
+
+    .heading-primary-sub {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 5px;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .heading-primary-main {
+      font-size: 55px;
+      font-weight: 400;
+      letter-spacing: 30px;
+      padding-bottom: 30px;
+    }
+
+    .heading-primary-sub {
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: 10px;
+    }
+  }
+}
+
+
