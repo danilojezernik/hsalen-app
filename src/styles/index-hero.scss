@@ -2,8 +2,31 @@
 INDEX HERO
 ------------------------------ */
 
+// VARIABLES
 $animation: 1s ease-out;
 $translate: translate(-50%, -50%); // center in index header
+$font-weight: 700;
+$width-full: 100%;
+
+$box-shadow-hover: 10px;
+$box-shadow-active: 5px;
+
+// MIXIN
+@mixin box-shadow-button {
+  box-shadow: 0 $box-shadow-hover 20px rgba(0, 0, 0, .2);
+}
+
+@mixin heading-primary-main-fw-pb {
+  font-weight: 700;
+  padding-bottom: 30px;
+}
+
+@mixin width-full-absolute {
+  width: $width-full;
+  position: absolute;
+}
+
+// STYLE
 
 .header {
   height: 95vh;
@@ -16,8 +39,7 @@ $translate: translate(-50%, -50%); // center in index header
 }
 
 .text-box {
-  position: absolute;
-  width: 100%;
+  @include width-full-absolute;
   top: 40%;
   left: 50%;
   transform: $translate;
@@ -54,9 +76,8 @@ $translate: translate(-50%, -50%); // center in index header
     content: '';
     display: inline-block;
     height: 100%;
-    width: 100%;
+    @include width-full-absolute;
     border-radius: 50px;
-    position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
@@ -79,8 +100,7 @@ $translate: translate(-50%, -50%); // center in index header
 }
 
 .notification-box {
-  position: absolute;
-  width: 100%;
+  @include width-full-absolute;
   top: 70%;
   left: 50%;
   transform: $translate;
@@ -107,7 +127,7 @@ $translate: translate(-50%, -50%); // center in index header
   display: block;
   color: white;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: $font-weight;
   letter-spacing: 10px;
   animation: moveInRight $animation;
 }
@@ -116,14 +136,13 @@ $translate: translate(-50%, -50%); // center in index header
 @media (max-width: 575px) {
   .heading-primary-main {
     font-size: 22px;
-    font-weight: 700;
     letter-spacing: 10px;
-    padding-bottom: 30px;
+    @include heading-primary-main-fw-pb;
   }
 
   .heading-primary-sub {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: $font-weight;
     letter-spacing: 5px;
   }
 }
@@ -131,14 +150,13 @@ $translate: translate(-50%, -50%); // center in index header
 @media (min-width: 576px) and (max-width: 767px) {
   .heading-primary-main {
     font-size: 35px;
-    font-weight: 700;
     letter-spacing: 15px;
-    padding-bottom: 30px;
+    @include heading-primary-main-fw-pb;
   }
 
   .heading-primary-sub {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: $font-weight;
     letter-spacing: 5px;
   }
 }
@@ -146,14 +164,13 @@ $translate: translate(-50%, -50%); // center in index header
 @media (min-width: 768px) and (max-width: 991px) {
   .heading-primary-main {
     font-size: 45px;
-    font-weight: 700;
     letter-spacing: 25px;
-    padding-bottom: 30px;
+    @include heading-primary-main-fw-pb;
   }
 
   .heading-primary-sub {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: $font-weight;
     letter-spacing: 5px;
   }
 }
@@ -161,14 +178,13 @@ $translate: translate(-50%, -50%); // center in index header
 @media (min-width: 992px) and (max-width: 1199px) {
   .heading-primary-main {
     font-size: 55px;
-    font-weight: 400;
     letter-spacing: 30px;
-    padding-bottom: 30px;
+    @include heading-primary-main-fw-pb;
   }
 
   .heading-primary-sub {
     font-size: 25px;
-    font-weight: 700;
+    font-weight: $font-weight;
     letter-spacing: 10px;
   }
 }

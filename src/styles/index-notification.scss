@@ -2,6 +2,12 @@
 NOTIFICATION ON INDEX FOR EVENTS
 ------------------------------ */
 $animation: 1s ease-out;
+$font-weight: 700;
+
+@mixin heading-primary-main-fw-pb {
+  font-weight: 700;
+  padding-bottom: 30px;
+}
 
 .parent {
   color: white;
@@ -25,14 +31,13 @@ $animation: 1s ease-out;
   @media (min-width: 576px) and (max-width: 767px) {
     .heading-primary-main {
       font-size: 35px;
-      font-weight: 700;
       letter-spacing: 15px;
-      padding-bottom: 30px;
+      @include heading-primary-main-fw-pb;
     }
 
     .heading-primary-sub {
       font-size: 18px;
-      font-weight: 700;
+      font-weight: $font-weight;
       letter-spacing: 5px;
     }
   }
@@ -40,14 +45,13 @@ $animation: 1s ease-out;
   @media (min-width: 768px) and (max-width: 991px) {
     .heading-primary-main {
       font-size: 45px;
-      font-weight: 700;
       letter-spacing: 25px;
-      padding-bottom: 30px;
+      @include heading-primary-main-fw-pb;
     }
 
     .heading-primary-sub {
       font-size: 20px;
-      font-weight: 700;
+      font-weight: $font-weight;
       letter-spacing: 5px;
     }
   }
@@ -55,14 +59,13 @@ $animation: 1s ease-out;
   @media (min-width: 992px) and (max-width: 1199px) {
     .heading-primary-main {
       font-size: 55px;
-      font-weight: 400;
       letter-spacing: 30px;
-      padding-bottom: 30px;
+      @include heading-primary-main-fw-pb;
     }
 
     .heading-primary-sub {
       font-size: 25px;
-      font-weight: 700;
+      font-weight: $font-weight;
       letter-spacing: 10px;
     }
   }
