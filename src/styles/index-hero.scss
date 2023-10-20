@@ -7,6 +7,7 @@ $animation: 1s ease-out;
 $translate: translate(-50%, -50%); // center in index header
 $font-weight: 700;
 $width-full: 100%;
+$color-white: #fff;
 
 // BUTTON: hover - active
 $box-shadow-hover-px: -3px;
@@ -71,7 +72,7 @@ $box-shadow-active-b: 10px;
   }
 
   .button-white {
-    background-color: #fff;
+    background-color: $color-white;
     color: #777;
   }
 
@@ -88,7 +89,7 @@ $box-shadow-active-b: 10px;
   }
 
   .button-white::after {
-    background-color: #fff;
+    background-color: $color-white;
   }
 
   .button:hover::after {
@@ -119,7 +120,7 @@ $box-shadow-active-b: 10px;
 
 .heading-primary-main {
   display: block;
-  color: white;
+  color: $color-white;
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 25px;
@@ -128,9 +129,9 @@ $box-shadow-active-b: 10px;
 
 .heading-primary-sub {
   display: block;
-  color: white;
-  font-size: 20px;
+  color: $color-white;
   font-weight: $font-weight;
+  font-size: 20px;
   letter-spacing: 10px;
   animation: moveInRight $animation;
 }
@@ -145,8 +146,8 @@ $box-shadow-active-b: 10px;
 
   .heading-primary-sub {
     font-size: 14px;
-    font-weight: $font-weight;
     letter-spacing: 5px;
+    font-weight: $font-weight;
   }
 }
 
@@ -159,8 +160,8 @@ $box-shadow-active-b: 10px;
 
   .heading-primary-sub {
     font-size: 18px;
-    font-weight: $font-weight;
     letter-spacing: 5px;
+    font-weight: $font-weight;
   }
 }
 
@@ -173,8 +174,8 @@ $box-shadow-active-b: 10px;
 
   .heading-primary-sub {
     font-size: 20px;
-    font-weight: $font-weight;
     letter-spacing: 5px;
+    font-weight: $font-weight;
   }
 }
 
@@ -187,8 +188,8 @@ $box-shadow-active-b: 10px;
 
   .heading-primary-sub {
     font-size: 25px;
-    font-weight: $font-weight;
     letter-spacing: 10px;
+    font-weight: $font-weight;
   }
 }
 

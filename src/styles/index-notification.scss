@@ -3,6 +3,7 @@ NOTIFICATION ON INDEX FOR EVENTS
 ------------------------------ */
 $animation: 1s ease-out;
 $font-weight: 700;
+$color-white: #fff;
 
 @mixin heading-primary-main-fw-pb {
   font-weight: 700;
@@ -10,7 +11,7 @@ $font-weight: 700;
 }
 
 .parent {
-  color: white;
+  color: $color-white;
   font-size: 20px !important;
   max-width: 400px;
   display: inline-flex;
@@ -18,7 +19,7 @@ $font-weight: 700;
   animation: moveInLeft $animation;
 
   a {
-    color: white;
+    color: $color-white;
     font-size: 1.5rem;
   }
 
