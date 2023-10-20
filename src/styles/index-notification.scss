@@ -1,6 +1,7 @@
 /* --------------------------
 NOTIFICATION ON INDEX FOR EVENTS
 ------------------------------ */
+$animation: 1s ease-out;
 
 .parent {
   color: white;
@@ -8,7 +9,7 @@ NOTIFICATION ON INDEX FOR EVENTS
   max-width: 400px;
   display: inline-flex;
   flex-direction: column;
-  animation: moveInLeft 1s ease-out;
+  animation: moveInLeft $animation;
 
   a {
     color: white;
