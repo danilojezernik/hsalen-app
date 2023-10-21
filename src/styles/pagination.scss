@@ -1,0 +1,14 @@
+/* --------------------------
+          PAGINATION
+------------------------------ */
+
+$hero-header-light-orange: #FF8C00;
+
+.page-link {
+  border-radius: 0 !important;
+  color: black;
+}
+
+.active > .page-link {
+  background-color: $hero-header-light-orange;
+}

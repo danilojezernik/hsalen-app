@@ -1,0 +1,12 @@
+/* --------------------------
+          CARD STYLE
+------------------------------ */
+
+.card-hover {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: scale(1.1);
+}

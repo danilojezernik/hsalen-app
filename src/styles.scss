@@ -27,38 +27,6 @@
 @import "styles/index-notification";
 @import "styles/spinner";
 @import "styles/animations";
-
-.nav-item {
-  padding: 10px;
-}
-
-.card-hover {
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.card-hover:hover {
-  transform: scale(1.1);
-}
-
-.error-message {
-  font-size: 1.5rem;
-  padding: 20px 20px;
-}
-
-.mat-cell {
-  padding: 20px;
-  font-weight: bold;
-}
-
-.page-link {
-  border-radius: 0 !important;
-  color: black;
-}
-
-.active > .page-link {
-  background-color: orange;
-}
-
-
-
+@import "styles/card";
+@import "styles/pagination";
+@import "styles/error";
