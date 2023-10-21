@@ -8,12 +8,11 @@ $color-white: #fff;
 
 // PARENT from XS to L
 $font-size-main: 20px;
-$font-size-a-main: 1.5rem;
+$font-size-a-main: 1.3rem;
 $svg-wh-main: 30px;
-$max-width-main: 400px;
+$max-width-main: 500px;
 
 $text-transform-uppercase: uppercase;
-$text-transform-none: none;
 
 // XS
 $font-size-xs: 12px;
@@ -24,7 +23,7 @@ $svg-wh-xs: 20px;
 // S
 $font-size-s: 16px;
 $max-width-s: 550px;
-$font-size-a-s: 1rem;
+$font-size-a-s: 1.1rem;
 $svg-wh-s: 20px;
 
 // M
@@ -36,7 +35,7 @@ $svg-wh-m: 25px;
 // L
 $font-size-l: 24px;
 $max-width-l: 900px;
-$font-size-a-l: 1.5rem;
+$font-size-a-l: 1.2rem;
 $svg-wh-l: 25px;
 
 @mixin font-size-letter-spacing-font-weight-padding-bottom($fs, $mw, $ts, $afs, $svg) {
@@ -58,20 +57,26 @@ $svg-wh-l: 25px;
   }
 }
 
+.center-anchor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .parent {
   display: inline-flex;
   flex-direction: column;
   animation: moveInBottom $animation;
   animation-fill-mode: backwards;
 
+  // MAIN
   @include font-size-letter-spacing-font-weight-padding-bottom(
       $font-size-main,
       $max-width-main,
-      $text-transform-none,
+      $text-transform-uppercase,
       $font-size-a-main,
       $svg-wh-main,
   );
-
 
   // XS
   @media (max-width: 575px) {

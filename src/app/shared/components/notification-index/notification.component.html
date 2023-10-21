@@ -1,16 +1,17 @@
 <div *ngFor="let event of events">
   <div *ngIf="event['show_notification'] === true">
     <div class="bg-transparent p-3 fs-4 parent">
-      Dne {{event['start_date'] | date}} se bo odvijal dogodek {{event['event']}} na lokaciji {{event['location']}}
-      in bo trajal {{event['event_length']}}. <a class="text-decoration-none" routerLink="/events">
-      Preverite dalje
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-badge-right svg-wh"
-           viewBox="0 0 24 24"
-           stroke-width="2" stroke="orange" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <path d="M13 7h-6l4 5l-4 5h6l4 -5z"></path>
-      </svg>
-    </a>
+      Dne {{event['start_date'] | date}} se bo odvijal dogodek {{event['event']}} na lokaciji {{event['location']}} in bo
+      trajal {{event['event_length']}}.
+      <a class="text-decoration-none center-anchor" routerLink="/dogodki">
+        Preverite več o dogodku
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-badge-right svg-wh"
+             viewBox="0 0 24 24"
+             stroke-width="2" stroke="orange" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M13 7h-6l4 5l-4 5h6l4 -5z"></path>
+        </svg>
+      </a>
     </div>
   </div>
 </div>

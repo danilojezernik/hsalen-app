@@ -6,6 +6,11 @@
 $animation: 1s ease-out;
 $translate: translate(-50%, -50%); // center in index header
 
+// MAIN COLOR
+$hero-header-light-orange: #FF8C00;
+$hero-header-medium-orange: #F5761A;
+$hero-header-dark-orange: #FF5733;
+
 // COLORS
 $color-white: #fff;
 
@@ -32,7 +37,11 @@ $box-shadow-active-b: 10px;
 // STYLE
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(255, 87, 51, 0.8), rgba(255, 140, 0, 0.8)),
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($hero-header-dark-orange, 0.8),
+      rgba($hero-header-light-orange, 0.8)
+  ),
   url('../assets/media/hero/nature-relax.jpg');
   position: relative;
   background-size: cover;
@@ -106,11 +115,6 @@ $box-shadow-active-b: 10px;
   text-align: center;
 }
 
-.heading-primary {
-  text-align: center;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-}
 
 // VARIABLES and MIXIN for heading and @media
 
@@ -157,113 +161,122 @@ $letter-spacing-sub-l: 10px;
   padding-bottom: $pb;
 }
 
-.heading-primary-main {
-  display: block;
-  color: $color-white;
-  animation: moveInLeft $animation;
-  @include font-size-letter-spacing-font-weight-padding-bottom(
-      $font-size-primary,
-      $letter-spacing-primary,
-      $font-weight-main,
-      $padding-bottom-sub
-  );
-}
+.heading-primary {
+  text-align: center;
+  text-transform: uppercase;
+  backface-visibility: hidden;
 
-.heading-primary-sub {
-  display: block;
-  color: $color-white;
-  @include font-size-letter-spacing-font-weight-padding-bottom(
-      $font-size-sub,
-      $letter-spacing-sub,
-      $font-weight-sub-main,
-      $padding-bottom-sub
-  );
-  animation: moveInRight $animation;
-}
-
-// XS
-@media (max-width: 575px) {
-  .heading-primary-main {
+  &-main {
+    display: block;
+    color: $color-white;
+    animation: moveInLeft $animation;
     @include font-size-letter-spacing-font-weight-padding-bottom(
-        $font-size-primary-xs,
-        $letter-spacing-primary-xs,
-        $font-weight-sub-main,
-        $padding-bottom-main
-    );
-  }
-
-  .heading-primary-sub {
-    @include font-size-letter-spacing-font-weight-padding-bottom(
-        $font-size-sub-xs,
-        $letter-spacing-sub-xs,
-        $font-weight-sub-main,
+        $font-size-primary,
+        $letter-spacing-primary,
+        $font-weight-main,
         $padding-bottom-sub
     );
   }
-}
 
-// S
-@media (min-width: 576px) and (max-width: 767px) {
-  .heading-primary-main {
+  &-sub {
+    display: block;
+    color: $color-white;
     @include font-size-letter-spacing-font-weight-padding-bottom(
-        $font-size-primary-s,
-        $letter-spacing-primary-s,
-        $font-weight-sub-main,
-        $padding-bottom-main
-    );
-  }
-
-  .heading-primary-sub {
-    @include font-size-letter-spacing-font-weight-padding-bottom(
-        $font-size-sub-s,
-        $letter-spacing-sub-s,
+        $font-size-sub,
+        $letter-spacing-sub,
         $font-weight-sub-main,
         $padding-bottom-sub
     );
+    animation: moveInRight $animation;
+  }
+
+  // XS
+  @media (max-width: 575px) {
+    &-main {
+      @include font-size-letter-spacing-font-weight-padding-bottom(
+          $font-size-primary-xs,
+          $letter-spacing-primary-xs,
+          $font-weight-sub-main,
+          $padding-bottom-main
+      );
+    }
+
+    &-sub {
+      @include font-size-letter-spacing-font-weight-padding-bottom(
+          $font-size-sub-xs,
+          $letter-spacing-sub-xs,
+          $font-weight-sub-main,
+          $padding-bottom-sub
+      );
+    }
+  }
+
+  // S
+  @media (min-width: 576px) and (max-width: 767px) {
+    &-main {
+      @include font-size-letter-spacing-font-weight-padding-bottom(
+          $font-size-primary-s,
+          $letter-spacing-primary-s,
+          $font-weight-sub-main,
+          $padding-bottom-main
+      );
+    }
+
+    &-sub {
+      @include font-size-letter-spacing-font-weight-padding-bottom(
+          $font-size-sub-s,
+          $letter-spacing-sub-s,
+          $font-weight-sub-main,
+          $padding-bottom-sub
+      );
+    }
+  }
+
+  // M
+  @media (min-width: 768px) and (max-width: 991px) {
+    &-main {
+      @include font-size-letter-spacing-font-weight-padding-bottom(
+          $font-size-primary-m,
+          $letter-spacing-primary-m,
+          $font-weight-sub-main,
+          $padding-bottom-main
+      );
+    }
+
+    &-sub {
+      @include font-size-letter-spacing-font-weight-padding-bottom(
+          $font-size-sub-m,
+          $letter-spacing-sub-m,
+          $font-weight-sub-main,
+          $padding-bottom-sub
+      );
+    }
+  }
+
+  // L
+  @media (min-width: 992px) and (max-width: 1199px) {
+    &-main {
+      @include font-size-letter-spacing-font-weight-padding-bottom(
+          $font-size-primary-l,
+          $letter-spacing-primary-l,
+          $font-weight-sub-main,
+          $padding-bottom-main
+      );
+    }
+
+    &-sub {
+      @include font-size-letter-spacing-font-weight-padding-bottom(
+          $font-size-sub-l,
+          $letter-spacing-sub-l,
+          $font-weight-sub-main,
+          $padding-bottom-sub
+      );
+    }
   }
 }
 
-// M
-@media (min-width: 768px) and (max-width: 991px) {
-  .heading-primary-main {
-    @include font-size-letter-spacing-font-weight-padding-bottom(
-        $font-size-primary-m,
-        $letter-spacing-primary-m,
-        $font-weight-sub-main,
-        $padding-bottom-main
-    );
-  }
 
-  .heading-primary-sub {
-    @include font-size-letter-spacing-font-weight-padding-bottom(
-        $font-size-sub-m,
-        $letter-spacing-sub-m,
-        $font-weight-sub-main,
-        $padding-bottom-sub
-    );
-  }
-}
 
-// L
-@media (min-width: 992px) and (max-width: 1199px) {
-  .heading-primary-main {
-    @include font-size-letter-spacing-font-weight-padding-bottom(
-        $font-size-primary-l,
-        $letter-spacing-primary-l,
-        $font-weight-sub-main,
-        $padding-bottom-main
-    );
-  }
-
-  .heading-primary-sub {
-    @include font-size-letter-spacing-font-weight-padding-bottom(
-        $font-size-sub-l,
-        $letter-spacing-sub-l,
-        $font-weight-sub-main,
-        $padding-bottom-sub
-    );
-  }
-}
 
 
 
