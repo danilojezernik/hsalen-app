@@ -2,6 +2,10 @@
 BREADCRUMB HERO
 ------------------------------ */
 
+$color-white: #fff;
+$margin: 0 5px;
+$text-decoration: none;
+
 .header-hero {
   background-image: linear-gradient(to right bottom, rgba(255, 87, 51, 0.8), rgba(255, 140, 0, 0.8)),
   url('../assets/media/hero/nature-relax.jpg');
@@ -17,25 +21,27 @@ BREADCRUMB HERO
 }
 
 .breadcrumb-text {
-  color: white; /* Adjust the margin as needed */
+  color: $color-white;
 }
 
 .breadcrumb {
-  color: white;
+  color: $color-white;
   font-size: 1.5rem;
   padding: 10px;
 }
 
-.breadcrumb a {
-  color: white;
-  text-decoration: none;
-  margin: 0 5px;
-}
+.breadcrumb {
+  a {
+    color: $color-white;
+    text-decoration: $text-decoration;
+    margin: $margin;
 
-.breadcrumb span {
-  margin: 0 5px;
-}
+    &:hover {
+      text-decoration: $text-decoration;
+    }
+  }
 
-.breadcrumb a:hover {
-  text-decoration: none;
+  span {
+    margin: $margin;
+  }
 }
