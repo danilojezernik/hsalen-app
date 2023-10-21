@@ -1,0 +1,99 @@
+/* --------------------------
+          VARIABLES
+------------------------------ */
+
+// ANIMATION
+$animation: 1s ease-out;
+$translate: translate(-50%, -50%); // center in index header
+$animation-and-delay: 1s ease-in .5s;
+
+// MAIN COLOR
+$hero-header-light-orange: #FF8C00;
+$hero-header-medium-orange: #F5761A;
+$hero-header-dark-orange: #FF5733;
+
+// COLORS
+$color-white: #fff;
+
+// BUTTON: hover - active
+$box-shadow-hover-px: -3px;
+$box-shadow-hover-v: 10px;
+$box-shadow-hover-b: 20px;
+
+$box-shadow-active-px: -1px;
+$box-shadow-active-v: 5px;
+$box-shadow-active-b: 10px;
+
+// MARGIN
+$margin: 0 5px;
+
+// TEXT
+$text-decoration: none;
+$text-transform-uppercase: uppercase;
+
+// VARIABLES and MIXIN FOR INDEX NOTIFICATION @media
+
+// PARENT from XS to L
+$font-size-main: 20px;
+$font-size-a-main: 1.3rem;
+$svg-wh-main: 30px;
+$max-width-main: 500px;
+
+// XS
+$font-size-xs: 12px;
+$font-size-a-xs: 1rem;
+$max-width-xs: 300px;
+$svg-wh-xs: 20px;
+// S
+$font-size-s: 16px;
+$max-width-s: 550px;
+$font-size-a-s: 1.1rem;
+$svg-wh-s: 20px;
+// M
+$font-size-m: 20px;
+$max-width-m: 700px;
+$font-size-a-m: 1.2rem;
+$svg-wh-m: 25px;
+// L
+$font-size-l: 24px;
+$max-width-l: 900px;
+$font-size-a-l: 1.2rem;
+$svg-wh-l: 25px;
+
+// VARIABLES and MIXIN FOR INDEX HERO AND @media
+
+// MAIN from XS to L
+$font-size-primary: 60px;
+$letter-spacing-primary: 25px;
+$font-weight-main: 400;
+$padding-bottom-main: 30px;
+// XS
+$font-size-primary-xs: 22px;
+$letter-spacing-primary-xs: 10px;
+// S
+$font-size-primary-s: 35px;
+$letter-spacing-primary-s: 15px;
+// M
+$font-size-primary-m: 45px;
+$letter-spacing-primary-m: 25px;
+// L
+$font-size-primary-l: 55px;
+$letter-spacing-primary-l: 30px;
+
+// SUB from XS to L
+$font-size-sub: 20px;
+$letter-spacing-sub: 10px;
+$font-weight-sub-main: 700;
+$padding-bottom-sub: 0;
+// XS
+$font-size-sub-xs: 14px;
+$letter-spacing-sub-xs: 5px;
+// S
+$font-size-sub-s: 18px;
+$letter-spacing-sub-s: 5px;
+// M
+$font-size-sub-m: 20px;
+$letter-spacing-sub-m: 5px;
+// L
+$font-size-sub-l: 25px;
+$letter-spacing-sub-l: 10px;

@@ -1,0 +1,42 @@
+/* --------------------------
+          MIXIN
+------------------------------ */
+
+// IMPORT VARIABLES
+@import "../../styles/abstracts/variables";
+
+@mixin box-shadow-button($px, $vertical-value, $blur-value) {
+  transform: translateY($px);
+  box-shadow: 0 $vertical-value $blur-value rgba(0, 0, 0, .2);
+}
+
+@mixin width-full-absolute {
+  width: 100%;
+  position: absolute;
+}
+
+@mixin font-size-letter-spacing-font-weight-padding-bottom($fs, $mw, $ts, $afs, $svg) {
+  color: $color-white;
+  font-size: $fs !important;
+  max-width: $mw;
+  text-transform: $ts;
+
+  a {
+    color: $color-white;
+    font-size: $afs;
+  }
+
+  .svg-wh {
+    width: $svg;
+    height: $svg;
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+
+  }
+}
+
+@mixin font-size-letter-spacing-font-weight-padding-bottom-index-hero($fs, $ls, $fw, $pb) {
+  font-size: $fs;
+  letter-spacing: $ls;
+  font-weight: $fw;
+  padding-bottom: $pb;
+}

@@ -2,19 +2,13 @@
         BREADCRUMB HERO
 ------------------------------ */
 
-$color-white: #fff;
-$margin: 0 5px;
-$text-decoration: none;
-
-// MAIN COLOR
-$hero-header-light-orange: #FF8C00;
-$hero-header-medium-orange: #F5761A;
-$hero-header-dark-orange: #FF5733;
-
+// IMPORT VARIABLES AND MIXIN
+@import "../abstracts/variables";
+@import "../abstracts/mixin";
 
 .header-hero {
   background-image: linear-gradient(to right bottom, rgba($hero-header-dark-orange, 0.8), rgba($hero-header-light-orange, 0.8)),
-  url('../assets/media/hero/nature-relax.jpg');
+  url('../../assets/media/hero/nature-relax.jpg');
   position: relative;
   background-size: cover;
   background-position: center;

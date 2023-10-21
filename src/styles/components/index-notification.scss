@@ -2,61 +2,9 @@
 NOTIFICATION ON INDEX FOR EVENTS
 ------------------------------ */
 
-$animation: 1s ease-in .5s;
-$color-white: #fff;
-
-// VARIABLES and MIXIN for heading and @media
-
-// PARENT from XS to L
-$font-size-main: 20px;
-$font-size-a-main: 1.3rem;
-$svg-wh-main: 30px;
-$max-width-main: 500px;
-
-$text-transform-uppercase: uppercase;
-
-// XS
-$font-size-xs: 12px;
-$font-size-a-xs: 1rem;
-$max-width-xs: 300px;
-$svg-wh-xs: 20px;
-
-// S
-$font-size-s: 16px;
-$max-width-s: 550px;
-$font-size-a-s: 1.1rem;
-$svg-wh-s: 20px;
-
-// M
-$font-size-m: 20px;
-$max-width-m: 700px;
-$font-size-a-m: 1.2rem;
-$svg-wh-m: 25px;
-
-// L
-$font-size-l: 24px;
-$max-width-l: 900px;
-$font-size-a-l: 1.2rem;
-$svg-wh-l: 25px;
-
-@mixin font-size-letter-spacing-font-weight-padding-bottom($fs, $mw, $ts, $afs, $svg) {
-  color: $color-white;
-  font-size: $fs !important;
-  max-width: $mw;
-  text-transform: $ts;
-
-  a {
-    color: $color-white;
-    font-size: $afs;
-  }
-
-  .svg-wh {
-    width: $svg;
-    height: $svg;
-    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-
-  }
-}
+// IMPORT VARIABLES AND MIXIN
+@import "../abstracts/variables";
+@import "../abstracts/mixin";
 
 .center-anchor {
   display: flex;
@@ -64,10 +12,11 @@ $svg-wh-l: 25px;
   align-items: center;
 }
 
+
 .parent {
   display: inline-flex;
   flex-direction: column;
-  animation: moveInBottom $animation;
+  animation: moveInBottom $animation-and-delay;
   animation-fill-mode: backwards;
 
   // MAIN

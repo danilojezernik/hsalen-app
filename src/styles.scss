@@ -22,12 +22,13 @@
 
 @import "styles/global";
 
-@import "styles/index-hero";
-@import "styles/breadcrumb-hero";
-@import "styles/index-notification";
-@import "styles/spinner";
-@import "styles/animations";
-@import "styles/card";
-@import "styles/pagination";
-@import "styles/error";
-@import "styles/button";
+@import "styles/hero/index-hero";
+@import "styles/hero/breadcrumb-hero";
+@import "styles/components/index-notification";
+@import "styles/components/spinner";
+@import "styles/animations/animations";
+@import "styles/components/card";
+@import "styles/components/pagination";
+@import "styles/components/error";
+@import "styles/components/button";
+@import "styles/abstracts/mixin";

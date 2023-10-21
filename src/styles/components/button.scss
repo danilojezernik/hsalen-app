@@ -2,30 +2,11 @@
           BUTTON STYLE
 ------------------------------ */
 
+// IMPORT VARIABLES
+@import "../abstracts/variables";
+@import "../abstracts/mixin";
+
 // INDEX BUTTON
-
-// COLORS
-$color-white: #fff;
-
-// BUTTON: hover - active
-$box-shadow-hover-px: -3px;
-$box-shadow-hover-v: 10px;
-$box-shadow-hover-b: 20px;
-
-$box-shadow-active-px: -1px;
-$box-shadow-active-v: 5px;
-$box-shadow-active-b: 10px;
-
-// MIXIN
-@mixin box-shadow-button($px, $vertical-value, $blur-value) {
-  transform: translateY($px);
-  box-shadow: 0 $vertical-value $blur-value rgba(0, 0, 0, .2);
-}
-
-@mixin width-full-absolute {
-  width: 100%;
-  position: absolute;
-}
 
 .button {
   &:link,

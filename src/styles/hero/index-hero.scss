@@ -2,22 +2,9 @@
           INDEX HERO
 ------------------------------ */
 
-// VARIABLES
-$animation: 1s ease-out;
-$translate: translate(-50%, -50%); // center in index header
-
-// MAIN COLOR
-$hero-header-light-orange: #FF8C00;
-$hero-header-medium-orange: #F5761A;
-$hero-header-dark-orange: #FF5733;
-
-// COLORS
-$color-white: #fff;
-
-@mixin width-full-absolute {
-  width: 100%;
-  position: absolute;
-}
+// IMPORT VARIABLES AND MIXIN
+@import "../abstracts/variables";
+@import "../abstracts/mixin";
 
 // STYLE
 .header {
@@ -27,7 +14,7 @@ $color-white: #fff;
       rgba($hero-header-dark-orange, 0.8),
       rgba($hero-header-light-orange, 0.8)
   ),
-  url('../assets/media/hero/nature-relax.jpg');
+  url('../../assets/media/hero/nature-relax.jpg');
   position: relative;
   background-size: cover;
   background-position: top;
@@ -50,51 +37,6 @@ $color-white: #fff;
   text-align: center;
 }
 
-// VARIABLES and MIXIN for heading and @media
-
-// MAIN from XS to L
-$font-size-primary: 60px;
-$letter-spacing-primary: 25px;
-$font-weight-main: 400;
-$padding-bottom-main: 30px;
-// XS
-$font-size-primary-xs: 22px;
-$letter-spacing-primary-xs: 10px;
-// S
-$font-size-primary-s: 35px;
-$letter-spacing-primary-s: 15px;
-// M
-$font-size-primary-m: 45px;
-$letter-spacing-primary-m: 25px;
-// L
-$font-size-primary-l: 55px;
-$letter-spacing-primary-l: 30px;
-
-// SUB from XS to L
-$font-size-sub: 20px;
-$letter-spacing-sub: 10px;
-$font-weight-sub-main: 700;
-$padding-bottom-sub: 0;
-// XS
-$font-size-sub-xs: 14px;
-$letter-spacing-sub-xs: 5px;
-// S
-$font-size-sub-s: 18px;
-$letter-spacing-sub-s: 5px;
-// M
-$font-size-sub-m: 20px;
-$letter-spacing-sub-m: 5px;
-// L
-$font-size-sub-l: 25px;
-$letter-spacing-sub-l: 10px;
-
-@mixin font-size-letter-spacing-font-weight-padding-bottom($fs, $ls, $fw, $pb) {
-  font-size: $fs;
-  letter-spacing: $ls;
-  font-weight: $fw;
-  padding-bottom: $pb;
-}
-
 .heading-primary {
   text-align: center;
   text-transform: uppercase;
@@ -104,7 +46,7 @@ $letter-spacing-sub-l: 10px;
     display: block;
     color: $color-white;
     animation: moveInLeft $animation;
-    @include font-size-letter-spacing-font-weight-padding-bottom(
+    @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
         $font-size-primary,
         $letter-spacing-primary,
         $font-weight-main,
@@ -115,7 +57,7 @@ $letter-spacing-sub-l: 10px;
   &-sub {
     display: block;
     color: $color-white;
-    @include font-size-letter-spacing-font-weight-padding-bottom(
+    @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
         $font-size-sub,
         $letter-spacing-sub,
         $font-weight-sub-main,
@@ -127,7 +69,7 @@ $letter-spacing-sub-l: 10px;
   // XS
   @media (max-width: 575px) {
     &-main {
-      @include font-size-letter-spacing-font-weight-padding-bottom(
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
           $font-size-primary-xs,
           $letter-spacing-primary-xs,
           $font-weight-sub-main,
@@ -136,7 +78,7 @@ $letter-spacing-sub-l: 10px;
     }
 
     &-sub {
-      @include font-size-letter-spacing-font-weight-padding-bottom(
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
           $font-size-sub-xs,
           $letter-spacing-sub-xs,
           $font-weight-sub-main,
@@ -148,7 +90,7 @@ $letter-spacing-sub-l: 10px;
   // S
   @media (min-width: 576px) and (max-width: 767px) {
     &-main {
-      @include font-size-letter-spacing-font-weight-padding-bottom(
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
           $font-size-primary-s,
           $letter-spacing-primary-s,
           $font-weight-sub-main,
@@ -157,7 +99,7 @@ $letter-spacing-sub-l: 10px;
     }
 
     &-sub {
-      @include font-size-letter-spacing-font-weight-padding-bottom(
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
           $font-size-sub-s,
           $letter-spacing-sub-s,
           $font-weight-sub-main,
@@ -169,7 +111,7 @@ $letter-spacing-sub-l: 10px;
   // M
   @media (min-width: 768px) and (max-width: 991px) {
     &-main {
-      @include font-size-letter-spacing-font-weight-padding-bottom(
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
           $font-size-primary-m,
           $letter-spacing-primary-m,
           $font-weight-sub-main,
@@ -178,7 +120,7 @@ $letter-spacing-sub-l: 10px;
     }
 
     &-sub {
-      @include font-size-letter-spacing-font-weight-padding-bottom(
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
           $font-size-sub-m,
           $letter-spacing-sub-m,
           $font-weight-sub-main,
@@ -190,7 +132,7 @@ $letter-spacing-sub-l: 10px;
   // L
   @media (min-width: 992px) and (max-width: 1199px) {
     &-main {
-      @include font-size-letter-spacing-font-weight-padding-bottom(
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
           $font-size-primary-l,
           $letter-spacing-primary-l,
           $font-weight-sub-main,
@@ -199,7 +141,7 @@ $letter-spacing-sub-l: 10px;
     }
 
     &-sub {
-      @include font-size-letter-spacing-font-weight-padding-bottom(
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
           $font-size-sub-l,
           $letter-spacing-sub-l,
           $font-weight-sub-main,

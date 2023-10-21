@@ -2,7 +2,8 @@
           PAGINATION
 ------------------------------ */
 
-$hero-header-light-orange: #FF8C00;
+// IMPORT VARIABLEs
+@import "../abstracts/variables";
 
 .page-link {
   border-radius: 0 !important;
