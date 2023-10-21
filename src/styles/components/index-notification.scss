@@ -18,24 +18,27 @@ NOTIFICATION ON INDEX FOR EVENTS
   flex-direction: column;
   animation: moveInBottom $animation-and-delay;
   animation-fill-mode: backwards;
+  max-width: $max-width-main;
 
   // MAIN
   @include font-size-letter-spacing-font-weight-padding-bottom(
       $font-size-main,
-      $max-width-main,
       $text-transform-uppercase,
       $font-size-a-main,
-      $svg-wh-main,
   );
+
+  .svg-wh {
+    width: $svg-wh-main;
+    height: $svg-wh-main;
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+  }
 
   // XS
   @media (max-width: 575px) {
     @include font-size-letter-spacing-font-weight-padding-bottom(
         $font-size-xs,
-        $max-width-xs,
         $text-transform-uppercase,
         $font-size-a-xs,
-        $svg-wh-xs,
     );
   }
 
@@ -43,10 +46,8 @@ NOTIFICATION ON INDEX FOR EVENTS
   @media (min-width: 576px) and (max-width: 767px) {
     @include font-size-letter-spacing-font-weight-padding-bottom(
         $font-size-s,
-        $max-width-s,
         $text-transform-uppercase,
         $font-size-a-s,
-        $svg-wh-s,
     );
   }
 
@@ -55,10 +56,8 @@ NOTIFICATION ON INDEX FOR EVENTS
     margin-top: 50px;
     @include font-size-letter-spacing-font-weight-padding-bottom(
         $font-size-m,
-        $max-width-m,
         $text-transform-uppercase,
         $font-size-a-m,
-        $svg-wh-m,
     );
   }
 
@@ -67,10 +66,8 @@ NOTIFICATION ON INDEX FOR EVENTS
     margin-top: 100px;
     @include font-size-letter-spacing-font-weight-padding-bottom(
         $font-size-l,
-        $max-width-l,
         $text-transform-uppercase,
         $font-size-a-l,
-        $svg-wh-l,
     );
   }
 }

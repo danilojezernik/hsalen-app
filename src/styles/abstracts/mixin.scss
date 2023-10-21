@@ -15,22 +15,14 @@
   position: absolute;
 }
 
-@mixin font-size-letter-spacing-font-weight-padding-bottom($fs, $mw, $ts, $afs, $svg) {
+@mixin font-size-letter-spacing-font-weight-padding-bottom($fs, $ts, $afs) {
   color: $color-white;
   font-size: $fs !important;
-  max-width: $mw;
   text-transform: $ts;
 
   a {
     color: $color-white;
     font-size: $afs;
-  }
-
-  .svg-wh {
-    width: $svg;
-    height: $svg;
-    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-
   }
 }
 
