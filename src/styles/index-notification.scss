@@ -1,74 +1,122 @@
 /* --------------------------
 NOTIFICATION ON INDEX FOR EVENTS
 ------------------------------ */
-$animation: 1s ease-out;
-$font-weight: 700;
+$animation: 1s ease-in .5s;
 $color-white: #fff;
 
-@mixin heading-primary-main-fw-pb {
-  font-weight: 700;
-  padding-bottom: 30px;
-}
+// VARIABLES and MIXIN for heading and @media
 
-.parent {
+// PARENT from XS to L
+$font-size-main: 20px;
+$font-size-a-main: 1.5rem;
+$svg-wh-main: 30px;
+$max-width-main: 400px;
+
+$text-transform-uppercase: uppercase;
+$text-transform-none: none;
+
+// XS
+$font-size-xs: 12px;
+$font-size-a-xs: 1rem;
+$max-width-xs: 300px;
+$svg-wh-xs: 20px;
+
+// S
+$font-size-s: 16px;
+$max-width-s: 550px;
+$font-size-a-s: 1rem;
+$svg-wh-s: 20px;
+
+// M
+$font-size-m: 20px;
+$max-width-m: 700px;
+$font-size-a-m: 1.2rem;
+$svg-wh-m: 25px;
+
+// L
+$font-size-l: 24px;
+$max-width-l: 900px;
+$font-size-a-l: 1.5rem;
+$svg-wh-l: 25px;
+
+@mixin font-size-letter-spacing-font-weight-padding-bottom($fs, $mw, $ts, $afs, $svg) {
   color: $color-white;
-  font-size: 20px !important;
-  max-width: 400px;
-  display: inline-flex;
-  flex-direction: column;
-  animation: moveInLeft $animation;
+  font-size: $fs !important;
+  max-width: $mw;
+  text-transform: $ts;
 
   a {
     color: $color-white;
-    font-size: 1.5rem;
+    font-size: $afs;
   }
 
+  .svg-wh {
+    width: $svg;
+    height: $svg;
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+
+  }
+}
+
+.parent {
+  display: inline-flex;
+  flex-direction: column;
+  animation: moveInBottom $animation;
+  animation-fill-mode: backwards;
+
+  @include font-size-letter-spacing-font-weight-padding-bottom(
+      $font-size-main,
+      $max-width-main,
+      $text-transform-none,
+      $font-size-a-main,
+      $svg-wh-main,
+  );
+
+
+  // XS
   @media (max-width: 575px) {
-    font-size: 14px !important;
-    text-transform: uppercase;
-
+    @include font-size-letter-spacing-font-weight-padding-bottom(
+        $font-size-xs,
+        $max-width-xs,
+        $text-transform-uppercase,
+        $font-size-a-xs,
+        $svg-wh-xs,
+    );
   }
 
+  // S
   @media (min-width: 576px) and (max-width: 767px) {
-    .heading-primary-main {
-      font-size: 35px;
-      letter-spacing: 15px;
-      @include heading-primary-main-fw-pb;
-    }
-
-    .heading-primary-sub {
-      font-size: 18px;
-      font-weight: $font-weight;
-      letter-spacing: 5px;
-    }
+    @include font-size-letter-spacing-font-weight-padding-bottom(
+        $font-size-s,
+        $max-width-s,
+        $text-transform-uppercase,
+        $font-size-a-s,
+        $svg-wh-s,
+    );
   }
 
+  // M
   @media (min-width: 768px) and (max-width: 991px) {
-    .heading-primary-main {
-      font-size: 45px;
-      letter-spacing: 25px;
-      @include heading-primary-main-fw-pb;
-    }
-
-    .heading-primary-sub {
-      font-size: 20px;
-      font-weight: $font-weight;
-      letter-spacing: 5px;
-    }
+    margin-top: 50px;
+    @include font-size-letter-spacing-font-weight-padding-bottom(
+        $font-size-m,
+        $max-width-m,
+        $text-transform-uppercase,
+        $font-size-a-m,
+        $svg-wh-m,
+    );
   }
 
+  // L
   @media (min-width: 992px) and (max-width: 1199px) {
-    .heading-primary-main {
-      font-size: 55px;
-      letter-spacing: 30px;
-      @include heading-primary-main-fw-pb;
-    }
-
-    .heading-primary-sub {
-      font-size: 25px;
-      font-weight: $font-weight;
-      letter-spacing: 10px;
-    }
+    margin-top: 100px;
+    @include font-size-letter-spacing-font-weight-padding-bottom(
+        $font-size-l,
+        $max-width-l,
+        $text-transform-uppercase,
+        $font-size-a-l,
+        $svg-wh-l,
+    );
   }
 }
 
