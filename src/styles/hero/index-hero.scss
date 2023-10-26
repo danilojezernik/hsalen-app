@@ -10,15 +10,16 @@
 .header {
   height: 95vh;
   background-image: linear-gradient(
-      to right bottom,
-      rgba($hero-header-dark-orange, 0.8),
-      rgba($hero-header-light-orange, 0.8)
+                  to right bottom,
+                  rgba($hero-header-dark-orange, 0.8),
+                  rgba($hero-header-light-orange, 0.8)
   ),
   url('../../assets/media/hero/nature-relax.jpg');
   position: relative;
   background-size: cover;
+  background-attachment: fixed;
   background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
 }
 
 .text-box {
@@ -47,10 +48,10 @@
     color: $color-white;
     animation: moveInLeft $animation;
     @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
-        $font-size-primary,
-        $letter-spacing-primary,
-        $font-weight-main,
-        $padding-bottom-sub
+                    $font-size-primary,
+                    $letter-spacing-primary,
+                    $font-weight-main,
+                    $padding-bottom-sub
     );
   }
 
@@ -58,10 +59,10 @@
     display: block;
     color: $color-white;
     @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
-        $font-size-sub,
-        $letter-spacing-sub,
-        $font-weight-sub-main,
-        $padding-bottom-sub
+                    $font-size-sub,
+                    $letter-spacing-sub,
+                    $font-weight-sub-main,
+                    $padding-bottom-sub
     );
     animation: moveInRight $animation;
   }
@@ -70,19 +71,19 @@
   @media (max-width: 575px) {
     &-main {
       @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
-          $font-size-primary-xs,
-          $letter-spacing-primary-xs,
-          $font-weight-sub-main,
-          $padding-bottom-main
+                      $font-size-primary-xs,
+                      $letter-spacing-primary-xs,
+                      $font-weight-sub-main,
+                      $padding-bottom-main
       );
     }
 
     &-sub {
       @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
-          $font-size-sub-xs,
-          $letter-spacing-sub-xs,
-          $font-weight-sub-main,
-          $padding-bottom-sub
+                      $font-size-sub-xs,
+                      $letter-spacing-sub-xs,
+                      $font-weight-sub-main,
+                      $padding-bottom-sub
       );
     }
   }
@@ -91,19 +92,19 @@
   @media (min-width: 576px) and (max-width: 767px) {
     &-main {
       @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
-          $font-size-primary-s,
-          $letter-spacing-primary-s,
-          $font-weight-sub-main,
-          $padding-bottom-main
+                      $font-size-primary-s,
+                      $letter-spacing-primary-s,
+                      $font-weight-sub-main,
+                      $padding-bottom-main
       );
     }
 
     &-sub {
       @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
-          $font-size-sub-s,
-          $letter-spacing-sub-s,
-          $font-weight-sub-main,
-          $padding-bottom-sub
+                      $font-size-sub-s,
+                      $letter-spacing-sub-s,
+                      $font-weight-sub-main,
+                      $padding-bottom-sub
       );
     }
   }
@@ -112,19 +113,19 @@
   @media (min-width: 768px) and (max-width: 991px) {
     &-main {
       @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
-          $font-size-primary-m,
-          $letter-spacing-primary-m,
-          $font-weight-sub-main,
-          $padding-bottom-main
+                      $font-size-primary-m,
+                      $letter-spacing-primary-m,
+                      $font-weight-sub-main,
+                      $padding-bottom-main
       );
     }
 
     &-sub {
       @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
-          $font-size-sub-m,
-          $letter-spacing-sub-m,
-          $font-weight-sub-main,
-          $padding-bottom-sub
+                      $font-size-sub-m,
+                      $letter-spacing-sub-m,
+                      $font-weight-sub-main,
+                      $padding-bottom-sub
       );
     }
   }
@@ -133,20 +134,26 @@
   @media (min-width: 992px) and (max-width: 1199px) {
     &-main {
       @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
-          $font-size-primary-l,
-          $letter-spacing-primary-l,
-          $font-weight-sub-main,
-          $padding-bottom-main
+                      $font-size-primary-l,
+                      $letter-spacing-primary-l,
+                      $font-weight-sub-main,
+                      $padding-bottom-main
       );
     }
 
     &-sub {
       @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
-          $font-size-sub-l,
-          $letter-spacing-sub-l,
-          $font-weight-sub-main,
-          $padding-bottom-sub
+                      $font-size-sub-l,
+                      $letter-spacing-sub-l,
+                      $font-weight-sub-main,
+                      $padding-bottom-sub
       );
     }
   }
 }
+
+
+
+
+
+

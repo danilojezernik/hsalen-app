@@ -2,30 +2,31 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {IndexComponent} from "./core/pages/public/index/index.component";
 import {BlogComponent} from "./core/pages/public/blog/blog.component";
-import {BlogAddComponent} from "./core/pages/private/blog-add/blog-add.component";
+import {BlogAddComponent} from "./core/pages/private/blog/blog-add/blog-add.component";
 import {LoginComponent} from "./core/pages/public/login/login.component";
 import {AdminComponent} from "./core/pages/private/admin/admin.component";
-import {BlogPregledComponent} from "./core/pages/private/blog-pregled/blog-pregled.component";
+import {BlogPregledComponent} from "./core/pages/private/blog/blog-pregled/blog-pregled.component";
 import {BlogBeriComponent} from "./core/pages/public/blog-beri/blog-beri.component";
-import {BlogUrediComponent} from "./core/pages/private/blog-uredi/blog-uredi.component";
+import {BlogUrediComponent} from "./core/pages/private/blog/blog-uredi/blog-uredi.component";
 import {HipnoterapijaComponent} from "./core/pages/public/hipnoterapija/hipnoterapija.component";
 import {SamohipnozaComponent} from "./core/pages/public/samohipnoza/samohipnoza.component";
 import {RegresijaComponent} from "./core/pages/public/regresija/regresija.component";
 import {NotFoundComponent} from "./core/pages/public/not-found/not-found.component";
 import {AuthGuardService} from "./core/services/auth/auth-guard.service";
 import {OmeniComponent} from "./core/pages/public/omeni/omeni.component";
-import {MedijiPregledComponent} from "./core/pages/private/mediji-pregled/mediji-pregled.component";
-import {MedijiUrediComponent} from "./core/pages/private/mediji-uredi/mediji-uredi.component";
-import {MedijiBeriComponent} from "./core/pages/private/mediji-beri/mediji-beri.component";
+import {MedijiPregledComponent} from "./core/pages/private/mediji/mediji-pregled/mediji-pregled.component";
+import {MedijiUrediComponent} from "./core/pages/private/mediji/mediji-uredi/mediji-uredi.component";
+import {MedijiBeriComponent} from "./core/pages/private/mediji/mediji-beri/mediji-beri.component";
 import {ContactComponent} from "./core/pages/public/contact/contact.component";
 import {EmailPregledComponent} from "./core/pages/private/email-pregled/email-pregled.component";
 import {GetIdComponent} from "./shared/components/dialog/get-id.component";
 import {JasnovidnostComponent} from "./core/pages/public/jasnovidnost/jasnovidnost.component";
 import {MedijstvoComponent} from "./core/pages/public/medijstvo/medijstvo.component";
 import {EventsComponent} from "./core/pages/public/events/events.component";
-import {EventsPregledComponent} from "./core/pages/private/events-pregled/events-pregled.component";
-import {EventsAddComponent} from "./core/pages/private/events-add/events-add.component";
-import {EventsUrediComponent} from "./core/pages/private/events-uredi/events-uredi.component";
+import {EventsPregledComponent} from "./core/pages/private/events/events-pregled/events-pregled.component";
+import {EventsAddComponent} from "./core/pages/private/events/events-add/events-add.component";
+import {EventsUrediComponent} from "./core/pages/private/events/events-uredi/events-uredi.component";
+import {SubscribersPregledComponent} from "./core/pages/private/subscribers/subscribers-pregled/subscribers-pregled.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -160,6 +161,13 @@ const routes: Routes = [
     path: 'email-pregled',
     component: EmailPregledComponent,
     title: 'Hypnosis studio Alen - Pregled emailov',
+    loadChildren: coreModuleLoader,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'subscribers',
+    component: SubscribersPregledComponent,
+    title: 'Hypnosis studio Alen - Pregled vpisanih',
     loadChildren: coreModuleLoader,
     canActivate: [AuthGuardService]
   },

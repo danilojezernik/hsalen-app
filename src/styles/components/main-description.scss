@@ -1,0 +1,78 @@
+/* --------------------------
+       INDEX DESCRIPTION
+------------------------------ */
+
+// IMPORT VARIABLES AND MIXIN
+@import "../abstracts/variables";
+@import "../abstracts/mixin";
+
+.top-bottom-padding {
+  padding: 60px 0;
+}
+
+.lead-description {
+  font-size: 1.25rem;
+}
+
+.heading-primary-description {
+  text-align: center;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  display: block;
+  color: $color-black;
+  animation: moveInRight $animation;
+  @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
+                  $font-size-description,
+                  $letter-spacing-description,
+                  $font-weight-description,
+                  $padding-bottom-description
+  );
+
+  // XS
+  @media (max-width: 575px) {
+    & {
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
+                      $font-size-description-xs,
+                      $letter-spacing-description-xs,
+                      $font-weight-description-xs-s,
+                      $padding-bottom-main
+      );
+    }
+  }
+
+  // S
+  @media (min-width: 576px) and (max-width: 767px) {
+    & {
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
+                      $font-size-description-s,
+                      $letter-spacing-description-s,
+                      $font-weight-description-xs-s,
+                      $padding-bottom-main
+      );
+    }
+  }
+
+  // M
+  @media (min-width: 768px) and (max-width: 991px) {
+    & {
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
+                      $font-size-description-m,
+                      $letter-spacing-description-m,
+                      $font-weight-description,
+                      $padding-bottom-main
+      );
+    }
+  }
+
+  // L
+  @media (min-width: 992px) and (max-width: 1199px) {
+    & {
+      @include font-size-letter-spacing-font-weight-padding-bottom-index-hero(
+                      $font-size-description-l,
+                      $letter-spacing-description-l,
+                      $font-weight-description,
+                      $padding-bottom-main
+      );
+    }
+  }
+}

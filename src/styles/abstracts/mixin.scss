@@ -32,3 +32,9 @@
   font-weight: $fw;
   padding-bottom: $pb;
 }
+
+@mixin font-size-letter-spacing-font-weight-book($fs, $ls, $fw) {
+  font-size: $fs;
+  letter-spacing: $ls;
+  font-weight: $fw;
+}

@@ -8,6 +8,7 @@ export interface Events {
   location: string;
   show_notification: boolean;
   start_date: string;
+  start_time: string;
   event_length: string;
   datum_vnosa: string;
 }

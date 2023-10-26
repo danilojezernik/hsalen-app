@@ -11,9 +11,11 @@
 @import "bootstrap/scss/reboot";
 
 @import "bootstrap/scss/card";
+@import "bootstrap/scss/buttons";
 @import "bootstrap/scss/list-group";
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/navbar";
+@import "bootstrap/scss/images";
 
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
@@ -22,13 +24,18 @@
 
 @import "styles/global";
 
+@import "styles/abstracts/mixin";
+
+@import "styles/animations/animations";
+
 @import "styles/hero/index-hero";
 @import "styles/hero/breadcrumb-hero";
-@import "styles/components/index-notification";
+
 @import "styles/components/spinner";
-@import "styles/animations/animations";
+@import "styles/components/book";
 @import "styles/components/card";
 @import "styles/components/pagination";
 @import "styles/components/error";
 @import "styles/components/button";
-@import "styles/abstracts/mixin";
+@import "styles/components/main-description";
+@import "styles/components/index-notification";

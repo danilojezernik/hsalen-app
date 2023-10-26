@@ -22,48 +22,57 @@ import {ErrorBackendComponent} from './components/error/error-backend-admin/erro
 import {ErrorBackendClientComponent} from './components/error/error-backend-client/error-backend-client.component';
 import {HeroBreadcrumbsComponent} from './components/hero/hero-breadcrumbs/hero-breadcrumbs.component';
 import {FirstLetterCapitaldPipe} from './pipes/first-letter-capitalized/first-letter-capitald.pipe';
+import {HipnoterapijaComponent} from './components/pomaga/hipnoterapija/hipnoterapija.component';
+import {JasnovidnostComponent} from './components/pomaga/jasnovidnost/jasnovidnost.component';
+import {MedijstvoComponent} from './components/pomaga/medijstvo/medijstvo.component';
+import {MainDescriptionComponent} from './components/main-description/main-description.component';
 
 
 @NgModule({
-  declarations: [
-    GoBackComponent,
-    KnjigaComponent,
-    SpinnerComponent,
-    HeroComponent,
-    OfferComponent,
-    NotificationComponent,
-    SlovenainDatePipe,
-    ErrorBackendComponent,
-    ErrorBackendClientComponent,
-    HeroBreadcrumbsComponent,
-    FirstLetterCapitaldPipe
-  ],
-  exports: [
-    GoBackComponent,
-    KnjigaComponent,
-    SpinnerComponent,
-    HeroComponent,
-    OfferComponent,
-    NotificationComponent,
-    SlovenainDatePipe,
-    ErrorBackendComponent,
-    ErrorBackendClientComponent,
-    HeroBreadcrumbsComponent
-  ],
-  imports: [
-    CommonModule,
-    MatProgressSpinnerModule,
-    FormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDialogModule,
-    MatIconModule,
-    MatPaginatorModule,
-    MatTableModule,
-    RouterLink,
-    MatSnackBarModule
-  ]
+    declarations: [
+        GoBackComponent,
+        KnjigaComponent,
+        SpinnerComponent,
+        HeroComponent,
+        OfferComponent,
+        NotificationComponent,
+        SlovenainDatePipe,
+        ErrorBackendComponent,
+        ErrorBackendClientComponent,
+        HeroBreadcrumbsComponent,
+        FirstLetterCapitaldPipe,
+        HipnoterapijaComponent,
+        JasnovidnostComponent,
+        MedijstvoComponent,
+        MainDescriptionComponent
+    ],
+    exports: [
+        GoBackComponent,
+        KnjigaComponent,
+        SpinnerComponent,
+        HeroComponent,
+        OfferComponent,
+        NotificationComponent,
+        SlovenainDatePipe,
+        ErrorBackendComponent,
+        ErrorBackendClientComponent,
+        HeroBreadcrumbsComponent,
+        MainDescriptionComponent
+    ],
+    imports: [
+        CommonModule,
+        MatProgressSpinnerModule,
+        FormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDialogModule,
+        MatIconModule,
+        MatPaginatorModule,
+        MatTableModule,
+        RouterLink,
+        MatSnackBarModule
+    ]
 })
 export class SharedModule {
 }

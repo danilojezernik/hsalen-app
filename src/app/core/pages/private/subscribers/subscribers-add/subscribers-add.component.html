@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Dodaj osebo za e-novičke</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="addingSubscriberForm" (ngSubmit)="addSubscriber()">
+
+    <mat-form-field style="width: 30%" class="pe-1">
+      <mat-label>Ime</mat-label>
+      <input type="text" formControlName="name" required matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 30%" class="pe-1">
+      <mat-label>Priimek</mat-label>
+      <input type="text" formControlName="surname" required matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 40%" class="pe-1">
+      <mat-label>Email</mat-label>
+      <input type="text" formControlName="email" required matInput>
+    </mat-form-field>
+
+    <div class="d-grid gap-2 d-md-block">
+      <button mat-button mat-dialog-close>Zapri okno</button>
+      <button mat-raised-button color="warn" type="submit" [disabled]="addingSubscriberForm.invalid">Dodaj osebo</button>
+    </div>
+
+  </form>
+</div>

@@ -2,18 +2,23 @@
           VARIABLES
 ------------------------------ */
 
+
 // ANIMATION
 $animation: 1s ease-out;
 $translate: translate(-50%, -50%); // center in index header
 $animation-and-delay: 1s ease-in .5s;
+
 
 // MAIN COLOR
 $hero-header-light-orange: #FF8C00;
 $hero-header-medium-orange: #F5761A;
 $hero-header-dark-orange: #FF5733;
 
+
 // COLORS
 $color-white: #fff;
+$color-black: #000;
+
 
 // BUTTON: hover - active
 $box-shadow-hover-px: -3px;
@@ -24,12 +29,15 @@ $box-shadow-active-px: -1px;
 $box-shadow-active-v: 5px;
 $box-shadow-active-b: 10px;
 
+
 // MARGIN
 $margin: 0 5px;
+
 
 // TEXT
 $text-decoration: none;
 $text-transform-uppercase: uppercase;
+
 
 // VARIABLES and MIXIN FOR INDEX NOTIFICATION @media
 
@@ -55,6 +63,7 @@ $font-size-a-m: 1.2rem;
 $font-size-l: 24px;
 $max-width-l: 900px;
 $font-size-a-l: 1.2rem;
+
 
 // VARIABLES and MIXIN FOR INDEX HERO AND @media
 
@@ -93,3 +102,107 @@ $letter-spacing-sub-m: 5px;
 // L
 $font-size-sub-l: 25px;
 $letter-spacing-sub-l: 10px;
+
+
+// GRID
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-horizontal: 2rem;
+
+
+//VARIABLE FOR INDEX DESCRIPTION
+
+// MAIN from XS to L
+$font-size-description: 2.5rem;
+$letter-spacing-description: 15px;
+$font-weight-description: 400;
+$padding-bottom-description: 30px;
+
+$font-weight-description-xs-s: 700;
+
+// XS
+$font-size-description-xs: 1.5rem;
+$letter-spacing-description-xs: 5px;
+
+// S
+$font-size-description-s: 1.7rem;
+$letter-spacing-description-s: 10px;
+
+// M
+$font-size-description-m: 1.7rem;
+$letter-spacing-description-m: 10px;
+
+// L
+$font-size-description-l: 2rem;
+$letter-spacing-description-l: 10px;
+
+// SUB from XS to L
+$font-size-description: 2.5rem;
+$letter-spacing-description: 15px;
+$font-weight-description: 400;
+
+$font-weight-description-xs-s: 700;
+
+// XS
+$font-size-description-xs: 1.5rem;
+$letter-spacing-description-xs: 5px;
+
+// S
+$font-size-description-s: 1.7rem;
+$letter-spacing-description-s: 10px;
+
+// M
+$font-size-description-m: 1.7rem;
+$letter-spacing-description-m: 10px;
+
+// L
+$font-size-description-l: 2rem;
+$letter-spacing-description-l: 10px;
+
+//VARIABLE FOR BOOK
+
+// MAIN from XS to L
+$font-size-book-main: 2.5rem;
+$letter-spacing-book-main: 15px;
+$font-weight-book-main: 400;
+
+$font-weight-book-main-xs-s: 700;
+
+// XS
+$font-size-book-main-xs: 1.5rem;
+$letter-spacing-main-book-xs: 5px;
+
+// S
+$font-size-book-main-s: 1.6rem;
+$letter-spacing-book-main-s: 10px;
+
+// M
+$font-size-book-main-m: 1.6rem;
+$letter-spacing-book-main-m: 10px;
+
+// L
+$font-size-book-main-l: 2rem;
+$letter-spacing-book-main-l: 10px;
+
+// SUB from XS to L
+$font-size-book-sub: 1rem;
+$letter-spacing-book-sub: 5px;
+$font-weight-book-sub: 400;
+
+$font-weight-book-sub-xs-s: 700;
+
+// XS
+$font-size-book-sub-xs: 0.8rem;
+$letter-spacing-book-sub-xs: 5px;
+
+// S
+$font-size-book-sub-s: 0.9rem;
+$letter-spacing-book-sub-s: 5px;
+
+// M
+$font-size-book-sub-m: 0.9rem;
+$letter-spacing-book-sub-m: 5px;
+
+// L
+$font-size-book-sub-l: 1rem;
+$letter-spacing-book-sub-l: 5px;

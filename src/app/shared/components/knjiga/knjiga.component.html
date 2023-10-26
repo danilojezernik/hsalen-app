@@ -1,23 +1,19 @@
-<!-- PRIKAZ KNJIGA -->
-<div class="container py-5">
-  <div *ngIf="knjiga" class="card">
-    <div class="card-body d-flex">
-      <div class="row justify-content-center align-items-center">
-        <div class="col-md-4">
-          <img src="assets/media/knjiga/knjigaalen.jpg" class="img-fluid rounded" alt="Zakaj se rodimo in zakaj umremo">
+<div class="header-book d-flex align-items-center justify-content-center">
+    <div class="container" *ngIf="knjiga">
+        <div class="heading-primary-book">
+            <span class="heading-primary-book-main">{{ knjiga['naslov'] }}</span>
+            <span class="heading-primary-book-sub">{{ knjiga['podnaslov'] }}</span>
         </div>
-        <div class="col-md-8">
-          <div class="d-flex flex-column">
-            <div class="mb-auto">
-              <h2 class="fw-bold fs-3">{{ knjiga['naslov'] }}</h2>
-              <p class="lead">{{ knjiga['podnaslov'] }}</p>
+
+        <div class="row d-flex align-items-center pt-5">
+            <div class="col-md-4">
+                <img src="assets/media/knjiga/knjigaalen.png" class="img-fluid" alt="Zakaj se rodimo in zakaj umremo">
             </div>
-            <div class="mt-3">
-              <p class="text-justify" [innerHTML]="knjiga['opis']"></p>
+            <div class="col-md-8">
+                <p [innerHTML]="knjiga['opis']">
+
+                </p>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

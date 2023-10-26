@@ -1,7 +1,8 @@
 <div *ngFor="let event of events">
   <div *ngIf="event['show_notification'] === true">
     <div class="bg-transparent p-3 fs-4 parent">
-      Dne {{event['start_date'] | date}} se bo odvijal dogodek {{event['event']}} na lokaciji {{event['location']}} in bo
+      Dne {{event['start_date'] | date}} ob {{ event['start_time'] }}, se bo odvijal dogodek {{event['event']}} na lokaciji {{event['location']}} in
+      bo
       trajal {{event['event_length']}}.
       <a class="text-decoration-none center-anchor" routerLink="/dogodki">
         Preverite več o dogodku

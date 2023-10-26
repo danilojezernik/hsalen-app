@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {trace} from "../../../utils/trace";
 import {HttpClient} from "@angular/common/http";
 import {EventsService} from "../../../services/api/events.service";
 
@@ -23,7 +22,6 @@ export class IndexComponent implements OnInit {
   ) {
   }
 
-  @trace()
   ngOnInit() {
     const path: string = 'assets/index.json'
     this.db.get(path).subscribe((response) => {
@@ -35,7 +33,6 @@ export class IndexComponent implements OnInit {
         }
       }
     )
-    
     this.getEventNotification()
   }
 

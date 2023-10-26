@@ -1,0 +1,149 @@
+/* --------------------------
+          GRID LAYOUT
+------------------------------ */
+
+// IMPORT VARIABLES
+@import "../../styles/abstracts/variables";
+
+.row {
+
+  max-width: $grid-width;
+  background-color: #eee;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  // * - vsak class, ki vsebuje col- ...
+  // ^ - vsak class ki se začne z col- ...
+  // $ vsak class ki se konča z col- ...
+
+  [class^="col-"] {
+    background-color: #F5761A;
+    float: left;
+    color: white;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  /*
+
+  .col-1-of-2:
+  This class defines a column that takes up 1/2 of the available width.
+  The calc() function is used to calculate the width as (100% - #{$gutter-horizontal}) / 2.
+  Here, 100% represents the full width available to the columns, and #{$gutter-horizontal} is subtracted from it
+  to account for the gutter (spacing between columns). Then, the result is divided by 2 to get 1/2 of the available width.
+
+  .col-1-of-3, .col-2-of-3:
+  These classes define columns that take up 1/3 and 2/3 of the available width, respectively.
+  The calc() function is used to calculate the width for .col-1-of-3 as (100% - 2 * #{$gutter-horizontal}) / 3
+  and for .col-2-of-3 as 2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}.
+  In both cases, the gutter space is subtracted from the available width, and the result is divided by the number of columns to determine the width.
+
+  .col-1-of-4, .col-2-of-4, .col-3-of-4:
+  These classes define columns that take up 1/4, 2/4 (1/2), and 3/4 of the available width, respectively.
+  The calc() function is used to calculate the width for these classes in a similar manner,
+  considering the gutter spacing and dividing the available width accordingly.
+
+  */
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+  }
+
+  .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+  }
+
+}
+
+/*
+<section class="grid-test">
+
+<div class="row">
+<div class="col-1-of-2">
+                       Col 1 of 2
+</div>
+<div class="col-1-of-2">
+                       Col 1 of 2
+</div>
+</div>
+
+<div class="row">
+<div class="col-1-of-3">
+                       Col 1 of 3
+</div>
+<div class="col-1-of-3">
+                       Col 1 of 3
+</div>
+<div class="col-1-of-3">
+                       Col 1 of 3
+</div>
+</div>
+
+<div class="row">
+<div class="col-1-of-3">
+                       Col 1 of 3
+</div>
+<div class="col-2-of-3">
+                       Col 2 of 3
+</div>
+</div>
+
+<div class="row">
+<div class="col-1-of-4">
+                       Col 1 of 4
+</div>
+<div class="col-1-of-4">
+                       Col 2 of 4
+</div>
+<div class="col-1-of-4">
+                       Col 1 of 4
+</div>
+<div class="col-1-of-4">
+                       Col 1 of 4
+</div>
+</div>
+
+<div class="row">
+<div class="col-1-of-4">
+                       Col 1 of 4
+</div>
+<div class="col-1-of-4">
+                       Col 1 of 4
+</div>
+<div class="col-2-of-4">
+                       Col 2 of 4
+</div>
+</div>
+
+<div class="row">
+<div class="col-1-of-4">
+                       Col 1 of 4
+</div>
+<div class="col-3-of-4">
+                       Col 3 of 4
+</div>
+</div>
+
+</section>
+*/

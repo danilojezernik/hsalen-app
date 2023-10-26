@@ -1,0 +1,130 @@
+/* --------------------------
+          BOOK
+------------------------------ */
+
+// IMPORT VARIABLES AND MIXIN
+@import "../abstracts/variables";
+@import "../abstracts/mixin";
+
+// STYLE
+.header-book {
+  height: auto;
+  padding: 100px 0;
+  background-image: linear-gradient(
+                  to right bottom,
+                  rgba($hero-header-dark-orange, 0.8),
+                  rgba($hero-header-light-orange, 0.8)
+  ),
+  url('../../assets/media/hero/nature-relax.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top;
+  clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+}
+
+.heading-primary-book {
+  text-align: center;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+
+  &-main {
+    display: block;
+    color: $color-white;
+    animation: moveInRight $animation;
+    @include font-size-letter-spacing-font-weight-book(
+                    $font-size-book-main,
+                    $letter-spacing-book-main,
+                    $font-weight-book-main,
+    );
+  }
+
+  &-sub {
+    display: block;
+    color: $color-white;
+    animation: moveInLeft $animation;
+    @include font-size-letter-spacing-font-weight-book(
+                    $font-size-book-sub,
+                    $letter-spacing-book-sub,
+                    $font-weight-book-sub,
+    );
+  }
+
+
+  // XS
+  @media (max-width: 575px) {
+    &-main {
+      @include font-size-letter-spacing-font-weight-book(
+                      $font-size-book-main-xs,
+                      $letter-spacing-main-book-xs,
+                      $font-weight-description-xs-s,
+      );
+    }
+    &-sub {
+      @include font-size-letter-spacing-font-weight-book(
+                      $font-size-book-sub-xs,
+                      $letter-spacing-book-sub-xs,
+                      $font-weight-description-xs-s,
+      );
+    }
+  }
+
+  // S
+  @media (min-width: 576px) and (max-width: 767px) {
+
+    &-main {
+      @include font-size-letter-spacing-font-weight-book(
+                      $font-size-book-main-s,
+                      $letter-spacing-book-main-s,
+                      $font-weight-description-xs-s,
+      );
+    }
+
+    &-sub {
+      @include font-size-letter-spacing-font-weight-book(
+                      $font-size-book-sub-s,
+                      $letter-spacing-book-sub-s,
+                      $font-weight-description-xs-s,
+      );
+    }
+  }
+
+  // M
+  @media (min-width: 768px) and (max-width: 991px) {
+
+    &-main {
+      @include font-size-letter-spacing-font-weight-book(
+                      $font-size-book-main-m,
+                      $letter-spacing-book-main-m,
+                      $font-weight-description,
+      );
+    }
+
+    &-sub {
+      @include font-size-letter-spacing-font-weight-book(
+                      $font-size-book-sub-m,
+                      $letter-spacing-book-sub-m,
+                      $font-weight-description,
+      );
+    }
+  }
+
+  // L
+  @media (min-width: 992px) and (max-width: 1199px) {
+
+    &-main {
+      @include font-size-letter-spacing-font-weight-book(
+                      $font-size-book-main-l,
+                      $letter-spacing-book-main-l,
+                      $font-weight-description,
+      );
+    }
+
+    &-sub {
+      @include font-size-letter-spacing-font-weight-book(
+                      $font-size-book-sub-l,
+                      $letter-spacing-book-sub-l,
+                      $font-weight-description,
+      );
+    }
+  }
+}
