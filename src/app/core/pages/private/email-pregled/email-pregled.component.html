@@ -48,7 +48,7 @@
       <ng-container matColumnDef="datum_vnosa">
         <th mat-header-cell *matHeaderCellDef> Datum prejetja</th>
         <td mat-cell *matCellDef="let element">
-          {{element.datum_vnosa | date: 'MMM d, y, H:mm:ss' }}
+          {{element.datum_vnosa | slovenianDateTime }}
         </td>
       </ng-container>
 
