@@ -1,0 +1,37 @@
+<p *ngIf="subscriber" class="text-center pt-5 pb-4 fs-3">
+  Uredi blog za: {{subscriber['name']}} {{subscriber['surname']}} - {{subscriber['email']}}
+</p>
+
+<div class="container bg-white p-0 shadow">
+
+  <form class="example-form" [formGroup]="subscriberForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Ime</mat-label>
+          <input name="name" matInput formControlName="name"/>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Priimek</mat-label>
+          <input name="surname" matInput formControlName="surname"/>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field style="width: 100%;">
+          <mat-label>E-mail</mat-label>
+          <input name="email" matInput formControlName="email"/>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <button style="width: 100%" class="rounded-0" mat-raised-button color="primary" type="submit">Shrani spremembe</button>
+  </form>
+</div>
+
+<div *ngIf="spinner">
+  <app-spinner></app-spinner>
+</div>
+
+<app-go-back></app-go-back>

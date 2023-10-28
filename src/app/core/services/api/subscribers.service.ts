@@ -28,6 +28,22 @@ export class SubscribersService {
   }
 
   /**
+   * Fetches an event by its ID.
+   * @param id The ID of an event to fetch.
+   * @returns An observable of the specified event.
+   */
+  getSubscriberById(id: string): Observable<Subscriber> {
+    return this.http.get<Subscriber>(`${environment.backUrl}/subscribers/${id}`).pipe(
+      catchError(error => {
+        // Log an error message if an error occurs during the API call
+        console.error("Error getting all subscribers:", error)
+        // Return a new observable with an error message if there's an error
+        return throwError('Something went wrong')
+      })
+    )
+  }
+
+  /**
    * Adds a new subscriber.
    * @param newSubscriber The new subscriber to be added.
    * @returns An observable of the added subscriber.
@@ -38,6 +54,23 @@ export class SubscribersService {
       catchError(error => {
         // Log an error message if an error occurs during the API call
         console.error("Error adding new subscriber:", error);
+        // Return a new observable with an error message if there's an error
+        return throwError('Something went wrong')
+      })
+    )
+  }
+
+  /**
+   * Edits a subscriber in the admin interface.
+   * @param id The ID of a subscriber to edit.
+   * @param newSubscriber The updated content for the subscriber.
+   * @returns An observable of the updated subscriber.
+   */
+  editSubscriber(id: string, newSubscriber: Subscriber) {
+    return this.http.put<Subscriber>(`${environment.backUrl}/subscribers/${id}`, newSubscriber).pipe(
+      catchError(error => {
+        // Log an error message if an error occurs during the API call
+        console.error("Error adding event for admin:", error);
         // Return a new observable with an error message if there's an error
         return throwError('Something went wrong')
       })

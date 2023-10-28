@@ -44,6 +44,7 @@ import {EventsUrediComponent} from './pages/private/events/events-uredi/events-u
 import {MatSelectModule} from "@angular/material/select";
 import {SubscribersPregledComponent} from './pages/private/subscribers/subscribers-pregled/subscribers-pregled.component';
 import { SubscribersAddComponent } from './pages/private/subscribers/subscribers-add/subscribers-add.component';
+import { SubscribersEditComponent } from './pages/private/subscribers/subscribers-edit/subscribers-edit.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { SubscribersAddComponent } from './pages/private/subscribers/subscribers
     EventsAddComponent,
     EventsUrediComponent,
     SubscribersPregledComponent,
-    SubscribersAddComponent
+    SubscribersAddComponent,
+    SubscribersEditComponent
   ],
   exports: [
     BlogAddComponent,

@@ -27,6 +27,7 @@ import {EventsPregledComponent} from "./core/pages/private/events/events-pregled
 import {EventsAddComponent} from "./core/pages/private/events/events-add/events-add.component";
 import {EventsUrediComponent} from "./core/pages/private/events/events-uredi/events-uredi.component";
 import {SubscribersPregledComponent} from "./core/pages/private/subscribers/subscribers-pregled/subscribers-pregled.component";
+import {SubscribersEditComponent} from "./core/pages/private/subscribers/subscribers-edit/subscribers-edit.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -168,6 +169,13 @@ const routes: Routes = [
     path: 'subscribers',
     component: SubscribersPregledComponent,
     title: 'Hypnosis studio Alen - Pregled vpisanih',
+    loadChildren: coreModuleLoader,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'subscribers/edit/:id',
+    component: SubscribersEditComponent,
+    title: 'Hypnosis studio Alen - Uredi vpisanega',
     loadChildren: coreModuleLoader,
     canActivate: [AuthGuardService]
   },
