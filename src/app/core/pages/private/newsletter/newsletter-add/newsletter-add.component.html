@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Dodaj objavo</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="addingNewsletterForm" (ngSubmit)="sendNewsletter()">
+
+    <mat-form-field style="width: 100%">
+      <mat-label>Naslov</mat-label>
+      <input type="text" formControlName="title" required matInput>
+    </mat-form-field>
+
+    <angular-editor formControlName="content" [config]="editorConfig" required></angular-editor>
+
+    <div class="pt-2">
+      <button mat-raised-button color="primary" type="submit" [disabled]="addingNewsletterForm.invalid">Pošlji e-novičke</button>
+      <button class="float-end" color="warn" mat-button mat-raised-button mat-dialog-close>Zapri okno</button>
+    </div>
+  </form>
+</div>
+<div *ngIf="spinner">
+  <app-spinner></app-spinner>
+</div>

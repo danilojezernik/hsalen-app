@@ -28,6 +28,7 @@ import {EventsAddComponent} from "./core/pages/private/events/events-add/events-
 import {EventsUrediComponent} from "./core/pages/private/events/events-uredi/events-uredi.component";
 import {SubscribersPregledComponent} from "./core/pages/private/subscribers/subscribers-pregled/subscribers-pregled.component";
 import {SubscribersEditComponent} from "./core/pages/private/subscribers/subscribers-edit/subscribers-edit.component";
+import {NewsletterPregledComponent} from "./core/pages/private/newsletter/newsletter-pregled/newsletter-pregled.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -162,6 +163,13 @@ const routes: Routes = [
     path: 'email-pregled',
     component: EmailPregledComponent,
     title: 'Hypnosis studio Alen - Pregled emailov',
+    loadChildren: coreModuleLoader,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'newsletter-pregled',
+    component: NewsletterPregledComponent,
+    title: 'Hypnosis studio Alen - Pregled e-novičk',
     loadChildren: coreModuleLoader,
     canActivate: [AuthGuardService]
   },

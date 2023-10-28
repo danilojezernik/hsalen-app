@@ -21,6 +21,8 @@ export class BlogAddComponent implements OnInit {
   addingPostForm: FormGroup = new FormGroup({}) // FormGroup for post form
   editorConfig: AngularEditorConfig = sharedEditorConfig
 
+  spinner: boolean = false;
+
   constructor(
     private api: BlogService,
     public dialog: MatDialog,
@@ -53,9 +55,11 @@ export class BlogAddComponent implements OnInit {
       datum_vnosa: new Date().toISOString()
     };
 
+    this.spinner = true;
     // Call the BlogService to add a new post
     this.api.addNewBlogAdmin(newBlog).subscribe(
       (data) => {
+        this.spinner = false;
         this.snackbarService.showSnackbar(`Blog ${data.naslov.toUpperCase()} je bil uspešno dodan!`)
         // Update the post data
         this.blog = this.api.getAllBlogAdmin()
@@ -66,6 +70,7 @@ export class BlogAddComponent implements OnInit {
       },
       (error) => {
         console.error('Error adding post:', error);
+        this.spinner = false;
       }
     );
   }
