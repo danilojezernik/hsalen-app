@@ -92,4 +92,21 @@ export class SubscribersService {
       })
     )
   }
+
+  /**
+   * Adds a new client subscriber.
+   * @param newSubscriber The new subscriber to be added.
+   * @returns An observable of the added subscriber.
+   */
+  clientSubscribe(newSubscriber: Subscriber): Observable<Subscriber> {
+    // Using Angular HttpClient to make a POST request to the specified API endpoint
+    return this.http.post<Subscriber>(`${environment.backUrl}/subscribers/subscribe`, newSubscriber).pipe(
+      catchError(error => {
+        // Log an error message if an error occurs during the API call
+        console.error("Error adding new subscriber:", error);
+        // Return a new observable with an error message if there's an error
+        return throwError('Something went wrong')
+      })
+    )
+  }
 }

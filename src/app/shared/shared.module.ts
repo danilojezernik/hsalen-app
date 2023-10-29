@@ -27,6 +27,8 @@ import {JasnovidnostComponent} from './components/pomaga/jasnovidnost/jasnovidno
 import {MedijstvoComponent} from './components/pomaga/medijstvo/medijstvo.component';
 import {MainDescriptionComponent} from './components/main-description/main-description.component';
 import {SlovenianDateTimePipe} from "./pipes/slovenian-date-time/slovenian-date-time.pipe";
+import {HeroDashboardComponent} from './components/hero/hero-dashboard/hero-dashboard.component';
+import {HideHeaderFooterDirective} from './directive/hide-header-footer.directive';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import {SlovenianDateTimePipe} from "./pipes/slovenian-date-time/slovenian-date-
     JasnovidnostComponent,
     MedijstvoComponent,
     MainDescriptionComponent,
-    SlovenianDateTimePipe
+    SlovenianDateTimePipe,
+    HeroDashboardComponent,
+    HideHeaderFooterDirective
   ],
   exports: [
     GoBackComponent,
@@ -63,7 +67,9 @@ import {SlovenianDateTimePipe} from "./pipes/slovenian-date-time/slovenian-date-
     HipnoterapijaComponent,
     JasnovidnostComponent,
     MedijstvoComponent,
-    SlovenianDateTimePipe
+    SlovenianDateTimePipe,
+    HeroDashboardComponent,
+    HideHeaderFooterDirective
   ],
   imports: [
     CommonModule,

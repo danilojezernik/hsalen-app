@@ -17,6 +17,14 @@ export class MedijiUrediComponent implements OnInit {
   mediji: any;
   blogForm: FormGroup;
   editorConfig: AngularEditorConfig = sharedEditorConfig
+
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    path: 'Uredi v medijih',
+    goBack: 'V medijih pregled'
+  }
+
   spinner: boolean = false;
 
   constructor(

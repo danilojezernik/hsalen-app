@@ -21,6 +21,12 @@ export class SubscribersPregledComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<Subscriber>()
   displayColumns: string[] = ['subscriber_id', 'name', 'surname', 'email', 'datum_vnosa', 'action']
 
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    path: 'Pregled vpisanih v e-novičke'
+  }
+
   private destroy$: Subject<boolean> = new Subject<boolean>()
 
   /**

@@ -1,5 +1,6 @@
 <div class="container-fluid p-0">
-  <app-header></app-header>
+  <app-header *ngIf="!sharedService.dontShowHeaderFooter"></app-header>
   <router-outlet></router-outlet>
+  <app-footer *ngIf="!sharedService.dontShowHeaderFooter"></app-footer>
 </div>
 <app-go-back *ngIf="shouldShowGoBack"></app-go-back>

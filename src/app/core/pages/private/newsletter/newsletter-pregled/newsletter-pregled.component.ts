@@ -22,6 +22,12 @@ export class NewsletterPregledComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<Newsletter>()
   displayColumns: string[] = ['newsletter_id', 'title', 'datum_vnosa', 'action']
 
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    path: 'Pregled e-novičk'
+  }
+
   private destroy$: Subject<boolean> = new Subject<boolean>()
 
   /**

@@ -43,10 +43,12 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {EventsUrediComponent} from './pages/private/events/events-uredi/events-uredi.component';
 import {MatSelectModule} from "@angular/material/select";
 import {SubscribersPregledComponent} from './pages/private/subscribers/subscribers-pregled/subscribers-pregled.component';
-import { SubscribersAddComponent } from './pages/private/subscribers/subscribers-add/subscribers-add.component';
-import { SubscribersEditComponent } from './pages/private/subscribers/subscribers-edit/subscribers-edit.component';
-import { NewsletterPregledComponent } from './pages/private/newsletter/newsletter-pregled/newsletter-pregled.component';
-import { NewsletterAddComponent } from './pages/private/newsletter/newsletter-add/newsletter-add.component';
+import {SubscribersAddComponent} from './pages/private/subscribers/subscribers-add/subscribers-add.component';
+import {SubscribersEditComponent} from './pages/private/subscribers/subscribers-edit/subscribers-edit.component';
+import {NewsletterPregledComponent} from './pages/private/newsletter/newsletter-pregled/newsletter-pregled.component';
+import {NewsletterAddComponent} from './pages/private/newsletter/newsletter-add/newsletter-add.component';
+import {FooterComponent} from './footer/footer.component';
+import {SuccessComponent} from './pages/public/success/success.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +83,9 @@ import { NewsletterAddComponent } from './pages/private/newsletter/newsletter-ad
     SubscribersAddComponent,
     SubscribersEditComponent,
     NewsletterPregledComponent,
-    NewsletterAddComponent
+    NewsletterAddComponent,
+    FooterComponent,
+    SuccessComponent
   ],
   exports: [
     BlogAddComponent,
@@ -111,7 +115,13 @@ import { NewsletterAddComponent } from './pages/private/newsletter/newsletter-ad
     EventsPregledComponent,
     EventsAddComponent,
     EventsUrediComponent,
-    SubscribersPregledComponent
+    SubscribersPregledComponent,
+    SubscribersAddComponent,
+    SubscribersEditComponent,
+    NewsletterPregledComponent,
+    NewsletterAddComponent,
+    FooterComponent,
+    SuccessComponent
   ],
   imports: [
     CommonModule,

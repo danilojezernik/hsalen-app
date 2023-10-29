@@ -1,0 +1,41 @@
+<section class="header-hero">
+  <div class="breadcrumb-text">
+    <h1>{{hero?.admin}}</h1>
+  </div>
+  <div class="breadcrumb">
+    <a routerLink="/login">Login</a>
+    <span *ngIf="hero?.action">
+      <span class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="24" height="24" viewBox="0 0 24 24"
+             stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <path d="M7 7l5 5l-5 5"></path>
+           <path d="M13 7l5 5l-5 5"></path>
+        </svg>
+      </span>
+        <a routerLink="/admin">{{hero?.action}}</a>
+    </span>
+    <span *ngIf="hero?.goBack">
+      <span class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="24" height="24" viewBox="0 0 24 24"
+             stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <path d="M7 7l5 5l-5 5"></path>
+           <path d="M13 7l5 5l-5 5"></path>
+        </svg>
+      </span>
+        <a href="javascript:void(0)" (click)="goBack()">{{hero?.goBack}}</a>
+    </span>
+
+
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="24" height="24" viewBox="0 0 24 24"
+           stroke-width="2" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+       <path d="M7 7l5 5l-5 5"></path>
+       <path d="M13 7l5 5l-5 5"></path>
+      </svg>
+    </span>
+    <span class="text-white" [innerHTML]="hero?.path | firstLetterCapitald"></span>
+  </div>
+</section>

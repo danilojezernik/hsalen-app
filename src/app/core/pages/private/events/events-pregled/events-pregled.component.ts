@@ -21,6 +21,12 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<Events>()
   displayColumns: string[] = ['event', 'location', 'start_date', 'start_time', 'event_length', 'show_notification', 'datum_vnosa', 'action']
 
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    path: 'Pregled dogodkov'
+  }
+
   private destroy$: Subject<boolean> = new Subject<boolean>()
 
   /**

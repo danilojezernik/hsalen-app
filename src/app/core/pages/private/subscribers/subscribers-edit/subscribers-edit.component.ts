@@ -14,6 +14,13 @@ export class SubscribersEditComponent implements OnInit {
   subscriberId: any;
   subscriberForm: FormGroup = new FormGroup({})
 
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    path: 'Uredi podatke vpisanega',
+    goBack: 'Pregled vpisanih v e-novičke'
+  }
+
   spinner: boolean = false;
 
   constructor(

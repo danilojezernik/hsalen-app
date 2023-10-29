@@ -9,6 +9,7 @@ import {BlogAddComponent} from "../blog-add/blog-add.component";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
 import {CalcIndexService} from "../../../../services/calc-index/calc-index.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-blog-pregled',
@@ -19,6 +20,12 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
   blog: any | undefined;
   dataSource = new MatTableDataSource<Blog>()
   displayColumns: string[] = ['blog_id', 'naslov', 'podnaslov', 'datum_vnosa', 'kategorija', 'action']
+
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    path: 'Blog pregled'
+  }
 
   spinner: boolean = false;
 

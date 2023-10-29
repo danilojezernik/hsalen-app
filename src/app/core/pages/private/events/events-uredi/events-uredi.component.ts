@@ -18,6 +18,13 @@ export class EventsUrediComponent implements OnInit {
   eventForm: FormGroup = new FormGroup({});
   editorConfig: AngularEditorConfig = sharedEditorConfig
 
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    path: 'Uredi dogodek',
+    goBack: 'Pregled dogodkov'
+  }
+
   spinner: boolean = false
 
   constructor(

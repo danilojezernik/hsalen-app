@@ -29,6 +29,7 @@ import {EventsUrediComponent} from "./core/pages/private/events/events-uredi/eve
 import {SubscribersPregledComponent} from "./core/pages/private/subscribers/subscribers-pregled/subscribers-pregled.component";
 import {SubscribersEditComponent} from "./core/pages/private/subscribers/subscribers-edit/subscribers-edit.component";
 import {NewsletterPregledComponent} from "./core/pages/private/newsletter/newsletter-pregled/newsletter-pregled.component";
+import {SuccessComponent} from "./core/pages/public/success/success.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -195,10 +196,16 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
+    path: 'success',
+    component: SuccessComponent,
+    title: 'Hypnosis studio Alen - Prijavljeni ste na e-novičke'
+  },
+  {
     path: '**',
     component: NotFoundComponent,
     title: 'Hypnosis studio Alen - Stran ne obstaja ali ni najdena'
   },
+
 ];
 
 @NgModule({

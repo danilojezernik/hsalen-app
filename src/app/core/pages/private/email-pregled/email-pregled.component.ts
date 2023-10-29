@@ -20,6 +20,12 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<Email>()
   displayColumns: string[] = ['email_id', 'name', 'surname', 'email', 'datum_vnosa', 'action']
 
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    path: 'Pregled prejetih sporočil'
+  }
+
   private destroy$: Subject<boolean> = new Subject<boolean>()
 
   /**

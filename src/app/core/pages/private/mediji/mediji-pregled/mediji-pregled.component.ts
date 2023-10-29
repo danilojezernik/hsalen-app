@@ -21,6 +21,11 @@ export class MedijiPregledComponent implements OnInit, OnDestroy {
   displayColumns: string[] = ['mediji_id', 'naslov', 'povezava_slika', 'povezava_mediji', 'datum_vnosa', 'action']
   spinner: boolean = false;
 
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    path: 'Pregled v medijih'
+  }
 
   // Subject for component destruction
   private destroy$: Subject<boolean> = new Subject<boolean>()

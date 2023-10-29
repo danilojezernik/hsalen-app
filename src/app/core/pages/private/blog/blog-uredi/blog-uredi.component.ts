@@ -18,6 +18,13 @@ export class BlogUrediComponent implements OnInit {
   blogForm: FormGroup = new FormGroup({});
   editorConfig: AngularEditorConfig = sharedEditorConfig
 
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    goBack: 'Blog pregled',
+    path: 'Uredi objavo'
+  }
+
   spinner: boolean = false;
 
   constructor(

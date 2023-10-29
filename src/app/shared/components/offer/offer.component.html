@@ -1,31 +1,31 @@
 <div class="container pb-5">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col" *ngFor="let offers of offer" [routerLink]="offers['link']">
-            <div class="card card-hover shadow pt-3 border-0 text-center h-100">
-                <div class="card-body">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-3 icon-tabler icon-tabler-star" width="40" height="40"
-                         viewBox="0 0 24 24"
-                         stroke-width="2"
-                         stroke="orange" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
-                    </svg>
-                    <h2 class="card-title">{{offers['storitev']}}</h2>
-                    <p class="card-text">{{offers['vsebina']}}</p>
-                </div>
-                <div class="card-footer bg-dark bg-gradient border-0 text-end d-flex justify-content-end align-content-center">
-                    <small class="text-white">
-                        Beri dalje
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-badge-right" width="24" height="24"
-                             viewBox="0 0 24 24"
-                             stroke-width="2" stroke="orange" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M13 7h-6l4 5l-4 5h6l4 -5z"></path>
-                        </svg>
-                    </small>
-                </div>
-            </div>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col" *ngFor="let offers of offer" [routerLink]="offers['link']">
+      <div class="card card-hover shadow pt-3 border-0 text-center h-100">
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-3 icon-tabler icon-tabler-star" width="40" height="40"
+               viewBox="0 0 24 24"
+               stroke-width="2"
+               stroke="orange" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
+          </svg>
+          <h2 class="card-title">{{offers['storitev']}}</h2>
+          <p class="card-text">{{offers['vsebina']}}</p>
         </div>
+        <div class="card-footer bg-dark bg-gradient border-0 text-end d-flex justify-content-end align-content-center">
+          <small class="text-white">
+            Raziskuj dalje
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-badge-right" width="24" height="24"
+                 viewBox="0 0 24 24"
+                 stroke-width="2" stroke="orange" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M13 7h-6l4 5l-4 5h6l4 -5z"></path>
+            </svg>
+          </small>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 

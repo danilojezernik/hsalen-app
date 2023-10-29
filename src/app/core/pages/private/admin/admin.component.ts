@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -7,7 +8,13 @@ import {Component} from '@angular/core';
 })
 export class AdminComponent {
 
-  constructor() {
+  heroData = {
+    admin: 'Admin',
+    path: ''
+  }
+
+  constructor(private router: Router) {
+    this.heroData.path = this.router.url.slice(1);
   }
 
 
