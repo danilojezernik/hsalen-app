@@ -1,0 +1,24 @@
+/* --------------------------
+          FOOTER
+------------------------------ */
+
+// IMPORT VARIABLES AND MIXIN
+@import "../abstracts/variables";
+@import "../abstracts/mixin";
+
+// STYLE
+.header-footer {
+  color: $color-white;
+  height: auto;
+  padding-top: 50px;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($hero-header-dark-orange, 0.8),
+      rgba($hero-header-light-orange, 0.8)
+  ),
+  url('../../assets/media/hero/nature-relax.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top;
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+}

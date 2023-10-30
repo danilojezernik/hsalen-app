@@ -1,6 +1,14 @@
-<div class="container pb-5">
+<div class="container" style="padding: 90px 0 150px 0;">
+
+  <div class="text-center pb-5">
+    <span class="heading-primary-description">Odklepanje skrite moči v sebi</span>
+    <p class="lead-description">Raziščite globine hipnoterapije, samohipnoze, jasnovidnosti in medijstva. Potopite se
+      v svet samoodkrivanja, zdravljenja in duhovne rasti, ko se poglobimo v fascinantna področja uma in duha.</p>
+  </div>
+
+
   <div class="row row-cols-1 row-cols-lg-4 g-4">
-    <div class="col" *ngFor="let offers of offer" [routerLink]="offers['link']">
+    <div class="col" *ngFor="let blog of limited" [routerLink]="['/blog/', blog._id]">
       <div class="card card-hover shadow pt-3 border-0 text-center h-100">
         <div class="card-body">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-3 icon-tabler icon-tabler-star" width="40" height="40"
@@ -10,8 +18,8 @@
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
           </svg>
-          <h2 class="card-title">{{offers['storitev']}}</h2>
-          <p class="card-text">{{offers['vsebina']}}</p>
+          <h2 class="card-title">{{blog['naslov']}}</h2>
+          <p class="card-text" [innerHTML]="blog['vsebina'] | truncate: 100"></p>
         </div>
         <div class="card-footer bg-dark bg-gradient border-0 text-end d-flex justify-content-end align-content-center">
           <small class="text-white">

@@ -31,6 +31,21 @@ export class BlogService {
   }
 
   /**
+   * Fetches limited number of blogs
+   * @returns An observable of an array of posts.
+   */
+  getLimitedBlog(): Observable<Blog[]> {
+    return this.http.get<Blog[]>(`${environment.backUrl}/blog/limited`).pipe(
+      catchError(error => {
+        // Log an error message if an error occurs during the API call
+        console.error("Error getting limited number of blog data:", error)
+        // Return a new observable with an error message if there's an error
+        return throwError('Something went wrong')
+      })
+    )
+  }
+
+  /**
    * Fetches a blog by its ID.
    * @param id The ID of the blog to fetch.
    * @returns An observable of the specified blog.

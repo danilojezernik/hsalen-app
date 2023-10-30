@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {LoggedInService} from "../services/communication/logged-in.service";
 import {AuthService} from "../services/auth/auth.service";
 
@@ -11,10 +11,21 @@ export class HeaderComponent implements OnInit {
   // Variable to hold login status
   isLoggedIn: boolean = false;
 
+  // Reference to the navigation checkbox input element
+  // @ts-ignore
+  @ViewChild('naviToggle') naviToggle: ElementRef;
+
   constructor(
     private loggedIn: LoggedInService,
     private authService: AuthService
   ) {
+  }
+
+  // Method to close the navigation menu
+  closeNavigationMenu() {
+    if (this.naviToggle && this.naviToggle.nativeElement) {
+      this.naviToggle.nativeElement.checked = false;
+    }
   }
 
   ngOnInit() {
@@ -31,6 +42,7 @@ export class HeaderComponent implements OnInit {
    */
   logOut() {
     this.authService.clear();
+    this.closeNavigationMenu();
   }
 
 }

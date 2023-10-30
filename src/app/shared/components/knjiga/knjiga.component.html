@@ -1,19 +1,18 @@
 <div class="header-book d-flex align-items-center justify-content-center">
-    <div class="container" *ngIf="knjiga">
-        <div class="heading-primary-book">
-            <span class="heading-primary-book-main">{{ knjiga['naslov'] }}</span>
-            <span class="heading-primary-book-sub">{{ knjiga['podnaslov'] }}</span>
-        </div>
-
-        <div class="row d-flex align-items-center pt-5">
-            <div class="col-md-4">
-                <img src="assets/media/knjiga/knjigaalen.png" class="img-fluid" alt="Zakaj se rodimo in zakaj umremo">
-            </div>
-            <div class="col-md-8">
-                <p [innerHTML]="knjiga['opis']">
-
-                </p>
-            </div>
-        </div>
+  <div class="container" *ngIf="knjiga">
+    <div class="heading-primary-book">
+      <span class="heading-primary-book-main">{{ knjiga['naslov'] }}</span>
+      <span class="heading-primary-book-sub">{{ knjiga['podnaslov'] }}</span>
     </div>
+
+    <div class="row d-flex align-items-center pt-5">
+      <div class="col-lg-4 text-center"> <!-- Center the image at lg breakpoint -->
+        <img src="assets/media/knjiga/knjigaalen.png" class="img-fluid" alt="Zakaj se rodimo in zakaj umremo">
+      </div>
+      <div class="col-lg-8">
+        <p [innerHTML]="knjiga['opis']">
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

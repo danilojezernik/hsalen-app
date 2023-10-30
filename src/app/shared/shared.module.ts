@@ -29,6 +29,8 @@ import {MainDescriptionComponent} from './components/main-description/main-descr
 import {SlovenianDateTimePipe} from "./pipes/slovenian-date-time/slovenian-date-time.pipe";
 import {HeroDashboardComponent} from './components/hero/hero-dashboard/hero-dashboard.component';
 import {HideHeaderFooterDirective} from './directive/hide-header-footer.directive';
+import {LimitedBlogsComponent} from './components/limited-blogs/limited-blogs.component';
+import { TruncatePipe } from './pipes/truncate/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import {HideHeaderFooterDirective} from './directive/hide-header-footer.directiv
     MainDescriptionComponent,
     SlovenianDateTimePipe,
     HeroDashboardComponent,
-    HideHeaderFooterDirective
+    HideHeaderFooterDirective,
+    LimitedBlogsComponent,
+    TruncatePipe
   ],
   exports: [
     GoBackComponent,
@@ -69,7 +73,8 @@ import {HideHeaderFooterDirective} from './directive/hide-header-footer.directiv
     MedijstvoComponent,
     SlovenianDateTimePipe,
     HeroDashboardComponent,
-    HideHeaderFooterDirective
+    HideHeaderFooterDirective,
+    LimitedBlogsComponent
   ],
   imports: [
     CommonModule,
