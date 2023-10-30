@@ -198,7 +198,10 @@ const routes: Routes = [
   {
     path: 'success',
     component: SuccessComponent,
-    title: 'Hypnosis studio Alen - Prijavljeni ste na e-novičke'
+    title: 'Hypnosis studio Alen - Prijavljeni ste na e-novičke',
+    data: {
+      shouldRedirect: true // Add a data property to indicate redirection
+    }
   },
   {
     path: '**',

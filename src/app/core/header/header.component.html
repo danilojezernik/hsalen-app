@@ -1,63 +1,74 @@
-<!--
-<nav class="navbar shadow sticky-top navbar-expand-xl bg-white border-bottom">
-  <div class="container-fluid">
-    <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse p-2 navbar-collapse justify-content-center" id="navbarContent">
-      <ul class="navbar-nav text-center gap-md-5">
-        <li class="nav-item">
-          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Domov</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Hipnoza
-          </a>
-          <ul class="dropdown-menu text-center">
-            <li>
-              <a class="dropdown-item" routerLink="/hipnoterapija" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                Hipnoterapija
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="/samohipnoza" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                Samohipnoza
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="/regresija" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                Regresija
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/jasnovidnost" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Jasnovidnost</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/medijstvo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Medijstvo</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/blog" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/omeni" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">O meni</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/dogodki" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dogodki</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/kontakt" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Kontakt</a>
+<div class="navigation">
+  <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
 
-        </li>
-        <li class="nav-item">
-          User logged in or logged out
-          <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">LogIn</a>
-          <a *ngIf="isLoggedIn" (click)="logOut()" routerLink="/login" routerLinkActive="active"
-             [routerLinkActiveOptions]="{ exact: true }">LogOut</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>-->
+  <label for="navi-toggle" class="navigation__button">
+    <span class="navigation__icon"></span>
+  </label>
+
+  <div class="navigation__background">&nbsp;</div>
+
+  <nav class="navigation__nav">
+    <ul class="navigation__list">
+      <li class="navigation__item">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          Domov
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="/hipnoterapija" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          Hipnoterapija
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="/samohipnoza" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          Samohipnoza
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="/regresija" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          Regresija
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="/jasnovidnost" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          Jasnovidnost
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="/medijstvo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          Medijstvo
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="/blog" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          Blog
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="/omeni" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          O meni
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="/dogodki" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          Dogodki
+        </a>
+      </li>
+      <li class="navigation__item">
+        <a routerLink="/kontakt" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          Kontakt
+        </a>
+      </li>
+      <li class="navigation__item" *ngIf="!isLoggedIn">
+        <a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          LogIn
+        </a>
+      </li>
+      <li class="navigation__item" *ngIf="isLoggedIn">
+        <a (click)="logOut()" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link">
+          LogOut
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

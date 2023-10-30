@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     ).subscribe(() => {
       this.shouldShowGoBack = routesToShowGoBack.includes(this.router.url);
 
-      // Check if the current route is the "success" component
+      // Check if the current route is the "success.scss" component
       this.sharedService.dontShowHeaderFooter = this.router.url === '/success';
     });
   }
