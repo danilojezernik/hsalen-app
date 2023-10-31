@@ -17,15 +17,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Subscribe to router events to determine when to show the "Go Back" button
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
+      // Check if the current route is in the array of routes to show the "Go Back" button
       this.shouldShowGoBack = routesToShowGoBack.includes(this.router.url);
 
       // Check if the current route is the "success.scss" component
       this.sharedService.dontShowHeaderFooter = this.router.url === '/success';
     });
   }
-
 
 }

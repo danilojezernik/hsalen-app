@@ -30,7 +30,7 @@ import {SlovenianDateTimePipe} from "./pipes/slovenian-date-time/slovenian-date-
 import {HeroDashboardComponent} from './components/hero/hero-dashboard/hero-dashboard.component';
 import {HideHeaderFooterDirective} from './directive/hide-header-footer.directive';
 import {LimitedBlogsComponent} from './components/limited-blogs/limited-blogs.component';
-import { TruncatePipe } from './pipes/truncate/truncate.pipe';
+import {TruncatePipe} from './pipes/truncate/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -74,7 +74,8 @@ import { TruncatePipe } from './pipes/truncate/truncate.pipe';
     SlovenianDateTimePipe,
     HeroDashboardComponent,
     HideHeaderFooterDirective,
-    LimitedBlogsComponent
+    LimitedBlogsComponent,
+    TruncatePipe
   ],
   imports: [
     CommonModule,
