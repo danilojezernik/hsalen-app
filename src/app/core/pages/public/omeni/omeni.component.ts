@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {MedijiService} from "../../../services/api/mediji.service";
 import {Subject} from "rxjs";
 import {trace} from "../../../utils/trace";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-omeni',
@@ -23,7 +24,8 @@ export class OmeniComponent implements OnInit, OnDestroy {
 
   constructor(
     private db: HttpClient,
-    private api: MedijiService
+    private api: MedijiService,
+    private sanitizer: DomSanitizer
   ) {
   }
 
@@ -39,6 +41,24 @@ export class OmeniComponent implements OnInit, OnDestroy {
     this.api.getAllMediji().subscribe(data => {
       this.mediji = data
     })
+  }
+
+  // Function to convert a regular YouTube URL to an embed URL
+  getYouTubeEmbedUrl(videoUrl: string): SafeResourceUrl {
+    // Extract the video ID from the URL
+    const videoId = this.getYouTubeVideoId(videoUrl);
+
+    // Construct the embed URL
+    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+
+    // Sanitize the URL to prevent security issues
+    return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+  }
+
+  // Helper function to extract the video ID from a YouTube URL
+  getYouTubeVideoId(videoUrl: string): string {
+    const videoIdMatch = videoUrl.match(/[?&]v=([^&]+)/);
+    return videoIdMatch ? videoIdMatch[1] : '';
   }
 
   @trace()

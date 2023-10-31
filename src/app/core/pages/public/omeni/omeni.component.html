@@ -1,15 +1,47 @@
 <app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
 
-<!-- PRIKAZ O MENI -->
-<div *ngIf="omeni">
-  <h1 [innerHTML]="omeni['naslov']"></h1>
-  <p [innerHTML]="omeni['podnaslov']"></p>
-  <p [innerHTML]="omeni['opis']"></p>
+<div class="container text-center">
+  <!-- PRIKAZ O MENI -->
+  <div *ngIf="omeni">
+    <div class="text-center top-bottom-padding">
+      <span class="heading-primary-description" [innerHTML]="omeni['naslov']"></span>
+      <img src="./assets/media/omeni/alen.png" alt="Alen Marič" class="img-fluid">
+      <p [innerHTML]="omeni['opis']"></p>
+    </div>
+  </div>
+
 </div>
 
-<div *ngFor="let jaz of mediji">
-  <h1 [innerHTML]="jaz['naslov_mediji']"></h1>
-  <p [innerHTML]="jaz['opis_mediji']"></p>
-  <p [innerHTML]="jaz['povezava_slika']"></p>
-  <p [innerHTML]="jaz['povezava_mediji']"></p>
+<div class="container-fluid header-omeni">
+  <div class="container">
+
+    <div class="text-center top-bottom-padding">
+      <span class="heading-primary-description">Mediji in prepoznavnost</span>
+      <p class="lead-description">
+
+        Z leti je moje delo hipnoterapevta postalo prepoznavno v različnih medijih in platformah. Predstavljen sem bil v intervjujih in člankih, kjer
+        sem delil svoje strokovno znanje in vpoglede v moč hipnoterapije. Moje potovanje in dosežke so slavili v revijah, podcastih in televizijskih
+        programih, kar mi je dalo priložnost, da dosežem in navdihnem širše občinstvo.
+
+        Poleg medijskega poročanja sem bil povabljen tudi k govornikom na konferencah in dogodkih, kjer sem svoje znanje in izkušnje delil s kolegi
+        praktikanti in posamezniki, ki iščejo osebno rast. V čast mi je biti priznan v industriji in lahko prispevati na področju celostnega
+        zdravljenja.
+
+        Hvaležna sem za podporo in zaupanje svojih strank ter medijev za zanimanje za delo, ki ga opravljam. Moja zaveza je, da bom še naprej
+        pozitivno vplival s hipnoterapijo in delil transformativni potencial, ki ga ima za osebno opolnomočenje in duhovno rast. Skupaj krmarimo po
+        kraljestvih uma in odklenimo neskončne možnosti v njem.</p>
+    </div>
+  </div>
 </div>
+
+<div class="container py-5">
+  <div *ngFor="let jaz of mediji">
+    <h1 [innerHTML]="jaz['naslov_mediji']"></h1>
+    <p [innerHTML]="jaz['opis_mediji']"></p>
+    <!-- Use the correct YouTube embed URL -->
+    <div *ngIf="jaz['povezava_mediji']">
+      <iframe width="560" height="315" [src]="getYouTubeEmbedUrl(jaz['povezava_mediji'])"></iframe>
+    </div>
+  </div>
+</div>
+

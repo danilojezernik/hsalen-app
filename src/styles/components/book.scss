@@ -11,9 +11,9 @@
   height: auto;
   padding: 100px 0;
   background-image: linear-gradient(
-                  to right bottom,
-                  rgba($hero-header-dark-orange, 0.8),
-                  rgba($hero-header-light-orange, 0.8)
+      to right bottom,
+      rgba($hero-header-dark-orange, 0.8),
+      rgba($hero-header-light-orange, 0.8)
   ),
   url('../../assets/media/hero/nature-relax.jpg');
   background-size: cover;
@@ -29,23 +29,23 @@
 
   &-main {
     display: block;
-    color: $color-white;
+    color: $color-black;
     animation: moveInRight $animation;
     @include font-size-letter-spacing-font-weight-book(
-                    $font-size-book-main,
-                    $letter-spacing-book-main,
-                    $font-weight-book-main,
+        $font-size-book-main,
+        $letter-spacing-book-main,
+        $font-weight-book-main,
     );
   }
 
   &-sub {
     display: block;
-    color: $color-white;
+    color: $color-black;
     animation: moveInLeft $animation;
     @include font-size-letter-spacing-font-weight-book(
-                    $font-size-book-sub,
-                    $letter-spacing-book-sub,
-                    $font-weight-book-sub,
+        $font-size-book-sub,
+        $letter-spacing-book-sub,
+        $font-weight-book-sub,
     );
   }
 
@@ -54,16 +54,16 @@
   @media (max-width: 575px) {
     &-main {
       @include font-size-letter-spacing-font-weight-book(
-                      $font-size-book-main-xs,
-                      $letter-spacing-main-book-xs,
-                      $font-weight-description-xs-s,
+          $font-size-book-main-xs,
+          $letter-spacing-main-book-xs,
+          $font-weight-description-xs-s,
       );
     }
     &-sub {
       @include font-size-letter-spacing-font-weight-book(
-                      $font-size-book-sub-xs,
-                      $letter-spacing-book-sub-xs,
-                      $font-weight-description-xs-s,
+          $font-size-book-sub-xs,
+          $letter-spacing-book-sub-xs,
+          $font-weight-description-xs-s,
       );
     }
   }
@@ -73,17 +73,17 @@
 
     &-main {
       @include font-size-letter-spacing-font-weight-book(
-                      $font-size-book-main-s,
-                      $letter-spacing-book-main-s,
-                      $font-weight-description-xs-s,
+          $font-size-book-main-s,
+          $letter-spacing-book-main-s,
+          $font-weight-description-xs-s,
       );
     }
 
     &-sub {
       @include font-size-letter-spacing-font-weight-book(
-                      $font-size-book-sub-s,
-                      $letter-spacing-book-sub-s,
-                      $font-weight-description-xs-s,
+          $font-size-book-sub-s,
+          $letter-spacing-book-sub-s,
+          $font-weight-description-xs-s,
       );
     }
   }
@@ -93,17 +93,17 @@
 
     &-main {
       @include font-size-letter-spacing-font-weight-book(
-                      $font-size-book-main-m,
-                      $letter-spacing-book-main-m,
-                      $font-weight-description,
+          $font-size-book-main-m,
+          $letter-spacing-book-main-m,
+          $font-weight-description,
       );
     }
 
     &-sub {
       @include font-size-letter-spacing-font-weight-book(
-                      $font-size-book-sub-m,
-                      $letter-spacing-book-sub-m,
-                      $font-weight-description,
+          $font-size-book-sub-m,
+          $letter-spacing-book-sub-m,
+          $font-weight-description,
       );
     }
   }
@@ -113,17 +113,17 @@
 
     &-main {
       @include font-size-letter-spacing-font-weight-book(
-                      $font-size-book-main-l,
-                      $letter-spacing-book-main-l,
-                      $font-weight-description,
+          $font-size-book-main-l,
+          $letter-spacing-book-main-l,
+          $font-weight-description,
       );
     }
 
     &-sub {
       @include font-size-letter-spacing-font-weight-book(
-                      $font-size-book-sub-l,
-                      $letter-spacing-book-sub-l,
-                      $font-weight-description,
+          $font-size-book-sub-l,
+          $letter-spacing-book-sub-l,
+          $font-weight-description,
       );
     }
   }

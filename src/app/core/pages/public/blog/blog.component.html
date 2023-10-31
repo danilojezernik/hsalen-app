@@ -27,6 +27,7 @@
             </svg>
             <h2 class="card-title" [innerHTML]="data['naslov']"></h2>
             <p *ngIf="!data['podnaslov'].length" class="card-text" [innerHTML]="data['podnaslov']"></p>
+            <p class="card-text" [innerHTML]="data['vsebina'] | truncate: 250"></p>
           </div>
           <div class="card-footer rounded-0 bg-dark bg-gradient border-0 text-end d-flex justify-content-end align-content-center">
             <small class="text-white">
