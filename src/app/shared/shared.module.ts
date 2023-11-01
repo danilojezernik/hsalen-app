@@ -31,6 +31,7 @@ import {HeroDashboardComponent} from './components/hero/hero-dashboard/hero-dash
 import {HideHeaderFooterDirective} from './directive/hide-header-footer.directive';
 import {LimitedBlogsComponent} from './components/limited-blogs/limited-blogs.component';
 import {TruncatePipe} from './pipes/truncate/truncate.pipe';
+import {FormatTextPipe} from './pipes/format-text/format-text-pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {TruncatePipe} from './pipes/truncate/truncate.pipe';
     HeroDashboardComponent,
     HideHeaderFooterDirective,
     LimitedBlogsComponent,
-    TruncatePipe
+    TruncatePipe,
+    FormatTextPipe
   ],
   exports: [
     GoBackComponent,
@@ -75,7 +77,8 @@ import {TruncatePipe} from './pipes/truncate/truncate.pipe';
     HeroDashboardComponent,
     HideHeaderFooterDirective,
     LimitedBlogsComponent,
-    TruncatePipe
+    TruncatePipe,
+    FormatTextPipe
   ],
   imports: [
     CommonModule,

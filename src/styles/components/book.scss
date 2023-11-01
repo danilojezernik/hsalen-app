@@ -29,7 +29,7 @@
 
   &-main {
     display: block;
-    color: $color-black;
+    color: $color-white;
     animation: moveInRight $animation;
     @include font-size-letter-spacing-font-weight-book(
         $font-size-book-main,
@@ -40,7 +40,7 @@
 
   &-sub {
     display: block;
-    color: $color-black;
+    color: $color-white;
     animation: moveInLeft $animation;
     @include font-size-letter-spacing-font-weight-book(
         $font-size-book-sub,
