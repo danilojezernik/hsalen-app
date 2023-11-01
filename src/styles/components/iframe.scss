@@ -1,27 +1,17 @@
 /* --------------------------
-          CARD STYLE
+          IFRAME STYLE
 ------------------------------ */
 
-.card-hover {
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.card-hover:hover {
-  transform: scale(1.1);
-}
-
-/* CSS */
 .video-container {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 1000px;
+  max-height: 500px;
   margin: 0 auto;
   text-align: center;
 }
 
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio for widescreen videos */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
 }

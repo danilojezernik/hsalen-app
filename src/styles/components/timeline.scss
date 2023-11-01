@@ -1,0 +1,69 @@
+// IMPORT VARIABLES AND MIXIN
+@import "../abstracts/variables";
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  margin: 5% auto;
+
+  &__event {
+    background: $color-white;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3),
+    0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+
+    &__title {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $color-black; // Use the dark orange color
+      letter-spacing: 1.5px;
+    }
+
+    &__content {
+      padding: 20px;
+    }
+
+    &__date {
+      color: $color-white; // Use the light orange color
+      font-size: 1.5rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    &__icon {
+      border-radius: 8px 0 0 8px;
+      background: $hero-header-light-orange; // Use the dark orange color
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 10%;
+      font-size: 1.5rem;
+      color: $hero-header-light-orange; // Use the dark orange color
+      padding: 20px;
+    }
+
+    &__description {
+      flex-basis: 60%;
+    }
+
+    &:last-child {
+      &:after {
+        content: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 786px) {
+  .timeline__event {
+    flex-direction: column;
+  }
+  .timeline__event__icon {
+    border-radius: 4px 4px 0 0;
+  }
+}

@@ -34,14 +34,31 @@
   </div>
 </div>
 
-<div class="container py-5">
-  <div *ngFor="let jaz of mediji">
-    <h1 [innerHTML]="jaz['naslov_mediji']"></h1>
-    <p [innerHTML]="jaz['opis_mediji']"></p>
-    <!-- Use the correct YouTube embed URL -->
-    <div *ngIf="jaz['povezava_mediji']">
-      <iframe width="560" height="315" [src]="getYouTubeEmbedUrl(jaz['povezava_mediji'])"></iframe>
+<div class="container">
+  <div class="timeline" *ngFor="let jaz of mediji">
+    <div class="timeline__event">
+      <div class="timeline__event__icon ">
+        <div class="timeline__event__date">
+          {{jaz['datum_vnosa'] | slovenainDate }}
+        </div>
+      </div>
+      <div class="timeline__event__content ">
+        <div class="timeline__event__title">
+          {{jaz['naslov_mediji']}}
+        </div>
+        <div class="timeline__event__description">
+          <p [innerHTML]="jaz['opis_mediji']"></p>
+          <!-- Use the correct YouTube embed URL -->
+          <div class="video-container" *ngIf="jaz['povezava_mediji']">
+            <div class="video-wrapper">
+              <iframe class="responsive-video" [src]="getYouTubeEmbedUrl(jaz['povezava_mediji'])"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>
+
 
