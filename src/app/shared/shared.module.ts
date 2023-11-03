@@ -32,6 +32,7 @@ import {HideHeaderFooterDirective} from './directive/hide-header-footer.directiv
 import {LimitedBlogsComponent} from './components/limited-blogs/limited-blogs.component';
 import {TruncatePipe} from './pipes/truncate/truncate.pipe';
 import {FormatTextPipe} from './pipes/format-text/format-text-pipe';
+import {TherapyMoreComponent} from './components/therapy-more/therapy-more.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {FormatTextPipe} from './pipes/format-text/format-text-pipe';
     HideHeaderFooterDirective,
     LimitedBlogsComponent,
     TruncatePipe,
-    FormatTextPipe
+    FormatTextPipe,
+    TherapyMoreComponent
   ],
   exports: [
     GoBackComponent,
@@ -78,7 +80,8 @@ import {FormatTextPipe} from './pipes/format-text/format-text-pipe';
     HideHeaderFooterDirective,
     LimitedBlogsComponent,
     TruncatePipe,
-    FormatTextPipe
+    FormatTextPipe,
+    TherapyMoreComponent
   ],
   imports: [
     CommonModule,

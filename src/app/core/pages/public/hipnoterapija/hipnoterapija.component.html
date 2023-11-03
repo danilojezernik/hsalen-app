@@ -1,9 +1,7 @@
-<!-- PRIKAZ HIPNOTERAPIJA -->
 <app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
 
 <div class="container">
   <div *ngIf="hipnoterapija">
-
     <div class="container">
       <div class="text-center top-bottom-padding">
         <span class="heading-primary-description-black" [innerHTML]="hipnoterapija['naslov']">
@@ -11,10 +9,11 @@
         <p class="lead-description" [innerHTML]="hipnoterapija['podnaslov']"></p>
       </div>
     </div>
-
     <h2 class="text-uppercase">Kaj je hipnoza?</h2>
     <p [innerHTML]="hipnoterapija['hipnoza'] | formatText"></p>
     <h2 class="text-uppercase">Kaj je hipnoterapija?</h2>
     <p [innerHTML]="hipnoterapija['hipnoterapija'] | formatText"></p>
   </div>
 </div>
+
+<therapy-more></therapy-more>

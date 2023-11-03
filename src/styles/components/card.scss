@@ -5,10 +5,22 @@
 .card-hover {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
 }
 
-.card-hover:hover {
+
+.card-middle {
   transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2)
+  }
 }
 
 /* CSS */

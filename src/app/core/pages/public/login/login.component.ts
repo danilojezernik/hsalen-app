@@ -4,7 +4,17 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styles: [
+    '.example-form {' +
+    '  min-width: 150px;' +
+    '  max-width: 500px;' +
+    '  width: 100%;' +
+    '}' +
+    '.example-full-width {' +
+    '  width: 100%;' +
+    '}'
+  ]
 })
 export class LoginComponent {
 

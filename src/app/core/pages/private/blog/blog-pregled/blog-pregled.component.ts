@@ -9,7 +9,6 @@ import {BlogAddComponent} from "../blog-add/blog-add.component";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
 import {CalcIndexService} from "../../../../services/calc-index/calc-index.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-blog-pregled',
@@ -40,7 +39,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
-    private api: BlogService,
+    private _api: BlogService,
     private dialog: MatDialog,
     private dataUpdateService: DataUpdateService,
     public snackbarService: SnackBarService,
@@ -74,7 +73,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
 
   loadAllBlog() {
     this.spinner = true
-    this.api.getAllBlogAdmin().subscribe(
+    this._api.getAllBlogAdmin().subscribe(
       (data) => {
         this.snackbarService.showSnackbar('Vse objave uspešno naložene');
         this.spinner = false;
@@ -91,7 +90,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
   deleteBlog(id: string) {
     if (confirm('Ali ste prepričani, da želite izbrano objavo izbrisati?')) {
       this.spinner = true;
-      this.api.deleteBlogByIdAdmin(id).subscribe(() => {
+      this._api.deleteBlogByIdAdmin(id).subscribe(() => {
         this.snackbarService.showSnackbar('Blog JE bil uspešno izbrisan!');
         this.spinner = false;
         this.loadAllBlog()

@@ -31,7 +31,6 @@ export class BlogBeriComponent implements OnInit {
     }
   }
 
-
   getBlogById(blogId: string) {
     this.api.getBlogById(blogId).subscribe(
       data => {

@@ -1,9 +1,19 @@
 <app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
 
-<!-- PRIKAZ REGRESIJA -->
-<div *ngIf="regresija">
-  <h1 [innerHTML]="regresija['naslov']"></h1>
-  <p [innerHTML]="regresija['podnaslov']"></p>
-  <p [innerHTML]="regresija['regresija']"></p>
-  <p [innerHTML]="regresija['preteklost']"></p>
+<div class="container">
+  <div *ngIf="regresija">
+    <div class="container">
+      <div class="text-center top-bottom-padding">
+        <span class="heading-primary-description-black" [innerHTML]="regresija['naslov']">
+        </span>
+        <p class="lead-description" [innerHTML]="regresija['podnaslov']"></p>
+      </div>
+    </div>
+    <h2 class="text-uppercase">Kaj je regresija?</h2>
+    <p [innerHTML]="regresija['regresija'] | formatText"></p>
+    <h2 class="text-uppercase">Pretekla življenja!</h2>
+    <p [innerHTML]="regresija['preteklost'] | formatText"></p>
+  </div>
 </div>
+
+<therapy-more></therapy-more>

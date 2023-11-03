@@ -1,8 +1,21 @@
 <app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
 
-<div *ngIf="blog">
-  <h2>{{ blog.naslov }}</h2>
-  <p>{{ blog.podnaslov }}</p>
-  <p [innerHTML]="blog.vsebina"></p>
+<div class="container" *ngIf="blog">
+
+  <div class="text-center pt-5">
+    <span class="heading-primary-description-black">
+      {{ blog['naslov'] }}
+    </span>
+    <p *ngIf="blog['podnaslov']" class="lead-description pb-5">
+      {{ blog['podnaslov'] }}
+    </p>
+  </div>
+
+  <p [innerHTML]="blog['vsebina'] | formatText "></p>
+
+  <div class="text-center py-5">
+
+    <button mat-raised-button color="warn" (click)="goBack()">Pojdi nazaj na blog</button>
+
+  </div>
 </div>
-<button (click)="goBack()">Pojdi nazaj</button>

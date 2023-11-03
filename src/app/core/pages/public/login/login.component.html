@@ -1,12 +1,24 @@
 <app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
 
-<form (submit)="logIn()">
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username" [(ngModel)]="username"/>
+<div class="container">
+  <div class="text-center top-bottom-padding">
+    <span class="heading-primary-description-black">login</span>
+  </div>
+</div>
 
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" [(ngModel)]="password"/>
+<div class="container d-flex justify-content-center align-items-center" style="padding-bottom: 100px;">
+  <form (submit)="logIn()">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" matInput placeholder="Ex. Pizza" value="Sushi">
+      </mat-form-field>
 
-  <button type="submit">Login</button>
-</form>
-
+      <mat-form-field class="example-full-width">
+        <mat-label>Geslo</mat-label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" matInput placeholder="Ex. It makes me feel...">
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" type="submit" style="width: 100%">Login</button>
+  </form>
+</div>

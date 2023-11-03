@@ -1,10 +1,19 @@
 <app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
 
-<!-- PRIKAZ SAMOHIPNOZA -->
-<div *ngIf="samohipnoza">
-  <h1 [innerHTML]="samohipnoza['naslov']"></h1>
-  <p [innerHTML]="samohipnoza['podnaslov']"></p>
-  <p [innerHTML]="samohipnoza['samohipnoza']"></p>
-  <p [innerHTML]="samohipnoza['pomaga']"></p>
+<div class="container">
+  <div *ngIf="samohipnoza">
+    <div class="container">
+      <div class="text-center top-bottom-padding">
+        <span class="heading-primary-description-black" [innerHTML]="samohipnoza['naslov']">
+        </span>
+        <p class="lead-description" [innerHTML]="samohipnoza['podnaslov']"></p>
+      </div>
+    </div>
+    <h2 class="text-uppercase">Kaj je samohipnoza?</h2>
+    <p [innerHTML]="samohipnoza['samohipnoza'] | formatText"></p>
+    <h2 class="text-uppercase">Kje lahko pomaga?</h2>
+    <p [innerHTML]="samohipnoza['pomaga'] | formatText"></p>
+  </div>
 </div>
 
+<therapy-more></therapy-more>

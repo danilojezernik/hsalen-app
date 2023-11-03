@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {NavigationEnd, Router, RouterModule, Routes} from '@angular/router';
 import {IndexComponent} from "./core/pages/public/index/index.component";
 import {BlogComponent} from "./core/pages/public/blog/blog.component";
 import {BlogAddComponent} from "./core/pages/private/blog/blog-add/blog-add.component";
@@ -216,4 +216,12 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Scroll to the top of the page on each route change
+        window.scrollTo(0, 0);
+      }
+    });
+  }
 }

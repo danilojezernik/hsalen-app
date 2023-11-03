@@ -1,9 +1,19 @@
 <app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
 
-<!-- PRIKAZ MEDIJSTVO -->
-<div *ngIf="medijstvo">
-  <h1 [innerHTML]="medijstvo['naslov']"></h1>
-  <p [innerHTML]="medijstvo['podnaslov']"></p>
-  <p [innerHTML]="medijstvo['medijstvo']"></p>
-  <p [innerHTML]="medijstvo['tavanje_duse']"></p>
+<div class="container">
+  <div *ngIf="medijstvo">
+    <div class="container">
+      <div class="text-center top-bottom-padding">
+        <span class="heading-primary-description-black" [innerHTML]="medijstvo['naslov']">
+        </span>
+        <p class="lead-description" [innerHTML]="medijstvo['podnaslov']"></p>
+      </div>
+    </div>
+    <h2 class="text-uppercase">Kaj je medijstvo?</h2>
+    <p [innerHTML]="medijstvo['medijstvo'] | formatText"></p>
+    <h2 class="text-uppercase">Vzroki tavanja duš?</h2>
+    <p [innerHTML]="medijstvo['tavanje_duse'] | formatText"></p>
+  </div>
 </div>
+
+<therapy-more></therapy-more>
