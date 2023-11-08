@@ -24,7 +24,7 @@ export class MedijiPregledComponent implements OnInit, OnDestroy {
   heroData = {
     admin: 'Admin',
     action: 'Admin',
-    path: 'Pregled v medijih'
+    path: 'Pregled v medijih po ID'
   }
 
   // Subject for component destruction

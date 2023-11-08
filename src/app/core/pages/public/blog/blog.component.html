@@ -1,12 +1,16 @@
 <app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
 
 <div class="container-fluid bg-white">
-
-
-  <h1 class="text-center pt-5 pb-4" style="font-size: 2rem;">BLOG</h1>
-
   <div class="container">
-
+    <div class="text-center top-bottom-padding">
+        <span class="heading-primary-description-black">BLOG
+        </span>
+      <p class="lead-description">Dobrodošli na mojem spletnem dnevniku, kjer nudim negovalni prostor za vašo pot osebne rasti. Poglobite se v
+        pronicljive članke o hipnoterapiji, meditaciji, medijstvu in še več ter odkrijte zmogljiva orodja za navdih za preobrazbo na vseh področjih
+        svojega življenja. Naredite prvi korak k notranjemu zdravljenju in samoodkrivanju ter se skupaj z mano podajte na pot samopreobrazbe.
+      </p>
+    </div>
+    
     <div class="mx-auto text-center">
       <div *ngIf="!blog && !spinner">
         <app-error-backend-client class="error-message-backend"></app-error-backend-client>
@@ -17,11 +21,11 @@
     <div class="row row-cols-1 row-cols-md-3 g-5">
       <div class="col" *ngFor="let data of getPaginatedBlog()" [routerLink]="['/blog/', data._id]">
 
-        <div class="card card-hover rounded-0 shadow pt-3 border-0 text-center h-100">
+        <div class="card card-hover border-secondary shadow pt-3 text-center h-100">
           <div class="card-body">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-3 icon-tabler icon-tabler-star" width="40" height="40" viewBox="0 0 24 24"
                  stroke-width="2"
-                 stroke="orange" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                 stroke="#618264" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
               <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
             </svg>
@@ -34,7 +38,7 @@
               Beri dalje
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-badge-right" width="24" height="24"
                    viewBox="0 0 24 24"
-                   stroke-width="2" stroke="orange" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                   stroke-width="2" stroke="#618264" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M13 7h-6l4 5l-4 5h6l4 -5z"></path>
               </svg>
@@ -46,14 +50,14 @@
 
   </div>
   <!-- Pagination container -->
-  <div class="container mt-3">
-    <ul class="pagination justify-content-center">
+  <div class="container pt-5">
+    <ul class="pagination pagination-lg justify-content-center">
 
       <!-- Pagination previous -->
-      <li class="page-item" [class.disabled]="currentPage === 1">
-        <a class="page-link" (click)="previousPage()" aria-label="Previous">
+      <li class="page-item  rounded" [class.disabled]="currentPage === 1">
+        <a class="page-link border-0 bg-transparent" (click)="previousPage()" aria-label="Previous">
         <span aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-left" width="18" height="18" viewBox="0 0 24 24"
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-left" width="24" height="24" viewBox="0 0 24 24"
                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
            <path d="M11 7l-5 5l5 5"></path>
@@ -64,15 +68,15 @@
       </li>
 
       <!-- Pagination current page -->
-      <li class="page-item" *ngFor="let page of getPageNumbers()" [class.active]="page === currentPage">
-        <a class="page-link" (click)="setCurrentPage(page)">{{ page }}</a>
+      <li class="page-item " *ngFor="let page of getPageNumbers()" [class.active]="page === currentPage">
+        <a class="page-link text-black border-secondary-subtle" (click)="setCurrentPage(page)">{{ page }}</a>
       </li>
 
       <!-- Pagination next -->
       <li class="page-item" [class.disabled]="currentPage === totalPages">
-        <a class="page-link" (click)="nextPage()" aria-label="Next">
+        <a class="page-link border-0 bg-transparent" (click)="nextPage()" aria-label="Next">
         <span aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="18" height="18" viewBox="0 0 24 24"
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="24" height="24" viewBox="0 0 24 24"
                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
              <path d="M7 7l5 5l-5 5"></path>

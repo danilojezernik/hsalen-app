@@ -33,5 +33,4 @@ export class AuthGuardService implements CanActivate {
     return Promise.resolve(true);
   }
 
-
 }

@@ -28,7 +28,7 @@ import {MedijstvoComponent} from './components/pomaga/medijstvo/medijstvo.compon
 import {MainDescriptionComponent} from './components/main-description/main-description.component';
 import {SlovenianDateTimePipe} from "./pipes/slovenian-date-time/slovenian-date-time.pipe";
 import {HeroDashboardComponent} from './components/hero/hero-dashboard/hero-dashboard.component';
-import {HideHeaderFooterDirective} from './directive/hide-header-footer.directive';
+import {HideHeaderFooterDirective} from './directive/hide-header-footer/hide-header-footer.directive';
 import {LimitedBlogsComponent} from './components/limited-blogs/limited-blogs.component';
 import {TruncatePipe} from './pipes/truncate/truncate.pipe';
 import {FormatTextPipe} from './pipes/format-text/format-text-pipe';

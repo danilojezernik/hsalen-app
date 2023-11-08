@@ -52,7 +52,6 @@ export class FooterComponent {
       this.spinner = false;
       this.snackbarService.showSnackbar('Uspešno ste se prijavili na E-novičke. Preverite elektronsko sporočilo in potrdite prijavo!')
       this.addingSubscriberForm.reset();
-      this.dialog.closeAll();
       this.dataUpdateService.triggerDataUpdate();
     }, error => {
       console.error('Error adding new subscriber', error)

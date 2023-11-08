@@ -10,6 +10,12 @@ export class MedijiBeriComponent implements OnInit {
 
   mediji: any;
 
+  heroData = {
+    admin: 'Admin',
+    action: 'Admin',
+    path: 'Pregled v medijih'
+  }
+
   constructor(
     private api: MedijiService,
     private route: ActivatedRoute

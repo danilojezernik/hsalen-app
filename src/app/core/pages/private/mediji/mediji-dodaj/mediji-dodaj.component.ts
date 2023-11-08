@@ -29,6 +29,8 @@ export class MedijiDodajComponent implements OnInit {
     this.addingMedijiForm = this.fb.group({
       naslov_mediji: ['', Validators.required],
       opis_mediji: ['', Validators.required],
+      kraj_mediji: [''],
+      datum_mediji: ['', Validators.required],
       povezava_slika: [''],
       povezava_mediji: ['']
     })

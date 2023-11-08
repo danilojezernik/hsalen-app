@@ -29,14 +29,14 @@
       <ng-container matColumnDef="naslov">
         <th mat-header-cell *matHeaderCellDef> Naslov</th>
         <td class="fw-bold" mat-cell *matCellDef="let element">
-          {{element.naslov_mediji}}
+          {{element["naslov_mediji"]}}
         </td>
       </ng-container>
 
       <!-- Created At Column -->
       <ng-container matColumnDef="povezava_slika">
         <th mat-header-cell *matHeaderCellDef> Povezava do slike</th>
-        <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element.povezava_slika}">
+        <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element['povezava_slika']}">
           {{ element.povezava_slika ? element.povezava_slika : 'Ni povezave do zunanje slikovne vsebine' }}
         </td>
       </ng-container>
@@ -44,8 +44,8 @@
       <!-- Created At Column -->
       <ng-container matColumnDef="povezava_mediji">
         <th mat-header-cell *matHeaderCellDef> Povezava do videa</th>
-        <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element.povezava_mediji}">
-          {{ element.povezava_mediji ? element.povezava_mediji : 'Ni povezave do zunanje video vsebine' }}
+        <td class="fw-bold" mat-cell *matCellDef="let element" [ngClass]="{'text-danger': !element['povezava_mediji']}">
+          {{ element['povezava_mediji'] ? element['povezava_mediji'] : 'Ni povezave do zunanje video vsebine' }}
         </td>
       </ng-container>
 

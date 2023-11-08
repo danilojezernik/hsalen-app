@@ -1,5 +1,5 @@
 import {Directive, ElementRef, Renderer2} from '@angular/core';
-import {SharedServiceService} from "../services/shared-service.service";
+import {SharedServiceService} from "../../services/shared-service.service";
 
 @Directive({
   selector: '[appHideHeaderFooter]'
