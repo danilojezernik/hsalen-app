@@ -200,13 +200,16 @@ const routes: Routes = [
     component: SuccessComponent,
     title: 'Hypnosis studio Alen - Prijavljeni ste na e-novičke',
     data: {
-      shouldRedirect: true // Add a data property to indicate redirection
+      shouldRedirect: true
     }
   },
   {
     path: '**',
     component: NotFoundComponent,
-    title: 'Hypnosis studio Alen - Stran ne obstaja ali ni najdena'
+    title: 'Hypnosis studio Alen - Stran ne obstaja ali ni najdena',
+    data: {
+      shouldRedirect: true
+    }
   },
 
 ];
@@ -214,7 +217,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabledBlocking'
-})],
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

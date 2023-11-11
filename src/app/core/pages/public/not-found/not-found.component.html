@@ -1,1 +1,14 @@
-<h1 style="padding: 50px">page not found!</h1>
+<app-hero-breadcrumbs [hero]="heroData"></app-hero-breadcrumbs>
+
+<div class="container">
+  <div class="text-center top-bottom-padding">
+        <span class="heading-primary-description-black">
+          Stran ni najdena
+        </span>
+    <p class="lead-description">
+      Stran <span class="text-danger fs-5">{{ heroData.path.toUpperCase() }}</span> ni bila najdena ali en obstaja!<br> Preusmerjeni boste nazaj na
+      domačo
+      stran!
+    </p>
+  </div>
+</div>

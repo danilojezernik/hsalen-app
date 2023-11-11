@@ -2,12 +2,10 @@
 
 <div class="container">
   <div *ngIf="medijstvo">
-    <div class="container">
-      <div class="text-center top-bottom-padding">
+    <div class="text-center top-bottom-padding">
         <span class="heading-primary-description-black" [innerHTML]="medijstvo['naslov']">
         </span>
-        <p class="lead-description" [innerHTML]="medijstvo['podnaslov']"></p>
-      </div>
+      <p class="lead-description" [innerHTML]="medijstvo['podnaslov']"></p>
     </div>
     <h2 class="text-uppercase">Kaj je medijstvo?</h2>
     <p [innerHTML]="medijstvo['medijstvo'] | formatText"></p>
