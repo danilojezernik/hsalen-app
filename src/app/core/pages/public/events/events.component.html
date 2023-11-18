@@ -20,7 +20,7 @@
   <div *ngIf="events.length === 0; else eventsList">
     <p class="text-center fs-3">Trenutno ni nobenih dogodkov</p>
   </div>
-
+  
   <ng-template #eventsList>
     <div *ngFor="let event of events">
       <p>{{event['event']}}</p>
