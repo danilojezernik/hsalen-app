@@ -4,10 +4,14 @@
 
   <div class="text-center top-bottom-padding">
     <span class="heading-primary-description-black">dogodki</span>
-    <p class="lead-description">Pridružite se nam za nepozabno doživetje na naših prihajajočih dogodkih! Naši dogodki so zasnovani tako, da so
-      transformativni, s priložnostmi za raziskovanje vašega notranjega sveta, povezovanje z drugimi na podobnem potovanju in pridobivanje vpogledov,
-      ki vam bodo pomagali krmariti po vaši poti z večjo lahkoto in jasnostjo. Naučili se boste zmogljivih orodij in tehnik za izboljšanje lastne poti
-      osebne rasti in se počutili navdihnjene, opolnomočene in polne energije. Oglejte si naš urnik prihajajočih dogodkov in pridite!</p>
+    <p class="lead-description">Pridružite se nam za nepozabno doživetje na naših prihajajočih dogodkih! Naši dogodki so
+      zasnovani tako, da so
+      transformativni, s priložnostmi za raziskovanje vašega notranjega sveta, povezovanje z drugimi na podobnem
+      potovanju in pridobivanje vpogledov,
+      ki vam bodo pomagali krmariti po vaši poti z večjo lahkoto in jasnostjo. Naučili se boste zmogljivih orodij in
+      tehnik za izboljšanje lastne poti
+      osebne rasti in se počutili navdihnjene, opolnomočene in polne energije. Oglejte si naš urnik prihajajočih
+      dogodkov in pridite!</p>
   </div>
 
   <div class="mx-auto text-center">
@@ -21,14 +25,31 @@
     <p class="text-center fs-3">Trenutno ni nobenih dogodkov</p>
   </div>
   
+
   <ng-template #eventsList>
-    <div *ngFor="let event of events">
-      <p>{{event['event']}}</p>
-      <p>{{event['content'] | formatText}}</p>
-      <p>{{event['notification']}}</p>
-      <p>{{event['start_date']}}</p>
-      <p>{{event['event_length']}}</p>
-      <p>{{event['datum_vnosa'] | date: 'MMM d, y, H:MM:SS' }}</p>
+    <div class="container">
+      <div class="timeline" *ngFor="let event of events">
+        <div class="timeline__events">
+          <div class="timeline__event__icons ">
+            <div class="timeline__event__dates text-center">
+              {{event['event']}}
+            </div>
+          </div>
+          <div class="timeline__event__content">
+
+            <div class="timeline__event__start">
+              Pričetek dogodka <span class="text-danger fs-6">{{event['start_date'] | slovenainDate }}</span>
+              ob <span class="text-danger fs-6">{{ event['start_time'] }}</span>
+              in bo trajal <span class="text-danger fs-6">{{event['event_length']}}</span>. Dogodek se bo odvijal na
+              lokaciji: <span class="text-danger fs-6">{{event['location']}}</span>
+            </div>
+
+            <div class="timeline__event__description">
+              <p [innerHTML]="event['content'] | formatText"></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </ng-template>
 

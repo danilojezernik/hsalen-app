@@ -47,3 +47,14 @@ HERO ANIMATION
     transform: translate(0);
   }
 }
+
+@keyframes blink {
+  0%, 100% {
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3),
+    0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+  50% {
+    box-shadow: none; /* or any other color for the blink effect */
+  }
+}

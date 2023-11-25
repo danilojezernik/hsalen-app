@@ -9,8 +9,8 @@
   height: calc(100vh - 2 * (0.5rem)); /* Subtract 0.5rem from the bottom */
   background-image: linear-gradient(
       to right bottom,
-      rgba($hero-header-dark-orange, 0.8),
-      rgba($hero-header-light-orange, 0.8)
+      rgba($hero-header-dark-green, 0.8),
+      rgba($hero-header-light-green, 0.8)
   ),
   url('../../assets/media/hero/nature-relax.jpg');
   position: relative;

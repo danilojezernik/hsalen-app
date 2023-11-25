@@ -30,7 +30,6 @@ export class MedijiDodajComponent implements OnInit {
       naslov_mediji: ['', Validators.required],
       opis_mediji: ['', Validators.required],
       kraj_mediji: [''],
-      datum_mediji: ['', Validators.required],
       povezava_slika: [''],
       povezava_mediji: ['']
     })

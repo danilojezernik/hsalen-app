@@ -1,10 +1,20 @@
 // IMPORT VARIABLES AND MIXIN
+
 @import "../abstracts/variables";
+@import "../animations/animations";
 
 .timeline {
   display: flex;
   flex-direction: column;
   margin: 5% auto;
+
+  &__events {
+    background: $color-white;
+    margin-bottom: 20px;
+    position: relative;
+    border: 1px solid #dadada;
+    border-radius: 8px;
+  }
 
   &__event {
     background: $color-white;
@@ -15,12 +25,34 @@
     0 18px 36px -18px rgba(0, 0, 0, 0.3),
     0 -12px 36px -8px rgba(0, 0, 0, 0.025);
 
+    &__start {
+      border-radius: 8px;
+      text-align: center;
+      margin: 15px 5px;
+      float: right;
+      max-width: 300px;
+      height: 100%;
+      padding: 15px 10px;
+      box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+      animation: blink 1s infinite;
+    }
+
     &__title {
       font-size: 1.2rem;
       line-height: 1.4;
       text-transform: uppercase;
       font-weight: 600;
-      color: $color-black; // Use the dark orange color
+      color: $color-black;
+      letter-spacing: 1.5px;
+    }
+
+    &__titles {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      font-weight: 600;
+      color: $color-black;
       letter-spacing: 1.5px;
     }
 
@@ -29,26 +61,55 @@
     }
 
     &__date {
-      color: $color-white; // Use the light orange color
+      color: $color-white;
       font-size: 1.5rem;
       font-weight: 600;
       white-space: nowrap;
     }
 
+    &__dates {
+      color: $color-white;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
     &__icon {
       border-radius: 8px 0 0 8px;
-      background: $hero-header-light-orange; // Use the dark orange color
+      background: $hero-header-light-green;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-basis: 10%;
       font-size: 1.5rem;
-      color: $hero-header-light-orange; // Use the dark orange color
+      color: $hero-header-light-green;
       padding: 20px;
+    }
+
+    &__icons {
+      border-radius: 4px 4px 0 0;
+      background: $hero-header-light-green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 10%;
+      font-size: 1.5rem;
+      color: $hero-header-light-green;
+      padding: 20px;
+      box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
     }
 
     &__description {
       flex-basis: 60%;
+    }
+
+    &__footer {
+      font-size: 0.7rem;
+      line-height: 1;
+      font-weight: 400;
+      color: $color-black;
+      letter-spacing: 1.2px;
     }
 
     &:last-child {
