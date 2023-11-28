@@ -20,7 +20,7 @@ export class EmailService {
    * @returns An observable representing the result of the email sending operation.
    */
   sendEmail(newBody: Email): Observable<Email> {
-    return this.http.post<Email>(`${environment.backUrl}/email/send-email`, newBody).pipe(
+    return this.http.post<Email>(`${environment.localUrl}/email/send-email`, newBody).pipe(
       catchError(error => {
         // Log an error message if an error occurs during the API call
         console.error("Error sending an email:", error)

@@ -30,6 +30,8 @@ import {SubscribersPregledComponent} from "./core/pages/private/subscribers/subs
 import {SubscribersEditComponent} from "./core/pages/private/subscribers/subscribers-edit/subscribers-edit.component";
 import {NewsletterPregledComponent} from "./core/pages/private/newsletter/newsletter-pregled/newsletter-pregled.component";
 import {SuccessComponent} from "./core/pages/public/success/success.component";
+import {ReviewPregledComponent} from "./core/pages/private/review/review-pregled/review-pregled.component";
+import {GalleryComponent} from "./core/pages/public/gallery/gallery.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -140,6 +142,18 @@ const routes: Routes = [
     path: 'dogodki',
     component: EventsComponent,
     title: 'Hypnosis studio Alen - Dogodki',
+  },
+  {
+    path: 'galerija',
+    component: GalleryComponent,
+    title: 'Hypnosis studio Alen - Galerija',
+  },
+  {
+    path: 'review-pregled',
+    component: ReviewPregledComponent,
+    title: 'Hypnosis studio Alen - Mnenja drugih',
+    loadChildren: coreModuleLoader,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'events-pregled',

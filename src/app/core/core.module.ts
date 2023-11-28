@@ -49,6 +49,10 @@ import {NewsletterPregledComponent} from './pages/private/newsletter/newsletter-
 import {NewsletterAddComponent} from './pages/private/newsletter/newsletter-add/newsletter-add.component';
 import {FooterComponent} from './footer/footer.component';
 import {SuccessComponent} from './pages/public/success/success.component';
+import {ReviewPregledComponent} from './pages/private/review/review-pregled/review-pregled.component';
+import {ReviewDodajComponent} from './pages/private/review/review-dodaj/review-dodaj.component';
+import {GalleryComponent} from './pages/public/gallery/gallery.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -85,7 +89,10 @@ import {SuccessComponent} from './pages/public/success/success.component';
     NewsletterPregledComponent,
     NewsletterAddComponent,
     FooterComponent,
-    SuccessComponent
+    SuccessComponent,
+    ReviewPregledComponent,
+    ReviewDodajComponent,
+    GalleryComponent
   ],
   exports: [
     BlogAddComponent,
@@ -141,7 +148,8 @@ import {SuccessComponent} from './pages/public/success/success.component';
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule
   ]
 })
 export class CoreModule {

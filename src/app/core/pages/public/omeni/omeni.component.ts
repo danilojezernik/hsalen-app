@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {MedijiService} from "../../../services/api/mediji.service";
-import {Subject} from "rxjs";
+import {map, Subject, takeUntil} from "rxjs";
 import {trace} from "../../../utils/trace";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
@@ -38,9 +38,13 @@ export class OmeniComponent implements OnInit, OnDestroy {
   }
 
   loadAllMedij() {
-    this.api.getAllMediji().subscribe(data => {
-      this.mediji = data
-    })
+    this.api.getAllMediji().pipe(
+      map(data => {
+        this.mediji = data;
+        return data;
+      }),
+      takeUntil(this.destroy$) // Unsubscribe when component is destroyed
+    ).subscribe();
   }
 
   // Function to convert a regular YouTube URL to an embed URL

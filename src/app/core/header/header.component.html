@@ -64,6 +64,12 @@
         </a>
       </li>
       <li class="navigation__item">
+        <a routerLink="/galerija" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link"
+           (click)="closeNavigationMenu()">
+          Galerija
+        </a>
+      </li>
+      <li class="navigation__item">
         <a routerLink="/kontakt" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navigation__link"
            (click)="closeNavigationMenu()">
           Kontakt

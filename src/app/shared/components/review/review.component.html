@@ -1,0 +1,72 @@
+<div class="container-fluid bg-white">
+  <div class="container">
+    <div class="text-center top-bottom-padding">
+      <span class="heading-primary-description-black">Mnenja drugih</span>
+      <p class="lead-description">Ta pregled služi kot dragocena platforma za ljudi, kjer lahko delijo svoje izkušnje iz prve roke in vpoglede,
+        pridobljene med sejami hipnoze, jasnovidnost, medijstva,... Te ocene ponujajo avtentičen in celovit pregled pozitivnega vpliva naših sej na
+        življenja naših ljudi.</p>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="col-1">
+        <!-- Pagination previous -->
+        <ul class="pagination pagination-lg d-flex justify-content-center align-items-center h-100">
+          <li class="page-item rounded" [class.disabled]="currentPage === 1">
+            <a class="page-link border-0 bg-transparent" (click)="previousPage()" aria-label="Previous">
+              <span aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-left" width="34"
+                     height="34" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M11 7l-5 5l5 5"></path>
+                  <path d="M17 7l-5 5l5 5"></path>
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-10">
+        <!-- PRIKAZ BLOGA -->
+        <div class="row row-cols-1 row-cols-md-1 g-5">
+          <div class="col" *ngFor="let data of getPaginatedReview()">
+            <div class="card card-hover border-secondary shadow pt-3 text-center h-100"
+                 style="animation-name: moveInBottom; animation-duration: 1s">
+              <div class="card-body">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-3 icon-tabler icon-tabler-star" width="40" height="40" viewBox="0 0 24 24"
+                     stroke-width="2"
+                     stroke="#618264" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
+                </svg>
+                <h2 class="card-title" [innerHTML]="data['name']"></h2>
+                <p class="card-text" [innerHTML]="data['content'] | formatText "></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-1">
+        <!-- Pagination next -->
+        <ul class="pagination pagination-lg d-flex justify-content-center align-items-center h-100">
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link border-0 bg-transparent" (click)="nextPage()" aria-label="Next">
+              <span aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="34"
+                     height="34" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M7 7l5 5l-5 5"></path>
+                  <path d="M13 7l5 5l-5 5"></path>
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

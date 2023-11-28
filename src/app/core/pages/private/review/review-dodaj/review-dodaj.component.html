@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Dodaj novo mnenje</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="addingReviewForm" (ngSubmit)="addReview()">
+
+    <mat-form-field style="width: 100%">
+      <mat-label>Ime</mat-label>
+      <input type="text" formControlName="name" required matInput>
+    </mat-form-field>
+
+    <angular-editor formControlName="content" [config]="editorConfig" required></angular-editor>
+
+    <div class="pt-2">
+      <button mat-raised-button color="primary" type="submit" [disabled]="addingReviewForm.invalid">Dodaj Medij</button>
+      <button class="float-end" color="warn" mat-button mat-raised-button mat-dialog-close>Zapri okno</button>
+    </div>
+  </form>
+</div>

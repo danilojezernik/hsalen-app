@@ -49,8 +49,7 @@ export class MedijiDodajComponent implements OnInit {
     }
 
     // Call the MedijiService to add new mediji
-    this.api.addNewMedijiAdmin(newMediji).subscribe((data) => {
-        console.log(data)
+    this.api.addNewMedijiAdmin(newMediji).subscribe(() => {
         this.mediji = this.api.getAllMedijiAdmin()
         this.addingMedijiForm.reset()
         this.dialog.closeAll()

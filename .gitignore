@@ -44,3 +44,6 @@ Thumbs.db
 # enviroments file
 /src/environments/environment.ts
 /src/environments/environment.development.ts
+
+# media files
+src/assets/media/gallery

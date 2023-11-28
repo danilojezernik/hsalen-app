@@ -33,6 +33,7 @@ import {LimitedBlogsComponent} from './components/limited-blogs/limited-blogs.co
 import {TruncatePipe} from './pipes/truncate/truncate.pipe';
 import {FormatTextPipe} from './pipes/format-text/format-text-pipe';
 import {TherapyMoreComponent} from './components/therapy-more/therapy-more.component';
+import {ReviewComponent} from './components/review/review.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {TherapyMoreComponent} from './components/therapy-more/therapy-more.compo
     LimitedBlogsComponent,
     TruncatePipe,
     FormatTextPipe,
-    TherapyMoreComponent
+    TherapyMoreComponent,
+    ReviewComponent
   ],
   exports: [
     GoBackComponent,
@@ -81,7 +83,8 @@ import {TherapyMoreComponent} from './components/therapy-more/therapy-more.compo
     LimitedBlogsComponent,
     TruncatePipe,
     FormatTextPipe,
-    TherapyMoreComponent
+    TherapyMoreComponent,
+    ReviewComponent
   ],
   imports: [
     CommonModule,

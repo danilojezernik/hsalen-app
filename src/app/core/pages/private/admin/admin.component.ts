@@ -6,6 +6,7 @@ import {EventsService} from "../../../services/api/events.service";
 import {EmailService} from "../../../services/api/email.service";
 import {SubscribersService} from "../../../services/api/subscribers.service";
 import {NewsletterService} from "../../../services/api/newsletter.service";
+import {ReviewService} from "../../../services/api/review.service";
 
 
 @Component({
@@ -32,6 +33,9 @@ export class AdminComponent {
   newsletter: any;
   newsletterCount: number | undefined;
 
+  review: any;
+  reviewCount: number | undefined;
+
 
   heroData = {
     admin: 'Admin',
@@ -44,19 +48,19 @@ export class AdminComponent {
   _emailService = inject(EmailService)
   _subscribersService = inject(SubscribersService)
   _newsletterService = inject(NewsletterService)
+  _reviewService = inject(ReviewService)
 
   constructor(private router: Router) {
     this.heroData.path = this.router.url.slice(1);
     this.loadAllCounts()
   }
 
-  // Function to load all blog data
   loadAllCounts() {
 
     this._blogService.getAllBlog().subscribe(
       (data) => {
         this.blog = data
-        this.blogCount = this.blog.length;  // Assign the fetched data to the blog variable
+        this.blogCount = this.blog.length;
       }, error => {
         console.error(error);
       }
@@ -102,6 +106,15 @@ export class AdminComponent {
       (data) => {
         this.newsletter = data;
         this.newsletterCount = this.newsletter.length;
+      }, (error) => {
+        console.error(error);
+      }
+    )
+
+    this._reviewService.getAllReviews().subscribe(
+      (data) => {
+        this.review = data;
+        this.reviewCount = this.review.length;
       }, (error) => {
         console.error(error);
       }

@@ -5,7 +5,7 @@
     <span class="heading-primary-description-black">Admin</span>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row row-cols-1 row-cols-md-4 g-4">
 
     <!-- BLOG -->
     <div class="col position-relative">
@@ -82,6 +82,35 @@
         <div class="card-footer bg-dark border-0 text-end d-flex justify-content-end align-content-center position-relative">
           <div class="position-absolute top-50 start-0 translate-middle-y ps-2 text-white">
             Število dogodkov: {{ eventsCount }}
+          </div>
+          <small class="text-white">
+            Naprej
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-badge-right" width="24" height="24" viewBox="0 0 24 24"
+                 stroke-width="2" stroke="#618264" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M13 7h-6l4 5l-4 5h6l4 -5z"></path>
+            </svg>
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <!-- MNENJA -->
+    <div class="col">
+      <div class="card shadow pt-3 border-secondary text-center h-100" routerLink="/review-pregled">
+        <div class="card-body">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-3 icon-tabler icon-tabler-star" width="40" height="40" viewBox="0 0 24 24"
+               stroke-width="2"
+               stroke="#618264" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
+          </svg>
+          <h2 class="card-title">Mnenja drugih</h2>
+          <p class="card-text">Pregled mnenj in dodajanje novih ali spreminjanja obstoječih.</p>
+        </div>
+        <div class="card-footer bg-dark border-0 text-end d-flex justify-content-end align-content-center position-relative">
+          <div class="position-absolute top-50 start-0 translate-middle-y ps-2 text-white">
+            Število mnenj: {{ reviewCount }}
           </div>
           <small class="text-white">
             Naprej
