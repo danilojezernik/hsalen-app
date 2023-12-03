@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, OnInit, inject} from '@angular/core';
 import {Router} from "@angular/router";
 import {BlogService} from "../../../services/api/blog.service";
 import {MedijiService} from "../../../services/api/mediji.service";
@@ -7,13 +7,14 @@ import {EmailService} from "../../../services/api/email.service";
 import {SubscribersService} from "../../../services/api/subscribers.service";
 import {NewsletterService} from "../../../services/api/newsletter.service";
 import {ReviewService} from "../../../services/api/review.service";
+import {SendLogService} from "../../../services/api/send-log.service";
 
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
 
   blog: any;
   blogCount: number | undefined;
@@ -49,10 +50,17 @@ export class AdminComponent {
   _subscribersService = inject(SubscribersService)
   _newsletterService = inject(NewsletterService)
   _reviewService = inject(ReviewService)
+  _logService = inject(SendLogService)
+
+  ngOnInit() {
+    this.loadAllCounts()
+
+    // Send log to Admin of Admin
+    this._logService.sendLog('Load All Counts Admin - Private');
+  }
 
   constructor(private router: Router) {
     this.heroData.path = this.router.url.slice(1);
-    this.loadAllCounts()
   }
 
   loadAllCounts() {
@@ -61,8 +69,10 @@ export class AdminComponent {
       (data) => {
         this.blog = data
         this.blogCount = this.blog.length;
+
       }, error => {
         console.error(error);
+        this._logService.sendLog('Error in Blog Service: ' + error.message);
       }
     );
 
@@ -72,6 +82,7 @@ export class AdminComponent {
         this.medijiCount = this.mediji.length;
       }, error => {
         console.error(error);
+        this._logService.sendLog('Error in Mediji Service: ' + error.message);
       }
     )
 
@@ -81,6 +92,7 @@ export class AdminComponent {
         this.eventsCount = this.events.length;
       }, error => {
         console.error(error);
+        this._logService.sendLog('Error in Events Service: ' + error.message);
       }
     )
 
@@ -90,6 +102,7 @@ export class AdminComponent {
         this.emailCount = this.email.length;
       }, (error) => {
         console.error(error);
+        this._logService.sendLog('Error in Email Service: ' + error.message);
       }
     )
 
@@ -99,6 +112,7 @@ export class AdminComponent {
         this.subscribersCount = this.subscribers.length;
       }, (error) => {
         console.error(error);
+        this._logService.sendLog('Error in Subscribers Service: ' + error.message);
       }
     )
 
@@ -108,6 +122,7 @@ export class AdminComponent {
         this.newsletterCount = this.newsletter.length;
       }, (error) => {
         console.error(error);
+        this._logService.sendLog('Error in Newsletter Service: ' + error.message);
       }
     )
 
@@ -117,6 +132,7 @@ export class AdminComponent {
         this.reviewCount = this.review.length;
       }, (error) => {
         console.error(error);
+        this._logService.sendLog('Error in Review Service: ' + error.message);
       }
     )
   }

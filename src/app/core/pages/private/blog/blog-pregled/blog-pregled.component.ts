@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subject} from "rxjs";
 import {BlogService} from "../../../../services/api/blog.service";
 import {MatTableDataSource} from "@angular/material/table";
@@ -9,6 +9,7 @@ import {BlogAddComponent} from "../blog-add/blog-add.component";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
 import {CalcIndexService} from "../../../../services/calc-index/calc-index.service";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-blog-pregled',
@@ -27,6 +28,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
   }
 
   spinner: boolean = false;
+  _logService = inject(SendLogService)
 
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -79,9 +81,16 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
         this.spinner = false;
         this.blog = data;
         this.dataSource.data = data;
+
+        // Send log to Admin of Admin
+        this._logService.sendLog('All blog Loaded Admin - PRIVATE');
+
       }, (error) => {
         console.error('Error getting all blog', error);
         this.snackbarService.showSnackbar('Vse objave se niso uspele naložiti!');
+
+        // Send log to Admin of Admin
+        this._logService.sendLog(`Error: All blog wasn't loaded Admin - PRIVATE` + error.message);
         this.spinner = false;
       }
     )
@@ -91,16 +100,27 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
     if (confirm('Ali ste prepričani, da želite izbrano objavo izbrisati?')) {
       this.spinner = true;
       this._api.deleteBlogByIdAdmin(id).subscribe(() => {
+
+        // Send log to Admin of Admin
+        this._logService.sendLog(`Blog by ID: ${id} IS deleted Admin - PRIVATE`);
+
         this.snackbarService.showSnackbar('Blog JE bil uspešno izbrisan!');
         this.spinner = false;
         this.loadAllBlog()
       }, (error) => {
         console.error('Error deleting blog', error)
         this.snackbarService.showSnackbar('Blog NI bil uspešno izbrisan!');
+
+        // Send log to Admin of Admin
+        this._logService.sendLog(`Error: Blog by ID: ${id} NOT deleted Admin - PRIVATE` + error.message);
+
         this.spinner = false;
       })
     } else {
       this.snackbarService.showSnackbar('Odločili ste se, da bloga ne boste izbrisali!');
+
+      // Send log to Admin of Admin
+      this._logService.sendLog(`Blog by ID: ${id} delete CANCELED Admin - PRIVATE`);
     }
   }
 

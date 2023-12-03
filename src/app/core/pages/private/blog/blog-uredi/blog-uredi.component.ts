@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {Blog} from '../../../../models/blog';
 import {BlogService} from '../../../../services/api/blog.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
 import {AngularEditorConfig} from "@kolkov/angular-editor";
-import {sharedEditorConfig} from "../../../../../shared/config/editor-config"; // Import necessary form-related modules
+import {sharedEditorConfig} from "../../../../../shared/config/editor-config";
+import {SendLogService} from "../../../../services/api/send-log.service"; // Import necessary form-related modules
 
 @Component({
   selector: 'app-blog-uredi',
@@ -17,6 +18,7 @@ export class BlogUrediComponent implements OnInit {
   blogId: any;
   blogForm: FormGroup = new FormGroup({});
   editorConfig: AngularEditorConfig = sharedEditorConfig
+  _logService = inject(SendLogService)
 
   heroData = {
     admin: 'Admin',
@@ -69,17 +71,22 @@ export class BlogUrediComponent implements OnInit {
       this.api.editBlogAdmin(this.blogId, editedBlog).subscribe(
         () => {
           this.spinner = false;
+          // Send log to Admin of Admin
+          this._logService.sendLog('Blog was edited Admin - Private');
           this.router.navigate(['/blog-pregled']);
         },
         error => {
           console.error('Error updating blog:', error);
           this.snackbarService.showSnackbar(`Objavo v blogu ni bilo mogoče posodobiti!`)
+          // Send log to Admin of Admin
+          this._logService.sendLog('Error in Blog Edit: ' + error.message);
           this.spinner = false;
         }
       );
     } else {
       console.error('Form is not valid')
-      this.snackbarService.showSnackbar(`Objavo objave ni pravilna. Prosim preverite vnose!`)
+      this._logService.sendLog('Error: Not all data were entered');
+      this.snackbarService.showSnackbar(`Objava objave ni pravilna. Prosim preverite vnose!`)
       this.spinner = false;
     }
   }

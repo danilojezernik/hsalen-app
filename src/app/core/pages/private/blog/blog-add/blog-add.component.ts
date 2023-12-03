@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
@@ -9,6 +9,7 @@ import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service"
 import {AngularEditorConfig} from "@kolkov/angular-editor";
 
 import {sharedEditorConfig} from "../../../../../shared/config/editor-config";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 
 @Component({
@@ -20,6 +21,7 @@ export class BlogAddComponent implements OnInit {
   blog: any;
   addingPostForm: FormGroup = new FormGroup({}) // FormGroup for post form
   editorConfig: AngularEditorConfig = sharedEditorConfig
+  _logService = inject(SendLogService)
 
   spinner: boolean = false;
 
@@ -28,7 +30,7 @@ export class BlogAddComponent implements OnInit {
     public dialog: MatDialog,
     public fb: FormBuilder, // Angular service for building forms
     private dataUpdateService: DataUpdateService, // Inject custom service for updating data
-    public snackbarService: SnackBarService
+    public snackbarService: SnackBarService,
   ) {
   }
 
@@ -55,6 +57,7 @@ export class BlogAddComponent implements OnInit {
       datum_vnosa: new Date().toISOString()
     };
 
+
     this.spinner = true;
     // Call the BlogService to add a new post
     this.api.addNewBlogAdmin(newBlog).subscribe(
@@ -67,9 +70,15 @@ export class BlogAddComponent implements OnInit {
         this.addingPostForm.reset();
         this.dialog.closeAll()
         this.dataUpdateService.triggerDataUpdate();
+
+        // Send log to Admin of Admin
+        this._logService.sendLog('New blog added Admin - Private');
+
       },
       (error) => {
         console.error('Error adding post:', error);
+        // Send log to Admin of Admin
+        this._logService.sendLog('Error: New blog added Admin - Private' + error.message);
         this.spinner = false;
       }
     );

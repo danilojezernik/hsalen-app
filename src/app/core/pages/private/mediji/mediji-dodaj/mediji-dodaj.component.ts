@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MedijiService} from "../../../../services/api/mediji.service";
 import {MatDialog} from "@angular/material/dialog";
@@ -6,6 +6,7 @@ import {DataUpdateService} from "../../../../services/communication/data-update.
 import {Mediji} from "../../../../models/mediji";
 import {sharedEditorConfig} from "../../../../../shared/config/editor-config";
 import {AngularEditorConfig} from "@kolkov/angular-editor";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-mediji-dodaj',
@@ -16,6 +17,7 @@ export class MedijiDodajComponent implements OnInit {
   mediji: any;
   addingMedijiForm: FormGroup = new FormGroup({})
   editorConfig: AngularEditorConfig = sharedEditorConfig
+  _logService = inject(SendLogService)
 
   constructor(
     private api: MedijiService,
@@ -50,13 +52,20 @@ export class MedijiDodajComponent implements OnInit {
 
     // Call the MedijiService to add new mediji
     this.api.addNewMedijiAdmin(newMediji).subscribe(() => {
+        this._logService.sendLog('Add Mediji Admin - PRIVATE');
         this.mediji = this.api.getAllMedijiAdmin()
         this.addingMedijiForm.reset()
         this.dialog.closeAll()
         this.dataUpdateService.triggerDataUpdate();
+
+        // Send log to Admin of Admin
+        this._logService.sendLog('New Mediji Added Admin - Private');
       },
       (error) => {
         console.error('Error adding mediji:', error);
+
+        // Send log to Admin of Admin
+        this._logService.sendLog('Error: New Mediji not added Admin - Private');
       })
 
   }
