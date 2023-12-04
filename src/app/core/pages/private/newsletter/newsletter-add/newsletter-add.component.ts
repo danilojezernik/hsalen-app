@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AngularEditorConfig} from "@kolkov/angular-editor";
 import {sharedEditorConfig} from "../../../../../shared/config/editor-config";
@@ -7,6 +7,7 @@ import {DataUpdateService} from "../../../../services/communication/data-update.
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
 import {NewsletterService} from "../../../../services/api/newsletter.service";
 import {Newsletter} from "../../../../models/newsletter";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-newsletter-add',
@@ -18,6 +19,7 @@ export class NewsletterAddComponent implements OnInit {
   spinner: boolean = false;
   addingNewsletterForm: FormGroup = new FormGroup({}) // FormGroup for post form
   editorConfig: AngularEditorConfig = sharedEditorConfig
+  _logService = inject(SendLogService)
 
   constructor(
     private api: NewsletterService,
@@ -49,6 +51,7 @@ export class NewsletterAddComponent implements OnInit {
     this.api.sendNewsletter(newNewsletter).subscribe(data => {
         this.spinner = false;
         this.snackbarService.showSnackbar(`Newsletter ${data.title.toUpperCase()} je bil uspešno poslan!`)
+        this._logService.sendPrivateLog(`Newsletter was sent Admin`, 'PRIVATE');
         // Update the post data
         this.newsletter = this.api.getAllNewsletter()
         // Reset the form
@@ -59,6 +62,7 @@ export class NewsletterAddComponent implements OnInit {
       (error) => {
         console.error('Error adding post:', error);
         this.spinner = false;
+        this._logService.sendPrivateLog(`Error in Send Newsletter: ` + error.message, 'PRIVATE');
       })
   }
 }

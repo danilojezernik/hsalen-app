@@ -56,7 +56,7 @@ export class AdminComponent implements OnInit {
     this.loadAllCounts()
 
     // Send log to Admin of Admin
-    this._logService.sendLog('Load All Counts Admin - Private');
+    this._logService.sendPrivateLog('Load All Counts Admin', 'PRIVATE');
   }
 
   constructor(private router: Router) {
@@ -72,7 +72,7 @@ export class AdminComponent implements OnInit {
 
       }, error => {
         console.error(error);
-        this._logService.sendLog('Error in Blog Service: ' + error.message);
+        this._logService.sendPrivateLog('Error in Blog Service: ' + error.message, 'PRIVATE');
       }
     );
 
@@ -82,7 +82,7 @@ export class AdminComponent implements OnInit {
         this.medijiCount = this.mediji.length;
       }, error => {
         console.error(error);
-        this._logService.sendLog('Error in Mediji Service: ' + error.message);
+        this._logService.sendPrivateLog('Error in Mediji Service: ' + error.message, 'PRIVATE');
       }
     )
 
@@ -92,7 +92,7 @@ export class AdminComponent implements OnInit {
         this.eventsCount = this.events.length;
       }, error => {
         console.error(error);
-        this._logService.sendLog('Error in Events Service: ' + error.message);
+        this._logService.sendPrivateLog('Error in Events Service: ' + error.message, 'PRIVATE');
       }
     )
 
@@ -102,7 +102,7 @@ export class AdminComponent implements OnInit {
         this.emailCount = this.email.length;
       }, (error) => {
         console.error(error);
-        this._logService.sendLog('Error in Email Service: ' + error.message);
+        this._logService.sendPrivateLog('Error in Email Service: ' + error.message, 'PRIVATE');
       }
     )
 
@@ -112,7 +112,7 @@ export class AdminComponent implements OnInit {
         this.subscribersCount = this.subscribers.length;
       }, (error) => {
         console.error(error);
-        this._logService.sendLog('Error in Subscribers Service: ' + error.message);
+        this._logService.sendPrivateLog('Error in Subscribers Service: ' + error.message, 'PRIVATE');
       }
     )
 
@@ -122,7 +122,7 @@ export class AdminComponent implements OnInit {
         this.newsletterCount = this.newsletter.length;
       }, (error) => {
         console.error(error);
-        this._logService.sendLog('Error in Newsletter Service: ' + error.message);
+        this._logService.sendPrivateLog('Error in Newsletter Service: ' + error.message, 'PRIVATE');
       }
     )
 
@@ -132,7 +132,7 @@ export class AdminComponent implements OnInit {
         this.reviewCount = this.review.length;
       }, (error) => {
         console.error(error);
-        this._logService.sendLog('Error in Review Service: ' + error.message);
+        this._logService.sendPrivateLog('Error in Review Service: ' + error.message, 'PRIVATE');
       }
     )
   }

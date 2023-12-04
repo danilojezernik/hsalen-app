@@ -1,9 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {MedijiService} from "../../../services/api/mediji.service";
 import {map, Subject, takeUntil} from "rxjs";
 import {trace} from "../../../utils/trace";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {SendLogService} from "../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-omeni',
@@ -13,6 +14,8 @@ export class OmeniComponent implements OnInit, OnDestroy {
 
   omeni: any;
   mediji: any;
+
+  _logService = inject(SendLogService)
 
   heroData = {
     naslov: 'O meni',
@@ -35,16 +38,17 @@ export class OmeniComponent implements OnInit, OnDestroy {
       this.omeni = response
     })
     this.loadAllMedij()
+    this._logService.sendPublicLog(`O meni is checked by Client`, 'PUBLIC');
   }
 
   loadAllMedij() {
-    this.api.getAllMediji().pipe(
-      map(data => {
+    this.api.getAllMediji().subscribe(
+      data => {
         this.mediji = data;
-        return data;
-      }),
-      takeUntil(this.destroy$) // Unsubscribe when component is destroyed
-    ).subscribe();
+      }, error => {
+        this._logService.sendPublicLog(`Error: Loading Mediji: ` + error.message, 'PUBLIC');
+      }
+    );
   }
 
   // Function to convert a regular YouTube URL to an embed URL

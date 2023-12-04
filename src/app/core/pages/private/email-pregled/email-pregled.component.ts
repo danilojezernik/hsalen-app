@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {EmailService} from "../../../services/api/email.service";
 import {MatDialog} from "@angular/material/dialog";
 import {GetIdComponent} from "../../../../shared/components/dialog/get-id.component";
@@ -8,6 +8,7 @@ import {Subject} from "rxjs";
 import {MatPaginator} from "@angular/material/paginator";
 import {CalcIndexService} from "../../../services/calc-index/calc-index.service";
 import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
+import {SendLogService} from "../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-email-pregled',
@@ -19,6 +20,7 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
   spinner: boolean = false;
   dataSource = new MatTableDataSource<Email>()
   displayColumns: string[] = ['email_id', 'name', 'surname', 'email', 'datum_vnosa', 'action']
+  _logService = inject(SendLogService)
 
   heroData = {
     admin: 'Admin',
@@ -71,8 +73,12 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
       this.spinner = false;
       this.email = data;
       this.dataSource.data = data;
+      // Send log to Admin of Admin
+      this._logService.sendPrivateLog('Load All Emails Admin', 'PRIVATE');
+
     }, (error) => {
       console.error('Error getting all emails:', error)
+      this._logService.sendPrivateLog('Error in Email Service: ' + error.message, 'PRIVATE');
       this.spinner = false;
     });
   }
@@ -83,10 +89,12 @@ export class EmailPregledComponent implements OnInit, OnDestroy {
       this.api.deleteEmailByIdAdmin(id).subscribe(() => {
         this.snackbarService.showSnackbar('Email JE bil uspešno izbrisan!');
         this.spinner = false;
+        this._logService.sendPrivateLog(`Delete email by id: ${id} Admin`, 'PRIVATE');
         this.loadAllEmailsAdmin()
       }, (error) => {
         console.error('Error deleting email:', error)
         this.snackbarService.showSnackbar('Email NI bil uspešno izbrisan!');
+        this._logService.sendPrivateLog('Error in Email Service: ' + error.message, 'PRIVATE');
         this.spinner = false;
       })
     } else {

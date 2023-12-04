@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NewsletterService} from "../../../../services/api/newsletter.service";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
@@ -10,6 +10,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {GetIdComponent} from "../../../../../shared/components/dialog/get-id.component";
 import {MatDialog} from "@angular/material/dialog";
 import {NewsletterAddComponent} from "../newsletter-add/newsletter-add.component";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-newsletter-pregled',
@@ -21,6 +22,7 @@ export class NewsletterPregledComponent implements OnInit, OnDestroy {
   spinner: boolean = false;
   dataSource = new MatTableDataSource<Newsletter>()
   displayColumns: string[] = ['newsletter_id', 'title', 'datum_vnosa', 'action']
+  _logService = inject(SendLogService)
 
   heroData = {
     admin: 'Admin',
@@ -68,11 +70,13 @@ export class NewsletterPregledComponent implements OnInit, OnDestroy {
     this.spinner = true;
     this.api.getAllNewsletter().subscribe(data => {
       this.spinner = false;
+      this._logService.sendPrivateLog(`Load All Newsletter Admin`, 'PRIVATE');
       this.newsletter = data;
       this.dataSource.data = data;
     }, (error => {
-      console.error('Error getting all newsletter:', error);
       this.spinner = false;
+      console.error('Error getting all newsletter:', error);
+      this._logService.sendPrivateLog(`Error getting all Newsletter: ` + error.message, 'PRIVATE');
     }))
   }
 
@@ -95,11 +99,13 @@ export class NewsletterPregledComponent implements OnInit, OnDestroy {
       this.api.deleteNewsletterById(id).subscribe(() => {
         this.snackbarService.showSnackbar('E-novičke so bile uspešno izbrisane!');
         this.spinner = false;
+        this._logService.sendPrivateLog(`Deleted Newsletter by id: ${id} Admin`, 'PRIVATE');
         this.getAllNewsletter()
       }, (error) => {
         console.error('Error deleting newsletter:', error)
         this.snackbarService.showSnackbar('E-novičk NI bil uspešno izbrisan!');
         this.spinner = false;
+        this._logService.sendPrivateLog(`Error in delete Newsletter by ID ${id}: ` + error.message, 'PRIVATE');
       })
     } else {
       this.snackbarService.showSnackbar('Odločili ste se, da e-novičke ne boste izbrisali!');

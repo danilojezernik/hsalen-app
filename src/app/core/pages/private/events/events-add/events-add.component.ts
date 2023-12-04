@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {EventsService} from "../../../../services/api/events.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AngularEditorConfig} from "@kolkov/angular-editor";
@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
 import {Events} from "../../../../models/events";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-events-add',
@@ -17,6 +18,7 @@ export class EventsAddComponent implements OnInit {
   spinner: boolean = false;
   addingEventForm: FormGroup = new FormGroup({})
   editorConfig: AngularEditorConfig = sharedEditorConfig
+  _logService = inject(SendLogService)
 
   constructor(
     private api: EventsService,
@@ -55,6 +57,7 @@ export class EventsAddComponent implements OnInit {
 
     this.spinner = true
     this.api.addNewEvent(newEvent).subscribe(() => {
+      this._logService.sendPrivateLog('New event added Admin', 'PRIVATE');
       this.spinner = false;
       this.snackbarService.showSnackbar('Dogodek je bil uspešno dodan!')
       this.addingEventForm.reset();
@@ -62,6 +65,7 @@ export class EventsAddComponent implements OnInit {
       this.dataUpdateService.triggerDataUpdate();
     }, error => {
       console.error('Error adding new event', error)
+      this._logService.sendPrivateLog('Error in Event Service: ' + error.message, 'PRIVATE');
       this.spinner = false;
     })
   }

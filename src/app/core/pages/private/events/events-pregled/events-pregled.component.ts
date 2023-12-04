@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {EventsService} from "../../../../services/api/events.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {Events} from "../../../../models/events";
@@ -9,6 +9,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {EventsAddComponent} from "../events-add/events-add.component";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-events-pregled',
@@ -20,6 +21,7 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
   spinner: boolean = false;
   dataSource = new MatTableDataSource<Events>()
   displayColumns: string[] = ['event', 'location', 'start_date', 'start_time', 'event_length', 'show_notification', 'datum_vnosa', 'action']
+  _logService = inject(SendLogService)
 
   heroData = {
     admin: 'Admin',
@@ -79,12 +81,14 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
     this.spinner = true;
     this.api.getAllEventsAdmin().subscribe(data => {
       this.snackbarService.showSnackbar('Vsi dogodki uspešno naloženi!');
+      this._logService.sendPrivateLog('Load All Events Admin', 'PRIVATE');
       this.spinner = false;
       this.events = data;
       this.dataSource.data = data;
     }, (error) => {
       console.error('Error getting all events:', error);
       this.snackbarService.showSnackbar('Vsi dogodki se niso uspeli naložiti!');
+      this._logService.sendPrivateLog('Error in Events Service: ' + error.message, 'PRIVATE');
       this.spinner = false;
     })
   }
@@ -94,11 +98,13 @@ export class EventsPregledComponent implements OnInit, OnDestroy {
       this.spinner = true;
       this.api.deleteEvent(id).subscribe(() => {
           this.snackbarService.showSnackbar('Dogodek JE bil uspešno izbrisan!');
+          this._logService.sendPrivateLog('Event deleted Admin', 'PRIVATE');
           this.spinner = false;
           this.getAlleEventsAdmin();
         }, error => {
           console.error('Error deleting event', error);
           this.snackbarService.showSnackbar('Dogodek NI bil uspešno izbrisan!');
+          this._logService.sendPrivateLog('Error in Delete Blog Service: ' + error.message, 'PRIVATE');
           this.spinner = false;
         }
       )

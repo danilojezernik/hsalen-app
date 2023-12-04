@@ -72,20 +72,20 @@ export class BlogUrediComponent implements OnInit {
         () => {
           this.spinner = false;
           // Send log to Admin of Admin
-          this._logService.sendLog('Blog was edited Admin - Private');
+          this._logService.sendPrivateLog('Blog was edited Admin', 'PRIVATE');
           this.router.navigate(['/blog-pregled']);
         },
         error => {
           console.error('Error updating blog:', error);
           this.snackbarService.showSnackbar(`Objavo v blogu ni bilo mogoče posodobiti!`)
           // Send log to Admin of Admin
-          this._logService.sendLog('Error in Blog Edit: ' + error.message);
+          this._logService.sendPrivateLog('Error in Blog Edit: ' + error.message, 'PRIVATE');
           this.spinner = false;
         }
       );
     } else {
       console.error('Form is not valid')
-      this._logService.sendLog('Error: Not all data were entered');
+      this._logService.sendPrivateLog('Error: Not all data were entered', 'PRIVATE');
       this.snackbarService.showSnackbar(`Objava objave ni pravilna. Prosim preverite vnose!`)
       this.spinner = false;
     }

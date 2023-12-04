@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {EventsService} from "../../../../services/api/events.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
@@ -6,6 +6,7 @@ import {Events} from "../../../../models/events";
 import {AngularEditorConfig} from "@kolkov/angular-editor";
 import {sharedEditorConfig} from "../../../../../shared/config/editor-config";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-events-uredi',
@@ -17,6 +18,7 @@ export class EventsUrediComponent implements OnInit {
   event: any;
   eventForm: FormGroup = new FormGroup({});
   editorConfig: AngularEditorConfig = sharedEditorConfig
+  _logService = inject(SendLogService)
 
   heroData = {
     admin: 'Admin',
@@ -65,17 +67,20 @@ export class EventsUrediComponent implements OnInit {
       const editEvent: Events = this.eventForm.value
       this.api.editEvent(this.eventId, editEvent).subscribe(
         () => {
+          this._logService.sendPrivateLog('Event was updated Admin', 'PRIVATE');
           this.spinner = false;
           this.router.navigate(['/events-pregled']);
         }, error => {
           console.error('Error updating event:', error);
           this.snackbarService.showSnackbar(`Objavo dogodka ni bilo mogoče posodobiti!`)
+          this._logService.sendPrivateLog('Error in Edit Event Service: ' + error.message, 'PRIVATE');
           this.spinner = false;
         }
       );
     } else {
       console.error('Form is not valid');
       this.snackbarService.showSnackbar(`Objava dogodka ni pravilna. Prosim preverite vnose!`)
+      this._logService.sendPrivateLog('Not all inputs are valid.', 'PRIVATE');
       this.spinner = false;
     }
   }

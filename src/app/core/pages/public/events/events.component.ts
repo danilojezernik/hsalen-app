@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {EventsService} from "../../../services/api/events.service";
 import {Router} from "@angular/router";
+import {SendLogService} from "../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-events',
@@ -9,6 +10,7 @@ import {Router} from "@angular/router";
 export class EventsComponent implements OnInit {
 
   events: any;
+  _logService = inject(SendLogService)
 
   heroData = {
     naslov: 'Dogodki',
@@ -33,10 +35,12 @@ export class EventsComponent implements OnInit {
         this.spinner = false;
         this.events = data;
 
+        this._logService.sendPublicLog(`Events were checked by Client`, 'PUBLIC');
         this.heroData.path = this.router.url.slice(1);
       }, error => {
         console.error(error);
         this.spinner = false
+        this._logService.sendPublicLog(`Error loading Events: ` + error.message, 'PUBLIC');
       }
     )
   }

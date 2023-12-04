@@ -52,20 +52,20 @@ export class MedijiDodajComponent implements OnInit {
 
     // Call the MedijiService to add new mediji
     this.api.addNewMedijiAdmin(newMediji).subscribe(() => {
-        this._logService.sendLog('Add Mediji Admin - PRIVATE');
+        this._logService.sendPrivateLog('Add Mediji Admin', 'PRIVATE');
         this.mediji = this.api.getAllMedijiAdmin()
         this.addingMedijiForm.reset()
         this.dialog.closeAll()
         this.dataUpdateService.triggerDataUpdate();
 
         // Send log to Admin of Admin
-        this._logService.sendLog('New Mediji Added Admin - Private');
+        this._logService.sendPrivateLog('New Mediji Added Admin', 'PRIVATE');
       },
       (error) => {
         console.error('Error adding mediji:', error);
 
         // Send log to Admin of Admin
-        this._logService.sendLog('Error: New Mediji not added Admin - Private');
+        this._logService.sendPrivateLog('Error: New Mediji not added Admin', 'PRIVATE');
       })
 
   }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {EmailService} from "../../../services/api/email.service";
 import {EmailValidatorService} from "../../../services/email-validator/email-validator.service";
@@ -8,6 +8,7 @@ import {AngularEditorConfig} from "@kolkov/angular-editor";
 import {sharedEditorConfigClient} from "../../../../shared/config/editor-config-email-client";
 import {sharedEditorConfig} from "../../../../shared/config/editor-config";
 import {Router} from "@angular/router";
+import {SendLogService} from "../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-contact',
@@ -18,6 +19,7 @@ export class ContactComponent implements OnInit {
   emailForm: FormGroup = new FormGroup({})
   spinner: boolean = false;
   editorConfigClient: AngularEditorConfig = sharedEditorConfigClient
+  _logService = inject(SendLogService)
 
   heroData = {
     naslov: 'Kontakt',
@@ -41,7 +43,8 @@ export class ContactComponent implements OnInit {
       content: ['', Validators.required]
     })
     this.heroData.path = this.router.url.slice(1);
-
+    
+    this._logService.sendPublicLog(`Email was initialized by Client`, 'PUBLIC');
   }
 
   sendEmail() {
@@ -65,12 +68,16 @@ export class ContactComponent implements OnInit {
     this.spinner = true;
     this.api.sendEmail(emailData).subscribe(() => {
       this.spinner = false;
+
+      this._logService.sendPublicLog(`Email was sent by Client`, 'PUBLIC');
+
       this.snackbarService.showSnackbar(`Email je bil uspešno poslan!`)
       this.emailForm.reset()
     }, (error) => {
       console.error('Error sending email: ', error)
       this.snackbarService.showSnackbar(`Email ni bil uspešno poslan!`)
       this.spinner = false;
+      this._logService.sendPublicLog(`Email was not sent: ` + error.message, 'PUBLIC');
     })
   }
 

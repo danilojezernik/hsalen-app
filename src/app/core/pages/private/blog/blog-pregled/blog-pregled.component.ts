@@ -83,14 +83,14 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
         this.dataSource.data = data;
 
         // Send log to Admin of Admin
-        this._logService.sendLog('All blog Loaded Admin - PRIVATE');
+        this._logService.sendPrivateLog('All blog Loaded Admin', 'PRIVATE');
 
       }, (error) => {
         console.error('Error getting all blog', error);
         this.snackbarService.showSnackbar('Vse objave se niso uspele naložiti!');
 
         // Send log to Admin of Admin
-        this._logService.sendLog(`Error: All blog wasn't loaded Admin - PRIVATE` + error.message);
+        this._logService.sendPrivateLog(`Error: All blog wasn't loaded Admin` + error.message, 'PRIVATE');
         this.spinner = false;
       }
     )
@@ -102,7 +102,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
       this._api.deleteBlogByIdAdmin(id).subscribe(() => {
 
         // Send log to Admin of Admin
-        this._logService.sendLog(`Blog by ID: ${id} IS deleted Admin - PRIVATE`);
+        this._logService.sendPrivateLog(`Blog by ID: ${id} IS deleted Admin`, 'PRIVATE');
 
         this.snackbarService.showSnackbar('Blog JE bil uspešno izbrisan!');
         this.spinner = false;
@@ -112,7 +112,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
         this.snackbarService.showSnackbar('Blog NI bil uspešno izbrisan!');
 
         // Send log to Admin of Admin
-        this._logService.sendLog(`Error: Blog by ID: ${id} NOT deleted Admin - PRIVATE` + error.message);
+        this._logService.sendPrivateLog(`Error: Blog by ID: ${id} NOT deleted Admin` + error.message, 'PRIVATE');
 
         this.spinner = false;
       })
@@ -120,7 +120,7 @@ export class BlogPregledComponent implements OnInit, OnDestroy {
       this.snackbarService.showSnackbar('Odločili ste se, da bloga ne boste izbrisali!');
 
       // Send log to Admin of Admin
-      this._logService.sendLog(`Blog by ID: ${id} delete CANCELED Admin - PRIVATE`);
+      this._logService.sendPrivateLog(`Blog by ID: ${id} delete CANCELED Admin`, 'PRIVATE');
     }
   }
 

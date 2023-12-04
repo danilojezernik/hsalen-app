@@ -12,14 +12,16 @@ export class LogsService {
   constructor(private http: HttpClient) {
   }
 
+  // PRIVATE LOGS SERVICE
+
   /**
    * Adds a new post.
-   * @param newLog The new post to be added.
+   * @param newPrivateLog The new post to be added.
    * @returns An observable of the added post.
    */
-  addNewLogAdmin(newLog: Logging): Observable<Logging> {
+  addNewPrivateLogAdmin(newPrivateLog: Logging): Observable<Logging> {
     // Using Angular HttpClient to make a POST request to the specified API endpoint
-    return this.http.post<Logging>(`${environment.backLogUrl}/logs_hsa`, newLog).pipe(
+    return this.http.post<Logging>(`${environment.backLogUrl}/logs_hsa/private`, newPrivateLog).pipe(
       catchError(error => {
         // Log an error message if an error occurs during the API call
         console.error("Error adding a new post:", error);
@@ -28,4 +30,24 @@ export class LogsService {
       })
     )
   }
+
+  // PUBLIC LOGS SERVICE
+
+  /**
+   * Adds a new post.
+   * @param newPublicLog The new post to be added.
+   * @returns An observable of the added post.
+   */
+  addNewPublicLogAdmin(newPublicLog: Logging): Observable<Logging> {
+    // Using Angular HttpClient to make a POST request to the specified API endpoint
+    return this.http.post<Logging>(`${environment.backLogUrl}/logs_hsa/public`, newPublicLog).pipe(
+      catchError(error => {
+        // Log an error message if an error occurs during the API call
+        console.error("Error adding a new post:", error);
+        // Return a new observable with an error message if there's an error
+        return throwError('Something went wrong')
+      })
+    )
+  }
+
 }

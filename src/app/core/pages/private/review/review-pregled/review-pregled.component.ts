@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {Review} from "../../../../models/review";
 import {Subject} from "rxjs";
@@ -10,6 +10,7 @@ import {CalcIndexService} from "../../../../services/calc-index/calc-index.servi
 import {GetIdComponent} from "../../../../../shared/components/dialog/get-id.component";
 import {ReviewDodajComponent} from "../review-dodaj/review-dodaj.component";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-review-pregled',
@@ -21,6 +22,7 @@ export class ReviewPregledComponent implements OnInit, OnDestroy {
   spinner: boolean = false;
   dataSource = new MatTableDataSource<Review>()
   displayColumns: string[] = ['review_id', 'name', 'action']
+  _logService = inject(SendLogService)
 
   heroData = {
     admin: 'Admin',
@@ -66,11 +68,13 @@ export class ReviewPregledComponent implements OnInit, OnDestroy {
     this.spinner = true;
     this.api.getAllReviews().subscribe(data => {
       this.spinner = false;
+      this._logService.sendPrivateLog(`Load all Reviews Admin`, 'PRIVATE');
       this.review = data;
       this.dataSource.data = data;
     }, (error) => {
       console.error('Error getting all reviews', error);
       this.spinner = false;
+      this._logService.sendPrivateLog(`Error in getting all Reviews: ` + error.message, 'PRIVATE');
     })
   }
 
@@ -80,11 +84,13 @@ export class ReviewPregledComponent implements OnInit, OnDestroy {
       this.api.deleteReviewById(id).subscribe(() => {
         this.snackbarService.showSnackbar('Mnenje JE bilo uspešno izbrisano')
         this.spinner = false;
+        this._logService.sendPrivateLog(`Delete Review by id: ${id} Admin`, 'PRIVATE');
         this.loadAllReviews();
       }, (error) => {
         console.error('Error deleting review', error);
         this.snackbarService.showSnackbar('Mnenje NI bilo uspešno izbrisano');
         this.spinner = false;
+        this._logService.sendPrivateLog(`Error in delete Review by ID ${id}: ` + error.message, 'PRIVATE');
       })
     } else {
       this.snackbarService.showSnackbar('Odločili ste se, da mnenja ne boste izbrisali')

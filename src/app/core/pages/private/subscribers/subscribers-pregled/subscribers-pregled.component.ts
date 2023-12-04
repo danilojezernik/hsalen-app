@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {SubscribersService} from "../../../../services/api/subscribers.service";
 import {Subject} from "rxjs";
 import {MatTableDataSource} from "@angular/material/table";
@@ -9,6 +9,7 @@ import {CalcIndexService} from "../../../../services/calc-index/calc-index.servi
 import {Subscriber} from "../../../../models/subscriber";
 import {SubscribersAddComponent} from "../subscribers-add/subscribers-add.component";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-subscribers-pregled',
@@ -20,6 +21,7 @@ export class SubscribersPregledComponent implements OnInit, OnDestroy {
   spinner: boolean = false;
   dataSource = new MatTableDataSource<Subscriber>()
   displayColumns: string[] = ['subscriber_id', 'name', 'surname', 'email', 'datum_vnosa', 'action']
+  _logService = inject(SendLogService)
 
   heroData = {
     admin: 'Admin',
@@ -74,11 +76,13 @@ export class SubscribersPregledComponent implements OnInit, OnDestroy {
     this.spinner = true;
     this.api.getAllSubscribers().subscribe(data => {
       this.spinner = false;
+      this._logService.sendPrivateLog(`Load all Subscribers Admin`, 'PRIVATE');
       this.subscribers = data;
       this.dataSource.data = data;
     }, (error) => {
       console.error('Error getting all subscribers:', error)
       this.spinner = false;
+      this._logService.sendPrivateLog(`Error in getting all Subscribers: ` + error.message, 'PRIVATE');
     })
   }
 
@@ -88,14 +92,16 @@ export class SubscribersPregledComponent implements OnInit, OnDestroy {
       this.api.deleteSubscriberById(id).subscribe(() => {
         this.snackbarService.showSnackbar('Subscriber JE bil uspešno izbrisan!');
         this.spinner = false;
+        this._logService.sendPrivateLog(`Delete Subscriber by id: ${id} Admin`, 'PRIVATE');
         this.getAllSubscribers()
       }, (error) => {
         console.error('Error deleting subscriber:', error)
         this.snackbarService.showSnackbar('Subscriber NI bil uspešno izbrisan!');
         this.spinner = false;
+        this._logService.sendPrivateLog(`Error in delete Subscriber: ` + error.message, 'PRIVATE');
       })
     } else {
-      this.snackbarService.showSnackbar('Odločili ste se, da emaila ne boste izbrisali!');
+      this.snackbarService.showSnackbar('Odločili ste se, da email-a ne boste izbrisali!');
     }
   }
 

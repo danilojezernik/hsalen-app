@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MedijiService} from "../../../../services/api/mediji.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -6,6 +6,7 @@ import {Mediji} from "../../../../models/mediji";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
 import {AngularEditorConfig} from "@kolkov/angular-editor";
 import {sharedEditorConfig} from "../../../../../shared/config/editor-config";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-mediji-edit',
@@ -17,6 +18,7 @@ export class MedijiUrediComponent implements OnInit {
   mediji: any;
   blogForm: FormGroup;
   editorConfig: AngularEditorConfig = sharedEditorConfig
+  _logService = inject(SendLogService)
 
   heroData = {
     admin: 'Admin',
@@ -56,6 +58,7 @@ export class MedijiUrediComponent implements OnInit {
       },
       (error) => {
         console.error('Error getting mediji', error);
+        this._logService.sendPrivateLog('Error in get all Mediji for Edit Mediji: ' + error.message, 'PRIVATE');
       })
   }
 
@@ -66,6 +69,7 @@ export class MedijiUrediComponent implements OnInit {
       this.api.editMedijiAdmin(this.medijiId, editedMediji).subscribe(
         (data) => {
           this.spinner = false;
+          this._logService.sendPrivateLog(`Edit Mediji: ${data.naslov_mediji.toUpperCase()} Admin`, 'PRIVATE');
           this.snackbarService.showSnackbar(`Blog ${data.naslov_mediji.toUpperCase()} je bil uspešno posodobljen!`)
           // Handle successful update
           this.router.navigate(['/mediji-pregled']);  // Navigate to the desired route
@@ -74,6 +78,7 @@ export class MedijiUrediComponent implements OnInit {
           console.error('Error updating mediji:', error);
           this.snackbarService.showSnackbar(`Objavo v medijih ni bilo mogoče posodobiti!`)
           this.spinner = false;
+          this._logService.sendPrivateLog('Edit in Mediji by ID: ' + error.message, 'PRIVATE');
         }
       );
     }

@@ -44,14 +44,14 @@ export class ReviewDodajComponent implements OnInit {
     }
 
     this.api.addNewReview(newReview).subscribe(() => {
-      this._logService.sendLog('New Review was added by Admin - PRIVATE');
+      this._logService.sendPrivateLog('New Review was added by Admin - PRIVATE', 'PRIVATE');
       this.review = this.api.getAllReviews()
       this.addingReviewForm.reset()
       this.dialog.closeAll()
       this.dataUpdateService.triggerDataUpdate()
     }, (error) => {
       console.error('Error adding review', error);
-      this._logService.sendLog('Error in Add new Review: ' + error.message);
+      this._logService.sendPrivateLog('Error in Add new Review: ' + error.message, 'PRIVATE');
     })
 
   }

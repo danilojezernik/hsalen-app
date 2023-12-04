@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MedijiService} from "../../../../services/api/mediji.service";
 import {Subject} from "rxjs";
 import {MatTableDataSource} from "@angular/material/table";
@@ -9,6 +9,7 @@ import {DataUpdateService} from "../../../../services/communication/data-update.
 import {MedijiDodajComponent} from "../mediji-dodaj/mediji-dodaj.component";
 import {CalcIndexService} from "../../../../services/calc-index/calc-index.service";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
+import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-mediji-pregled',
@@ -20,6 +21,7 @@ export class MedijiPregledComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<Mediji>()
   displayColumns: string[] = ['mediji_id', 'naslov', 'povezava_slika', 'povezava_mediji', 'datum_vnosa', 'action']
   spinner: boolean = false;
+  _logService = inject(SendLogService)
 
   heroData = {
     admin: 'Admin',
@@ -75,12 +77,14 @@ export class MedijiPregledComponent implements OnInit, OnDestroy {
     this.api.getAllMedijiAdmin().subscribe((data) => {
       this.snackbarService.showSnackbar('Vse objave v medijih uspešno naložene!');
       this.spinner = false;
+      this._logService.sendPrivateLog(`Load all Mediji Admin`, 'PRIVATE');
       this.mediji = data;
       this.dataSource.data = data;
     }, (error) => {
       console.error('Error getting all mediji', error);
       this.snackbarService.showSnackbar('Vse objave v medijih se niso uspele naložiti!');
       this.spinner = false;
+      this._logService.sendPrivateLog('Error in Get All Mediji: ' + error.message, 'PRIVATE');
     })
   }
 
@@ -90,11 +94,13 @@ export class MedijiPregledComponent implements OnInit, OnDestroy {
       this.api.deleteMedijiByIdAdmin(id).subscribe(() => {
         this.snackbarService.showSnackbar('Objava v medijih uspešno izbrisana!');
         this.spinner = false;
+        this._logService.sendPrivateLog(`Delete Mediji by id ${id}`, 'PRIVATE');
         this.loadAllMedijAdmin()
       }, (error) => {
         console.error('Error deleting mediji', error)
         this.snackbarService.showSnackbar('Objava v medijih se ni uspela izbrisati!');
         this.spinner = false;
+        this._logService.sendPrivateLog(`Error in Delete Mediji by id ${id}: ` + error.message, 'PRIVATE');
       })
     }
   }

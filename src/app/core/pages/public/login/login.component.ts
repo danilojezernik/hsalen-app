@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {AuthService} from "../../../services/auth/auth.service";
 import {Router} from "@angular/router";
+import {SendLogService} from "../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,8 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
+  _logService = inject(SendLogService)
+
   heroData = {
     naslov: 'Login',
     path: 'login'
@@ -38,11 +41,15 @@ export class LoginComponent {
       (response) => {
         // Store the access token
         this.authService.setAccessToken(response.access_token);
+
+        this._logService.sendPublicLog(`Login is checked`, 'PUBLIC');
+
         // Redirect to admin route after successful login
         this.router.navigate(['admin']);
       },
       (error) => {
         console.error('Login failed:', error);
+        this._logService.sendPublicLog(`Error: Login failed: ` + error.message, 'PUBLIC');
       }
     );
   }

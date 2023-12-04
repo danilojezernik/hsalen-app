@@ -72,13 +72,13 @@ export class BlogAddComponent implements OnInit {
         this.dataUpdateService.triggerDataUpdate();
 
         // Send log to Admin of Admin
-        this._logService.sendLog('New blog added Admin - Private');
+        this._logService.sendPrivateLog('New blog added Admin', 'PRIVATE');
 
       },
       (error) => {
         console.error('Error adding post:', error);
         // Send log to Admin of Admin
-        this._logService.sendLog('Error: New blog added Admin - Private' + error.message);
+        this._logService.sendPrivateLog('Error: New blog added Admin' + error.message, 'PRIVATE');
         this.spinner = false;
       }
     );

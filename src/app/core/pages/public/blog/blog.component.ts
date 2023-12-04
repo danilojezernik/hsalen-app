@@ -1,8 +1,9 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subject} from "rxjs";
 import {BlogService} from "../../../services/api/blog.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {Router} from "@angular/router";
+import {SendLogService} from "../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-blog',
@@ -11,6 +12,7 @@ import {Router} from "@angular/router";
 export class BlogComponent implements OnInit, OnDestroy {
 
   blog: any[] = [];  // Placeholder for blog data
+  _logService = inject(SendLogService)
 
   heroData = {
     naslov: 'Blog',
@@ -34,7 +36,10 @@ export class BlogComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.loadAllBlog();  // Load blog data when component is initialized
+    this.loadAllBlog();
+
+    // Load blog data when component is initialized
+    this._logService.sendPublicLog('All blog Loaded Client', 'PUBLIC');
   }
 
   // Function to load all blog data

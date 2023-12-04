@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {BlogService} from "../../../services/api/blog.service";
 import {Location} from "@angular/common";
+import {SendLogService} from "../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-blog-beri',
@@ -10,6 +11,7 @@ import {Location} from "@angular/common";
 export class BlogBeriComponent implements OnInit {
 
   blog: any;
+  _logService = inject(SendLogService)
 
   heroData = {
     naslov: '',
@@ -35,7 +37,8 @@ export class BlogBeriComponent implements OnInit {
     this.api.getBlogById(blogId).subscribe(
       data => {
         this.blog = data
-
+        // Load blog data when component is initialized
+        this._logService.sendPublicLog(`Reading blog by id: ${blogId}`, 'PUBLIC');
         this.heroData.naslov = data.naslov;
         this.heroData.path = data.naslov;
       }

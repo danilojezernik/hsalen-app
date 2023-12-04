@@ -4,8 +4,8 @@
 export interface Logging {
   '_id'?: string;
   route_action: string;
+  domain: string;
   content: string;
-  status_code: number;
   client_host: string;
   datum_vnosa: string;
 }

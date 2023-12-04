@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {trace} from "../../../utils/trace";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {SendLogService} from "../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-samohipnoza',
@@ -9,8 +10,8 @@ import {Router} from "@angular/router";
 })
 export class SamohipnozaComponent implements OnInit {
 
-
   samohipnoza: any;
+  _logService = inject(SendLogService)
 
   heroData = {
     naslov: 'Jasnovidnost',
@@ -25,10 +26,11 @@ export class SamohipnozaComponent implements OnInit {
     const path: string = 'assets/samohipnoza.json'
     this.db.get(path).subscribe(data => {
       this.samohipnoza = data;
-
+      this._logService.sendPublicLog(`Samohipnoza is checked by Client`, 'PUBLIC');
       this.heroData.naslov = this.samohipnoza.naslov
       this.heroData.path = this.router.url.slice(1);
-
+    }, error => {
+      this._logService.sendPublicLog(`Error: Loading Samohipnoza: ` + error.message, 'PUBLIC');
     })
   }
 
