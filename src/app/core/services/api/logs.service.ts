@@ -50,4 +50,22 @@ export class LogsService {
     )
   }
 
+  // BACKEND LOGS SERVICE
+
+  /**
+   * Calls index backend to add log to backend admin.
+   * @returns An observable of the added post.
+   */
+  getBackendLogAdmin(path: string): Observable<any> {
+    // Using Angular HttpClient to make a GET request to the correct API endpoint
+    return this.http.get<any>(`${environment.backUrl}/${path}`).pipe(
+      catchError(error => {
+        // Log an error message if an error occurs during the API call
+        console.error("Error fetching backend logs:", error);
+        // Return a new observable with an error message if there's an error
+        return throwError('Something went wrong');
+      })
+    );
+  }
+
 }

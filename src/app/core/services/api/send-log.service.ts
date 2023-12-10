@@ -1,6 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {Logging} from "../../models/logs";
 import {LogsService} from "./logs.service";
+import {GetDeviceService} from "../get-device/get-device.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,12 @@ import {LogsService} from "./logs.service";
 export class SendLogService {
 
   _logService = inject(LogsService)
+  _deviceInfo = inject(GetDeviceService)
 
   sendPrivateLog(content: string, domain: string) {
     const newLog: Logging = {
       route_action: location.pathname,
-      content: `${content}`,
+      content: `${content}. Device is: ${this._deviceInfo.getDeviceInfo().deviceName}`,
       domain: `${domain}`,
       client_host: location.host,
       datum_vnosa: new Date().toISOString(),
@@ -30,7 +32,7 @@ export class SendLogService {
   sendPublicLog(content: string, domain: string) {
     const newLog: Logging = {
       route_action: location.pathname,
-      content: `${content}`,
+      content: `${content}. Device is: ${this._deviceInfo.getDeviceInfo().deviceName}`,
       domain: `${domain}`,
       client_host: location.host,
       datum_vnosa: new Date().toISOString(),

@@ -3,6 +3,7 @@ import {trace} from "../../../utils/trace";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {SendLogService} from "../../../services/api/send-log.service";
+import {LogsService} from "../../../services/api/logs.service";
 
 @Component({
   selector: 'app-regresija',
@@ -12,6 +13,7 @@ export class RegresijaComponent implements OnInit {
 
   regresija: any;
   _logService = inject(SendLogService)
+  _logBackendService = inject(LogsService)
 
   heroData = {
     naslov: '',
@@ -35,7 +37,11 @@ export class RegresijaComponent implements OnInit {
     }, error => {
       this._logService.sendPublicLog(`Error: Loading Regresija: ` + error.message, 'PUBLIC');
     })
+    this.getBackendLog()
   }
 
+  getBackendLog() {
+    this._logBackendService.getBackendLogAdmin('regresija').subscribe()
+  }
 
 }

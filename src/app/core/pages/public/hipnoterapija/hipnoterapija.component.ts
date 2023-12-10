@@ -2,6 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {SendLogService} from "../../../services/api/send-log.service";
+import {LogsService} from "../../../services/api/logs.service";
 
 @Component({
   selector: 'app-hipnoterapija',
@@ -11,6 +12,7 @@ export class HipnoterapijaComponent implements OnInit {
 
   hipnoterapija: any;
   _logService = inject(SendLogService)
+  _logBackendService = inject(LogsService)
 
   heroData = {
     naslov: 'Hipnoterapija',
@@ -29,6 +31,12 @@ export class HipnoterapijaComponent implements OnInit {
     }, error => {
       this._logService.sendPublicLog(`Error: Loading Hipnoterapija: ` + error.message, 'PUBLIC');
     })
+    this.getBackendLog()
+
   }
 
+  getBackendLog() {
+    this._logBackendService.getBackendLogAdmin('hipnoterapija').subscribe()
+  }
+  
 }

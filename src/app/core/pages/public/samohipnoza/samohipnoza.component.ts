@@ -3,6 +3,7 @@ import {trace} from "../../../utils/trace";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {SendLogService} from "../../../services/api/send-log.service";
+import {LogsService} from "../../../services/api/logs.service";
 
 @Component({
   selector: 'app-samohipnoza',
@@ -12,6 +13,7 @@ export class SamohipnozaComponent implements OnInit {
 
   samohipnoza: any;
   _logService = inject(SendLogService)
+  _logBackendService = inject(LogsService)
 
   heroData = {
     naslov: 'Jasnovidnost',
@@ -32,7 +34,11 @@ export class SamohipnozaComponent implements OnInit {
     }, error => {
       this._logService.sendPublicLog(`Error: Loading Samohipnoza: ` + error.message, 'PUBLIC');
     })
+    this.getBackendLog()
   }
 
+  getBackendLog() {
+    this._logBackendService.getBackendLogAdmin('samohipnoza').subscribe()
+  }
 
 }
