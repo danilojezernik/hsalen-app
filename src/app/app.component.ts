@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
-import {SharedServiceService} from "./shared/services/shared-service.service";
+import {SharedServiceService} from "./shared/services/shared-services/shared-service.service";
 
 const routesToShowGoBack: string[] = ['/blog-pregled', '/blog/edit/:id', '/mediji-pregled', '/email-pregled', '/events-pregled', '/subscribers', '/newsletter-pregled', '/review-pregled'];
 
