@@ -38,5 +38,5 @@ export class HipnoterapijaComponent implements OnInit {
   getBackendLog() {
     this._logBackendService.getBackendLogAdmin('hipnoterapija').subscribe()
   }
-  
+
 }
