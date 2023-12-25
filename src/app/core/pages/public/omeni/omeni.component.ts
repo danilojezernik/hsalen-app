@@ -1,7 +1,7 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {MedijiService} from "../../../services/api/mediji.service";
-import {map, Subject, takeUntil} from "rxjs";
+import {Subject} from "rxjs";
 import {trace} from "../../../utils/trace";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {SendLogService} from "../../../services/api/send-log.service";

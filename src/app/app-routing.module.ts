@@ -26,9 +26,13 @@ import {EventsComponent} from "./core/pages/public/events/events.component";
 import {EventsPregledComponent} from "./core/pages/private/events/events-pregled/events-pregled.component";
 import {EventsAddComponent} from "./core/pages/private/events/events-add/events-add.component";
 import {EventsUrediComponent} from "./core/pages/private/events/events-uredi/events-uredi.component";
-import {SubscribersPregledComponent} from "./core/pages/private/subscribers/subscribers-pregled/subscribers-pregled.component";
+import {
+  SubscribersPregledComponent
+} from "./core/pages/private/subscribers/subscribers-pregled/subscribers-pregled.component";
 import {SubscribersEditComponent} from "./core/pages/private/subscribers/subscribers-edit/subscribers-edit.component";
-import {NewsletterPregledComponent} from "./core/pages/private/newsletter/newsletter-pregled/newsletter-pregled.component";
+import {
+  NewsletterPregledComponent
+} from "./core/pages/private/newsletter/newsletter-pregled/newsletter-pregled.component";
 import {SuccessComponent} from "./core/pages/public/success/success.component";
 import {ReviewPregledComponent} from "./core/pages/private/review/review-pregled/review-pregled.component";
 import {GalleryComponent} from "./core/pages/public/gallery/gallery.component";
@@ -129,7 +133,7 @@ const routes: Routes = [
     title: 'Hypnosis studio Alen - Medijstvo'
   },
   {
-    path: 'omeni',
+    path: 'o-meni',
     component: OmeniComponent,
     title: 'Hypnosis studio Alen - O meni',
   },
