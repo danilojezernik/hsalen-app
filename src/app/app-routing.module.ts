@@ -36,6 +36,7 @@ import {
 import {SuccessComponent} from "./core/pages/public/success/success.component";
 import {ReviewPregledComponent} from "./core/pages/private/review/review-pregled/review-pregled.component";
 import {GalleryComponent} from "./core/pages/public/gallery/gallery.component";
+import {SeoGuard} from "./shared/guard/seo/seo.guard";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -44,13 +45,23 @@ const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
-    title: 'Hypnosis studio Alen'
+    title: 'Hypnosis studio Alen',
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen | Hipnoterapija | Samohipnoza | Jasnovidnost | Medijstvo',
+      description: 'V Hipnoterapevtskem studiu Alen smo specializirani za zagotavljanje transformativnih hipnoterapevtskih izkušenj. Izkoristite moč svoje podzavesti in dosežite svoje osebne cilje z našimi prilagojenimi sejami hipnoterapije.'
+    }
   },
   {
     path: 'blog',
     component: BlogComponent,
     title: 'Hypnosis studio Alen - Blog',
-    loadChildren: coreModuleLoader
+    loadChildren: coreModuleLoader,
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen - Blog | Hipnoterapija | Samohipnoza | Jasnovidnost | Medijstvo',
+      description: 'Dobrodošli na mojem spletnem dnevniku, kjer nudim negovalni prostor za vašo pot osebne rasti. Poglobite se v pronicljive članke o hipnoterapiji, meditaciji, medijstvu in še več ter odkrijte zmogljiva orodja za navdih za preobrazbo na vseh področjih svojega življenja. Naredite prvi korak k notranjemu zdravljenju in samoodkrivanju ter se skupaj z mano podajte na pot samopreobrazbe.'
+    }
   },
   {
     path: 'blog/:id',
