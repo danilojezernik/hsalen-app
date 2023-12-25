@@ -4,24 +4,30 @@
 
   <div class="text-center top-bottom-padding">
     <span class="heading-primary-description-black">Kontaktirajte me</span>
-    <p class="lead-description">Hvala za vaše zanimanje za moje storitve. Ne glede na to, ali iščete hipnoterapijo, samohipnozo, jasnovidnost ali
-      podporo medija, sem tukaj, da vam pomagam voditi na vaši poti k zdravljenju in krepitvi moči. Prosimo, izpolnite spodnji obrazec in odgovoril
+    <p class="lead-description">Hvala za vaše zanimanje za moje storitve. Ne glede na to, ali iščete hipnoterapijo,
+      samohipnozo, jasnovidnost ali
+      podporo medija, sem tukaj, da vam pomagam voditi na vaši poti k boljšemu življenju in krepitvi moči. Prosimo,
+      izpolnite spodnji obrazec in odgovoril
       vam bom v najkrajšem možnem času. Veselim se povezave z vami!</p>
     <p class="lead-description pt-5">
       <b class="lead-description">Slovenija:</b><br>
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone" width="24" height="24"
+           viewBox="0 0 24 24" stroke-width="2"
            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+        <path
+          d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
       </svg>
       (+386) 070 208 890
     </p>
     <p class="lead-description">
       <b class="lead-description">Avstrija:</b><br>
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone" width="24" height="24"
+           viewBox="0 0 24 24" stroke-width="2"
            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+        <path
+          d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
       </svg>
       (+43) 650 8000 238
     </p>
@@ -39,7 +45,9 @@
             <mat-form-field class="w-100">
               <mat-label>Ime</mat-label>
               <input type="text" formControlName="name" required matInput>
-              <mat-hint *ngIf="emailForm.get('name')?.invalid && (emailForm.get('name')?.touched || emailForm.get('name')?.dirty)" align="end">
+              <mat-hint
+                *ngIf="emailForm.get('name')?.invalid && (emailForm.get('name')?.touched || emailForm.get('name')?.dirty)"
+                align="end">
                 Ime je obvezno polje
               </mat-hint>
             </mat-form-field>
@@ -49,8 +57,9 @@
             <mat-form-field class="w-100">
               <mat-label>Priimek</mat-label>
               <input type="text" formControlName="surname" required matInput>
-              <mat-hint *ngIf="emailForm.get('surname')?.invalid && (emailForm.get('surname')?.touched || emailForm.get('surname')?.dirty)"
-                        align="end">
+              <mat-hint
+                *ngIf="emailForm.get('surname')?.invalid && (emailForm.get('surname')?.touched || emailForm.get('surname')?.dirty)"
+                align="end">
                 Priimek je obvezno polje
               </mat-hint>
             </mat-form-field>
@@ -60,7 +69,9 @@
             <mat-form-field class="w-100">
               <mat-label>Vaš email naslov</mat-label>
               <input type="text" formControlName="email" required matInput>
-              <mat-hint *ngIf="emailForm.get('email')?.invalid && (emailForm.get('email')?.touched || emailForm.get('email')?.dirty)" align="end">
+              <mat-hint
+                *ngIf="emailForm.get('email')?.invalid && (emailForm.get('email')?.touched || emailForm.get('email')?.dirty)"
+                align="end">
                 Pravilen email je obvezen
               </mat-hint>
             </mat-form-field>
@@ -74,7 +85,8 @@
 
         <div class="row">
           <div class="col-md-12">
-            <button mat-raised-button class="w-100" [disabled]="emailForm.invalid" type="submit">Pošljite elektronsko sporočilo
+            <button mat-raised-button class="w-100" [disabled]="emailForm.invalid" type="submit">Pošljite elektronsko
+              sporočilo
             </button>
           </div>
         </div>

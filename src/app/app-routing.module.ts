@@ -45,7 +45,6 @@ const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
-    title: 'Hypnosis studio Alen',
     canActivate: [SeoGuard],
     data: {
       title: 'Hypnosis Studio Alen | Hipnoterapija | Samohipnoza | Jasnovidnost | Medijstvo',
@@ -55,11 +54,10 @@ const routes: Routes = [
   {
     path: 'blog',
     component: BlogComponent,
-    title: 'Hypnosis studio Alen - Blog',
     loadChildren: coreModuleLoader,
     canActivate: [SeoGuard],
     data: {
-      title: 'Hypnosis Studio Alen - Blog | Hipnoterapija | Samohipnoza | Jasnovidnost | Medijstvo',
+      title: 'Hypnosis Studio Alen - Blog',
       description: 'Dobrodošli na mojem spletnem dnevniku, kjer nudim negovalni prostor za vašo pot osebne rasti. Poglobite se v pronicljive članke o hipnoterapiji, meditaciji, medijstvu in še več ter odkrijte zmogljiva orodja za navdih za preobrazbo na vseh področjih svojega življenja. Naredite prvi korak k notranjemu zdravljenju in samoodkrivanju ter se skupaj z mano podajte na pot samopreobrazbe.'
     }
   },
@@ -121,47 +119,83 @@ const routes: Routes = [
   {
     path: 'hipnoterapija',
     component: HipnoterapijaComponent,
-    title: 'Hypnosis studio Alen - Hipnoterapija'
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen - Hipnoterapija',
+      description: 'S pomočjo hipnoze oziroma hipnoterapije lahko izboljšate svojo kvaliteto življenja na vseh področjih in tako stopite na pravo življenjsko pot, brez strahov, zadržkov in negativnih prepričanj. S pomočjo jasnovidnosti pa lahko na malo drugačen način dobite odgovor na to, katera pot je za vas prava pot in katera neprava.'
+    }
   },
   {
     path: 'samohipnoza',
     component: SamohipnozaComponent,
-    title: 'Hypnosis studio Alen - Samohipnoza'
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen - Samohipnoza',
+      description: 'Naučite se sami dosegati globoko hipnotično stanje brez napora!'
+    }
   },
   {
     path: 'regresija',
     component: RegresijaComponent,
-    title: 'Hypnosis studio Alen - Regresija'
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen - Regresija',
+      description: 'Radovednost ni nikoli odveč, je prijetna in zanimiva!'
+    }
   },
   {
     path: 'jasnovidnost',
     component: JasnovidnostComponent,
-    title: 'Hypnosis studio Alen - Jasnovidnost'
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen - Jasnovidnost',
+      description: 'Samo prava resnica osvobodi človeka in pokaže pravo pot.'
+    }
   },
   {
     path: 'medijstvo',
     component: MedijstvoComponent,
-    title: 'Hypnosis studio Alen - Medijstvo'
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen - Medijstvo',
+      description: 'Prosta povezava z našimi preminulimi in našimi vodniki ter ostalim dušam.'
+    }
   },
   {
     path: 'o-meni',
     component: OmeniComponent,
-    title: 'Hypnosis studio Alen - O meni',
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen - O meni',
+      description: 'Človeška psihologija me je že od nekdaj navduševala in leta 2015 sem zaključila izobraževanje v Omni Hypnosis Training Center Slovenija, mednarodno priznani šoli za hipnoterapevte. V zadnjih 7ih letih sem izvedla preko 3000 terapij pri nas in v tujini.'
+    }
   },
   {
     path: 'kontakt',
     component: ContactComponent,
-    title: 'Hypnosis studio Alen - Kontakt',
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen - Kontakt',
+      description: 'Hvala za vaše zanimanje za moje storitve. Ne glede na to, ali iščete hipnoterapijo, samohipnozo, jasnovidnost ali podporo medija, sem tukaj, da vam pomagam voditi na vaši poti k boljšemu življenju in krepitvi moči.'
+    }
   },
   {
     path: 'dogodki',
     component: EventsComponent,
-    title: 'Hypnosis studio Alen - Dogodki',
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen - Dogodki',
+      description: 'Pridružite se nam za nepozabno doživetje na naših prihajajočih dogodkih! Naši dogodki so zasnovani tako, da so transformativni, s priložnostmi za raziskovanje vašega notranjega sveta, povezovanje z drugimi na podobnem potovanju in pridobivanje vpogledov, ki vam bodo pomagali krmariti po vaši poti z večjo lahkoto in jasnostjo. '
+    }
   },
   {
     path: 'galerija',
     component: GalleryComponent,
-    title: 'Hypnosis studio Alen - Galerija',
+    canActivate: [SeoGuard],
+    data: {
+      title: 'Hypnosis Studio Alen - Galerija',
+      description: 'Razdelek galerije prikazuje izbrano zbirko očarljivih slik in trenutkov, ujetih med različnimi trenutki in tudi nekaj izbranih slik iz revij, kjer se nahajajo moji intervjuji.'
+    }
   },
   {
     path: 'review-pregled',
