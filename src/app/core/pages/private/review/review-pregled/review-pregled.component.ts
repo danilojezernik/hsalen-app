@@ -6,7 +6,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {ReviewService} from "../../../../services/api/review.service";
 import {MatDialog} from "@angular/material/dialog";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
-import {CalcIndexService} from "../../../../services/calc-index/calc-index.service";
+import {CalcIndexService} from "../../../../utils/calc-index/calc-index.service";
 import {GetIdComponent} from "../../../../../shared/components/dialog/get-id.component";
 import {ReviewDodajComponent} from "../review-dodaj/review-dodaj.component";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";

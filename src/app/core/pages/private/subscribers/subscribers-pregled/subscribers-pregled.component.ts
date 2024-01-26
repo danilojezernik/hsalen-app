@@ -5,7 +5,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatDialog} from "@angular/material/dialog";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
-import {CalcIndexService} from "../../../../services/calc-index/calc-index.service";
+import {CalcIndexService} from "../../../../utils/calc-index/calc-index.service";
 import {Subscriber} from "../../../../models/subscriber";
 import {SubscribersAddComponent} from "../subscribers-add/subscribers-add.component";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";

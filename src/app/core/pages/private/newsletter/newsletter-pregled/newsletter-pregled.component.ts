@@ -2,7 +2,7 @@ import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NewsletterService} from "../../../../services/api/newsletter.service";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
-import {CalcIndexService} from "../../../../services/calc-index/calc-index.service";
+import {CalcIndexService} from "../../../../utils/calc-index/calc-index.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {Subject} from "rxjs";
 import {Newsletter} from "../../../../models/newsletter";

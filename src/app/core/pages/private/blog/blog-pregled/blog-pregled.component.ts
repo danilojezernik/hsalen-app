@@ -8,7 +8,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {BlogAddComponent} from "../blog-add/blog-add.component";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
-import {CalcIndexService} from "../../../../services/calc-index/calc-index.service";
+import {CalcIndexService} from "../../../../utils/calc-index/calc-index.service";
 import {SendLogService} from "../../../../services/api/send-log.service";
 
 @Component({

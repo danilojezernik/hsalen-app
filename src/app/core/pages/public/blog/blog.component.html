@@ -5,38 +5,56 @@
     <div class="text-center top-bottom-padding">
         <span class="heading-primary-description-black">BLOG
         </span>
-      <p class="lead-description">Dobrodošli na mojem spletnem dnevniku, kjer nudim negovalni prostor za vašo pot osebne rasti. Poglobite se v
-        pronicljive članke o hipnoterapiji, meditaciji, medijstvu in še več ter odkrijte zmogljiva orodja za navdih za preobrazbo na vseh področjih
-        svojega življenja. Naredite prvi korak k notranjemu zdravljenju in samoodkrivanju ter se skupaj z mano podajte na pot samopreobrazbe.
+      <p class="lead-description">Dobrodošli na mojem spletnem dnevniku, kjer nudim negovalni prostor za vašo pot osebne
+        rasti. Poglobite se v
+        pronicljive članke o hipnoterapiji, meditaciji, medijstvu in še več ter odkrijte zmogljiva orodja za navdih za
+        preobrazbo na vseh področjih
+        svojega življenja. Naredite prvi korak k notranjemu zdravljenju in samoodkrivanju ter se skupaj z mano podajte
+        na pot samopreobrazbe.
       </p>
     </div>
-    
+
     <div class="mx-auto text-center">
-      <div *ngIf="!blog && !spinner">
+      <div *ngIf="!blog$ && !spinner">
         <app-error-backend-client class="error-message-backend"></app-error-backend-client>
       </div>
     </div>
-
+    <div *ngIf="blog$ | async as blog; else loading">
+      <div *ngFor="let blogItems of blog">
+        <h2>{{blogItems.naslov}}</h2>
+        <p>{{blogItems.podnaslov}}</p>
+        <p>{{blogItems.datum_vnosa}}</p>
+      </div>
+    </div>
+    <ng-template #loading>
+      <div *ngIf="!spinner">
+        <app-spinner></app-spinner>
+      </div>
+    </ng-template>
     <!-- PRIKAZ BLOGA -->
     <div class="row row-cols-1 row-cols-md-3 g-5">
       <div class="col" *ngFor="let data of getPaginatedBlog()" [routerLink]="['/blog/', data._id]">
 
         <div class="card card-hover border-secondary shadow pt-3 text-center h-100">
           <div class="card-body">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-3 icon-tabler icon-tabler-star" width="40" height="40" viewBox="0 0 24 24"
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-3 icon-tabler icon-tabler-star" width="40"
+                 height="40" viewBox="0 0 24 24"
                  stroke-width="2"
                  stroke="#618264" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
+              <path
+                d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
             </svg>
             <h2 class="card-title" [innerHTML]="data['naslov']"></h2>
             <p *ngIf="!data['podnaslov'].length" class="card-text" [innerHTML]="data['podnaslov']"></p>
             <p class="card-text" [innerHTML]="data['vsebina'] | truncate: 250"></p>
           </div>
-          <div class="card-footer rounded-0 bg-dark bg-gradient border-0 text-end d-flex justify-content-end align-content-center">
+          <div
+            class="card-footer rounded-0 bg-dark bg-gradient border-0 text-end d-flex justify-content-end align-content-center">
             <small class="text-white">
               Beri dalje
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-badge-right" width="24" height="24"
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-badge-right" width="24"
+                   height="24"
                    viewBox="0 0 24 24"
                    stroke-width="2" stroke="#618264" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -57,7 +75,8 @@
       <li class="page-item  rounded" [class.disabled]="currentPage === 1">
         <a class="page-link border-0 bg-transparent" (click)="previousPage()" aria-label="Previous">
         <span aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-left" width="24" height="24" viewBox="0 0 24 24"
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-left" width="24"
+               height="24" viewBox="0 0 24 24"
                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
            <path d="M11 7l-5 5l5 5"></path>
@@ -76,7 +95,8 @@
       <li class="page-item" [class.disabled]="currentPage === totalPages">
         <a class="page-link border-0 bg-transparent" (click)="nextPage()" aria-label="Next">
         <span aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="24" height="24" viewBox="0 0 24 24"
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevrons-right" width="24"
+               height="24" viewBox="0 0 24 24"
                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
              <path d="M7 7l5 5l-5 5"></path>

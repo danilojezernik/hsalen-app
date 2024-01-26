@@ -6,7 +6,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Email} from "../../../models/email";
 import {Subject} from "rxjs";
 import {MatPaginator} from "@angular/material/paginator";
-import {CalcIndexService} from "../../../services/calc-index/calc-index.service";
+import {CalcIndexService} from "../../../utils/calc-index/calc-index.service";
 import {SnackBarService} from "../../../services/snack-bar/snack-bar.service";
 import {SendLogService} from "../../../services/api/send-log.service";
 
