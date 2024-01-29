@@ -76,35 +76,27 @@ export class AdminComponent implements OnInit {
     const review$ = this._reviewService.getAllReviews();
 
     // Use forkJoin to combine multiple Observables into one
-    return forkJoin({
-      blog: blog$,
-      mediji: mediji$,
-      events: events$,
-      email: email$,
-      subscribers: subscribers$,
-      newsletter: newsletter$,
-      review: review$
-    }).pipe(
-      map((counts: any) => {
-        this.blog = counts.blog;
+    return forkJoin([blog$, mediji$, events$, email$, subscribers$, newsletter$, review$]).pipe(
+      map(([blog, mediji, events, email, subscribers, newsletter, review]) => {
+        this.blog = blog;
         this.blogCount = this.blog.length;
 
-        this.mediji = counts.mediji;
+        this.mediji = mediji;
         this.medijiCount = this.mediji.length;
 
-        this.events = counts.events;
+        this.events = events;
         this.eventsCount = this.events.length;
 
-        this.email = counts.email;
+        this.email = email;
         this.emailCount = this.email.length;
 
-        this.subscribers = counts.subscribers;
+        this.subscribers = subscribers;
         this.subscribersCount = this.subscribers.length;
 
-        this.newsletter = counts.newsletter;
+        this.newsletter = newsletter;
         this.newsletterCount = this.newsletter.length;
 
-        this.review = counts.review;
+        this.review = review;
         this.reviewCount = this.review.length;
       })
     );
