@@ -34,6 +34,7 @@ import {TruncatePipe} from './pipes/truncate/truncate.pipe';
 import {FormatTextPipe} from './pipes/format-text/format-text-pipe';
 import {TherapyMoreComponent} from './components/therapy-more/therapy-more.component';
 import {ReviewComponent} from './components/review/review.component';
+import {TemplateErrorComponent} from './components/template-error/template-error.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {ReviewComponent} from './components/review/review.component';
     TruncatePipe,
     FormatTextPipe,
     TherapyMoreComponent,
-    ReviewComponent
+    ReviewComponent,
+    TemplateErrorComponent
   ],
   exports: [
     GoBackComponent,
@@ -84,7 +86,8 @@ import {ReviewComponent} from './components/review/review.component';
     TruncatePipe,
     FormatTextPipe,
     TherapyMoreComponent,
-    ReviewComponent
+    ReviewComponent,
+    TemplateErrorComponent
   ],
   imports: [
     CommonModule,

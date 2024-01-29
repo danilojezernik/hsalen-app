@@ -1,5 +1,4 @@
 import {Component, ViewChild} from '@angular/core';
-import {Subject} from "rxjs";
 import {MatPaginator} from "@angular/material/paginator";
 import {ReviewService} from "../../../core/services/api/review.service";
 
@@ -18,9 +17,6 @@ export class ReviewComponent {
 
   spinner: boolean = false;  // Spinner to show loading state
 
-  // Subject for component destruction
-  private destroy$: Subject<boolean> = new Subject<boolean>();
-
   // Decorator to get a reference to the MatPaginator component
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,7 +33,6 @@ export class ReviewComponent {
     this.spinner = true;  // Show loading spinner
     this.api.getAllReviews().subscribe(
       (data) => {
-        console.log(data);
         this.spinner = false;  // Hide loading spinner on successful data fetch
         this.review = data;  // Assign the fetched data to the blog variable
         this.currentPage = 1;  // Reset to the first page when new data is loaded
@@ -80,12 +75,6 @@ export class ReviewComponent {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;  // Increase the current page if not on the last page
     }
-  }
-
-  // Lifecycle hook called when the component is about to be destroyed
-  ngOnDestroy() {
-    this.destroy$.next(true);  // Notify the component destruction
-    this.destroy$.complete();  // Complete the subject for component destruction
   }
 
 }

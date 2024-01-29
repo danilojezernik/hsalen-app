@@ -5,7 +5,7 @@
     <span class="heading-primary-description-black">Admin</span>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-4 g-4" *ngIf="blog; else dontdoit">
+  <div class="row row-cols-1 row-cols-md-4 g-4" *ngIf="blog; else error">
 
     <!-- BLOG -->
     <div class="col position-relative">
@@ -240,7 +240,7 @@
     </div>
   </div>
 
-  <ng-template #dontdoit>
+  <ng-template #error>
     <div class="text-center"> {{ message }}</div>
   </ng-template>
 </div>
