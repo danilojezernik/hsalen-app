@@ -1,10 +1,9 @@
-import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import {NewsletterService} from "../../../../services/api/newsletter.service";
 import {DataUpdateService} from "../../../../services/communication/data-update.service";
 import {SnackBarService} from "../../../../services/snack-bar/snack-bar.service";
 import {CalcIndexService} from "../../../../utils/calc-index/calc-index.service";
 import {MatTableDataSource} from "@angular/material/table";
-import {Subject} from "rxjs";
 import {Newsletter} from "../../../../models/newsletter";
 import {MatPaginator} from "@angular/material/paginator";
 import {GetIdComponent} from "../../../../../shared/components/dialog/get-id.component";
@@ -16,7 +15,7 @@ import {SendLogService} from "../../../../services/api/send-log.service";
   selector: 'app-newsletter-pregled',
   templateUrl: './newsletter-pregled.component.html'
 })
-export class NewsletterPregledComponent implements OnInit, OnDestroy {
+export class NewsletterPregledComponent implements OnInit {
 
   newsletter: any | undefined;
   spinner: boolean = false;
@@ -29,8 +28,6 @@ export class NewsletterPregledComponent implements OnInit, OnDestroy {
     action: 'Admin',
     path: 'Pregled e-novičk'
   }
-
-  private destroy$: Subject<boolean> = new Subject<boolean>()
 
   /**
    * ViewChild decorator to get a reference to the MatPaginator component.
@@ -123,9 +120,4 @@ export class NewsletterPregledComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  // Lifecycle hook called when the component is about to be destroyed
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete()
-  }
 }
