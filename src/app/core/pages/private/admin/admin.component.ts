@@ -8,7 +8,7 @@ import {SubscribersService} from "../../../services/api/subscribers.service";
 import {NewsletterService} from "../../../services/api/newsletter.service";
 import {ReviewService} from "../../../services/api/review.service";
 import {SendLogService} from "../../../services/api/send-log.service";
-import {forkJoin, map} from "rxjs";
+import {catchError, forkJoin, map, of} from "rxjs";
 
 
 @Component({
@@ -38,6 +38,7 @@ export class AdminComponent implements OnInit {
   review: any;
   reviewCount: number | undefined;
 
+  message: string = ''
 
   heroData = {
     admin: 'Admin',
@@ -98,6 +99,11 @@ export class AdminComponent implements OnInit {
 
         this.review = review;
         this.reviewCount = this.review.length;
+      }),
+      catchError((err) => {
+        console.log('Error: ', err)
+        this.message = 'Nekaj je šlo narobe na serverju. Prosim nemudoma me kontaktiraj!'
+        return of(null)
       })
     );
   }

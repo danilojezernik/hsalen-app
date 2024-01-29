@@ -2,7 +2,6 @@ import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {MedijiService} from "../../../services/api/mediji.service";
 import {Subject} from "rxjs";
-import {trace} from "../../../utils/trace";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {SendLogService} from "../../../services/api/send-log.service";
 
@@ -51,6 +50,7 @@ export class OmeniComponent implements OnInit, OnDestroy {
     );
   }
 
+
   // Function to convert a regular YouTube URL to an embed URL
   getYouTubeEmbedUrl(videoUrl: string): SafeResourceUrl {
     // Extract the video ID from the URL
@@ -69,7 +69,6 @@ export class OmeniComponent implements OnInit, OnDestroy {
     return videoIdMatch ? videoIdMatch[1] : '';
   }
 
-  @trace()
   // Lifecycle hook called when the component is about to be destroyed
   ngOnDestroy() {
     this.destroy$.next(true);
