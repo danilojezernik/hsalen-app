@@ -8,6 +8,7 @@ import {SubscribersService} from "../../../services/api/subscribers.service";
 import {NewsletterService} from "../../../services/api/newsletter.service";
 import {ReviewService} from "../../../services/api/review.service";
 import {SendLogService} from "../../../services/api/send-log.service";
+import {forkJoin, map} from "rxjs";
 
 
 @Component({
@@ -53,7 +54,7 @@ export class AdminComponent implements OnInit {
   _logService = inject(SendLogService)
 
   ngOnInit() {
-    this.loadAllCounts()
+    this.loadAllCounts().subscribe()
 
     // Send log to Admin of Admin
     this._logService.sendPrivateLog('Load All Counts Admin', 'PRIVATE');
@@ -65,76 +66,48 @@ export class AdminComponent implements OnInit {
 
   loadAllCounts() {
 
-    this._blogService.getAllBlog().subscribe(
-      (data) => {
-        this.blog = data
+    // Create Observables for each service
+    const blog$ = this._blogService.getAllBlog();
+    const mediji$ = this._medijiService.getAllMediji();
+    const events$ = this._eventsService.getAllEvents();
+    const email$ = this._emailService.getAllEmails();
+    const subscribers$ = this._subscribersService.getAllSubscribers();
+    const newsletter$ = this._newsletterService.getAllNewsletter();
+    const review$ = this._reviewService.getAllReviews();
+
+    // Use forkJoin to combine multiple Observables into one
+    return forkJoin({
+      blog: blog$,
+      mediji: mediji$,
+      events: events$,
+      email: email$,
+      subscribers: subscribers$,
+      newsletter: newsletter$,
+      review: review$
+    }).pipe(
+      map((counts: any) => {
+        this.blog = counts.blog;
         this.blogCount = this.blog.length;
 
-      }, error => {
-        console.error(error);
-        this._logService.sendPrivateLog('Error in Blog Service: ' + error.message, 'PRIVATE');
-      }
-    );
-
-    this._medijiService.getAllMediji().subscribe(
-      (data) => {
-        this.mediji = data;
+        this.mediji = counts.mediji;
         this.medijiCount = this.mediji.length;
-      }, error => {
-        console.error(error);
-        this._logService.sendPrivateLog('Error in Mediji Service: ' + error.message, 'PRIVATE');
-      }
-    )
 
-    this._eventsService.getAllEvents().subscribe(
-      (data) => {
-        this.events = data;
+        this.events = counts.events;
         this.eventsCount = this.events.length;
-      }, error => {
-        console.error(error);
-        this._logService.sendPrivateLog('Error in Events Service: ' + error.message, 'PRIVATE');
-      }
-    )
 
-    this._emailService.getAllEmails().subscribe(
-      (data) => {
-        this.email = data;
+        this.email = counts.email;
         this.emailCount = this.email.length;
-      }, (error) => {
-        console.error(error);
-        this._logService.sendPrivateLog('Error in Email Service: ' + error.message, 'PRIVATE');
-      }
-    )
 
-    this._subscribersService.getAllSubscribers().subscribe(
-      (data) => {
-        this.subscribers = data;
+        this.subscribers = counts.subscribers;
         this.subscribersCount = this.subscribers.length;
-      }, (error) => {
-        console.error(error);
-        this._logService.sendPrivateLog('Error in Subscribers Service: ' + error.message, 'PRIVATE');
-      }
-    )
 
-    this._newsletterService.getAllNewsletter().subscribe(
-      (data) => {
-        this.newsletter = data;
+        this.newsletter = counts.newsletter;
         this.newsletterCount = this.newsletter.length;
-      }, (error) => {
-        console.error(error);
-        this._logService.sendPrivateLog('Error in Newsletter Service: ' + error.message, 'PRIVATE');
-      }
-    )
 
-    this._reviewService.getAllReviews().subscribe(
-      (data) => {
-        this.review = data;
+        this.review = counts.review;
         this.reviewCount = this.review.length;
-      }, (error) => {
-        console.error(error);
-        this._logService.sendPrivateLog('Error in Review Service: ' + error.message, 'PRIVATE');
-      }
-    )
+      })
+    );
   }
 
 }
