@@ -2,6 +2,7 @@ import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {MedijiService} from "../../../services/api/mediji.service";
 import {Subject} from "rxjs";
+import {trace} from "../../../utils/trace";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {SendLogService} from "../../../services/api/send-log.service";
 
@@ -9,7 +10,7 @@ import {SendLogService} from "../../../services/api/send-log.service";
   selector: 'app-omeni',
   templateUrl: './omeni.component.html'
 })
-export class OmeniComponent implements OnInit, OnDestroy {
+export class OmeniComponent implements OnInit {
 
   omeni: any;
   mediji: any;
@@ -20,10 +21,7 @@ export class OmeniComponent implements OnInit, OnDestroy {
     naslov: 'O meni',
     path: 'O meni'
   }
-
-  // Subject for component destruction
-  private destroy$: Subject<boolean> = new Subject<boolean>();
-
+  
   constructor(
     private db: HttpClient,
     private api: MedijiService,
@@ -69,10 +67,5 @@ export class OmeniComponent implements OnInit, OnDestroy {
     return videoIdMatch ? videoIdMatch[1] : '';
   }
 
-  // Lifecycle hook called when the component is about to be destroyed
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete();
-  }
 
 }

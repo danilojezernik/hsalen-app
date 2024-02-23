@@ -24,11 +24,11 @@
   <div *ngIf="events.length === 0; else eventsList">
     <p class="text-center fs-3">Trenutno ni nobenih dogodkov</p>
   </div>
-  
+
 
   <ng-template #eventsList>
-    <div class="container">
-      <div class="timeline" *ngFor="let event of events">
+    <div class="container" *ngIf="events$">
+      <div class="timeline" *ngFor="let event of events$ | async">
         <div class="timeline__events">
           <div class="timeline__event__icons ">
             <div class="timeline__event__dates text-center">

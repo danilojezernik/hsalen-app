@@ -42,7 +42,9 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {EventsUrediComponent} from './pages/private/events/events-uredi/events-uredi.component';
 import {MatSelectModule} from "@angular/material/select";
-import {SubscribersPregledComponent} from './pages/private/subscribers/subscribers-pregled/subscribers-pregled.component';
+import {
+  SubscribersPregledComponent
+} from './pages/private/subscribers/subscribers-pregled/subscribers-pregled.component';
 import {SubscribersAddComponent} from './pages/private/subscribers/subscribers-add/subscribers-add.component';
 import {SubscribersEditComponent} from './pages/private/subscribers/subscribers-edit/subscribers-edit.component';
 import {NewsletterPregledComponent} from './pages/private/newsletter/newsletter-pregled/newsletter-pregled.component';
@@ -128,7 +130,10 @@ import {MatTabsModule} from "@angular/material/tabs";
     NewsletterPregledComponent,
     NewsletterAddComponent,
     FooterComponent,
-    SuccessComponent
+    SuccessComponent,
+    ReviewPregledComponent,
+    ReviewDodajComponent,
+    GalleryComponent
   ],
   imports: [
     CommonModule,

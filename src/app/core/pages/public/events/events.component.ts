@@ -2,6 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {EventsService} from "../../../services/api/events.service";
 import {Router} from "@angular/router";
 import {SendLogService} from "../../../services/api/send-log.service";
+import {map, tap} from "rxjs";
 
 @Component({
   selector: 'app-events',
@@ -28,6 +29,13 @@ export class EventsComponent implements OnInit {
   ngOnInit() {
     this.loadAllEvents()
   }
+
+  events$ = this.api.getAllEvents().pipe(
+    tap(() => console.log('Dela')),
+    map((data) => {
+      return data
+    })
+  )
 
   loadAllEvents() {
     this.spinner = true;
