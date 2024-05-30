@@ -1,27 +1,15 @@
-import {Component, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {map, Subject, tap} from "rxjs";
-import {BlogService} from "../../../services/api/blog.service";
-import {MatPaginator} from "@angular/material/paginator";
-import {Router} from "@angular/router";
-import {SendLogService} from "../../../services/api/send-log.service";
+import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { map, Subject, tap } from "rxjs";
+import { BlogService } from "../../../services/api/blog.service";
+import { MatPaginator } from "@angular/material/paginator";
+import { Router } from "@angular/router";
+import { SendLogService } from "../../../services/api/send-log.service";
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html'
 })
 export class BlogComponent implements OnInit, OnDestroy {
-
-  blog$ = this.api.getAllBlog().pipe(
-    tap(() => {
-      this.spinner = true;  // Show loading spinner
-    }),
-    map((data) =>
-      data
-    ),
-    tap(() => {
-      this.spinner = false;
-    })
-  );
 
   blog: any[] = [];  // Placeholder for blog data
   _logService = inject(SendLogService)

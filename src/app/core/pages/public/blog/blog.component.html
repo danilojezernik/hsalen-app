@@ -15,22 +15,11 @@
     </div>
 
     <div class="mx-auto text-center">
-      <div *ngIf="!blog$ && !spinner">
+      <div *ngIf="!blog && !spinner">
         <app-error-backend-client class="error-message-backend"></app-error-backend-client>
       </div>
     </div>
-    <div *ngIf="blog$ | async as blog; else loading">
-      <div *ngFor="let blogItems of blog">
-        <h2>{{blogItems.naslov}}</h2>
-        <p>{{blogItems.podnaslov}}</p>
-        <p>{{blogItems.datum_vnosa}}</p>
-      </div>
-    </div>
-    <ng-template #loading>
-      <div *ngIf="!spinner">
-        <app-spinner></app-spinner>
-      </div>
-    </ng-template>
+    
     <!-- PRIKAZ BLOGA -->
     <div class="row row-cols-1 row-cols-md-3 g-5">
       <div class="col" *ngFor="let data of getPaginatedBlog()" [routerLink]="['/blog/', data._id]">
