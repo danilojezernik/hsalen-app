@@ -1,4 +1,4 @@
 export const environment = {
-  backUrl: 'http://localhost:8000',
-  backLogUrl: 'http://localhost:8080',
+  backUrl: 'https://hsalen.api.danilojezernik.com',
+  backLogUrl: 'https://logs.api.danilojezernik.com'
 };
