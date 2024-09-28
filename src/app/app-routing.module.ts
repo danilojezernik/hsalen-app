@@ -37,6 +37,7 @@ import {SuccessComponent} from "./core/pages/public/success/success.component";
 import {ReviewPregledComponent} from "./core/pages/private/review/review-pregled/review-pregled.component";
 import {GalleryComponent} from "./core/pages/public/gallery/gallery.component";
 import {SeoGuard} from "./shared/guard/seo/seo.guard";
+import {GalleryAdminComponent} from "./core/pages/private/gallery-admin/gallery-admin.component";
 
 // Function to handle loadChildren logic for CoreModule
 const coreModuleLoader = () => import('./core/core.module').then(m => m.CoreModule);
@@ -196,6 +197,11 @@ const routes: Routes = [
       title: 'Hypnosis Studio Alen - Galerija',
       description: 'Razdelek galerije prikazuje izbrano zbirko očarljivih slik in trenutkov, ujetih med različnimi trenutki in tudi nekaj izbranih slik iz revij, kjer se nahajajo moji intervjuji.'
     }
+  },
+  {
+    path: 'gallery-admin',
+    component: GalleryAdminComponent,
+    canActivate: [SeoGuard]
   },
   {
     path: 'review-pregled',

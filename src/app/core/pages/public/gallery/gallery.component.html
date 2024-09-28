@@ -13,46 +13,31 @@
     </p>
   </div>
 
-  <mat-tab-group color="warn" mat-stretch-tabs="false" mat-align-tabs="center">
-    <!-- INTERVJUJI GALERIJA -->
-    <mat-tab label="Intervjuji">
-      <div class="row-media p-md-3">
-        <div class="column-media">
-          <img src="./assets/media/gallery/dobra_karma_1.png"/>
-          <img src="./assets/media/gallery/svet24_1.png"/>
-          <img src="./assets/media/gallery/misterij.png"/>
-          <img src="./assets/media/gallery/klepet_ob_kavi.png"/>
-          <img src="./assets/media/gallery/horoskop_2.png"/>
+  <div class="container">
+    <div class="row">
+      <ng-container *ngIf="imagesGallery$ | async as gallery">
+        <div *ngFor="let data of gallery.images" class="col-md-4 mt-3 col-lg-6">
+          <img
+            [src]="_getImageByName.getImageUrl(data)"
+            class="img-fluid img-thumbnail"
+            alt="image"
+            (click)="openModal(data)"
+            style="cursor: pointer;"
+          >
         </div>
-        <div class="column-media">
-          <img src="./assets/media/gallery/klepet_ob_kavi_5.png"/>
-          <img src="./assets/media/gallery/intervju_1.png"/>
-          <img src="./assets/media/gallery/intervju_2.png"/>
-          <img src="./assets/media/gallery/horoskop_6.png"/>
-          <img src="./assets/media/gallery/dobrakarma_16.png"/>
-          <img src="./assets/media/gallery/dobrakarma_11.png"/>
-        </div>
-      </div>
-    </mat-tab>
+      </ng-container>
+    </div>
 
-    <!-- OSTALO GALERIJA -->
-    <mat-tab label="Ostalo">
-      <div class="row-media p-md-3">
-        <div class="column-media">
-          <img src="./assets/media/gallery/afterlife.jpg"/>
-          <img src="./assets/media/gallery/life-suffer.jpg"/>
-          <img src="./assets/media/gallery/medijstvo.jpg"/>
-          <img src="./assets/media/gallery/predavanje_celje.jpg"/>
-          <img src="./assets/media/gallery/smoking.jpg"/>
-        </div>
-        <div class="column-media">
-          <img src="./assets/media/gallery/svet24_3.jpg"/>
-          <img src="./assets/media/gallery/zakajrodimoumremoknjiga.jpg"/>
-          <img src="./assets/media/gallery/smoking.jpg"/>
-        </div>
+    <!-- Modal for Enlarged Image -->
+    <div class="custom-modal" *ngIf="selectedImage">
+      <div class="custom-modal-content">
+        <span class="close-modal" (click)="closeModal()">&times;</span>
+        <img [src]="_getImageByName.getImageUrl(selectedImage)" class="img-fluid" alt="enlarged image">
       </div>
-    </mat-tab>
-  </mat-tab-group>
+    </div>
+  </div>
+
+
 
 
 </div>

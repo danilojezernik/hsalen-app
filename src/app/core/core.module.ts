@@ -55,6 +55,7 @@ import {ReviewPregledComponent} from './pages/private/review/review-pregled/revi
 import {ReviewDodajComponent} from './pages/private/review/review-dodaj/review-dodaj.component';
 import {GalleryComponent} from './pages/public/gallery/gallery.component';
 import {MatTabsModule} from "@angular/material/tabs";
+import { GalleryAdminComponent } from './pages/private/gallery-admin/gallery-admin.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import {MatTabsModule} from "@angular/material/tabs";
     SuccessComponent,
     ReviewPregledComponent,
     ReviewDodajComponent,
-    GalleryComponent
+    GalleryComponent,
+    GalleryAdminComponent
   ],
   exports: [
     BlogAddComponent,

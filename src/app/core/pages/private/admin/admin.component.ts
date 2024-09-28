@@ -9,6 +9,7 @@ import {NewsletterService} from "../../../services/api/newsletter.service";
 import {ReviewService} from "../../../services/api/review.service";
 import {SendLogService} from "../../../services/api/send-log.service";
 import {catchError, forkJoin, map, of} from "rxjs";
+import {GalleryService} from "../../../services/api/gallery.service";
 
 
 @Component({
@@ -38,6 +39,8 @@ export class AdminComponent implements OnInit {
   review: any;
   reviewCount: number | undefined;
 
+  galleryCount: number | undefined;
+
   message: string = ''
 
   heroData = {
@@ -53,6 +56,7 @@ export class AdminComponent implements OnInit {
   _newsletterService = inject(NewsletterService)
   _reviewService = inject(ReviewService)
   _logService = inject(SendLogService)
+  _galleryService = inject(GalleryService)
 
   ngOnInit() {
     this.loadAllCounts().subscribe()
@@ -75,10 +79,11 @@ export class AdminComponent implements OnInit {
     const subscribers$ = this._subscribersService.getAllSubscribers();
     const newsletter$ = this._newsletterService.getAllNewsletter();
     const review$ = this._reviewService.getAllReviews();
+    const gallery$ = this._galleryService.getAllImages().pipe(map(data => data.images.length))
 
     // Use forkJoin to combine multiple Observables into one
-    return forkJoin([blog$, mediji$, events$, email$, subscribers$, newsletter$, review$]).pipe(
-      map(([blog, mediji, events, email, subscribers, newsletter, review]) => {
+    return forkJoin([blog$, mediji$, events$, email$, subscribers$, newsletter$, review$, gallery$]).pipe(
+      map(([blog, mediji, events, email, subscribers, newsletter, review, gallery]) => {
         this.blog = blog;
         this.blogCount = this.blog.length;
 
@@ -99,6 +104,8 @@ export class AdminComponent implements OnInit {
 
         this.review = review;
         this.reviewCount = this.review.length;
+
+        this.galleryCount = gallery;
       }),
       catchError((err) => {
         console.log('Error: ', err)
