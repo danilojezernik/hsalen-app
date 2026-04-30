@@ -4,14 +4,14 @@
 
   <div class="text-center top-bottom-padding">
     <span class="heading-primary-description-black">dogodki</span>
-    <p class="lead-description">Pridružite se nam za nepozabno doživetje na naših prihajajočih dogodkih! Naši dogodki so
-      zasnovani tako, da so
-      transformativni, s priložnostmi za raziskovanje vašega notranjega sveta, povezovanje z drugimi na podobnem
-      potovanju in pridobivanje vpogledov,
-      ki vam bodo pomagali krmariti po vaši poti z večjo lahkoto in jasnostjo. Naučili se boste zmogljivih orodij in
-      tehnik za izboljšanje lastne poti
-      osebne rasti in se počutili navdihnjene, opolnomočene in polne energije. Oglejte si naš urnik prihajajočih
-      dogodkov in pridite!</p>
+    <p class="lead-description">
+      Pridružite se nam za nepozabno doživetje na naših prihajajočih dogodkih! Naši dogodki so
+      zasnovani tako, da so transformativni, s priložnostmi za raziskovanje vašega notranjega sveta,
+      povezovanje z drugimi na podobnem potovanju in pridobivanje vpogledov, ki vam bodo pomagali
+      krmariti po vaši poti z večjo lahkoto in jasnostjo. Naučili se boste zmogljivih orodij in
+      tehnik za izboljšanje lastne poti osebne rasti in se počutili navdihnjene, opolnomočene in
+      polne energije. Oglejte si naš urnik prihajajočih dogodkov in pridite!
+    </p>
   </div>
 
   <div class="mx-auto text-center">
@@ -20,32 +20,43 @@
     </div>
   </div>
 
-
   <div *ngIf="events.length === 0; else eventsList">
     <p class="text-center fs-3">Trenutno ni nobenih dogodkov</p>
   </div>
 
-
   <ng-template #eventsList>
-    <div class="container" *ngIf="events$">
-      <div class="timeline" *ngFor="let event of events$ | async">
+    <div class="container" *ngIf="events">
+      <div class="timeline" *ngFor="let event of events">
         <div class="timeline__events">
-          <div class="timeline__event__icons ">
+          <div class="timeline__event__icons">
             <div class="timeline__event__dates text-center">
-              {{event['event']}}
+              {{ event['event'] }}
             </div>
           </div>
-          <div class="timeline__event__content">
 
+          <div class="timeline__event__content">
             <div class="timeline__event__start">
-              Pričetek dogodka <span class="text-danger fs-6">{{event['start_date'] | slovenainDate }}</span>
-              ob <span class="text-danger fs-6">{{ event['start_time'] }}</span>
-              in bo trajal <span class="text-danger fs-6">{{event['event_length']}}</span>. Dogodek se bo odvijal na
-              lokaciji: <span class="text-danger fs-6">{{event['location']}}</span>
+              Pričetek dogodka
+              <span class="text-danger fs-6">{{ event['start_date'] | slovenainDate }}</span>
+              ob
+              <span class="text-danger fs-6">{{ event['start_time'] }}</span>
+              in bo trajal
+              <span class="text-danger fs-6">{{ event['event_length'] }}</span>.
+              Dogodek se bo odvijal na lokaciji:
+              <span class="text-danger fs-6">{{ event['location'] }}</span>
             </div>
 
             <div class="timeline__event__description">
               <p [innerHTML]="event['content'] | formatText"></p>
+            </div>
+
+            <div class="mt-3" *ngIf="isEventActive(event)">
+              <button
+                type="button"
+                class="btn btn-dark"
+                (click)="openRegistrationModal(event)">
+                Prijavi se
+              </button>
             </div>
           </div>
         </div>
@@ -53,6 +64,96 @@
     </div>
   </ng-template>
 
+</div>
+<div *ngIf="selectedEvent" class="custom-modal-backdrop" (click)="closeRegistrationModal()"></div>
+
+<div *ngIf="selectedEvent" class="custom-modal-wrapper">
+  <div class="custom-modal" (click)="$event.stopPropagation()">
+    <div class="custom-modal-body">
+      <p class="mb-3">
+        <b>Dogodek:</b> {{ selectedEvent.event }}
+      </p>
+
+      <form class="p-2 bg-white">
+        <div class="row">
+          <div class="col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Ime</mat-label>
+              <input
+                type="text"
+                matInput
+                [(ngModel)]="registrationForm.name"
+                name="registrationName"
+                required>
+            </mat-form-field>
+          </div>
+
+          <div class="col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Priimek</mat-label>
+              <input
+                type="text"
+                matInput
+                [(ngModel)]="registrationForm.surname"
+                name="registrationSurname"
+                required>
+            </mat-form-field>
+          </div>
+
+          <div class="col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Vaš email naslov</mat-label>
+              <input
+                type="email"
+                matInput
+                [(ngModel)]="registrationForm.email"
+                name="registrationEmail"
+                required>
+            </mat-form-field>
+          </div>
+
+          <div class="col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Telefonska številka</mat-label>
+              <input
+                type="text"
+                matInput
+                [(ngModel)]="registrationForm.phone"
+                name="registrationPhone"
+                required>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div *ngIf="submitErrorMessage" class="alert alert-danger mt-2">
+          {{ submitErrorMessage }}
+        </div>
+
+        <div *ngIf="submitSuccessMessage" class="alert alert-success mt-2">
+          {{ submitSuccessMessage }}
+        </div>
+      </form>
+    </div>
+
+    <div class="custom-modal-footer custom-modal-footer--column">
+      <button
+        type="button"
+        class="btn btn-secondary w-100"
+        (click)="closeRegistrationModal()">
+        Zapri
+      </button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        class="w-100"
+        [disabled]="submitLoading"
+        (click)="submitRegistration()">
+        {{ submitLoading ? 'Pošiljam...' : 'Pošlji' }}
+      </button>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="spinner">

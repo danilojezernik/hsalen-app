@@ -113,4 +113,18 @@ export class EventsService {
     )
   }
 
+  registerForEvent(eventId: string, body: {
+    name: string;
+    surname: string;
+    email: string;
+    phone: string;
+  }): Observable<any> {
+    return this.http.post<any>(`${environment.backUrl}/events/register/${eventId}`, body).pipe(
+      catchError(error => {
+        console.error("Error registering for event:", error);
+        return throwError(() => new Error('Something went wrong'));
+      })
+    );
+  }
+
 }

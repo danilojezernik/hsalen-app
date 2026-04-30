@@ -13,3 +13,57 @@
 .active > .page-link {
   background-color: $hero-header-light-green;
 }
+
+.custom-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1040;
+}
+
+.custom-modal-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.custom-modal {
+  width: 100%;
+  max-width: 560px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-modal-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.custom-modal-body {
+  padding: 1.25rem;
+}
+
+.custom-modal-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.custom-modal-footer--column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
